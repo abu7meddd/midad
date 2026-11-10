@@ -154,19 +154,31 @@ body{position:relative}
 .chg li{display:grid;grid-template-columns:22px 1fr;gap:8px}
 .chg li i{font-style:normal;font-weight:700}.chg .did li i{color:var(--gold)}.chg .kept li i{color:var(--mute)}
 .chg li b{display:block;font-weight:600}.chg li span{color:var(--mute);font-size:.92rem}
-/* cozy corner */
-.cozy{margin-top:70px;text-align:center}
-.cozy .row{display:flex;flex-wrap:wrap;gap:clamp(24px,6vw,64px);justify-content:center;margin-top:18px}
-.cozy figure{margin:0;display:grid;gap:8px;justify-items:center}
-.cozy svg{width:84px;height:84px;fill:none;stroke:#e8e2d4;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.cozy svg .gd{stroke:#f3b53f}.cozy svg .fl{fill:#f3b53f33}
-.cozy .st{stroke:#f3b53f;stroke-opacity:.8;stroke-dasharray:4 5;animation:stm 2.8s linear infinite}
-.cozy .st:nth-of-type(2){animation-delay:-.9s}.cozy .st:nth-of-type(3){animation-delay:-1.8s}
-@keyframes stm{to{stroke-dashoffset:-18}}
-.cozy .tw3{animation:tw2 3s ease-in-out infinite;fill:#f3b53f;stroke:none}.cozy .tw3:nth-of-type(2){animation-delay:-1s}
-.cozy figcaption{color:var(--mute);font-size:.9rem}
-.cozy p{color:var(--mute);margin:20px 0 0}
-@media (prefers-reduced-motion:reduce){.cozy .st,.cozy .tw3,.cbg .tw2{animation:none}}
+/* cozy corner: interactive tea + Johnny */
+.cozy{margin-top:70px}
+.cozy .hd2{text-align:center}
+.cscene{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;align-items:stretch}
+.tea3{border:1px solid var(--line);background:radial-gradient(110% 80% at 50% 0%,#17191f,#0d0e11 70%);border-radius:22px;padding:18px 18px 22px;display:grid;gap:10px;justify-items:center;touch-action:pan-y}
+.tea3 svg{width:100%;max-width:380px;height:auto;display:block;overflow:visible}
+.tea3 .pot{cursor:grab;touch-action:none}.tea3 .pot:active{cursor:grabbing}
+.tea3 .ink{fill:none;stroke:#e8e2d4;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tea3 .gd{stroke:#f3b53f}
+.tea3 .stm{fill:none;stroke:#f3b53f;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 7;opacity:0;animation:stm2 2.4s linear infinite}
+@keyframes stm2{to{stroke-dashoffset:-24}}
+.tea3 .strm{fill:none;stroke:#d98a2b;stroke-width:4.2;stroke-linecap:round;stroke-dasharray:6 5;animation:stm3 .5s linear infinite}
+@keyframes stm3{to{stroke-dashoffset:-11}}
+.tea3 .ctl{width:min(320px,100%);display:grid;gap:6px;justify-items:center}
+.tea3 input[type=range]{width:100%;accent-color:#f3b53f}
+.tea3 .st2{color:var(--mute);font-size:.92rem;min-height:1.4em;text-align:center}
+.tea3 .row2{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.tea3 button{font:inherit;color:var(--ink);background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:7px 18px;cursor:pointer}
+.tea3 button:hover{border-color:#f3b53f88}
+.jo{position:relative;margin:0;border-radius:22px;overflow:hidden;border:1px solid #1d5a78;box-shadow:0 0 60px #1aa9ff26,0 0 0 1px #000;min-height:340px;background:#05080c}
+.jo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 30%;display:block}
+.jo figcaption{position:absolute;inset:auto 0 0 0;padding:34px 18px 14px;background:linear-gradient(transparent,#05080cd9);color:#cfe6f2;font-size:.86rem}
+.cozy>p{color:var(--mute);margin:20px 0 0;text-align:center}
+@media (max-width:760px){.cscene{grid-template-columns:1fr}.jo{min-height:420px}}
+@media (prefers-reduced-motion:reduce){.tea3 .stm,.tea3 .strm{animation:none}}
 .cl{stroke:#f3b53f;stroke-width:1.1;stroke-opacity:.55;fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
 .const.in .cl{stroke-dashoffset:0}
 .cs{outline:none;cursor:pointer;opacity:0;transition:opacity .7s ease}
@@ -389,7 +401,7 @@ function initSky(){
     ctx.globalAlpha=1;
   }
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
-}function buildMural(){initSky()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
+}function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
  {d:'2026-11-10',t:'تحديث',id:'phantom-blade-zero',n:'استبدال خطوط الحزمة كلها بخط Rubik، والترجمة كما هي بلا أي تعديل (تطابق بالبصمة).'},
  {d:'2026-11-09',t:'إضافة',id:'sovereign-tower',n:'صدور مثبّت التعريب مع حلول الواجهة والخط.'},
@@ -445,13 +457,59 @@ function modHTML(g){
   return '<section class="modbox"><h2>وش عدّلنا هنا؟</h2><p class="msub">'+esc(m.intro||'')+'</p>'+f+'<div class="chg"><div class="col did"><h3>عدّلناه</h3><ul>'+li(m.changed||[],'✓')+'</ul></div><div class="col kept"><h3>تركناه كما هو</h3><ul>'+li(m.kept||[],'—')+'</ul></div></div></section>';
 }
 function cozyHTML(){
-  return '<section class="cozy" aria-label="ركن الراحة"><h2 class="sec">ركن الراحة</h2><div class="row">'+
-  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="st" d="M32 30c-4-4 4-7 0-12"/><path class="st" d="M42 30c-4-4 4-7 0-12"/><path class="st" d="M52 30c-4-4 4-7 0-12"/><path class="fl" d="M26 36h32c0 14-4 24-16 24S26 50 26 36z"/><path d="M26 36h32c0 14-4 24-16 24S26 50 26 36z"/><path class="gd" d="M16 66h52M22 66c4 6 36 6 40 0"/></svg><figcaption>شاهي</figcaption></figure>'+
-  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="st" d="M26 26c-4-4 4-7 0-12"/><path class="st" d="M36 26c-4-4 4-7 0-12"/><path class="fl" d="M24 44c0-8 4-14 12-14h6c8 0 12 6 12 14l4 20H20z"/><path d="M24 44c0-8 4-14 12-14h6c8 0 12 6 12 14l4 20H20zM54 38l14-14M32 30l4-6h6l4 6"/><path class="gd" d="M58 44c10 0 10 14 0 14"/></svg><figcaption>قهوة</figcaption></figure>'+
-  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="fl" d="M52 14a28 28 0 1 0 16 46A22 22 0 0 1 52 14z"/><path d="M52 14a28 28 0 1 0 16 46A22 22 0 0 1 52 14z"/><circle class="tw3" cx="62" cy="22" r="2"/><circle class="tw3" cx="70" cy="34" r="1.6"/><circle class="tw3" cx="58" cy="40" r="1.3"/></svg><figcaption>سهرة تعريب</figcaption></figure>'+
-  '</div><p>الله يعطيك العافية على المرور. نتمنى التعريبات تعجبك.</p></section>';
+  return '<section class="cozy" aria-label="ركن الراحة"><div class="hd2"><h2 class="sec">ركن الراحة</h2><p class="sub" style="margin-bottom:0">صبّ لك شاهي بنفسك، وخلّ جوني يعزف لك.</p></div><div class="cscene">'+
+  '<div class="tea3" id="tea3"><svg viewBox="0 0 340 300" aria-label="إبريق شاهي وكاس">'+
+   '<defs><clipPath id="gclip"><path d="M222 168h56l-7 66q-1 10-10 10h-22q-9 0-10-10z"/></clipPath><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e79a38"/><stop offset="1" stop-color="#a8531a"/></linearGradient></defs>'+
+   '<path class="ink gd" d="M20 262h300"/>'+
+   '<path class="ink" d="M206 252q44 12 88 0" /><ellipse cx="250" cy="250" rx="50" ry="7" fill="#f3b53f22" stroke="#f3b53f" stroke-width="1.6"/>'+
+   '<g clip-path="url(#gclip)"><rect id="liq" x="215" y="244" width="70" height="0" fill="url(#tg)"/></g>'+
+   '<path class="ink" d="M222 168h56l-7 66q-1 10-10 10h-22q-9 0-10-10z"/>'+
+   '<path class="stm" id="sm1" d="M236 156c-6-8 6-14 0-24"/><path class="stm" id="sm2" d="M250 156c-6-8 6-14 0-24"/><path class="stm" id="sm3" d="M264 156c-6-8 6-14 0-24"/>'+
+   '<path class="strm" id="strm" d="M0 0" style="display:none"/>'+
+   '<g class="pot" id="pot"><g id="potg">'+
+    '<path d="M50 210c-4-34 14-60 52-60s56 26 52 60c-2 16-12 26-52 26s-50-10-52-26z" fill="#f3b53f18" class="ink"/>'+
+    '<path class="ink" d="M82 150c0-14 10-22 20-22s20 8 20 22M96 126l6-12 6 12"/><circle cx="102" cy="112" r="4" class="ink gd"/>'+
+    '<path class="ink" d="M146 178c14-4 24-22 38-46 3-5 8-8 12-6 2 4-2 8-6 12-10 14-18 36-40 46"/>'+
+    '<path class="ink" d="M54 182c-30-8-34 36-6 36"/><path class="ink gd" d="M58 190h88M60 204h86"/>'+
+   '</g></g></svg>'+
+   '<div class="ctl"><label for="tilt" class="st2">ميّل الإبريق (أو اضغط عليه واسحب)</label><input id="tilt" type="range" min="0" max="100" value="0" aria-label="ميّل الإبريق ليصب الشاهي"><div class="row2"><button type="button" id="drink">اشرب الكاس ☕</button></div><div class="st2" id="tst">اسحب المؤشر ليبدأ الصب</div></div></div>'+
+  '<figure class="jo"><img src="img/johnny.webp" alt="جوني سيلفرهاند يعزف على الجيتار" loading="lazy"><figcaption>جوني سيلفرهاند، من لعبة Cyberpunk 2077. الصورة لصاحبها (علامة MIYKU عليها).</figcaption></figure>'+
+  '</div></section>';
 }
-function constHTML(){
+function initTea(){
+  var box=document.getElementById('tea3');if(!box||box._on)return;box._on=1;
+  var pot=document.getElementById('potg'),sl=document.getElementById('tilt'),liq=document.getElementById('liq'),strm=document.getElementById('strm'),tst=document.getElementById('tst'),dr=document.getElementById('drink');
+  var sm=[1,2,3].map(function(n){return document.getElementById('sm'+n)});
+  var tilt=0,target=0,fill=0,hold=false,last=0,raf=0,on=true;
+  var PX=102,PY=200,TIP=[196,126],MAXA=36,GX=250,GY=244;
+  function tip(a){var r=a*Math.PI/180,dx=TIP[0]-PX,dy=TIP[1]-PY;return [PX+dx*Math.cos(r)-dy*Math.sin(r),PY+dx*Math.sin(r)+dy*Math.cos(r)]}
+  function draw(){
+    var a=tilt*MAXA;pot.setAttribute('transform','rotate('+a.toFixed(1)+' '+PX+' '+PY+') translate(0 '+(-tilt*6).toFixed(1)+')');
+    var surf=GY-fill*72,p=tip(a),pouring=tilt>0.55&&fill<1;
+    if(pouring){strm.style.display='';strm.setAttribute('d','M'+p[0].toFixed(1)+' '+p[1].toFixed(1)+'Q'+(p[0]+34)+' '+(p[1]+6)+' '+GX+' '+surf.toFixed(1))}else strm.style.display='none';
+    liq.setAttribute('y',surf.toFixed(1));liq.setAttribute('height',(fill*72).toFixed(1));
+    sm.forEach(function(e,i){e.style.opacity=fill>0.05?Math.min(1,.25+fill*.9)*(i===1?1:.8):0});
+  }
+  function msg(){tst.textContent=fill>=1?'الكاس امتلى. بالعافية، اشربه!':fill>0.05?(tilt>0.55?'يصب...':'تمام، كمّل أو اشربه'):'اسحب المؤشر ليبدأ الصب'}
+  function loop(t){
+    raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;
+    target=hold?1:(+sl.value/100);
+    tilt+=(target-tilt)*Math.min(1,dt*7);
+    if(tilt>0.55&&fill<1)fill=Math.min(1,fill+dt*0.16*(tilt-.5)*2);
+    draw();msg();
+    if(on&&(Math.abs(target-tilt)>0.003||(tilt>0.55&&fill<1)))raf=requestAnimationFrame(loop);else last=0;
+  }
+  function kick(){if(!raf&&on)raf=requestAnimationFrame(loop)}
+  sl.addEventListener('input',kick);
+  var pg=document.getElementById('pot');
+  pg.addEventListener('pointerdown',function(e){hold=true;try{pg.setPointerCapture(e.pointerId)}catch(_){}kick()});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(function(n){pg.addEventListener(n,function(){hold=false;kick()})});
+  dr.addEventListener('click',function(){
+    (function d(){fill=Math.max(0,fill-.06);draw();msg();if(fill>0)requestAnimationFrame(d)})();
+  });
+  new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)kick();else{cancelAnimationFrame(raf);raf=0}}).observe(box);
+  draw();msg();
+}function constHTML(){
   var G=GAMES.filter(function(g){return !g.guest}),P=G.map(function(g,i){return cpos(i)});
   var lines=P.slice(1).map(function(p,i){var a=P[i];return '<path class="cl" pathLength="1" d="M'+a[0]+' '+a[1]+'L'+p[0]+' '+p[1]+'"/>'}).join('');
   var stars=G.map(function(g,i){var p=P[i],cnt=LOG.filter(function(e){return e.id===g.id}).length,sc=(1+Math.min(.9,(cnt-1)*.25)).toFixed(2);return '<a class="cs" href="#'+g.id+'" style="--d:'+(0.5+i*.35).toFixed(2)+'s" aria-label="'+esc(g.ar)+'"><g transform="translate('+p[0]+' '+p[1]+')"><g class="tw" style="--d:'+(i*.7)+'s"><circle class="rg" r="20"/><g class="sg" style="--sc:'+sc+'"><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></g></g><text y="46">'+esc(g.ar)+'</text><text class="by" y="66">'+esc(g.by.replace(/^ترجمة /,'').split(' · ')[0])+'</text></g></a>'}).join('');
