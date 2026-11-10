@@ -129,8 +129,44 @@ body{position:relative}
 
 /* constellation of games + counters */
 .const{padding-block:80px 10px}
-.cwrap{position:relative;border:1px solid var(--line);border-radius:22px;background:linear-gradient(#0d0d13cc,#0a0a0fcc);overflow:hidden;padding:10px}
-.csvg{display:block;width:100%;height:auto}
+.cwrap{position:relative;border:1px solid #2a2b31;border-radius:22px;background:radial-gradient(120% 90% at 50% 0%,#14161c 0%,#0c0d10 70%);overflow:hidden;padding:10px;box-shadow:inset 0 0 60px #00000080}
+.cbg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cbg circle{fill:#fff}.cbg .tw2{animation:tw2 4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes tw2{0%,100%{opacity:.25}50%{opacity:1}}
+.csvg{display:block;width:100%;height:auto;position:relative}
+/* what we changed (guest mods) */
+.modbox{margin-block:44px 10px}
+.modbox h2{font-size:1.5rem;margin:0 0 6px}.modbox .msub{color:var(--mute);margin:0 0 22px}
+@font-face{font-family:'AbadiOrig';src:url(fonts/abadi-original.ttf) format('truetype');font-display:swap}
+.fcmp{display:grid;gap:14px}
+.fbox{border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:22px 26px}
+.fbox small{display:block;color:var(--mute);margin-bottom:10px;font-size:.85rem}
+.fbox .big{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.5;overflow-wrap:anywhere}
+.fbox.old .big{font-family:'AbadiOrig',serif;color:#cfcac0}
+.fbox.new{border-color:#f3b53f55}.fbox.new .big{font-family:'Rubik',sans-serif;color:var(--ink)}
+.fbox .tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.78rem;margin-inline-start:8px}
+.fbox.old .tag{background:#2a2b31;color:var(--mute)}.fbox.new .tag{background:#f3b53f22;color:var(--gold)}
+.chg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px}
+.chg .col{border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:20px 24px}
+.chg h3{margin:0 0 12px;font-size:1rem;font-weight:600}
+.chg .did h3{color:var(--gold)}.chg .kept h3{color:var(--mute)}
+.chg ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.chg li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.chg li i{font-style:normal;font-weight:700}.chg .did li i{color:var(--gold)}.chg .kept li i{color:var(--mute)}
+.chg li b{display:block;font-weight:600}.chg li span{color:var(--mute);font-size:.92rem}
+/* cozy corner */
+.cozy{margin-top:70px;text-align:center}
+.cozy .row{display:flex;flex-wrap:wrap;gap:clamp(24px,6vw,64px);justify-content:center;margin-top:18px}
+.cozy figure{margin:0;display:grid;gap:8px;justify-items:center}
+.cozy svg{width:84px;height:84px;fill:none;stroke:#e8e2d4;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cozy svg .gd{stroke:#f3b53f}.cozy svg .fl{fill:#f3b53f33}
+.cozy .st{stroke:#f3b53f;stroke-opacity:.8;stroke-dasharray:4 5;animation:stm 2.8s linear infinite}
+.cozy .st:nth-of-type(2){animation-delay:-.9s}.cozy .st:nth-of-type(3){animation-delay:-1.8s}
+@keyframes stm{to{stroke-dashoffset:-18}}
+.cozy .tw3{animation:tw2 3s ease-in-out infinite;fill:#f3b53f;stroke:none}.cozy .tw3:nth-of-type(2){animation-delay:-1s}
+.cozy figcaption{color:var(--mute);font-size:.9rem}
+.cozy p{color:var(--mute);margin:20px 0 0}
+@media (prefers-reduced-motion:reduce){.cozy .st,.cozy .tw3,.cbg .tw2{animation:none}}
 .cl{stroke:#f3b53f;stroke-width:1.1;stroke-opacity:.55;fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
 .const.in .cl{stroke-dashoffset:0}
 .cs{outline:none;cursor:pointer;opacity:0;transition:opacity .7s ease}
@@ -263,6 +299,9 @@ var GAMES=[
  {id:'phantom-blade-zero',guest:1,lg:'pbz',glow:'#b0382f66',ar:'نصل الطيف: صفر',en:'Phantom Blade Zero',by:'ترجمة عبادي · الخط أبو حميد',dev:'S-GAME Studio',tags:['أكشن','ووشيا'],
   blurb:'تقدّم لكم S-GAME لعبة «نصل الطيف: صفر» (Phantom Blade Zero)، مزيجٌ من حكايات الووشيا الكلاسيكية والأكشن المثير بقوة محرك Unreal Engine 5. تلعب بدور «سول»، محارب لم يتبقَّ له من العمر سوى ستة وستين يوماً. صدّ القتلة، وفكّ خيوط مؤامرات تهدد بنهاية العالم، ودافع عن قيمك بحياتك.',
   engine:'Unreal Engine 5',kind:'مود (pak / ucas / utoc)',size:'9.1 ميجا',date:'2026-11-10',dl:'https://github.com/abu7meddd/midad/releases/download/phantom-blade-zero/ProjectPBZ_Arabic_Rubik.zip',
+  mod:{intro:'الترجمة كلها لعبادي. اللي سويناه فقط تبديل الخط، وهذي المقارنة بين الخطين (جملة تجريبية للعرض).',font:{sample:'يا سول، لم يبقَ لك سوى ستة وستين يوماً'},
+   changed:[{t:'الخط',d:'استبدلنا 26 ملف خط في الحزمة بخط Rubik (تحديث 2026-11-10)'}],
+   kept:[{t:'الترجمة والنصوص',d:'ملف Game.locres كما هو بلا أي حرف مغيَّر، وبصمته مطابقة للأصل'},{t:'حزم اللعبة (ucas / utoc)',d:'بلا أي تغيير'}]},
   feats:['ترجمة كاملة بصيغة locres','26 خطاً استُبدلت بخط Rubik','الترجمة مطابقة للأصل بالبصمة'],
   how:['ضع ملفات 3BADIOH_P الثلاثة في مجلد ~mods داخل Paks','شغّل اللعبة']},
  {id:'manor-lords',lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
@@ -391,12 +430,33 @@ function initPoem(){
 }/* كوكبة مِداد: كل لعبة نجمة، تتصل بخط رفيع، وتزيد نجمة مع كل تعريب جديد */
 var CPOS=[[190,250],[400,105],[620,240],[820,100]];
 function cpos(i){if(i<CPOS.length)return CPOS[i];var k=i-CPOS.length;return [100+((k*173)%800),70+((k*97)%240)]}
+/* نجوم الإطار نفسه فقط (ثابتة بلا عشوائية حتى لا تتغير بين الزيارات) */
+function bgStars(){
+  var s=7,o='';function r(){s=(s*9301+49297)%233280;return s/233280}
+  for(var i=0;i<90;i++){var x=r()*1000,y=r()*340,rad=(.5+r()*1.1).toFixed(2),big=r()>.93;
+    o+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(big?1.7:rad)+'" opacity="'+(.35+r()*.55).toFixed(2)+'"'+(i%4===0?' class="tw2" style="--d:'+(r()*4).toFixed(1)+'s"':'')+'/>'}
+  return '<svg class="cbg" viewBox="0 0 1000 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+o+'</svg>';
+}
+/* ما الذي عدّلناه؟ للألعاب الضيفة: g.mod={font:{sample},changed:[{t,d}],kept:[{t,d}]} */
+function modHTML(g){
+  var m=g.mod;if(!m)return '';
+  function li(a,ic){return a.map(function(x){return '<li><i>'+ic+'</i><div><b>'+esc(x.t)+'</b><span>'+esc(x.d)+'</span></div></li>'}).join('')}
+  var f=m.font?'<div class="fcmp"><div class="fbox old"><small>قبل<span class="tag">الخط الأصلي في التعريب</span></small><div class="big">'+esc(m.font.sample)+'</div></div><div class="fbox new"><small>بعد<span class="tag">الخط اللي وضعناه</span></small><div class="big">'+esc(m.font.sample)+'</div></div></div>':'';
+  return '<section class="modbox"><h2>وش عدّلنا هنا؟</h2><p class="msub">'+esc(m.intro||'')+'</p>'+f+'<div class="chg"><div class="col did"><h3>عدّلناه</h3><ul>'+li(m.changed||[],'✓')+'</ul></div><div class="col kept"><h3>تركناه كما هو</h3><ul>'+li(m.kept||[],'—')+'</ul></div></div></section>';
+}
+function cozyHTML(){
+  return '<section class="cozy" aria-label="ركن الراحة"><h2 class="sec">ركن الراحة</h2><div class="row">'+
+  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="st" d="M32 30c-4-4 4-7 0-12"/><path class="st" d="M42 30c-4-4 4-7 0-12"/><path class="st" d="M52 30c-4-4 4-7 0-12"/><path class="fl" d="M26 36h32c0 14-4 24-16 24S26 50 26 36z"/><path d="M26 36h32c0 14-4 24-16 24S26 50 26 36z"/><path class="gd" d="M16 66h52M22 66c4 6 36 6 40 0"/></svg><figcaption>شاهي</figcaption></figure>'+
+  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="st" d="M26 26c-4-4 4-7 0-12"/><path class="st" d="M36 26c-4-4 4-7 0-12"/><path class="fl" d="M24 44c0-8 4-14 12-14h6c8 0 12 6 12 14l4 20H20z"/><path d="M24 44c0-8 4-14 12-14h6c8 0 12 6 12 14l4 20H20zM54 38l14-14M32 30l4-6h6l4 6"/><path class="gd" d="M58 44c10 0 10 14 0 14"/></svg><figcaption>قهوة</figcaption></figure>'+
+  '<figure><svg viewBox="0 0 84 84" aria-hidden="true"><path class="fl" d="M52 14a28 28 0 1 0 16 46A22 22 0 0 1 52 14z"/><path d="M52 14a28 28 0 1 0 16 46A22 22 0 0 1 52 14z"/><circle class="tw3" cx="62" cy="22" r="2"/><circle class="tw3" cx="70" cy="34" r="1.6"/><circle class="tw3" cx="58" cy="40" r="1.3"/></svg><figcaption>سهرة تعريب</figcaption></figure>'+
+  '</div><p>الله يعطيك العافية على المرور. نتمنى التعريبات تعجبك.</p></section>';
+}
 function constHTML(){
   var G=GAMES.filter(function(g){return !g.guest}),P=G.map(function(g,i){return cpos(i)});
   var lines=P.slice(1).map(function(p,i){var a=P[i];return '<path class="cl" pathLength="1" d="M'+a[0]+' '+a[1]+'L'+p[0]+' '+p[1]+'"/>'}).join('');
   var stars=G.map(function(g,i){var p=P[i],cnt=LOG.filter(function(e){return e.id===g.id}).length,sc=(1+Math.min(.9,(cnt-1)*.25)).toFixed(2);return '<a class="cs" href="#'+g.id+'" style="--d:'+(0.5+i*.35).toFixed(2)+'s" aria-label="'+esc(g.ar)+'"><g transform="translate('+p[0]+' '+p[1]+')"><g class="tw" style="--d:'+(i*.7)+'s"><circle class="rg" r="20"/><g class="sg" style="--sc:'+sc+'"><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></g></g><text y="46">'+esc(g.ar)+'</text><text class="by" y="66">'+esc(g.by.replace(/^ترجمة /,'').split(' · ')[0])+'</text></g></a>'}).join('');
   var chips=G.map(function(g){return '<a href="#'+g.id+'">'+esc(g.ar)+'</a>'}).join('');
-  return '<section class="const" id="const"><h2 class="sec">كوكبة مِداد</h2><p class="sub">كل لعبة عرّبناها نجمة في السماء. اقترب منها واضغط لتفتحها.</p><div class="cwrap"><svg class="csvg" viewBox="0 0 1000 340" role="group" aria-label="كوكبة الألعاب">'+lines+stars+'</svg><div class="clist">'+chips+'</div></div></section>';
+  return '<section class="const" id="const"><h2 class="sec">كوكبة مِداد</h2><p class="sub">كل لعبة عرّبناها نجمة في السماء. اقترب منها واضغط لتفتحها.</p><div class="cwrap">'+bgStars()+'<svg class="csvg" viewBox="0 0 1000 340" role="group" aria-label="كوكبة الألعاب">'+lines+stars+'</svg><div class="clist">'+chips+'</div></div></section>';
 }
 /* أرقام حقيقية: الأسطر محسوبة من ملفات برج السيادة (15375 ink + 2376 csv) ونصل الطيف (10416 نصاً في locres) فقط */
 var TEAM=['أبو حميد','أبو النوفي'],SINCE='2026-11-03',LINES=17751;
@@ -481,7 +541,7 @@ function home(){
    '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب. <a href="#mods" style="color:var(--gold)">فانتوم بليد زيرو؟ تلقاها في «تعديلاتنا على تعريبات غيرنا» ↓</a></p></div>'+screensHTML()+'</div>'+guestsHTML()+
    '<section class="reelwrap hd"><h2 class="sec">من داخل عوالمنا</h2><p class="sub">لقطات تتبدّل من الألعاب اللي عرّبناها.</p>'+
    '<div class="reel" id="reel"><img class="r" alt=""><img class="r" alt=""><a class="rcap" id="rcap" href="#"></a><div class="rprog"><i id="rbar"></i></div></div></section>'+
-   constHTML()+statsHTML()+updatesHTML()+poemHTML()+'<section class="req" id="request"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
+   constHTML()+statsHTML()+updatesHTML()+poemHTML()+'<section class="req" id="request"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section>'+cozyHTML()+'</div>';
   var pool=reelPool();reelShow(pool);initCards();initPoem();initConstNums();
   timer=setInterval(function(){reelShow(pool)},4600);
 }
@@ -493,7 +553,7 @@ function detail(g){
    '<section class="dhero bleed"><img class="bg" src="'+img(g,'hero')+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل التعريبات</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
-   '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+'<div class="panels">'+
+   '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
