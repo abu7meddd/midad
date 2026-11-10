@@ -244,7 +244,7 @@ footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
-<canvas id="sky" aria-hidden="true"></canvas>
+
 <nav class="top"><div class="in">
   <a class="logo" href="#" aria-label="مِداد"><b>مِداد</b><span>تعريبات أبو حميد</span></a>
   <a class="pill ghost" href="#request">اطلب تعريب</a>
@@ -332,7 +332,7 @@ function logoHTML(g){
 }
 /* السماء: سواد الفضاء ونجوم بيضاء صافية حادة الحواف، بعضها بلمعة صليبية رفيعة */
 function initSky(){
-  var cv=document.getElementById('sky');if(!cv||cv._on||!cv.getContext)return;cv._on=1;
+  var cv=document.getElementById('sky');if(!cv||cv._on||!cv.getContext)return;/* خلفية سادة بقرار أبو حميد: لا نجوم */cv._on=1;
   var ctx=cv.getContext('2d'),W=0,H=0,stars=[],t0=performance.now();
   function size(){
     var dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
