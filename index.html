@@ -6,7 +6,7 @@
 <style>
 /* Concept: a quiet dark cinema wall. Wide game screens in a stack, then a slow reel of stills at the bottom. The hero dissolves into the page instead of ending on a hard edge. */
 :root{
-  --bg:#0b0b0f; --surface:#14141b; --surface2:#1c1c26; --ink:#f4f1ea; --mute:#a9a6b8; --line:#2a2a37;
+  --bg:#0a0b0d; --surface:#111114; --surface2:#1c1c26; --ink:#f4f1ea; --mute:#a9a6b8; --line:#2a2a37;
   --gold:#f3b53f; --gold-ink:#1b1305; --display:'Aref Ruqaa','Rubik',serif; --body:'Rubik','Segoe UI',Tahoma,sans-serif;
   color-scheme:dark;
 }
@@ -21,7 +21,7 @@ a{color:inherit}
 .wrap{max-width:1180px;margin-inline:auto}
 .bleed{margin-inline:calc(50% - 50vw);width:100vw}
 
-nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));background:linear-gradient(#0b0b0fee,#0b0b0fb0);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));background:linear-gradient(#0a0b0dee,#0a0b0db0);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
 nav.top .in{max-width:1180px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
 .logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
 .logo b{font-family:var(--display);font-size:2rem;line-height:1;color:var(--gold)}
@@ -36,7 +36,7 @@ nav.top .in{max-width:1180px;margin-inline:auto;display:flex;align-items:center;
 .row:nth-child(even){animation-direction:reverse}
 .row img{height:clamp(190px,27vh,290px);width:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px;display:block}
 @keyframes slide{to{transform:translateX(-50%)}}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 48%,#0b0b0fc4 15%,#0b0b0f33 75%),linear-gradient(transparent 38%,#0b0b0f99 70%,var(--bg) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 48%,#0a0b0dc4 15%,#0a0b0d33 75%),linear-gradient(transparent 38%,#0a0b0d99 70%,var(--bg) 100%)}
 .hero .copy{position:relative;z-index:2;text-align:center;padding-block:90px 120px;display:grid;gap:20px;justify-items:center}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.8rem,9vw,6rem);line-height:1.12;margin:0;text-wrap:balance;text-shadow:0 6px 40px #000}
 .hero h1 em{font-style:normal;color:var(--gold)}
@@ -48,7 +48,7 @@ nav.top .in{max-width:1180px;margin-inline:auto;display:flex;align-items:center;
 .tea .steam{animation:steam 3s ease-in-out infinite;opacity:0}
 .tea .steam:nth-of-type(2){animation-delay:1s}
 @keyframes steam{0%{opacity:0;transform:translateY(3px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-5px)}}
-.down{position:absolute;bottom:26px;left:50%;z-index:3;width:46px;height:46px;margin-left:-23px;display:grid;place-items:center;border-radius:50%;border:1px solid #ffffff33;background:#0b0b0f88;backdrop-filter:blur(6px);animation:bob 2.2s ease-in-out infinite}
+.down{position:absolute;bottom:26px;left:50%;z-index:3;width:46px;height:46px;margin-left:-23px;display:grid;place-items:center;border-radius:50%;border:1px solid #ffffff33;background:#0a0b0d88;backdrop-filter:blur(6px);animation:bob 2.2s ease-in-out infinite}
 .down svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;margin-top:10px}
@@ -93,7 +93,7 @@ body{position:relative}
 .s{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:none}
 .s.on{opacity:1;transform:scale(1);transition:opacity 1.3s ease,transform 9s linear}
 .s.out{opacity:0;transform:scale(1);transition:opacity 1.3s ease}
-.screen::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0b0b0fd0 0%,#0b0b0f55 30%,transparent 58%),linear-gradient(270deg,#0b0b0fb8 0%,#0b0b0f66 28%,transparent 54%)}
+.screen::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0a0b0dd0 0%,#0a0b0d55 30%,transparent 58%),linear-gradient(270deg,#0a0b0db8 0%,#0a0b0d66 28%,transparent 54%)}
 .screen{box-shadow:0 38px 90px -40px var(--glow,#000);transform:translateY(40px);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .screen.in{transform:none}
 .screen h3,.screen .blurb{text-shadow:0 2px 18px #000b}
@@ -114,7 +114,7 @@ body{position:relative}
 .reel .r{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:none}
 .reel .r.on{opacity:1;transform:scale(1);transition:opacity 1s ease,transform 6.5s linear}
 .reel .r.out{opacity:0;transform:scale(1);transition:opacity 1s ease}
-.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0b0b0fe6 0%,transparent 45%);pointer-events:none}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0a0b0de6 0%,transparent 45%);pointer-events:none}
 .rcap{position:absolute;z-index:2;inset-inline-start:22px;bottom:20px;display:flex;align-items:baseline;gap:12px;text-decoration:none}
 .rcap b{font-family:var(--display);font-size:clamp(1.5rem,4vw,2.4rem);font-weight:700;line-height:1.2;text-shadow:0 2px 20px #000}
 .rcap small{color:var(--gold);font-size:.85rem}
@@ -141,7 +141,7 @@ body{position:relative}
 .cs .co{fill:#fff}
 .cs .rg{fill:none;stroke:#f3b53f;stroke-width:1;stroke-opacity:.35;transition:stroke-opacity .3s,r .35s}
 .cs:hover .rg,.cs:focus-visible .rg{stroke-opacity:.9;r:30}
-.cs text{font-family:var(--display);font-size:25px;fill:#f4ecd8;text-anchor:middle;paint-order:stroke;stroke:#0b0b0f;stroke-width:5px;transition:fill .3s}
+.cs text{font-family:var(--display);font-size:25px;fill:#f4ecd8;text-anchor:middle;paint-order:stroke;stroke:#0a0b0d;stroke-width:5px;transition:fill .3s}
 .cs:hover text,.cs:focus-visible text{fill:#f3b53f}
 .cs text.by{font-family:var(--body);font-size:14px;fill:#a9a6b8;stroke-width:3px}
 .tw{animation:tw 3.6s ease-in-out infinite;animation-delay:var(--d,0s)}
@@ -161,7 +161,7 @@ body{position:relative}
 .hl{position:relative;display:grid;align-content:end;min-height:220px;border-radius:22px;overflow:hidden;text-decoration:none;border:1px solid var(--line);isolation:isolate;padding:24px;background:var(--surface);transition:transform .3s ease,border-color .3s ease}
 .hl:hover{transform:translateY(-4px);border-color:#f3b53f88}
 .hl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.6}
-.hl::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0b0b0fee 6%,#0b0b0f88 55%,#0b0b0f40)}
+.hl::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0a0b0dee 6%,#0a0b0d88 55%,#0a0b0d40)}
 .hl .k{color:var(--gold);letter-spacing:.06em;font-size:.82rem;font-weight:600}
 .hl h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);margin:2px 0 4px;line-height:1.25}
 .hl p{margin:0 0 6px;color:#dcd9e6;font-size:.92rem}
@@ -197,7 +197,7 @@ body{position:relative}
 .bacard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
 .bacard .ar{clip-path:inset(0 0 0 var(--p))}
 .bacard .h{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:var(--gold);transform:translateX(-1px);pointer-events:none}
-.bacard .h::after{content:"";position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#0b0b0fdd;border:2px solid var(--gold)}
+.bacard .h::after{content:"";position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#0a0b0ddd;border:2px solid var(--gold)}
 .bacard .h::before{content:"\2194";position:absolute;top:50%;left:50%;z-index:1;transform:translate(-50%,-52%);color:var(--gold);font-size:20px;line-height:1}
 .bacard .chip{position:absolute;top:12px;z-index:2;font-size:.78rem;padding:2px 12px;border-radius:99px;background:#000b;border:1px solid #ffffff33;color:#fff;pointer-events:none}
 .bacard .chip.l{left:12px}.bacard .chip.r{right:12px;color:var(--gold);border-color:#f3b53f88}
@@ -206,7 +206,7 @@ body{position:relative}
 /* detail */
 .dhero{position:relative;min-height:520px;display:grid;align-items:end;overflow:hidden;isolation:isolate}
 .dhero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.dhero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--bg) 4%,#0b0b0f88 55%,#0b0b0f44),linear-gradient(270deg,#0b0b0fcc,transparent 60%)}
+.dhero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--bg) 4%,#0a0b0d88 55%,#0a0b0d44),linear-gradient(270deg,#0a0b0dcc,transparent 60%)}
 .dhero .in{max-width:1180px;width:100%;margin-inline:auto;padding-block:90px 34px}
 .dhero h1{margin:0 0 8px}
 .dhero .en{direction:ltr;text-align:right;color:#d0cddb;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;margin-bottom:12px}
@@ -432,10 +432,15 @@ function initBA(){
    '<div class="meta"><span>'+esc(g.size)+'</span><span>'+esc(g.kind)+'</span><span style="direction:ltr">'+esc(g.date)+'</span></div>'+tagsOf(g)+'</div></a>';
 }
 /* أول لعبتين عريضتين كبار، والباقي أزواج، وإن بقيت لعبة وحدها تأخذ العرض كامل */
-function screensHTML(){return GAMES.map(function(g){return screen(g,'big')}).join('')}
+function screensHTML(){return GAMES.filter(function(g){return !g.guest}).map(function(g){return screen(g,'big')}).join('')}
+/* قسم منفصل: ترجمة غيرنا وعدّلنا عليها (ضيوف guest:1) */
+function guestsHTML(){
+  var A=GAMES.filter(function(g){return g.guest});if(!A.length)return '';
+  return '<div class="screens" id="mods" style="scroll-margin-top:80px;margin-top:clamp(70px,9vw,120px)"><div class="hd"><h2 class="sec">تعديلاتنا على تعريبات غيرنا</h2><p class="sub">ترجمتها لأصحابها، ونحن عدّلنا عليها شيئاً محدداً فقط. بطاقة كل لعبة توضح ما غيّرناه.</p></div>'+A.map(function(g){return screen(g,'big')}).join('')+'</div>';
+}
 /* الشريط المتغيّر: لقطات كل الألعاب بالتناوب بين الألعاب بدون تكرار متتالي */
 function reelPool(){
-  var p=[];[1,2,3].forEach(function(n){GAMES.forEach(function(g){p.push({g:g,src:img(g,'shot'+n)})})});return p;
+  var p=[];[1,2,3].forEach(function(n){GAMES.filter(function(g){return !g.guest}).forEach(function(g){p.push({g:g,src:img(g,'shot'+n)})})});return p;
 }
 function reelShow(pool){
   var it=pool[rIdx%pool.length];rIdx++;
@@ -473,7 +478,7 @@ function home(){
    '<div class="cta"><a class="pill" href="#all">تصفّح التعريبات</a><span class="tea">'+cup+'صبّ لك شاهي، واختر تعريبك</span></div>'+
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
-   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+screensHTML()+'</div>'+
+   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+screensHTML()+'</div>'+guestsHTML()+
    '<section class="reelwrap hd"><h2 class="sec">من داخل عوالمنا</h2><p class="sub">لقطات تتبدّل من الألعاب اللي عرّبناها.</p>'+
    '<div class="reel" id="reel"><img class="r" alt=""><img class="r" alt=""><a class="rcap" id="rcap" href="#"></a><div class="rprog"><i id="rbar"></i></div></div></section>'+
    constHTML()+statsHTML()+updatesHTML()+poemHTML()+'<section class="req" id="request"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
