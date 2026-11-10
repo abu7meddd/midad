@@ -478,7 +478,7 @@ function home(){
    '<div class="cta"><a class="pill" href="#all">تصفّح التعريبات</a><span class="tea">'+cup+'صبّ لك شاهي، واختر تعريبك</span></div>'+
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
-   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+screensHTML()+'</div>'+guestsHTML()+
+   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب. <a href="#mods" style="color:var(--gold)">فانتوم بليد زيرو؟ تلقاها في «تعديلاتنا على تعريبات غيرنا» ↓</a></p></div>'+screensHTML()+'</div>'+guestsHTML()+
    '<section class="reelwrap hd"><h2 class="sec">من داخل عوالمنا</h2><p class="sub">لقطات تتبدّل من الألعاب اللي عرّبناها.</p>'+
    '<div class="reel" id="reel"><img class="r" alt=""><img class="r" alt=""><a class="rcap" id="rcap" href="#"></a><div class="rprog"><i id="rbar"></i></div></div></section>'+
    constHTML()+statsHTML()+updatesHTML()+poemHTML()+'<section class="req" id="request"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
@@ -505,7 +505,7 @@ function route(){
   var id=location.hash.replace('#','');
   var g=GAMES.filter(function(x){return x.id===id})[0];
   if(g){detail(g);document.title=g.ar+' | مِداد';window.scrollTo(0,0)}
-  else{home();document.title='مِداد';if(id==='all'||id==='request'){var el=document.getElementById(id);if(el)el.scrollIntoView()}else window.scrollTo(0,0)}
+  else{home();document.title='مِداد';if(id==='all'||id==='request'||id==='mods'){var el=document.getElementById(id);if(el)el.scrollIntoView()}else window.scrollTo(0,0)}
 }
 window.addEventListener('hashchange',function(){route();setTimeout(buildMural,500)});window.addEventListener('resize',function(){clearTimeout(window._mr);window._mr=setTimeout(buildMural,300)});route();setTimeout(buildMural,600);setTimeout(buildMural,2500);
 </script>
