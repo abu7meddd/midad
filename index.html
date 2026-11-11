@@ -1,6 +1,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>مِداد</title>
+<meta name="theme-color" content="#f3b53f">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://abu7meddd.github.io/midad/">
+<meta property="og:title" content="مِداد | تعريبات أبو حميد وأصدقائه">
+<meta property="og:description" content="منصة مِداد لتحميل تعريبات الألعاب على PC — ترجمة احترافية وأدوات تثبيت مباشرة.">
+<meta property="og:image" content="https://abu7meddd.github.io/midad/og-logo.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="مِداد | تعريبات أبو حميد وأصدقائه">
+<meta name="twitter:description" content="منصة مِداد لتحميل تعريبات الألعاب على PC — ترجمة احترافية وأدوات تثبيت مباشرة.">
+<meta name="twitter:image" content="https://abu7meddd.github.io/midad/og-logo.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&display=swap">
 <style>
@@ -450,7 +462,12 @@ footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);
 .act .wbtn{margin-top:6px}
 /* القائمة العلوية: الشعار في أقصى يمين الصفحة لا يمين الحاوية */
 nav.top .in{max-width:none;margin-inline:0;padding-inline:clamp(4px,1.2vw,22px)}
-/* ===== ديف الغوّاص + صناعة الجرعات ===== */
+/* كوب شاهي يتحرك في أعلى اليسار */
+.nav-tea{display:inline-grid;place-items:center;width:46px;height:46px}
+.nav-tea svg{width:100%;height:100%;overflow:visible}
+.nav-tea .sm{fill:none;stroke:#f3b53f;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:3 4;opacity:.8;animation:stm4 2.6s linear infinite}
+@keyframes stm4{to{stroke-dashoffset:-14}}
+.nav-tea .bag-out{}/* ===== ديف الغوّاص + صناعة الجرعات ===== */
 .lg-dave{display:inline-flex;flex-direction:column;align-items:flex-end;gap:6px;line-height:1}
 .lg-dave .d1{font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(3rem,7vw,5.2rem);background:linear-gradient(#ffe36a,#ffb21f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(3px 3px 0 #0b7a96) drop-shadow(5px 5px 0 #08546b)}
 .lg-dave .d2{font-family:'Changa','Rubik',sans-serif;font-weight:800;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:.3em;color:#a6ecf7;text-shadow:2px 2px 0 #0b5a72;padding-inline-start:.3em}
@@ -470,6 +487,18 @@ body[data-world="pc"] .lg-pc .pd{display:none}body[data-world="pc"] .lg-pc .pl{d
 
 <nav class="top"><div class="in">
   <a class="logo" href="#" aria-label="مِداد"><b>مِداد</b><span>تعريبات أبو حميد</span></a>
+  <span class="nav-tea" aria-hidden="true"><svg viewBox="0 0 48 48"><defs><clipPath id="tcl"><path d="M11 21h26c-1 10-5 17-13 17S12 31 11 21z"/></clipPath></defs>
+   <path class="sm" d="M19 15c-3-3 3-5 0-9"/><path class="sm" d="M25 15c-3-3 3-5 0-9" style="animation-delay:-.9s"/><path class="sm" d="M31 15c-3-3 3-5 0-9" style="animation-delay:-1.8s"/>
+   <path d="M11 21h26c-1 10-5 17-13 17S12 31 11 21z" fill="#c8741f33"/>
+   <g clip-path="url(#tcl)"><rect class="tea" x="9" y="24" width="30" height="16" fill="#c8741f"><animate attributeName="opacity" values=".55;.95;.95;.55;.55" keyTimes="0;.45;.62;.92;1" dur="5s" repeatCount="indefinite"/></rect>
+    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 13;0 13;0 0;0 0" keyTimes="0;.42;.62;.92;1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"/>
+     <rect x="20.5" y="14" width="7" height="8" rx="1.6" fill="#f1e6d0" stroke="#8a6a3a" stroke-width="1"/></g></g>
+   <g><animateTransform attributeName="transform" type="translate" values="0 0;0 13;0 13;0 0;0 0" keyTimes="0;.42;.62;.92;1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"/>
+     <rect x="20.5" y="14" width="7" height="8" rx="1.6" fill="#f1e6d0" stroke="#8a6a3a" stroke-width="1" class="bag-out"/></g>
+   <line x1="24" y1="5" x2="24" y2="14" stroke="#e8e2d4" stroke-width="1"><animate attributeName="y2" values="14;27;27;14;14" keyTimes="0;.42;.62;.92;1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"/></line>
+   <rect x="26" y="3" width="6" height="4.5" rx="1" fill="#f3b53f"/>
+   <path d="M11 21h26c-1 10-5 17-13 17S12 31 11 21z" fill="none" stroke="#e8e2d4" stroke-width="1.6" stroke-linejoin="round"/>
+   <path d="M7 40q17 7 34 0" fill="none" stroke="#f3b53f" stroke-width="1.6" stroke-linecap="round"/></svg></span>
 </div></nav>
 <div id="wglow" aria-hidden="true"></div><div id="app"></div>
 <div class="wrap"><footer><span>مِداد · تعريبات أبو حميد وأصدقائه</span><span>الصور من متجر ستيم الرسمي وحقوقها لأصحابها</span></footer></div>
