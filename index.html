@@ -146,6 +146,32 @@ body{position:relative}
   .screen .info{width:100%;max-width:none;box-sizing:border-box;padding:32px 26px 34px}
 }
 @media (prefers-reduced-motion:reduce){.screen{scale:1!important}.screen .s{transition:none}}
+/* ===== v2: نظيف على طريقة Steam/PlayStation: بلا إطارات، 380px، نص يمين 45%، واليسار صافٍ ===== */
+.screens{gap:clamp(22px,3vw,38px)}
+.screen,.screen.w-st,.screen.w-ml,.screen.w-t2c,.screen.w-ps,.screen.w-pbz,.screen.big{min-height:380px;border:1px solid #ffffff12;border-radius:14px;box-shadow:0 22px 50px -26px #000d;clip-path:none}
+.screen:hover{box-shadow:0 26px 60px -26px #000f}
+.screen .wf,.screen .fx{display:none}
+.screen::before{background:linear-gradient(270deg,rgba(var(--vg),.88) 0%,rgba(var(--vg),.85) 28%,rgba(var(--vg),.5) 41%,rgba(var(--vg),0) 55%)}
+.screen .info{width:45%;max-width:none;box-sizing:border-box;padding:28px 40px 28px 20px;gap:9px;justify-content:center}
+.screen .logo-h{zoom:.8}
+.screen .en{font-size:.78rem;letter-spacing:.14em}
+.screen .blurb{font-size:.92rem;line-height:1.75;text-shadow:0 1px 8px rgba(0,0,0,.85);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.screen .meta{font-size:.76rem;gap:2px 12px}
+.screen .tag{font-size:.7rem;padding:1px 10px}
+.act{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:4px}
+.act .bd{gap:5px}
+.wbtn,.screen:hover .wbtn{padding:7px 20px;font-size:.85rem;font-weight:600;border-radius:8px;border:1px solid #ffffff55;background:#ffffff1c;box-shadow:none;transform:none;backdrop-filter:blur(6px)}
+.screen:hover .wbtn{background:#ffffff33;border-color:#ffffffa0}
+#wglow{opacity:.45}
+@media (min-width:761px){.screen,.screen.big{height:380px;min-height:0}
+ .w-ml .logo-h{zoom:.5}.w-t2c .logo-h{zoom:.6}.w-ps .logo-h{zoom:.4}.w-st .logo-h{zoom:.74}.w-pbz .logo-h{zoom:.74}
+ .screen .blurb{-webkit-line-clamp:4}}
+@media (max-width:760px){
+  .screen,.screen.big{min-height:540px;align-items:end}
+  .screen::before{background:linear-gradient(0deg,rgba(var(--vg),.95) 0%,rgba(var(--vg),.88) 50%,rgba(var(--vg),0) 82%)}
+  .screen .info{width:100%;padding:24px 22px 26px}
+  .screen .logo-h{zoom:.9}
+}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 
 /* reel */
@@ -620,7 +646,7 @@ function initBA(){
 }function screen(g,cls){
   var k=g.lg;
   return '<a class="screen '+(cls||'')+' w-'+k+'" href="#'+g.id+'" style="--glow:'+(g.glow||'#000')+'"><div class="slides"><img class="s" alt=""><img class="s" alt=""></div>'+
-   '<canvas class="fx" data-k="'+k+'" aria-hidden="true"></canvas><span class="wf" aria-hidden="true"><i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i></span>'+
+   
    '<div class="info"><h3 class="logo-h">'+logoHTML(g)+'</h3>'+(k==='pbz'?'':'<span class="en">'+esc(g.en)+'</span>')+'<div class="pn"><p class="blurb">'+esc(g.blurb)+'</p></div>'+
    '<div class="act"><div class="bd"><div class="meta"><span>'+esc(g.size)+'</span><span>'+esc(g.kind)+'</span><span style="direction:ltr">'+esc(g.date)+'</span></div>'+tagsOf(g)+'</div><span class="wbtn">'+(g.dl?'افتح الصفحة وحمّل':'افتح الصفحة')+'</span></div></div></a>';
 }
