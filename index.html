@@ -423,7 +423,22 @@ footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);
   .row img{height:clamp(130px,19vh,190px)}
 }
 @media (prefers-reduced-motion:reduce){.screen .bg,.tea .steam{animation:none;transition:none}}
-</style>
+
+/* ===== ديف الغوّاص + صناعة الجرعات ===== */
+.lg-dave{display:inline-flex;flex-direction:column;align-items:flex-end;gap:6px;line-height:1}
+.lg-dave .d1{font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(3rem,7vw,5.2rem);background:linear-gradient(#ffe36a,#ffb21f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(3px 3px 0 #0b7a96) drop-shadow(5px 5px 0 #08546b)}
+.lg-dave .d2{font-family:'Changa','Rubik',sans-serif;font-weight:800;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:.3em;color:#a6ecf7;text-shadow:2px 2px 0 #0b5a72;padding-inline-start:.3em}
+.lg-pc{display:block}.lg-pc img{display:block;height:clamp(100px,15vw,160px);width:auto;max-width:100%}
+.lg-pc .pl{display:none}
+.w-dave{--vg:4,22,40;--gl:#2fb7e070}.w-pc{--vg:28,19,12;--gl:#c8923f70}
+@media (min-width:761px){.w-dave .logo-h{zoom:1.05}.w-pc .logo-h{zoom:.95}}
+body[data-world="dave"]{--w-bg:#07243a url(img/dave-the-diver-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#eaf7fb;--w-mute:#9fd3e0;--w-nav-bg:#0b2c44;--w-nav-bd:3px solid #ffc425;--w-vg:4,22,40;--w-r:8px;--w-panel:#0c3050;--w-panel-bd:2px solid #3fc3de;--w-panel-sh:0 10px 22px -12px #000a;--w-title-bg:#ffc425;--w-title-fg:#0b2c44;--w-accent:#ffc425;--w-btn:#ffc425;--w-btn-fg:#0b2c44;--w-btn-bd:3px solid #0b7a96;--w-btn-r:8px;--w-shot-bd:3px solid #ffc425}
+body[data-world="dave"] .logo b{color:#ffc425}
+body[data-world="pc"]{--w-bg:#d6bb86 url(img/potion-craft-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#3d2a22;--w-mute:#6b4f3a;--w-nav-bg:#4a3222;--w-nav-bd:3px solid #2e1f15;--w-vg:214,188,138;--w-r:4px;--w-panel:#ecdbb2;--w-panel-bd:2px solid #8a6a3a;--w-panel-sh:0 10px 22px -12px #3d2a2288;--w-title-bg:#5b3d2a;--w-title-fg:#f1e6d0;--w-accent:#7a4a24;--w-btn:#5b3d2a;--w-btn-fg:#f1e6d0;--w-btn-bd:2px solid #2e1f15;--w-btn-r:4px;--w-shot-bd:5px solid #5b3d2a}
+body[data-world="pc"] .dhero p,body[data-world="pc"] .dhero .en,body[data-world="pc"] .back,body[data-world="pc"] .dl small{color:#3d2a22;text-shadow:none}
+body[data-world="pc"] .tag{background:#ead6a8cc;color:#3d2a22;border-color:#8a6a3a}body[data-world="pc"] .tag.gold{background:#5b3d2a;color:#f1e6d0}
+body[data-world="pc"] .logo span{color:#e3cfa5}body[data-world="pc"] footer{color:#3d2a22;border-top-color:#5b3d2a}
+body[data-world="pc"] .lg-pc .pd{display:none}body[data-world="pc"] .lg-pc .pl{display:block}</style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
 
@@ -463,12 +478,22 @@ var GAMES=[
   blurb:'«مسروقة غالباً» (Probably Stolen) محاكاة إدارة متجر بأجواء السايبربانك، تدور في محطة فضائية بائسة. اصنع وتاجر وهرّب بضائع مشبوهة المصدر، وتنقّل بين ولاءات الفصائل، وقرّر إلى أي مدى أنت مستعد للذهاب كي تبقى طافياً. اكسب ما يكفي لشراء متجرك قبل أن يجبرك ارتفاع الإيجار على الاستسلام.',
   engine:'غير محدد',kind:'حزمة (zip)',size:'0.6 ميجا',date:'2026-11-03',dl:'https://github.com/abu7meddd/midad/releases/download/probably-stolen/Probably_Stolen_Arabic.zip',
   feats:['تعريب النصوص'],
-  how:['فك ضغط الحزمة','انسخ الملفات فوق مجلد اللعبة','شغّل اللعبة']}
+  how:['فك ضغط الحزمة','انسخ الملفات فوق مجلد اللعبة','شغّل اللعبة']},
+ {id:'dave-the-diver',lg:'dave',glow:'#2fb7e066',ar:'ديف الغوّاص',en:'DAVE THE DIVER',by:'أبو حميد',dev:'MINTROCKET',tags:['مغامرة','محاكاة','لعب أدوار'],
+  blurb:'«ديف الغوّاص» (DAVE THE DIVER) لعبة مغامرات وأدوار هادئة تُلعب فردياً، تجمع بين استكشاف أعماق البحر وصيد الأسماك نهاراً وإدارة مطعم سوشي ليلاً. انضمّ إلى ديف وأصدقائه الطريفين وهم يكشفون أسرار الحفرة الزرقاء الغامضة.',
+  engine:'Unity',kind:'حزمة (zip)',size:'66.6 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/dave-the-diver/DaveTheDiver_Arabic.zip',
+  feats:['تعريب القوائم والحوارات والمهمات والأسماك','خط Rubik SemiBold','أربع حزم بيانات تُستبدل مع نسخ احتياطي للأصل'],
+  how:['أغلق اللعبة تماماً','شغّل Install-Arabic.bat (يجد مجلد اللعبة تلقائياً)','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']},
+ {id:'potion-craft',lg:'pc',glow:'#c8923f66',ar:'صناعة الجرعات',en:'Potion Craft: Alchemist Simulator',by:'أبو حميد',dev:'niceplay games',tags:['محاكاة','مستقل'],
+  blurb:'«صناعة الجرعات» (Potion Craft: Alchemist Simulator) محاكي خيمياء تتعامل فيه بيدك مع أدواتك ومكوّناتك لتحضّر الجرعات. أنت تتحكم في المتجر كله: ابتكر وصفات جديدة، واجذب الزبائن، وجرّب ما شئت. لكن تذكّر: البلدة كلها تعوّل عليك.',
+  engine:'Unity',kind:'حزمة (zip)',size:'0.5 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/potion-craft/PotionCraft_Arabic_Patch.zip',
+  feats:['الواجهات والقوائم والإعدادات','المكوّنات والوصفات وشجرة المواهب','حوارات الزبائن والشخصيات','شعار اللعبة بالعربي في القائمة الرئيسية','اتجاه كتابة RTL وخط Rubik SemiBold'],
+  how:['فك الضغط داخل مجلد اللعبة (حيث Potion Craft.exe)','شغّل Install-Arabic.bat','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function img(g,k){return 'img/'+g.id+'-'+k+'.jpg'}
-function heroImg(g){return g.id==='sovereign-tower'?'img/sovereign-tower-hero2x.jpg':img(g,'hero')}
+function heroImg(g){return 'img/'+g.id+'-hero2x.jpg'}
 function cimg(g,k){return (g.id==='sovereign-tower'&&(k==='shot2'||k==='shot3'))?'img/'+g.id+'-'+k+'-crop.jpg':img(g,k)}
 function tagsOf(g){return '<div class="tags"><span class="tag gold">'+esc(g.by)+'</span>'+g.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div>'}
 var ctl=[],obs=null,tick=false;
@@ -545,6 +570,8 @@ function logoHTML(g){
   if(g.lg==='pbz')return '<span class="lg lg-pbz"><span class="a">نصل الطيف<i class="slash"></i>صفر</span><span class="e">P H A N T O M &nbsp; B L A D E &nbsp; Ø</span></span>';
   if(g.lg==='ml')return '<span class="lg lg-ml"><span>سادة</span><i class="rule"><b></b></i><span>الإقطاع</span></span>';
   if(g.lg==='t2c')return '<span class="lg lg-t2c">'+SKY+'<span class="t">من بلدة إلى مدينة</span>'+SWASH+'</span>';
+  if(g.lg==='dave')return '<span class="lg lg-dave"><span class="d1">ديف</span><span class="d2">الغوّاص</span></span>';
+  if(g.lg==='pc')return '<span class="lg lg-pc"><img class="pd" src="img/potion-craft-logo-light.png" alt="صناعة الجرعات"><img class="pl" src="img/potion-craft-logo.png" alt="" aria-hidden="true"></span>';
   if(g.lg==='ps')return '<span class="lg lg-ps"><span class="stamp"><span>مسروقة</span><span>غالباً</span></span></span>';
   return '<span class="lg">'+esc(g.ar)+'</span>';
 }
@@ -570,6 +597,8 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-11',t:'إضافة',id:'dave-the-diver',n:'حزمة التعريب العربية الشاملة للقوائم والحوارات والمهمات والأسماك.'},
+ {d:'2026-11-11',t:'إضافة',id:'potion-craft',n:'تعريب شامل للواجهات والمكوّنات والوصفات والحوارات مع شعار عربي.'},
  {d:'2026-11-10',t:'تحديث',id:'phantom-blade-zero',n:'استبدال خطوط الحزمة كلها بخط Rubik، والترجمة كما هي بلا أي تعديل (تطابق بالبصمة).'},
  {d:'2026-11-09',t:'إضافة',id:'sovereign-tower',n:'صدور مثبّت التعريب مع حلول الواجهة والخط.'},
  {d:'2026-11-06',t:'إضافة',id:'manor-lords',n:'حزمة التعريب العربية للواجهة والقوائم.'},
@@ -607,7 +636,7 @@ function initPoem(){
   var s=document.querySelector('.poem');if(!s)return;
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!pTimer)showQuote()}else{clearTimeout(pTimer);pTimer=null}})},{threshold:.3}).observe(s)}else showQuote();
 }/* كوكبة مِداد: كل لعبة نجمة، تتصل بخط رفيع، وتزيد نجمة مع كل تعريب جديد */
-var CPOS=[[190,250],[400,105],[620,240],[820,100]];
+var CPOS=[[150,245],[330,105],[530,240],[720,105],[840,235],[940,100]];
 function cpos(i){if(i<CPOS.length)return CPOS[i];var k=i-CPOS.length;return [100+((k*173)%800),70+((k*97)%240)]}
 /* نجوم الإطار نفسه فقط (ثابتة بلا عشوائية حتى لا تتغير بين الزيارات) */
 function bgStars(){
