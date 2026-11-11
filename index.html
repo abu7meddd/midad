@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>مِداد</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&display=swap">
 <style>
 /* Concept: a quiet dark cinema wall. Wide game screens in a stack, then a slow reel of stills at the bottom. The hero dissolves into the page instead of ending on a hard edge. */
 :root{
@@ -106,6 +106,84 @@ body{position:relative}
 .tag{font-size:.78rem;background:#ffffff16;border:1px solid #ffffff22;padding:2px 12px;border-radius:99px;backdrop-filter:blur(4px)}
 .tag.gold{background:#f3b53f22;border-color:#f3b53f66;color:var(--gold)}
 .screen.big{min-height:560px}
+/* ===== Game World Portals: كل لعبة عالم بواجهتها ===== */
+@property --wc{syntax:'<color>';inherits:true;initial-value:#00000000}
+#wglow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(80% 60% at 50% 45%,var(--wc),transparent 72%);opacity:.9;transition:--wc 1.4s ease}
+.screen{--sc:1;scale:var(--sc);will-change:scale}
+.screen .fx,.screen .wf{position:absolute;inset:0;pointer-events:none}
+.screen .fx{width:100%;height:100%;z-index:0}.screen .wf{z-index:1}
+.screen .info{position:relative;z-index:2}
+.pn{display:contents}
+.wbtn{display:inline-flex;align-items:center;justify-self:start;margin-top:10px;font-weight:700;font-size:1.02rem;cursor:pointer;line-height:1.2}
+/* --- برج السيادة: أصول اللعبة الفعلية (إطار منحوت + أزرار اللوح + اللوحة الورقية) --- */
+.w-st{min-height:600px;border:0;border-radius:6px;background:#2a2224}
+.w-st::before{background:linear-gradient(0deg,#2a2224f0 0%,#2a222499 32%,transparent 66%),linear-gradient(270deg,#2a2224cc 0%,#2a222466 30%,transparent 56%)}
+.w-st .wf{border:solid transparent;border-width:56px 40px 60px 40px;border-image:url(img/ui/st-frame.png) 150 96 160 96/56px 40px 60px 40px stretch;filter:drop-shadow(0 6px 10px #000a)}
+.w-st .info{padding:80px 74px 80px;max-width:700px}
+.w-st .en{justify-self:start;transform:skewX(-7deg);background:#bfa69e;color:#86585a;border:solid #624a49;border-width:3px 2px 6px 2px;padding:0 18px;font-weight:700;letter-spacing:.06em;text-shadow:none;text-align:left}
+.w-st .pn{display:block;background:#bfa69ef2;color:#4a3433;border:solid #624a49;border-width:3px 2px 6px 2px;padding:16px 22px;margin-top:6px;box-shadow:0 14px 26px #0008}
+.w-st .pn .blurb{color:#4a3433;text-shadow:none}.w-st .pn .meta{color:#5d4746;margin-top:10px}
+.w-st .tag{background:#d4b8b2;border:1px solid #624a49;color:#5d4746;backdrop-filter:none;border-radius:2px}
+.w-st .tag.gold{background:#8f6a63;color:#f3e6df;border-color:#4d3836}
+.w-st .wbtn{color:#5d4746;border:solid transparent;border-width:14px 22px 16px 26px;border-image:url(img/ui/st-btn.png) 14 44 16 51 fill/14px 22px 16px 26px stretch;padding:2px 22px;font-size:1.1rem;transition:transform .2s}
+.w-st:hover .wbtn{border-image-source:url(img/ui/st-btn-hover.png);transform:translateY(-2px)}
+/* --- سادة الإقطاع: خشب داكن ونحاس (تقريب، لم أقرأ واجهة اللعبة الفعلية) --- */
+.w-ml{min-height:600px;border:1px solid #6b4f2a;border-radius:5px;background:#1b130d}
+.w-ml::before{background:linear-gradient(0deg,#1b130df0 0%,#1b130d88 34%,transparent 66%),linear-gradient(270deg,#1b130dd0 0%,#1b130d77 30%,transparent 56%)}
+.w-ml .wf{box-shadow:inset 0 0 0 3px #1b130d,inset 0 0 0 5px #9a7a43,inset 0 0 0 9px #2a1d12,inset 0 0 0 10px #6b4f2a,inset 0 0 90px #000a}
+.w-ml .wf::before,.w-ml .wf::after{content:"";position:absolute;width:64px;height:64px;border:3px solid #c9a35a;opacity:.9}
+.w-ml .wf::before{top:16px;right:16px;border-left:0;border-bottom:0}.w-ml .wf::after{bottom:16px;left:16px;border-right:0;border-top:0}
+.w-ml .info{padding:46px 56px}
+.w-ml .en{color:#d1a65a;letter-spacing:.14em;font-family:'Cinzel',serif}
+.w-ml .pn{display:block;background:repeating-linear-gradient(90deg,#0000 0 5px,#00000014 5px 6px),linear-gradient(180deg,#3a2818f4,#271a0ff4);border:1px solid #8a6a3a;box-shadow:inset 0 0 0 3px #1b130d,inset 0 0 0 4px #5b4326,0 16px 30px #000a;padding:20px 26px;border-radius:3px}
+.w-ml .pn .blurb{color:#eadfc8}.w-ml .pn .meta{color:#c9b58c;margin-top:10px}
+.w-ml .tag{background:#2a1d12;border:1px solid #8a6a3a;color:#e2cfa0;border-radius:3px;backdrop-filter:none}
+.w-ml .tag.gold{background:#6b4c2a;color:#f6e7c1}
+.w-ml .wbtn{background:linear-gradient(#7a5731,#4a331c);border:1px solid #d1a65a;color:#f6e7c1;padding:9px 30px;border-radius:3px;box-shadow:inset 0 1px 0 #ffffff2a,inset 0 0 0 3px #2a1d12,0 5px 0 #130d08,0 12px 20px #0009;transition:transform .2s}
+.w-ml:hover .wbtn{transform:translateY(-2px);filter:brightness(1.12)}
+/* --- من بلدة إلى مدينة: ورق كريمي ولمسات قرميدية كلوحات اللعبة --- */
+.w-t2c{min-height:600px;border:0;border-radius:28px;background:#2b1a14}
+.w-t2c::before{background:linear-gradient(0deg,#2b1a14cc 0%,#2b1a1455 30%,transparent 56%)}
+.w-t2c .wf{border:10px solid #f4e7cf;border-radius:28px;box-shadow:inset 0 0 0 2px #d79a6d,inset 0 0 0 5px #f4e7cf,inset 0 0 40px #2b1a1466}
+.w-t2c .info{padding:44px 50px}
+.w-t2c .en{color:#fff3dc}
+.w-t2c .pn{display:block;background:#f6ead3;color:#6b4a38;border:2px solid #d79a6d;border-radius:20px;box-shadow:inset 0 0 0 5px #f6ead3,inset 0 0 0 6px #e3b48c,0 18px 34px #0007;padding:22px 28px;margin-top:6px}
+.w-t2c .pn .blurb{color:#6b4a38;text-shadow:none}.w-t2c .pn .meta{color:#9a7258;margin-top:10px}
+.w-t2c .tag{background:#5f7230;border:0;color:#f6ead3;backdrop-filter:none}
+.w-t2c .tag.gold{background:#c0452b;color:#fff}
+.w-t2c .wbtn{background:#f6ead3;color:#9a4a2a;border:2px solid #d79a6d;border-radius:99px;padding:10px 32px;box-shadow:inset 0 0 0 3px #f6ead3,inset 0 0 0 4px #e3b48c,0 8px 16px #0006;transition:transform .2s}
+.w-t2c:hover .wbtn{transform:translateY(-2px);background:#fff8e8}
+/* --- مسروقة غالباً: بكسل، لوحات موف ومحيط مرجاني --- */
+.w-ps{min-height:600px;border:0;border-radius:0;background:#2f2528;clip-path:polygon(0 12px,4px 12px,4px 8px,8px 8px,8px 4px,12px 4px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 4px,calc(100% - 8px) 4px,calc(100% - 8px) 8px,calc(100% - 4px) 8px,calc(100% - 4px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 4px) calc(100% - 12px),calc(100% - 4px) calc(100% - 8px),calc(100% - 8px) calc(100% - 8px),calc(100% - 8px) calc(100% - 4px),calc(100% - 12px) calc(100% - 4px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 4px),8px calc(100% - 4px),8px calc(100% - 8px),4px calc(100% - 8px),4px calc(100% - 12px),0 calc(100% - 12px))}
+.w-ps::before{background:linear-gradient(0deg,#2f2528ee 0%,#2f252877 34%,transparent 64%),linear-gradient(270deg,#2f2528cc 0%,#2f252866 30%,transparent 56%)}
+.w-ps .wf{box-shadow:inset 0 0 0 3px #c9633f,inset 0 0 0 6px #3a2d31,inset 0 0 0 7px #b9a79c}
+.w-ps .wf::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#0000 0 2px,#0000001c 2px 3px)}
+.w-ps .info{padding:48px 56px}
+.w-ps .en{color:#e0764d;font-family:'Pixelify Sans',monospace;font-size:1.15rem;letter-spacing:.04em}
+.w-ps .pn{display:block;background:#594a4c;border:2px solid #b9a79c;box-shadow:inset 0 0 0 4px #594a4c,inset 0 0 0 6px #40363a,6px 6px 0 #1f181a;padding:20px 26px;margin-top:6px}
+.w-ps .pn .blurb{color:#eadfd6;text-shadow:none}.w-ps .pn .meta{color:#c9bab0;margin-top:10px;font-family:'Pixelify Sans',monospace}
+.w-ps .tag{background:#40363a;border:2px solid #b9a79c;color:#eadfd6;border-radius:0;backdrop-filter:none;font-family:'Pixelify Sans',monospace}
+.w-ps .tag.gold{background:#c9633f;border-color:#f0a283;color:#2f2528}
+.w-ps .wbtn{background:#b4a79d;color:#2f2528;border:2px solid #2f2528;border-radius:0;padding:6px 26px;font-family:'Pixelify Sans','Rubik',sans-serif;font-size:1.1rem;box-shadow:inset 0 0 0 2px #d2c7bd,4px 4px 0 #1f181a;transition:transform .15s,box-shadow .15s}
+.w-ps:hover .wbtn{transform:translate(-2px,-2px);box-shadow:inset 0 0 0 2px #e6dcd3,6px 6px 0 #1f181a}
+/* --- نصل الطيف: حبر وعظم وختم أحمر (تقريب من فنّ اللعبة، لم أقرأ واجهتها) --- */
+.w-pbz{min-height:600px;border:1px solid #2a2d31;border-radius:2px;background:#0c0d0f}
+.w-pbz::before{background:linear-gradient(0deg,#0a0b0df0 0%,#0a0b0d88 34%,transparent 66%),linear-gradient(270deg,#0a0b0dd8 0%,#0a0b0d66 32%,transparent 58%)}
+.w-pbz .wf{box-shadow:inset 0 0 0 1px #d8d2c455}
+.w-pbz .wf::before{content:"";position:absolute;inset:16px;border:1px solid #d8d2c42e}
+.w-pbz .wf::after{content:"صفر";position:absolute;top:26px;left:30px;width:50px;height:50px;display:grid;place-items:center;background:#b0382f;color:#f2eee6;font-family:'Aref Ruqaa',serif;font-size:1.25rem;transform:rotate(-6deg);border-radius:2px;box-shadow:0 0 0 2px #0c0d0f,0 0 0 3px #b0382f88}
+.w-pbz .info{padding:50px 60px}
+.w-pbz .pn{display:block;background:linear-gradient(90deg,#0a0b0dcc,#0a0b0d66);border-inline-start:3px solid #b0382f;padding:18px 26px;backdrop-filter:blur(3px)}
+.w-pbz .tag{background:#ffffff0d;border:1px solid #d8d2c444;border-radius:0}
+.w-pbz .wbtn{border:1px solid #d8d2c4;color:#f2eee6;padding:10px 32px;background:linear-gradient(100deg,#b0382f 0 8px,#0a0b0d99 8px);transition:transform .2s,background .2s}
+.w-pbz:hover .wbtn{transform:translateX(-4px);background:linear-gradient(100deg,#b0382f 0 100%,#b0382f 100%)}
+@media (max-width:760px){
+  .w-st .wf{border-width:34px 22px 38px 22px;border-image-width:34px 22px 38px 22px}
+  .w-st .info{padding:52px 36px 52px}.w-ml .info,.w-ps .info,.w-pbz .info,.w-t2c .info{padding:28px 24px}
+  .w-pbz .wf::after{top:14px;left:14px;width:38px;height:38px;font-size:1rem}
+  .w-ml .wf::before,.w-ml .wf::after{width:36px;height:36px}
+}
+@media (prefers-reduced-motion:reduce){.screen{scale:1!important}}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 
 /* reel */
@@ -297,7 +375,7 @@ footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);
   <a class="logo" href="#" aria-label="مِداد"><b>مِداد</b><span>تعريبات أبو حميد</span></a>
   <a class="pill ghost" href="#request">اطلب تعريب</a>
 </div></nav>
-<div id="app"></div>
+<div id="wglow" aria-hidden="true"></div><div id="app"></div>
 <div class="wrap"><footer><span>مِداد · تعريبات أبو حميد وأصدقائه</span><span>الصور من متجر ستيم الرسمي وحقوقها لأصحابها</span></footer></div>
 <div id="lb" class="lb" hidden></div>
 
@@ -337,13 +415,21 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 function img(g,k){return 'img/'+g.id+'-'+k+'.jpg'}
 function tagsOf(g){return '<div class="tags"><span class="tag gold">'+esc(g.by)+'</span>'+g.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div>'}
 var ctl=[],obs=null,tick=false;
+var fxRaf=0,gcol='';
 function onScroll(){
   if(tick)return;tick=true;
-  requestAnimationFrame(function(){tick=false;var vh=innerHeight;
+  requestAnimationFrame(function(){tick=false;var vh=innerHeight,best=null,bd=1e9;
     app.querySelectorAll('.screen').forEach(function(c){var r=c.getBoundingClientRect();if(r.bottom<-100||r.top>vh+100)return;
-      var off=((r.top+r.height/2)-vh/2)*-0.07;c.querySelector('.slides').style.transform='translateY('+off.toFixed(1)+'px)'})});
+      var d=(r.top+r.height/2)-vh/2,ad=Math.abs(d)/vh;
+      c.querySelector('.slides').style.transform='translateY('+(d*-0.07).toFixed(1)+'px)';
+      /* الانتقال بين العوالم: اللعبة البعيدة تصغر وتخفت قليلاً، والقريبة تتمدد وتملأ النظر */
+      c.style.setProperty('--sc',(1-Math.min(.07,ad*.07)).toFixed(3));c.style.opacity=(1-Math.min(.42,Math.max(0,ad-.35)*.7)).toFixed(2);
+      if(Math.abs(d)<bd){bd=Math.abs(d);best=c}});
+    var wg=document.getElementById('wglow');
+    if(wg&&best){var col=getComputedStyle(best).getPropertyValue('--glow').trim();if(col&&col!==gcol){gcol=col;wg.style.setProperty('--wc',col)}}
+  });
 }
-function stopTimer(){clearTimeout(pTimer);pTimer=null;if(timer){clearInterval(timer);timer=null}ctl.forEach(function(c){c.stop()});ctl=[];if(obs){obs.disconnect();obs=null}window.removeEventListener('scroll',onScroll)}
+function stopTimer(){cancelAnimationFrame(fxRaf);fxRaf=0;clearTimeout(pTimer);pTimer=null;if(timer){clearInterval(timer);timer=null}ctl.forEach(function(c){c.stop()});ctl=[];if(obs){obs.disconnect();obs=null}window.removeEventListener('scroll',onScroll)}
 /* صور كل لعبة تتبدّل بنعومة داخل بطاقتها مع تقريب بطيء */
 function slideShow(sec,g,delay){
   var imgs=sec.querySelectorAll('.s'),list=[img(g,'hero'),img(g,'shot1'),img(g,'shot2'),img(g,'shot3')],i=0,cur=null,t=null;
@@ -362,14 +448,38 @@ function slideShow(sec,g,delay){
   show();
   return {start:function(){if(!t)t=setInterval(show,6500+(delay||0))},stop:function(){if(t){clearInterval(t);t=null}}};
 }
-function initCards(){
+/* جزيئات كل عالم: غبار ورق، جمر، ذرات ضوء دافئة، بكسلات نيون، رماد */
+var FXK={st:{n:34,c:['#d9c6bb','#b99f95','#f1e4d8'],s:[1,2.6],vx:[-4,4],vy:[-7,-2],m:0},
+ ml:{n:42,c:['#ffb84a','#ff8a2a','#ffd98a'],s:[.8,2.2],vx:[-6,9],vy:[-30,-10],m:1},
+ t2c:{n:30,c:['#ffe2a8','#fff2cf','#f6b36a'],s:[1.2,3.2],vx:[5,16],vy:[-9,-2],m:0},
+ ps:{n:34,c:['#5ee0d0','#e0764d','#9be15d','#e86aa8'],s:[3,5.5],vx:[0,0],vy:[-24,-8],m:2},
+ pbz:{n:36,c:['#d8d2c4','#8e9ea0','#b0382f'],s:[.8,2.4],vx:[-9,-2],vy:[3,13],m:0}};
+function rnd(a,b){return a+Math.random()*(b-a)}
+function initFx(){
+  var last=0;
+  app.querySelectorAll('.screen').forEach(function(c){
+    var cv=c.querySelector('canvas.fx');if(!cv||!cv.getContext)return;var k=FXK[cv.dataset.k];if(!k)return;
+    var ctx=cv.getContext('2d'),P=[],W=0,H=0;
+    function size(){var w=cv.clientWidth,h=cv.clientHeight;if(w!==W||h!==H){W=cv.width=w;H=cv.height=h;P=[];for(var i=0;i<k.n;i++)P.push({x:rnd(0,W),y:rnd(0,H),vx:rnd(k.vx[0],k.vx[1]),vy:rnd(k.vy[0],k.vy[1]),s:rnd(k.s[0],k.s[1]),c:k.c[i%k.c.length],p:rnd(0,6.3),a:rnd(.35,.95)})}}
+    c._fx=function(dt,t){size();ctx.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){var q=P[i];q.x+=(q.vx+Math.sin(t/1400+q.p)*3)*dt;q.y+=q.vy*dt;
+        if(q.y<-8)q.y=H+8;if(q.y>H+8)q.y=-8;if(q.x>W+8)q.x=-8;if(q.x<-8)q.x=W+8;
+        ctx.globalAlpha=q.a*(k.m===1?(.6+.4*Math.sin(t/300+q.p)):1);ctx.fillStyle=q.c;
+        if(k.m===2){var z=Math.round(q.s);ctx.fillRect(Math.round(q.x),Math.round(q.y),z,z)}
+        else{ctx.beginPath();ctx.arc(q.x,q.y,q.s,0,6.283);ctx.fill()}}
+      ctx.globalAlpha=1};
+  });
+  function loop(t){fxRaf=requestAnimationFrame(loop);var dt=Math.min(.06,(t-(last||t))/1000);last=t;if(document.hidden)return;
+    var cs=app.querySelectorAll('.screen');for(var i=0;i<cs.length;i++){var c=cs[i];if(c._v&&c._fx)c._fx(dt,t)}}
+  fxRaf=requestAnimationFrame(loop);
+}function initCards(){
   var cards=app.querySelectorAll('.screen');
   cards.forEach(function(c,k){var g=GAMES.filter(function(x){return '#'+x.id===c.getAttribute('href')})[0];c._c=slideShow(c,g,k*700);ctl.push(c._c)});
   if('IntersectionObserver' in window){
-    obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');e.target._c.start()}else e.target._c.stop()})},{threshold:.12});
+    obs=new IntersectionObserver(function(es){es.forEach(function(e){e.target._v=e.isIntersecting;if(e.isIntersecting){e.target.classList.add('in');e.target._c.start()}else e.target._c.stop()})},{threshold:.12});
     cards.forEach(function(c){obs.observe(c)});
-  }else{cards.forEach(function(c){c.classList.add('in');c._c.start()})}
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }else{cards.forEach(function(c){c._v=1;c.classList.add('in');c._c.start()})}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();initFx();
 }
 var SKY='<svg class="sky" viewBox="0 0 160 36" aria-hidden="true"><g fill="#fff"><path d="M4 31V21l8-7 8 7v10z"/><path d="M24 31V17h14v14z"/><path d="M42 31V23l6-6 6 6v8z"/><path d="M60 31V20a12 12 0 0 1 24 0v11z"/><path d="M90 31V16h9v15z"/><path d="M108 31V19l9-8 9 8v12z"/><path d="M130 31V21h16v10z"/><path d="M148 31V23l6-6 6 6v8z"/></g><circle cx="94.5" cy="9" r="2.4" fill="#fff"/><path d="M94.5 9l-8-8M94.5 9l8-8M94.5 9l-8 8M94.5 9l8 8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M0 33H160" stroke="#fff" stroke-width="3"/></svg>';
 var SWASH='<svg class="swash" viewBox="0 0 200 24" aria-hidden="true"><path d="M2 15C40 3 92 3 132 12S190 17 198 5" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></svg>';
@@ -545,9 +655,11 @@ function initBA(){
     c.addEventListener('keydown',function(e){var p=parseFloat(getComputedStyle(c).getPropertyValue('--p'))||50;if(e.key==='ArrowLeft'){set(p-5);e.preventDefault()}else if(e.key==='ArrowRight'){set(p+5);e.preventDefault()}});
   });
 }function screen(g,cls){
-  return '<a class="screen '+(cls||'')+'" href="#'+g.id+'" style="--glow:'+(g.glow||'#000')+'"><div class="slides"><img class="s" alt=""><img class="s" alt=""></div>'+
-   '<div class="info"><h3 class="logo-h">'+logoHTML(g)+'</h3>'+(g.lg==='pbz'?'':'<span class="en">'+esc(g.en)+'</span>')+'<p class="blurb">'+esc(g.blurb)+'</p>'+
-   '<div class="meta"><span>'+esc(g.size)+'</span><span>'+esc(g.kind)+'</span><span style="direction:ltr">'+esc(g.date)+'</span></div>'+tagsOf(g)+'</div></a>';
+  var k=g.lg;
+  return '<a class="screen '+(cls||'')+' w-'+k+'" href="#'+g.id+'" style="--glow:'+(g.glow||'#000')+'"><div class="slides"><img class="s" alt=""><img class="s" alt=""></div>'+
+   '<canvas class="fx" data-k="'+k+'" aria-hidden="true"></canvas><span class="wf" aria-hidden="true"></span>'+
+   '<div class="info"><h3 class="logo-h">'+logoHTML(g)+'</h3>'+(k==='pbz'?'':'<span class="en">'+esc(g.en)+'</span>')+'<div class="pn"><p class="blurb">'+esc(g.blurb)+'</p>'+
+   '<div class="meta"><span>'+esc(g.size)+'</span><span>'+esc(g.kind)+'</span><span style="direction:ltr">'+esc(g.date)+'</span></div>'+tagsOf(g)+'</div><span class="wbtn">'+(g.dl?'افتح الصفحة وحمّل':'افتح الصفحة')+'</span></div></a>';
 }
 /* أول لعبتين عريضتين كبار، والباقي أزواج، وإن بقيت لعبة وحدها تأخذ العرض كامل */
 function screensHTML(){return GAMES.filter(function(g){return !g.guest}).map(function(g){return screen(g,'big')}).join('')}
@@ -619,7 +731,7 @@ function detail(g){
 }
 lb.onclick=function(){lb.hidden=true};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true});
-function route(){
+function route(){var wg0=document.getElementById('wglow');if(wg0&&location.hash.length>1&&location.hash!=='#all'&&location.hash!=='#request'&&location.hash!=='#mods'){wg0.style.setProperty('--wc','#00000000');gcol=''}
   var id=location.hash.replace('#','');
   var g=GAMES.filter(function(x){return x.id===id})[0];
   if(g){detail(g);document.title=g.ar+' | مِداد';window.scrollTo(0,0)}
