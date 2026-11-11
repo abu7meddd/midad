@@ -146,6 +146,47 @@ body{position:relative}
   .screen .info{width:100%;max-width:none;box-sizing:border-box;padding:32px 26px 34px}
 }
 @media (prefers-reduced-motion:reduce){.screen{scale:1!important}.screen .s{transition:none}}
+/* ===== صفحة برج السيادة على طابع اللعبة (أصول فعلية: خلفية القاموس، إطار منحوت، لوحة ورق، أزرار لوح) ===== */
+body[data-world="st"]{background:#b4998f url(img/ui/st-bg.jpg) center top/cover fixed no-repeat;color:#43302f}
+body[data-world="st"]::before{background:#5d4746}
+body[data-world="st"] #wglow{display:none}
+body[data-world="st"] nav.top{background:linear-gradient(#5d4746f5,#4b3736f5);border-bottom:3px solid #382827;backdrop-filter:none}
+body[data-world="st"] .logo span{color:#e0cdc6}
+body[data-world="st"] .pill.ghost{background:#bfa69e;color:#5d4746;border:solid #624a49;border-width:2px 2px 4px 2px;border-radius:2px;font-weight:700}
+body[data-world="st"] .dhero.bleed{width:auto;max-width:1180px;margin:30px auto 0;min-height:520px;border:solid transparent;border-width:56px 40px 60px 40px;border-image:url(img/ui/st-frame.png) 150 96 160 96/56px 40px 60px 40px stretch;filter:drop-shadow(0 12px 18px #2a1d1c99)}
+body[data-world="st"] .dhero::before{background:linear-gradient(0deg,#2a1d1cdd 2%,#2a1d1c77 40%,transparent 78%),linear-gradient(270deg,#2a1d1ccc,transparent 64%)}
+body[data-world="st"] .dhero .in{padding:70px 34px 30px}
+body[data-world="st"] .dhero p{color:#f3e9e4;text-shadow:0 2px 10px #000b}
+body[data-world="st"] .dhero .en{display:inline-block;transform:skewX(-7deg);background:#bfa69e;color:#86585a;border:solid #624a49;border-width:3px 2px 6px 2px;padding:0 18px;font-weight:700;text-shadow:none}
+body[data-world="st"] .back{color:#f0dfd8;text-shadow:0 1px 6px #000}
+body[data-world="st"] .tag{background:#d4b8b2;border:1px solid #624a49;color:#5d4746;backdrop-filter:none;border-radius:2px}
+body[data-world="st"] .tag.gold{background:#8f6a63;color:#f3e6df;border-color:#4d3836}
+body[data-world="st"] .dl small{color:#e6d4cd}
+body[data-world="st"] .pill:not(.ghost){background:none;color:#5d4746;border:solid transparent;border-width:14px 22px 16px 26px;border-image:url(img/ui/st-btn.png) 14 44 16 51 fill/14px 22px 16px 26px stretch;border-radius:0;padding:2px 24px;font-size:1.1rem;font-weight:700;transition:transform .2s}
+body[data-world="st"] .pill:not(.ghost):hover{border-image-source:url(img/ui/st-btn-hover.png);transform:translateY(-2px)}
+body[data-world="st"] .pill[aria-disabled="true"]{filter:grayscale(.5) brightness(.9);cursor:not-allowed}
+body[data-world="st"] .shots button{border:solid transparent;border-width:26px 20px 28px 20px;border-image:url(img/ui/st-frame.png) 150 96 160 96/26px 20px 28px 20px stretch;border-radius:0;background:#2a1d1c;filter:drop-shadow(0 8px 12px #2a1d1c88)}
+body[data-world="st"] .shots img{aspect-ratio:16/9}
+body[data-world="st"] .ba h2{display:inline-block;transform:skewX(-7deg);background:#5d4746;color:#f0e2dc;border:solid #382827;border-width:3px 2px 6px 2px;padding:0 24px;font-size:1.5rem}
+body[data-world="st"] .ba .bsub{color:#4a3433;font-weight:500}
+body[data-world="st"] .bacard{border:solid transparent;border-width:40px 30px 44px 30px;border-image:url(img/ui/st-frame.png) 150 96 160 96/40px 30px 44px 30px stretch;border-radius:0;background:#2a1d1c;filter:drop-shadow(0 10px 16px #2a1d1c99);aspect-ratio:16/9}
+body[data-world="st"] .bacap{color:#4a3433}body[data-world="st"] .bacap b{color:#2f201f}
+body[data-world="st"] .bacard .h{background:#f0e2dc}
+body[data-world="st"] .bacard .h::after{background:#5d4746;border-color:#f0e2dc}
+body[data-world="st"] .bacard .h::before{color:#f0e2dc}
+body[data-world="st"] .bacard .chip{background:#5d4746e6;border-color:#f0e2dc66}
+body[data-world="st"] .bacard .chip.r{color:#f6dfc9;border-color:#f6dfc9aa}
+body[data-world="st"] .panel{background:none;border:solid transparent;border-width:54px 32px 36px 32px;border-image:url(img/ui/st-panel.png) 54 36 40 36 fill/54px 32px 36px 32px stretch;border-radius:0;padding:0;color:#3b2928;filter:drop-shadow(0 8px 12px #2a1d1c77)}
+body[data-world="st"] .panel h2{margin:-44px 0 14px;color:#f0e2dc;font-size:1.02rem}
+body[data-world="st"] .panel dt{color:#6a4a47}
+body[data-world="st"] .panel dd,body[data-world="st"] .panel li{color:#3b2928}
+body[data-world="st"] footer{color:#4a3433;border-top:3px solid #624a49}
+@media (max-width:760px){
+  body[data-world="st"] .dhero.bleed{margin-top:18px;border-width:34px 22px 38px 22px;border-image-width:34px 22px 38px 22px}
+  body[data-world="st"] .dhero .in{padding:50px 16px 18px}
+  body[data-world="st"] .bacard{border-width:26px 18px 28px 18px;border-image-width:26px 18px 28px 18px}
+  body[data-world="st"] .panel{border-width:48px 24px 30px 24px;border-image-width:48px 24px 30px 24px}
+}
 /* ===== v2: نظيف على طريقة Steam/PlayStation: بلا إطارات، 380px، نص يمين 45%، واليسار صافٍ ===== */
 .screens{gap:clamp(22px,3vw,38px)}
 .screen,.screen.w-st,.screen.w-ml,.screen.w-t2c,.screen.w-ps,.screen.w-pbz,.screen.big{min-height:380px;border:1px solid #ffffff12;border-radius:14px;box-shadow:0 22px 50px -26px #000d;clip-path:none}
@@ -163,9 +204,9 @@ body{position:relative}
 .wbtn,.screen:hover .wbtn{padding:7px 20px;font-size:.85rem;font-weight:600;border-radius:8px;border:1px solid #ffffff55;background:#ffffff1c;box-shadow:none;transform:none;backdrop-filter:blur(6px)}
 .screen:hover .wbtn{background:#ffffff33;border-color:#ffffffa0}
 #wglow{opacity:.45}
-@media (min-width:761px){.screen,.screen.big{height:380px;min-height:0}
- .w-ml .logo-h{zoom:.5}.w-t2c .logo-h{zoom:.6}.w-ps .logo-h{zoom:.4}.w-st .logo-h{zoom:.74}.w-pbz .logo-h{zoom:.74}
- .screen .blurb{-webkit-line-clamp:4}}
+@media (min-width:761px){.screen,.screen.big{height:470px;min-height:0}
+ .w-ml .logo-h{zoom:.64}.w-t2c .logo-h{zoom:.74}.w-ps .logo-h{zoom:.5}.w-st .logo-h{zoom:.92}.w-pbz .logo-h{zoom:.92}
+ .screen .blurb{-webkit-line-clamp:5;font-size:.98rem}.screen .meta{font-size:.8rem}.screen .tag{font-size:.74rem}.wbtn,.screen:hover .wbtn{padding:9px 24px;font-size:.92rem}}
 @media (max-width:760px){
   .screen,.screen.big{min-height:540px;align-items:end}
   .screen::before{background:linear-gradient(0deg,rgba(var(--vg),.95) 0%,rgba(var(--vg),.88) 50%,rgba(var(--vg),0) 82%)}
@@ -676,7 +717,7 @@ function reelShow(pool){
   };
   next.src=it.src;
 }
-function home(){
+function home(){document.body.dataset.world='';
   stopTimer();rIdx=0;rCur=null;
   var all=[];['shot1','shot2','shot3','hero'].forEach(function(k){GAMES.forEach(function(g){all.push(cimg(g,k))})});
   /* كل ما زادت التعريبات زادت الصفوف وتنوعت الصور تلقائياً */
@@ -704,7 +745,7 @@ function home(){
   var pool=reelPool();reelShow(pool);initCards();initPoem();initConstNums();
   timer=setInterval(function(){reelShow(pool)},4600);
 }
-function detail(g){
+function detail(g){document.body.dataset.world=g.lg;
   stopTimer();
   var shots=[1,2,3].map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
