@@ -146,46 +146,73 @@ body{position:relative}
   .screen .info{width:100%;max-width:none;box-sizing:border-box;padding:32px 26px 34px}
 }
 @media (prefers-reduced-motion:reduce){.screen{scale:1!important}.screen .s{transition:none}}
-/* ===== صفحة برج السيادة على طابع اللعبة (أصول فعلية: خلفية القاموس، إطار منحوت، لوحة ورق، أزرار لوح) ===== */
-body[data-world="st"]{background:#b4998f url(img/ui/st-bg.jpg) center top/cover fixed no-repeat;color:#43302f}
-body[data-world="st"]::before{background:#5d4746}
-body[data-world="st"] #wglow{display:none}
-body[data-world="st"] nav.top{background:linear-gradient(#5d4746f5,#4b3736f5);border-bottom:3px solid #382827;backdrop-filter:none}
+/* ===== صفحات الألعاب: هيكل موحد (هيرو طويل، لوحات بعناوينها في مكانها) + طابع كل لعبة ===== */
+body[data-world]{background:var(--w-bg);color:var(--w-ink)}
+body[data-world]::before{background:var(--w-nav-bg)}
+body[data-world] #wglow{display:none}
+body[data-world] nav.top{background:var(--w-nav-bg);border-bottom:var(--w-nav-bd);backdrop-filter:none}
+body[data-world] .logo span{color:var(--w-mute)}
+body[data-world] .dhero.bleed{min-height:max(680px,92svh);border:0}
+body[data-world] .dhero .bg{-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+body[data-world] .dhero::before{background:linear-gradient(270deg,rgba(var(--w-vg),.92),rgba(var(--w-vg),.5) 46%,transparent 80%),linear-gradient(0deg,rgba(var(--w-vg),.6),transparent 48%);-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+body[data-world] .dhero .in{padding:110px 0 130px}
+body[data-world] .dhero p{color:#f6f0ea;text-shadow:0 2px 10px #000b}
+body[data-world] .dhero .en{color:#eae2d8}
+body[data-world] .back{color:#f2e9e2;text-shadow:0 1px 6px #000}
+body[data-world] .dl small{color:#e9e0d6}
+body[data-world] .tag{background:color-mix(in srgb,var(--w-accent) 16%,#0004);border:1px solid color-mix(in srgb,var(--w-accent) 50%,transparent);color:#f6f0ea;backdrop-filter:none;border-radius:var(--w-r)}
+body[data-world] .tag.gold{background:var(--w-accent);color:#fff;border-color:transparent}
+body[data-world] .pill:not(.ghost){background:var(--w-btn);color:var(--w-btn-fg);border:var(--w-btn-bd);border-radius:var(--w-btn-r);font-weight:700}
+body[data-world] .pill.ghost{background:var(--w-title-bg);color:var(--w-title-fg);border:var(--w-btn-bd);border-radius:var(--w-btn-r);font-weight:700}
+body[data-world] .pill[aria-disabled="true"]{filter:grayscale(.5) brightness(.9);cursor:not-allowed}
+body[data-world] .shots button{border:var(--w-shot-bd);border-radius:var(--w-r);box-shadow:var(--w-panel-sh);background:#000}
+body[data-world] .ba h2{display:inline-block;background:var(--w-title-bg);color:var(--w-title-fg);padding:0 24px;border-radius:var(--w-r);font-size:1.5rem}
+body[data-world] .ba .bsub,body[data-world] .bacap{color:var(--w-mute)}body[data-world] .bacap b{color:var(--w-ink)}
+body[data-world] .bacard{border:var(--w-shot-bd);border-radius:var(--w-r);box-shadow:var(--w-panel-sh)}
+body[data-world] .bacard .h{background:var(--w-accent)}body[data-world] .bacard .h::after{border-color:var(--w-accent);background:var(--w-nav-bg)}body[data-world] .bacard .h::before{color:var(--w-accent)}
+body[data-world] .panels{align-items:stretch;gap:24px}
+body[data-world] .panel{position:relative;isolation:isolate;padding:72px 28px 30px;margin:0;min-width:0;background:var(--w-panel);border:var(--w-panel-bd);border-radius:var(--w-r);color:var(--w-ink);box-shadow:var(--w-panel-sh)}
+body[data-world] .panel h2{position:absolute;top:0;left:0;right:0;margin:0;padding:14px 28px;font-size:1.02rem;background:var(--w-title-bg);color:var(--w-title-fg);border-radius:calc(var(--w-r) - 1px) calc(var(--w-r) - 1px) 0 0}
+body[data-world] .panel dt{color:var(--w-mute)}body[data-world] .panel dd,body[data-world] .panel li{color:var(--w-ink)}
+body[data-world] .fbox,body[data-world] .chg .col{background:var(--w-panel);border:var(--w-panel-bd);border-radius:var(--w-r)}
+body[data-world] .fbox.new{border-color:var(--w-accent)}body[data-world] .modbox .msub{color:var(--w-mute)}
+body[data-world] footer{color:var(--w-mute);border-top:var(--w-nav-bd)}
+/* --- برج السيادة: أصول اللعبة الفعلية --- */
+body[data-world="st"]{--w-bg:#b4998f url(img/ui/st-bg.jpg) center top/cover fixed no-repeat;--w-ink:#43302f;--w-mute:#5d4746;--w-nav-bg:#5d4746;--w-nav-bd:3px solid #382827;--w-vg:42,29,28;--w-r:2px;--w-panel:none;--w-panel-bd:0;--w-panel-sh:none;--w-title-bg:#5d4746;--w-title-fg:#f0e2dc;--w-accent:#f0e2dc;--w-btn:none;--w-btn-fg:#5d4746;--w-btn-bd:0;--w-btn-r:0;--w-shot-bd:0}
 body[data-world="st"] .logo span{color:#e0cdc6}
-body[data-world="st"] .pill.ghost{background:#bfa69e;color:#5d4746;border:solid #624a49;border-width:2px 2px 4px 2px;border-radius:2px;font-weight:700}
-body[data-world="st"] .dhero.bleed{width:auto;max-width:1180px;margin:30px auto 0;min-height:520px;border:solid transparent;border-width:56px 40px 60px 40px;border-image:url(img/ui/st-frame.png) 150 96 160 96/56px 40px 60px 40px stretch;filter:drop-shadow(0 12px 18px #2a1d1c99)}
-body[data-world="st"] .dhero::before{background:linear-gradient(0deg,#2a1d1cdd 2%,#2a1d1c77 40%,transparent 78%),linear-gradient(270deg,#2a1d1ccc,transparent 64%)}
-body[data-world="st"] .dhero .in{padding:70px 34px 30px}
-body[data-world="st"] .dhero p{color:#f3e9e4;text-shadow:0 2px 10px #000b}
+body[data-world="st"] .pill.ghost{background:#bfa69e;color:#5d4746;border:solid #624a49;border-width:2px 2px 4px 2px;border-radius:2px}
 body[data-world="st"] .dhero .en{display:inline-block;transform:skewX(-7deg);background:#bfa69e;color:#86585a;border:solid #624a49;border-width:3px 2px 6px 2px;padding:0 18px;font-weight:700;text-shadow:none}
-body[data-world="st"] .back{color:#f0dfd8;text-shadow:0 1px 6px #000}
-body[data-world="st"] .tag{background:#d4b8b2;border:1px solid #624a49;color:#5d4746;backdrop-filter:none;border-radius:2px}
+body[data-world="st"] .tag{background:#d4b8b2;border:1px solid #624a49;color:#5d4746;border-radius:2px}
 body[data-world="st"] .tag.gold{background:#8f6a63;color:#f3e6df;border-color:#4d3836}
-body[data-world="st"] .dl small{color:#e6d4cd}
-body[data-world="st"] .pill:not(.ghost){background:none;color:#5d4746;border:solid transparent;border-width:14px 22px 16px 26px;border-image:url(img/ui/st-btn.png) 14 44 16 51 fill/14px 22px 16px 26px stretch;border-radius:0;padding:2px 24px;font-size:1.1rem;font-weight:700;transition:transform .2s}
+body[data-world="st"] .pill:not(.ghost){background:none;color:#5d4746;border:solid transparent;border-width:14px 22px 16px 26px;border-image:url(img/ui/st-btn.png) 14 44 16 51 fill/14px 22px 16px 26px stretch;border-radius:0;padding:2px 24px;font-size:1.1rem;transition:transform .2s}
 body[data-world="st"] .pill:not(.ghost):hover{border-image-source:url(img/ui/st-btn-hover.png);transform:translateY(-2px)}
-body[data-world="st"] .pill[aria-disabled="true"]{filter:grayscale(.5) brightness(.9);cursor:not-allowed}
 body[data-world="st"] .shots button{border:solid transparent;border-width:26px 20px 28px 20px;border-image:url(img/ui/st-frame.png) 150 96 160 96/26px 20px 28px 20px stretch;border-radius:0;background:#2a1d1c;filter:drop-shadow(0 8px 12px #2a1d1c88)}
-body[data-world="st"] .shots img{aspect-ratio:16/9}
-body[data-world="st"] .ba h2{display:inline-block;transform:skewX(-7deg);background:#5d4746;color:#f0e2dc;border:solid #382827;border-width:3px 2px 6px 2px;padding:0 24px;font-size:1.5rem}
-body[data-world="st"] .ba .bsub{color:#4a3433;font-weight:500}
-body[data-world="st"] .bacard{border:solid transparent;border-width:40px 30px 44px 30px;border-image:url(img/ui/st-frame.png) 150 96 160 96/40px 30px 44px 30px stretch;border-radius:0;background:#2a1d1c;filter:drop-shadow(0 10px 16px #2a1d1c99);aspect-ratio:16/9}
-body[data-world="st"] .bacap{color:#4a3433}body[data-world="st"] .bacap b{color:#2f201f}
-body[data-world="st"] .bacard .h{background:#f0e2dc}
-body[data-world="st"] .bacard .h::after{background:#5d4746;border-color:#f0e2dc}
-body[data-world="st"] .bacard .h::before{color:#f0e2dc}
-body[data-world="st"] .bacard .chip{background:#5d4746e6;border-color:#f0e2dc66}
-body[data-world="st"] .bacard .chip.r{color:#f6dfc9;border-color:#f6dfc9aa}
-body[data-world="st"] .panel{background:none;border:solid transparent;border-width:54px 32px 36px 32px;border-image:url(img/ui/st-panel.png) 54 36 40 36 fill/54px 32px 36px 32px stretch;border-radius:0;padding:0;color:#3b2928;filter:drop-shadow(0 8px 12px #2a1d1c77)}
-body[data-world="st"] .panel h2{margin:-44px 0 14px;color:#f0e2dc;font-size:1.02rem}
+body[data-world="st"] .ba h2{transform:skewX(-7deg);border:solid #382827;border-width:3px 2px 6px 2px}
+body[data-world="st"] .ba .bsub{font-weight:500}body[data-world="st"] .bacap b{color:#2f201f}
+body[data-world="st"] .bacard{border:solid transparent;border-width:40px 30px 44px 30px;border-image:url(img/ui/st-frame.png) 150 96 160 96/40px 30px 44px 30px stretch;border-radius:0;background:#2a1d1c;filter:drop-shadow(0 10px 16px #2a1d1c99)}
+body[data-world="st"] .bacard .h{background:#f0e2dc}body[data-world="st"] .bacard .h::after{background:#5d4746;border-color:#f0e2dc}body[data-world="st"] .bacard .h::before{color:#f0e2dc}
+body[data-world="st"] .bacard .chip{background:#5d4746e6;border-color:#f0e2dc66}body[data-world="st"] .bacard .chip.r{color:#f6dfc9;border-color:#f6dfc9aa}
+body[data-world="st"] .panel{background:none;border:0;padding:84px 40px 46px;box-shadow:none}
+body[data-world="st"] .panel::before{content:"";position:absolute;inset:0;z-index:-1;border:solid transparent;border-width:54px 32px 36px 32px;border-image:url(img/ui/st-panel.png) 54 36 40 36 fill/54px 32px 36px 32px stretch;filter:drop-shadow(0 8px 12px #2a1d1c77)}
+body[data-world="st"] .panel h2{background:none;top:3px;padding:12px 44px}
 body[data-world="st"] .panel dt{color:#6a4a47}
-body[data-world="st"] .panel dd,body[data-world="st"] .panel li{color:#3b2928}
-body[data-world="st"] footer{color:#4a3433;border-top:3px solid #624a49}
+/* --- من بلدة إلى مدينة: ورق كريمي وقرميد --- */
+body[data-world="t2c"]{--w-bg:linear-gradient(#f6ead3,#edd7b0) fixed;--w-ink:#6b4a38;--w-mute:#9a7258;--w-nav-bg:#f6ead3;--w-nav-bd:3px solid #d79a6d;--w-vg:43,26,20;--w-r:20px;--w-panel:#fbf2e0;--w-panel-bd:2px solid #d79a6d;--w-panel-sh:0 12px 26px -14px #6b4a3877;--w-title-bg:#ecc9a0;--w-title-fg:#7a3f22;--w-accent:#c0452b;--w-btn:#f6ead3;--w-btn-fg:#9a4a2a;--w-btn-bd:2px solid #d79a6d;--w-btn-r:99px;--w-shot-bd:6px solid #f6ead3}
+body[data-world="t2c"] .logo b{color:#c0452b}
+body[data-world="t2c"] .tag{background:#5f7230;border:0;color:#f6ead3}body[data-world="t2c"] .tag.gold{background:#c0452b}
+/* --- مسروقة غالباً: بكسل ولوحات موف --- */
+body[data-world="ps"]{--w-bg:#3a2f33;--w-ink:#eadfd6;--w-mute:#c9bab0;--w-nav-bg:#2f2528;--w-nav-bd:3px solid #c9633f;--w-vg:31,24,26;--w-r:0;--w-panel:#594a4c;--w-panel-bd:2px solid #b9a79c;--w-panel-sh:6px 6px 0 #1f181a;--w-title-bg:#40363a;--w-title-fg:#e0764d;--w-accent:#e0764d;--w-btn:#b4a79d;--w-btn-fg:#2f2528;--w-btn-bd:2px solid #2f2528;--w-btn-r:0;--w-shot-bd:3px solid #b9a79c}
+body[data-world="ps"] .panel h2,body[data-world="ps"] .ba h2{font-family:'Pixelify Sans',monospace;font-size:1.1rem}
+/* --- سادة الإقطاع: خشب داكن ونحاس --- */
+body[data-world="ml"]{--w-bg:#17100b;--w-ink:#eadfc8;--w-mute:#c9b58c;--w-nav-bg:#1b130d;--w-nav-bd:2px solid #8a6a3a;--w-vg:15,11,7;--w-r:4px;--w-panel:linear-gradient(#3a2818,#271a0f);--w-panel-bd:1px solid #8a6a3a;--w-panel-sh:0 14px 28px -12px #000;--w-title-bg:#4a331c;--w-title-fg:#e2cfa0;--w-accent:#d1a65a;--w-btn:linear-gradient(#7a5731,#4a331c);--w-btn-fg:#f6e7c1;--w-btn-bd:1px solid #d1a65a;--w-btn-r:3px;--w-shot-bd:2px solid #8a6a3a}
+/* --- نصل الطيف: حبر وعظم وأحمر --- */
+body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-bg:#0a0b0d;--w-nav-bd:1px solid #ffffff18;--w-vg:10,11,13;--w-r:2px;--w-panel:#101114;--w-panel-bd:1px solid #2a2d31;--w-panel-sh:none;--w-title-bg:#16171b;--w-title-fg:#cfc7b8;--w-accent:#b0382f;--w-btn:transparent;--w-btn-fg:#f2eee6;--w-btn-bd:1px solid #d8d2c4;--w-btn-r:2px;--w-shot-bd:1px solid #2a2d31}
 @media (max-width:760px){
-  body[data-world="st"] .dhero.bleed{margin-top:18px;border-width:34px 22px 38px 22px;border-image-width:34px 22px 38px 22px}
-  body[data-world="st"] .dhero .in{padding:50px 16px 18px}
+  body[data-world] .dhero.bleed{min-height:max(640px,88svh)}
+  body[data-world] .dhero .in{padding:90px 4px 110px}
   body[data-world="st"] .bacard{border-width:26px 18px 28px 18px;border-image-width:26px 18px 28px 18px}
-  body[data-world="st"] .panel{border-width:48px 24px 30px 24px;border-image-width:48px 24px 30px 24px}
+  body[data-world="st"] .panel::before{border-width:48px 24px 30px 24px;border-image-width:48px 24px 30px 24px}
+  body[data-world="st"] .panel{padding:76px 30px 40px}
 }
 /* ===== v2: نظيف على طريقة Steam/PlayStation: بلا إطارات، 380px، نص يمين 45%، واليسار صافٍ ===== */
 .screens{gap:clamp(22px,3vw,38px)}
