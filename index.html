@@ -443,6 +443,11 @@ footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);
   .screen::before{background:linear-gradient(0deg,rgba(var(--vg),.62) 0%,rgba(var(--vg),.45) 38%,rgba(var(--vg),0) 70%)!important}
   .screen,.screen.big{min-height:580px}
 }
+/* v3.1: العمود كله أنزل وفي الوسط، والزر في آخره تحت الشارات */
+.screen .info{justify-content:center;gap:12px}
+.act{flex-direction:column!important;align-items:flex-start!important;gap:14px!important;margin-top:8px}
+.act .bd{display:grid;gap:10px;justify-items:start}
+.act .wbtn{margin-top:6px}
 /* ===== ديف الغوّاص + صناعة الجرعات ===== */
 .lg-dave{display:inline-flex;flex-direction:column;align-items:flex-end;gap:6px;line-height:1}
 .lg-dave .d1{font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(3rem,7vw,5.2rem);background:linear-gradient(#ffe36a,#ffb21f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(3px 3px 0 #0b7a96) drop-shadow(5px 5px 0 #08546b)}
@@ -498,12 +503,12 @@ var GAMES=[
   engine:'غير محدد',kind:'حزمة (zip)',size:'0.6 ميجا',date:'2026-11-03',dl:'https://github.com/abu7meddd/midad/releases/download/probably-stolen/Probably_Stolen_Arabic.zip',
   feats:['تعريب النصوص'],
   how:['فك ضغط الحزمة','انسخ الملفات فوق مجلد اللعبة','شغّل اللعبة']},
- {id:'dave-the-diver',lg:'dave',glow:'#2fb7e066',ar:'ديف الغوّاص',en:'DAVE THE DIVER',by:'أبو حميد',dev:'MINTROCKET',tags:['مغامرة','محاكاة','لعب أدوار'],
+ {id:'dave-the-diver',lg:'dave',glow:'#2fb7e066',ar:'ديف الغوّاص',en:'DAVE THE DIVER',by:'أبو النوفي',dev:'MINTROCKET',tags:['مغامرة','محاكاة','لعب أدوار'],
   blurb:'«ديف الغوّاص» (DAVE THE DIVER) لعبة مغامرات وأدوار هادئة تُلعب فردياً، تجمع بين استكشاف أعماق البحر وصيد الأسماك نهاراً وإدارة مطعم سوشي ليلاً. انضمّ إلى ديف وأصدقائه الطريفين وهم يكشفون أسرار الحفرة الزرقاء الغامضة.',
   engine:'Unity',kind:'حزمة (zip)',size:'66.6 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/dave-the-diver/DaveTheDiver_Arabic.zip',
   feats:['تعريب القوائم والحوارات والمهمات والأسماك','خط Rubik SemiBold','أربع حزم بيانات تُستبدل مع نسخ احتياطي للأصل'],
   how:['أغلق اللعبة تماماً','شغّل Install-Arabic.bat (يجد مجلد اللعبة تلقائياً)','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']},
- {id:'potion-craft',lg:'pc',glow:'#c8923f66',ar:'صناعة الجرعات',en:'Potion Craft: Alchemist Simulator',by:'أبو حميد',dev:'niceplay games',tags:['محاكاة','مستقل'],
+ {id:'potion-craft',lg:'pc',glow:'#c8923f66',ar:'صناعة الجرعات',en:'Potion Craft: Alchemist Simulator',by:'أبو النوفي',dev:'niceplay games',tags:['محاكاة','مستقل'],
   blurb:'«صناعة الجرعات» (Potion Craft: Alchemist Simulator) محاكي خيمياء تتعامل فيه بيدك مع أدواتك ومكوّناتك لتحضّر الجرعات. أنت تتحكم في المتجر كله: ابتكر وصفات جديدة، واجذب الزبائن، وجرّب ما شئت. لكن تذكّر: البلدة كلها تعوّل عليك.',
   engine:'Unity',kind:'حزمة (zip)',size:'0.5 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/potion-craft/PotionCraft_Arabic_Patch.zip',
   feats:['الواجهات والقوائم والإعدادات','المكوّنات والوصفات وشجرة المواهب','حوارات الزبائن والشخصيات','شعار اللعبة بالعربي في القائمة الرئيسية','اتجاه كتابة RTL وخط Rubik SemiBold'],
