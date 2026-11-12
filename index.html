@@ -481,7 +481,25 @@ body[data-world="pc"]{--w-bg:#d6bb86 url(img/potion-craft-hero2x.jpg) center top
 body[data-world="pc"] .dhero p,body[data-world="pc"] .dhero .en,body[data-world="pc"] .back,body[data-world="pc"] .dl small{color:#3d2a22;text-shadow:none}
 body[data-world="pc"] .tag{background:#ead6a8cc;color:#3d2a22;border-color:#8a6a3a}body[data-world="pc"] .tag.gold{background:#5b3d2a;color:#f1e6d0}
 body[data-world="pc"] .logo span{color:#e3cfa5}body[data-world="pc"] footer{color:#3d2a22;border-top-color:#5b3d2a}
-body[data-world="pc"] .lg-pc .pd{display:none}body[data-world="pc"] .lg-pc .pl{display:block}</style>
+body[data-world="pc"] .lg-pc .pd{display:none}body[data-world="pc"] .lg-pc .pl{display:block}.lg-dredge{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;gap:4px}
+.lg-dredge .r{font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(3.4rem,8vw,6rem);color:#f6efe4;letter-spacing:.02em;text-shadow:-3px 0 0 #3ec7d6aa,3px 0 0 #e0483caa,0 6px 24px #000a;transform:skewX(-4deg)}
+.lg-dredge .s{font-family:'Changa','Rubik',sans-serif;font-weight:800;font-size:clamp(.8rem,1.5vw,1.05rem);letter-spacing:.34em;color:#e9c9a4;direction:ltr;text-shadow:0 2px 10px #000}
+.lg-celeste{display:inline-grid;justify-items:center;line-height:1;gap:0}
+.lg-celeste .pk{width:clamp(70px,10vw,110px);height:auto;margin-bottom:-.35em;position:relative;z-index:0}
+.lg-celeste .t{position:relative;z-index:1;font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(3rem,7.4vw,5.4rem);padding-bottom:.08em;background:linear-gradient(#e6f4ff,#8fc0f5);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 .05em 0 #3b2e6b) drop-shadow(0 0 .02em #3b2e6b) drop-shadow(.04em .04em 0 #3b2e6b) drop-shadow(-.04em .04em 0 #3b2e6b)}
+.lg-restory{display:inline-grid;justify-items:center;line-height:1;gap:6px}
+.lg-restory .t{font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(2.6rem,6.4vw,4.7rem);padding-bottom:.1em;color:#e5472d;-webkit-text-stroke:.07em #3b1c12;paint-order:stroke fill;text-shadow:.05em .06em 0 #3b1c12;transform:rotate(-2deg)}
+.lg-restory .j{font-family:'Reem Kufi','Rubik',sans-serif;font-weight:700;font-size:clamp(.85rem,1.7vw,1.15rem);color:#fff7e3;background:#3b1c12;padding:.12em .8em;border-radius:3px;letter-spacing:.08em}
+.lg-restory .tape{width:clamp(90px,13vw,140px);height:auto;margin-bottom:-.2em;transform:rotate(-4deg)}
+.w-dredge{--vg:22,13,10;--gl:#c8693a70}.w-celeste{--vg:20,14,40;--gl:#8ec5ff70}.w-restory{--vg:40,20,12;--gl:#e5472d70}
+@media (min-width:761px){.w-dredge .logo-h{zoom:1.05}.w-celeste .logo-h{zoom:1.1}.w-restory .logo-h{zoom:1.15}}
+body[data-world="dredge"]{--w-bg:#0d1215 url(img/dredge-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#efe3d2;--w-mute:#b9a58b;--w-nav-bg:#141b1e;--w-nav-bd:2px solid #b5683a;--w-vg:13,18,21;--w-r:3px;--w-panel:#182125;--w-panel-bd:2px solid #6b4a36;--w-panel-sh:0 10px 22px -12px #000b;--w-title-bg:#8c4a28;--w-title-fg:#f6e8d2;--w-accent:#e28a52;--w-btn:#b5683a;--w-btn-fg:#140d09;--w-btn-bd:2px solid #e9b07f;--w-btn-r:3px;--w-shot-bd:3px solid #6b4a36}
+body[data-world="celeste"]{--w-bg:#1a1431 url(img/celeste-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#eaf2ff;--w-mute:#b6bfe8;--w-nav-bg:#241c45;--w-nav-bd:3px solid #8ec5ff;--w-vg:26,20,49;--w-r:0;--w-panel:#2a2250;--w-panel-bd:3px solid #8ec5ff;--w-panel-sh:5px 5px 0 #0d0a20;--w-title-bg:#b69cf0;--w-title-fg:#241c45;--w-accent:#ff8da1;--w-btn:#ff7a90;--w-btn-fg:#2a0f1c;--w-btn-bd:3px solid #3b2e6b;--w-btn-r:0;--w-shot-bd:4px solid #8ec5ff}
+body[data-world="restory"]{--w-bg:#e9d4a8 url(img/restory-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#3b1c12;--w-mute:#6d4a38;--w-nav-bg:#3b1c12;--w-nav-bd:3px solid #e5472d;--w-vg:233,212,168;--w-r:6px;--w-panel:#fff3d6;--w-panel-bd:3px solid #3b1c12;--w-panel-sh:5px 5px 0 #3b1c12;--w-title-bg:#e5472d;--w-title-fg:#fff7e3;--w-accent:#c8381f;--w-btn:#e5472d;--w-btn-fg:#fff7e3;--w-btn-bd:3px solid #3b1c12;--w-btn-r:6px;--w-shot-bd:5px solid #3b1c12}
+body[data-world="restory"] .dhero p,body[data-world="restory"] .dhero .en,body[data-world="restory"] .back,body[data-world="restory"] .dl small{color:#3b1c12;text-shadow:none}
+body[data-world="restory"] .tag{background:#fff3d6cc;color:#3b1c12;border-color:#3b1c12}body[data-world="restory"] .tag.gold{background:#3b1c12;color:#fff7e3}
+body[data-world="restory"] .logo span{color:#f0d9aa}body[data-world="restory"] footer{color:#3b1c12;border-top-color:#3b1c12}
+</style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
 
@@ -543,13 +561,28 @@ var GAMES=[
   blurb:'«صناعة الجرعات» (Potion Craft: Alchemist Simulator) محاكي خيمياء تتعامل فيه بيدك مع أدواتك ومكوّناتك لتحضّر الجرعات. أنت تتحكم في المتجر كله: ابتكر وصفات جديدة، واجذب الزبائن، وجرّب ما شئت. لكن تذكّر: البلدة كلها تعوّل عليك.',
   engine:'Unity',kind:'حزمة (zip)',size:'0.5 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/potion-craft/PotionCraft_Arabic_Patch.zip',
   feats:['الواجهات والقوائم والإعدادات','المكوّنات والوصفات وشجرة المواهب','حوارات الزبائن والشخصيات','شعار اللعبة بالعربي في القائمة الرئيسية','اتجاه كتابة RTL وخط Rubik SemiBold'],
-  how:['فك الضغط داخل مجلد اللعبة (حيث Potion Craft.exe)','شغّل Install-Arabic.bat','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']}
+  how:['فك الضغط داخل مجلد اللعبة (حيث Potion Craft.exe)','شغّل Install-Arabic.bat','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']},
+ {id:'dredge',lines:4912,lg:'dredge',ba:[{"en": "img/dredge-ba-en-1.jpg", "ar": "img/dredge-ar-1.jpg", "ref": "title.shipwright-rods، button.repair-all، tab.cargo، tab.storage، boat-stats.harvest-types.name، boat-stats.hull، character.shipwright.name، prompt.enter-repair-mode، prompt.return-to-town، line:0b592bb", "note": "سطور سرعة القارب والصيد والإضاءة وشارات أنواع الأسماك (COASTAL/SHALLOW/DREDGE) تُركت كما هي لأن وحداتها (kn، lm) تُركَّب من الكود لا من الجدول، وكذلك التاريخ والساعة والمبلغ."}, {"en": "img/dredge-ba-en-2.jpg", "ar": "img/dredge-ar-2.jpg", "ref": "line:048a80c، prompt.continue", "note": "نص اللقطة الإنجليزي فيه «old open book» بينما سطر الجدول الحالي «old book»، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. التاريخ والساعة تُركا."}, {"en": "img/dredge-ba-en-3.jpg", "ar": "img/dredge-ar-3.jpg", "ref": "research.header، tab.research.rods وengines وpots وnets، research.header.description، research.part-count، research.for-sale، tooltip.rod.catches، harvest-type.abyssal، harvest-type.hadal، prompt.back", "note": "الأوراق المرسومة (أشكال المعدّات) والتاريخ والساعة في أعلى اللقطة تُركت كما هي."}],glow:'#c8693a66',ar:'دريدج',en:'DREDGE',by:'أبو حميد',dev:'Black Salt Games',tags:['مغامرة','لعب أدوار'],
+  blurb:'«دريدج» (DREDGE) لعبة صيد ومغامرة فردية يسري تحتها تيار شرير. بع صيدك، وطوّر قاربك، واجرف الأعماق بحثاً عن أسرار دُفنت منذ زمن بعيد. استكشف أرخبيلاً غامضاً، واكتشف لماذا يُفضَّل أن تبقى بعض الأشياء منسيّة.',
+  engine:'Unity',kind:'مثبّت (exe)',size:'75.9 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/dredge/DREDGE-Arabic-Setup.exe',
+  feats:['نصوص اللعبة وقوائمها وحواراتها','شعار اللعبة ولافتات النسخة الكاملة بالعربي','خط ثمانية Bold','مثبّت بهوية أبو حميد، مع نسخ احتياطي للأصل وإزالة'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واختر مجلد اللعبة','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
+ {id:'celeste',lines:525,lg:'celeste',ba:[{"en": "img/celeste-ba-en-1.jpg", "ar": "img/celeste-ar-1.jpg", "ref": "CH0_GRANNY (المقطع 2: The sign out front is busted… / is this the Mountain trail?)", "note": "اللون السماوي لكلمة «الجبل» من وسم اللعبة نفسه ({# 96EFFF}). موضع النص وكسر الأسطر تقريب تركيب."}, {"en": "img/celeste-ba-en-2.jpg", "ar": "img/celeste-ar-2.jpg", "ref": "CH4_GONDOLA (المقطع 37: I can't breathe.)", "note": "موضع النص في الصندوق تقريب تركيب."}, {"en": "img/celeste-ba-en-3.jpg", "ar": "img/celeste-ar-3.jpg", "ref": "CH3_OSHIRO_FRONT_DESK (المقطع 5: Welcome to the world-renowned / Celestial Resort Hotel!)", "note": "السطر الثاني بالحجم الكبير كما في اللعبة ({big}). حركة التموّج ({~}) لا تظهر في صورة ثابتة، وموضع النص تقريب تركيب."}],glow:'#8ec5ff66',ar:'سيليست',en:'Celeste',by:'أبو حميد',dev:'Maddy Makes Games / Extremely OK Games',tags:['منصّات','مغامرة','مستقل'],
+  blurb:'«سيليست» (Celeste) لعبة منصّات محكمة من مبتكري TowerFall: ساعد مادلين على النجاة من شياطينها الداخلية في رحلتها إلى قمة جبل سيليست. واجه مئات التحديات المصنوعة يدوياً، واكشف أسراراً ماكرة، وركّب لغز الجبل.',
+  engine:'XNA / Monocle (.NET)',kind:'مثبّت (exe)',size:'33.4 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/celeste/Celeste-Arabic-Setup.exe',
+  feats:['القوائم والإعدادات وكل الحوارات','وسوم التلوين والتموّج والتأكيد سليمة','خط ثمانية Sans Black','تعريب 6 صور من الواجهة (الافتتاح والقوائم والمذكرة)','مثبّت بهوية أبو حميد'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واختر مجلد اللعبة','اضغط تثبيت ثم افتح اللعبة']},
+ {id:'restory',lines:3174,lg:'restory',ba:[{"en": "img/restory-ba-en-1.jpg", "ar": "img/restory-ar-1.jpg", "ref": "حوار Articy، المعرّف 0x0100000000003191 (المتحدث Demo HaruhiMoe): الإنجليزي من restory.data_assets_all_23cea….bundle (حقل en)، والعربي text_ar من ArabicDialogues.json بالمعرّف نفسه", "note": "فقاعة الحوار من لقطة Steam؛ الإطار والتفاف الأسطر قد يختلفان داخل اللعبة."}, {"en": "img/restory-ba-en-2.jpg", "ar": "img/restory-ar-2.jpg", "ref": "UI_ADVICE_ASSEMBLE_ROTATION، UI_ADVICE_ASSEMBLE_ZOOM، UI_CLEANING_TO_DO_LIST، ELEMENT_PSP_1000_TOP_FRAME_NAME، UI_CLEAN_DIRT_TASK_TEXT", "note": "اللقطة من نسخة أقدم: «Front Panel» صار «Front casing» (اللوح الأمامي) في نص اللعبة الحالي، والنسبة 93% رقم من اللقطة. اسم الجهاز NONY/PMP مرسوم داخل الصورة فيبقى."}, {"en": "img/restory-ba-en-3.jpg", "ar": "img/restory-ar-3.jpg", "ref": "UI_CLEANING_TO_DO_LIST، ELEMENT_PSP_1000_MOTHERBOARD_NAME، UI_RESOLDER_TASK_TEXT", "note": "نصوص الشرائح على اللوحة الأم مرسومة داخل الصورة فتبقى كما هي؛ ترتيب «1)» والنسبة قد يختلف داخل اللعبة."}],glow:'#e5472d66',ar:'حكاية مُرمَّمة',en:'ReStory: Chill Electronics Repairs',by:'أبو النوفي',dev:'Mandragora',tags:['محاكاة','مستقل'],
+  blurb:'«حكاية مُرمَّمة» (ReStory: Chill Electronics Repairs) تضعك على رأس محل إصلاح إلكترونيات صغير في طوكيو منتصف الألفينيات. نمِّ عملك بترميم أجهزة ألعاب شهيرة وهواتف ومشغلات موسيقى وأجهزة أخرى تحنّ إليها القلوب، وتحدّث مع الزبائن واسمع حكاياتهم، وشاهد كيف تؤثر قراراتك في حياتهم وفي محلك.',
+  engine:'Unity',kind:'مثبّت (exe)',size:'13.2 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/restory/ReStory-Arabic-Setup.exe',
+  feats:['واجهة اللعبة وقوائمها ومهام الإصلاح','حوارات الزبائن (1131 حواراً)','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت (يجد مجلد اللعبة)','افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function img(g,k){return 'img/'+g.id+'-'+k+'.jpg'}
 function heroImg(g){return 'img/'+g.id+'-hero2x.jpg'}
-function cimg(g,k){return (g.id==='sovereign-tower'&&(k==='shot2'||k==='shot3'))?'img/'+g.id+'-'+k+'-crop.jpg':img(g,k)}
+function cimg(g,k){if(g.id==='celeste'&&k==='shot1')return 'img/celeste-ba-en-2.jpg';if(g.id==='dredge'&&k==='shot2')return 'img/dredge-shot2c.jpg';return (g.id==='sovereign-tower'&&(k==='shot2'||k==='shot3'))?'img/'+g.id+'-'+k+'-crop.jpg':img(g,k)}
 function tagsOf(g){return '<div class="tags"><span class="tag gold">'+esc(g.by)+'</span>'+g.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div>'}
 var ctl=[],obs=null,tick=false;
 var fxRaf=0,gcol='';
@@ -627,6 +660,9 @@ function logoHTML(g){
   if(g.lg==='t2c')return '<span class="lg lg-t2c">'+SKY+'<span class="t">من بلدة إلى مدينة</span>'+SWASH+'</span>';
   if(g.lg==='dave')return '<span class="lg lg-dave"><span class="d1">ديف</span><span class="d2">الغوّاص</span></span>';
   if(g.lg==='pc')return '<span class="lg lg-pc"><img class="pd" src="img/potion-craft-logo-light.png" alt="صناعة الجرعات"><img class="pl" src="img/potion-craft-logo.png" alt="" aria-hidden="true"></span>';
+  if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="s">D R E D G E</span></span>';
+  if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
+  if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
   if(g.lg==='ps')return '<span class="lg lg-ps"><span class="stamp"><span>مسروقة</span><span>غالباً</span></span></span>';
   return '<span class="lg">'+esc(g.ar)+'</span>';
 }
@@ -652,6 +688,9 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-12',t:'إضافة',id:'restory',n:'حزمة تعريب أبو النوفي بمثبّت يعمل مع خط HeshamRTL.'},
+ {d:'2026-11-12',t:'إضافة',id:'celeste',n:'تعريب كامل للحوارات والواجهة مع تعريب صور الافتتاح والقوائم.'},
+ {d:'2026-11-12',t:'إضافة',id:'dredge',n:'تعريب كامل للنصوص مع شعار اللعبة ولافتاتها بالعربي.'},
  {d:'2026-11-11',t:'إضافة',id:'dave-the-diver',n:'حزمة التعريب العربية الشاملة للقوائم والحوارات والمهمات والأسماك.'},
  {d:'2026-11-11',t:'إضافة',id:'potion-craft',n:'تعريب شامل للواجهات والمكوّنات والوصفات والحوارات مع شعار عربي.'},
  {d:'2026-11-10',t:'تحديث',id:'phantom-blade-zero',n:'استبدال خطوط الحزمة كلها بخط Rubik، والترجمة كما هي بلا أي تعديل (تطابق بالبصمة).'},
@@ -691,7 +730,7 @@ function initPoem(){
   var s=document.querySelector('.poem');if(!s)return;
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!pTimer)showQuote()}else{clearTimeout(pTimer);pTimer=null}})},{threshold:.3}).observe(s)}else showQuote();
 }/* كوكبة مِداد: كل لعبة نجمة، تتصل بخط رفيع، وتزيد نجمة مع كل تعريب جديد */
-var CPOS=[[150,245],[330,105],[530,240],[720,105],[840,235],[940,100]];
+var CPOS=[[80,245],[180,100],[280,245],[380,100],[480,245],[580,100],[680,245],[780,100],[880,245]];
 function cpos(i){if(i<CPOS.length)return CPOS[i];var k=i-CPOS.length;return [100+((k*173)%800),70+((k*97)%240)]}
 /* نجوم الإطار نفسه فقط (ثابتة بلا عشوائية حتى لا تتغير بين الزيارات) */
 function bgStars(){
