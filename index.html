@@ -523,6 +523,21 @@ body[data-world] .navcap{display:none}
 .fpill:hover{border-color:#f3b53f66;color:#fff}
 .fpill.on{background:#f3b53f17;border-color:#f3b53f99;color:var(--gold)}.fpill.on b{color:#f3b53fb0}
 #mods.solo{margin-top:6px!important}
+.fbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px;margin:-8px 0 4px}
+.fbar .fpills{margin:0}
+.fsearch{display:flex;align-items:center;gap:8px;min-width:min(260px,100%);padding:7px 16px;border-radius:999px;background:#ffffff07;border:1px solid #ffffff1c;transition:border-color .3s,background .3s;cursor:text}
+.fsearch:focus-within{border-color:#f3b53f99;background:#f3b53f0a}
+.fsearch svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:var(--mute);stroke-width:2;stroke-linecap:round}
+.fsearch input{flex:1;min-width:0;background:none;border:0;outline:none;color:var(--ink);font:inherit;font-size:.92rem}
+.fsearch input::placeholder{color:#8f8b9c}
+.fsearch input::-webkit-search-cancel-button{filter:invert(.7)}
+.morebtn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;font:inherit;font-weight:600;font-size:1.02rem;color:#f4ecd8;padding:17px 24px;border-radius:16px;border:1px solid #f3b53f55;
+  background:linear-gradient(180deg,#f3b53f17,#f3b53f05);box-shadow:inset 0 1px 0 #ffffff10,0 18px 40px -28px #000;cursor:pointer;transition:border-color .3s,background .3s,color .3s}
+.morebtn:hover{border-color:#f3b53fb0;color:var(--gold);background:linear-gradient(180deg,#f3b53f24,#f3b53f0a)}
+.morebtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.morebtn.open svg{transform:rotate(180deg)}
+.fempty{color:var(--mute);text-align:center;padding:30px 0;margin:0}
+@media (max-width:760px){.fsearch{width:100%}}
 
 /* 3) الكوكبة: خريطة فلكية بإسطرلاب */
 .const .cwrap{padding:0;background:radial-gradient(90% 80% at 62% 30%,#16161c 0%,#0c0d10 72%)}
@@ -583,6 +598,11 @@ body[data-world] .navcap{display:none}
 .labstage .rprog i.go{animation:prog var(--dur,9s) linear both}
 .labstage .rprog i.hold{animation-play-state:paused}
 .lab .bacap{margin-top:10px}
+/* مقبض «قبل وبعد» أوضح: خط ذهبي متوهج ومقبض أكبر بإطار ذهبي */
+.bacard .h{width:3px;transform:translateX(-1.5px);background:#d4a853;box-shadow:0 0 12px rgba(212,168,83,.6)}
+.bacard .h::after{width:56px;height:56px;margin:-28px 0 0 -28px;border:3px solid #d4a853;background:#0a0b0dcc;box-shadow:0 0 18px rgba(212,168,83,.55),inset 0 0 10px rgba(212,168,83,.25)}
+.bacard .h::before{font-size:24px;color:#e9c46f}
+.bacard:hover .h::after,.bacard:focus-visible .h::after{box-shadow:0 0 26px rgba(212,168,83,.8),inset 0 0 12px rgba(212,168,83,.3)}
 
 /* 5) Bento */
 .bento{padding-block:80px 0;scroll-margin-top:80px}
@@ -625,7 +645,12 @@ body[data-world] .navcap{display:none}
 .t-poem .wm b{font-family:var(--display);font-size:clamp(9rem,22vw,17rem);line-height:1;color:#f3b53f;opacity:.05;transform:rotate(-8deg) translateY(4%);white-space:nowrap}
 .t-poem .wm svg{position:absolute;width:300px;height:300px;inset-inline-start:-80px;top:-90px;opacity:.07;fill:none;stroke:#f3b53f;stroke-width:1}
 .t-poem .wm svg.b{inset-inline-start:auto;inset-inline-end:-90px;top:auto;bottom:-110px}
-.t-poem .pq{min-height:clamp(150px,18vw,200px);margin-top:10px;font-size:clamp(1.55rem,3.3vw,2.55rem);max-width:min(760px,96%)}
+.t-poem .pq{min-height:clamp(170px,19vw,220px);margin-top:10px;font-size:clamp(1.45rem,3vw,2.35rem);max-width:min(820px,96%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.7}
+.t-poem .pq .vb{display:flex;flex-direction:column;align-items:center;gap:.05em;opacity:0;transform:translateY(16px);animation:vIn 1s cubic-bezier(.2,.7,.2,1) forwards}
+.t-poem .pq.out .vb{animation:vOut .6s ease forwards}
+.t-poem .pq .hm{display:block;text-wrap:balance}
+@keyframes vIn{to{opacity:1;transform:none}}
+@keyframes vOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-10px)}}
 .t-poem .pctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
 .t-poem .pdots{margin:0}
 .t-poem .pdots i{cursor:pointer;width:7px;height:7px}
@@ -635,7 +660,8 @@ body[data-world] .navcap{display:none}
 @keyframes wisp{0%{opacity:0;transform:translateY(10px) scaleX(.7)}25%{opacity:.5}65%{opacity:.28;transform:translateY(-14px) scaleX(1.2) skewX(10deg)}100%{opacity:0;transform:translateY(-30px) scaleX(.85) skewX(-8deg)}}
 #steamg{transition:opacity 1.2s ease}
 .tea3 .pot{cursor:pointer}
-.tea3 .hint{color:#e7dcc6;font-family:var(--display);font-size:1.15rem;margin:0}
+.tea3 .hint{color:#eadfc8;font-family:var(--body);font-weight:500;font-size:1.08rem;line-height:1.6;margin:4px 0 0;text-align:center;transition:color .4s}
+.tea3 .pot,.tea3 .glass{outline:none}.tea3 .pot:focus-visible #potg{filter:drop-shadow(0 0 6px #f3b53f)}
 .jo .viz{position:absolute;z-index:2;inset-inline-end:16px;bottom:16px;display:flex;align-items:flex-end;gap:3px;height:42px;padding:8px 10px;border-radius:12px;background:#05080c99;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid #1d5a7888}
 .jo .viz i{display:block;width:3px;height:100%;border-radius:2px;background:linear-gradient(#bfeaff,#1aa9ff);box-shadow:0 0 8px #1aa9ff88;transform-origin:50% 100%;transform:scaleY(.2);animation:eq var(--t,1.2s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
 @keyframes eq{0%{transform:scaleY(.14)}50%{transform:scaleY(var(--h,.7))}100%{transform:scaleY(.3)}}
@@ -657,7 +683,8 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
   --ex:50.89%;--ey:21.3%;--erx:36.72%;--ery:43.52%;--tx:50.89%;--ty:30.5%}
 /* صورة البوابة العريضة moon-portal-hd.jpg (1920×1080، اختيار أبو حميد). القديمتان للرجوع: moon-portal.jpg (1200×675): --ex:51%;--ey:-5.93%;--erx:38.5%;--ery:71.85%;--ty:34%، وmoon-portal-2.jpg (421×237): --ex:51.31%;--ey:-8.44%;--erx:37.53%;--ery:72.57%;--ty:30% */
 .moon{position:absolute;inset:0;transform-origin:var(--tx) var(--ty);transition:transform 1.25s cubic-bezier(.65,0,.3,1),opacity 1s ease,filter 1.2s ease;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 12%,#000 88%,transparent 100%)}
+/* ملاحظة: الذوبان يقف عند 12% لأن حافة الأرض في الصورة تبدأ عند 14% و87.5%؛ أي ذوبان أعمق يعتّم حواف الكوكب ويغيّر شكله */
 .moon picture,.moon img{position:absolute;inset:0;width:100%;height:100%;display:block}.moon img{object-fit:cover;user-select:none;-webkit-user-drag:none}
 .moon .eclip{clip-path:ellipse(var(--erx) var(--ery) at var(--ex) var(--ey));transform-origin:var(--ex) var(--ey);transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .9s ease;pointer-events:none}
 /* الأرض: منطقة ضغط شفافة فقط بلا أي إطار أو ظل (حتى لا يتغير شكل الكوكب). التوهج ضوء ناعم من وسط الأرض بلا حواف */
@@ -672,9 +699,11 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 .etext{position:absolute;z-index:3;left:var(--tx);top:var(--ty);transform:translate(-50%,-50%) translateY(8px);pointer-events:none;white-space:nowrap;
   font-family:var(--body);font-weight:500;font-size:clamp(1rem,1.9vw,1.3rem);line-height:1.4;color:#fff6e4;letter-spacing:0;padding:.5em 1.3em .55em;border-radius:999px;
   background:#0a0b0d55;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #ffffff2a;text-shadow:0 2px 14px #000;opacity:0;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1)}
-.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{opacity:1;transform:translate(-50%,-50%)}
-@media (hover:none){.etext{opacity:.92;transform:translate(-50%,-50%);animation:tfloat 4s ease-in-out infinite}}
+/* شارة دائمة فوق الأرض تنبض بنعومة حتى يعرف الزائر أن الكوكب يُضغط */
+.etext{opacity:.94;transform:translate(-50%,-50%);font-size:clamp(.95rem,1.7vw,1.2rem);background:#0a0b0d70;border-color:#f3b53f44;animation:tfloat 4.5s ease-in-out infinite,epulse 2.8s ease-in-out infinite}
+.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{opacity:1;background:#0a0b0d99;border-color:#f3b53fb0;color:#fff}
 @keyframes tfloat{50%{transform:translate(-50%,-50%) translateY(-5px)}}
+@keyframes epulse{0%,100%{box-shadow:0 0 0 0 #f3b53f00,0 6px 20px -8px #000}50%{box-shadow:0 0 22px 2px #f3b53f40,0 6px 20px -8px #000}}
 .mcred{margin:10px 4px 0;font-size:.78rem;color:var(--mute)}
 .cflash{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--tx) var(--ty),#eaf6ffcc,#9fd3f522 30%,transparent 62%)}
 .cflash.go{animation:flash 1.3s ease both}
@@ -948,7 +977,8 @@ var LOG=[
  {d:'2026-11-03',t:'إضافة',id:'town-to-city',n:'حزمة تعريب النصوص والملفات المعدّلة.'},
  {d:'2026-11-03',t:'إضافة',id:'probably-stolen',n:'تعريب أبو النوفي.'}
 ];
-var QUOTES=[['وخيرُ جليسٍ في الأنامِ كتابُ','المتنبي'],['على قدرِ أهلِ العزمِ تأتي العزائمُ','المتنبي'],['الخيلُ والليلُ والبيداءُ تعرفُني والسيفُ والرمحُ والقرطاسُ والقلمُ','المتنبي'],['ما كلُّ ما يتمنّى المرءُ يُدركُهُ تجري الرياحُ بما لا تشتهي السفنُ','المتنبي'],['إذا كانتِ النفوسُ كباراً تعبتْ في مرادِها الأجسامُ','المتنبي'],['إذا الشعبُ يوماً أرادَ الحياةَ فلا بدَّ أن يستجيبَ القدرُ','أبو القاسم الشابي'],['ومن يتهيّبْ صعودَ الجبالِ يَعِشْ أبدَ الدهرِ بين الحُفَرِ','أبو القاسم الشابي'],['وما نيلُ المطالبِ بالتمنّي ولكنْ تؤخذُ الدنيا غِلابا','أحمد شوقي'],['قِفا نبكِ من ذكرى حبيبٍ ومنزلِ','امرؤ القيس'],['من جدَّ وجد، ومن زرع حصد','مثل عربي']];
+/* حبر اليوم: البيت كاملاً، الصدر | العجز */
+var QUOTES=[['أعزُّ مكانٍ في الدُّنى سرجُ سابحٍ|وخيرُ جليسٍ في الزمانِ كتابُ','المتنبي'],['على قدرِ أهلِ العزمِ تأتي العزائمُ|وتأتي على قدرِ الكرامِ المكارمُ','المتنبي'],['الخيلُ والليلُ والبيداءُ تعرفُني|والسيفُ والرمحُ والقرطاسُ والقلمُ','المتنبي'],['ما كلُّ ما يتمنّى المرءُ يُدركُهُ|تجري الرياحُ بما لا تشتهي السفنُ','المتنبي'],['وإذا كانتِ النفوسُ كباراً|تعبتْ في مرادِها الأجسامُ','المتنبي'],['إذا الشعبُ يوماً أرادَ الحياةَ|فلا بدَّ أن يستجيبَ القدرْ','أبو القاسم الشابي'],['ومن يتهيّبْ صعودَ الجبالِ|يعشْ أبدَ الدهرِ بين الحُفَرْ','أبو القاسم الشابي'],['وما نيلُ المطالبِ بالتمنّي|ولكنْ تؤخذُ الدنيا غِلابا','أحمد شوقي'],['قِفا نبكِ من ذكرى حبيبٍ ومنزلِ|بسِقطِ اللِّوى بين الدَّخولِ فحوملِ','امرؤ القيس'],['من جدَّ وجد، ومن زرع حصد','مثل عربي']];
 var pTimer=null,pIdx=0;
 function arD(s){try{return new Date(s+'T12:00:00').toLocaleDateString('ar-EG-u-ca-gregory',{day:'numeric',month:'long',year:'numeric'})}catch(e){return s}}
 function gById(id){return GAMES.filter(function(x){return x.id===id})[0]}
@@ -983,14 +1013,14 @@ function initBento(){
 }
 function showQuote(){
   var el=document.getElementById('pq'),pa=document.getElementById('pa');if(!el)return;
-  var k=pIdx%QUOTES.length,q=QUOTES[k],words=q[0].split(' ');pIdx++;
+  var k=pIdx%QUOTES.length,q=QUOTES[k];pIdx++;
   el.classList.remove('out');
-  el.innerHTML=words.map(function(w,i){return '<span class="w" style="animation-delay:'+(i*.17).toFixed(2)+'s">'+w+'</span>'}).join(' ');
+  /* البيت كله يظهر مرة واحدة بنعومة (شفافية + صعود خفيف)، الصدر فوق والعجز تحته */
+  el.innerHTML='<span class="vb">'+q[0].split('|').map(function(h){return '<span class="hm">'+h+'</span>'}).join('')+'</span>';
   pa.style.transition='none';pa.style.opacity=0;pa.textContent='— '+q[1];
   var ds=document.querySelectorAll('#pdots i');for(var i=0;i<ds.length;i++)ds[i].className=(i===k?'on':'');
-  var inMs=words.length*170+900;
   pTimer=setTimeout(function(){pa.style.transition='opacity .8s ease';pa.style.opacity=1;
-    pTimer=setTimeout(function(){el.classList.add('out');pa.style.opacity=0;pTimer=setTimeout(showQuote,800)},3600)},inMs);
+    pTimer=setTimeout(function(){el.classList.add('out');pa.style.opacity=0;pTimer=setTimeout(showQuote,700)},6500)},900);
 }
 function initPoem(){
   var s=document.querySelector('.t-poem');if(!s)return;
@@ -1043,7 +1073,7 @@ function modHTML(g){
 function cozyHTML(){
   var bars='';for(var i=0;i<14;i++)bars+='<i style="--t:'+(0.8+((i*37)%9)/10).toFixed(2)+'s;--dl:-'+((i*53)%11/10).toFixed(1)+'s;--h:'+(0.45+((i*29)%6)/10).toFixed(2)+'"></i>';
   return '<section class="cozy" id="cozy" style="scroll-margin-top:80px" aria-label="ركن الراحة"><div class="hd2"><h2 class="sec">ركن الراحة</h2><p class="sub" style="margin-bottom:0">صبّ لك شاهي بنفسك، وخلّ جوني يعزف لك.</p></div><div class="cscene">'+
-  '<div class="tea3" id="tea3"><p class="hint">مرّر على الإبريق أو اضغطه، ويصب لك</p><svg viewBox="0 0 340 300" aria-label="إبريق شاهي وكاس">'+
+  '<div class="tea3" id="tea3"><p class="hint" id="tst" aria-live="polite">اضغط على الإبريق ليصبّ لك شاهي خدير</p><svg viewBox="0 0 340 300" aria-label="إبريق شاهي وكاس">'+
    '<defs><clipPath id="gclip"><path d="M222 168h56l-7 66q-1 10-10 10h-22q-9 0-10-10z"/></clipPath><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8452a" stop-opacity=".92"/><stop offset=".55" stop-color="#9c2d16"/><stop offset="1" stop-color="#6e1b0c"/></linearGradient><filter id="wblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4"/></filter></defs>'+
    '<path class="ink gd" d="M20 262h300"/>'+
    '<path class="ink" d="M206 252q44 12 88 0" /><ellipse cx="250" cy="250" rx="50" ry="7" fill="#f3b53f22" stroke="#f3b53f" stroke-width="1.6"/>'+
@@ -1052,21 +1082,22 @@ function cozyHTML(){
    '<g id="steamg" style="opacity:0"><path class="wisp" d="M238 158c-8-10 8-16 0-30"/><path class="wisp" d="M251 160c-8-12 8-18 0-34"/><path class="wisp" d="M264 158c-8-10 8-16 0-30"/></g>'+
    '<path d="M226 174l-5 56" stroke="#ffffff22" stroke-width="3" stroke-linecap="round" fill="none"/>'+
    '<path class="strm" id="strm" d="M0 0" style="display:none"/>'+
-   '<g class="pot" id="pot"><g id="potg">'+
+   '<g class="pot" id="pot" role="button" tabindex="0" aria-label="اضغط على الإبريق ليصب الشاهي"><g id="potg">'+
     '<path d="M50 210c-4-34 14-60 52-60s56 26 52 60c-2 16-12 26-52 26s-50-10-52-26z" fill="#f3b53f18" class="ink"/>'+
     '<path class="ink" d="M82 150c0-14 10-22 20-22s20 8 20 22M96 126l6-12 6 12"/><circle cx="102" cy="112" r="4" class="ink gd"/>'+
     '<path class="ink" d="M146 178c14-4 24-22 38-46 3-5 8-8 12-6 2 4-2 8-6 12-10 14-18 36-40 46"/>'+
     '<path class="ink" d="M54 182c-30-8-34 36-6 36"/><path class="ink gd" d="M58 190h88M60 204h86"/>'+
-   '</g></g></svg>'+
-   '<div class="ctl"><label for="tilt" class="st2">ميّل الإبريق (أو اضغط عليه واسحب)</label><input id="tilt" type="range" min="0" max="100" value="0" aria-label="ميّل الإبريق ليصب الشاهي"><div class="row2"><button type="button" id="drink">اشرب الكاس ☕</button></div><div class="st2" id="tst">اسحب المؤشر ليبدأ الصب</div></div></div>'+
+   '</g></g>'+
+   '<rect id="glass" class="glass" x="212" y="150" width="76" height="108" fill="transparent" role="button" tabindex="0" aria-label="اشرب الكاس"/>'+
+   '</svg></div>'+
   '<figure class="jo"><img src="img/johnny.gif" alt="جوني سيلفرهاند يعزف على الجيتار" loading="lazy"><div class="viz" aria-hidden="true">'+bars+'</div><figcaption>جوني سيلفرهاند، من لعبة Cyberpunk 2077. الصورة لصاحبها (علامة MIYKU عليها).</figcaption></figure>'+
   '</div></section>';
 }
 function initTea(){
   var box=document.getElementById('tea3');if(!box||box._on)return;box._on=1;
-  var pot=document.getElementById('potg'),sl=document.getElementById('tilt'),liq=document.getElementById('liq'),strm=document.getElementById('strm'),tst=document.getElementById('tst'),dr=document.getElementById('drink');
+  var pot=document.getElementById('potg'),liq=document.getElementById('liq'),strm=document.getElementById('strm'),tst=document.getElementById('tst'),gl=document.getElementById('glass');
   var stg=document.getElementById('steamg');
-  var tilt=0,target=0,fill=0,hold=false,hov=false,auto=false,last=0,raf=0,on=true;
+  var tilt=0,target=0,fill=0,auto=false,drinking=false,last=0,raf=0,on=true;
   var PX=102,PY=200,TIP=[196,126],MAXA=36,GX=250,GY=244;
   function tip(a){var r=a*Math.PI/180,dx=TIP[0]-PX,dy=TIP[1]-PY;return [PX+dx*Math.cos(r)-dy*Math.sin(r),PY+dx*Math.sin(r)+dy*Math.cos(r)]}
   function draw(){
@@ -1076,26 +1107,27 @@ function initTea(){
     liq.setAttribute('y',surf.toFixed(1));liq.setAttribute('height',(fill*72).toFixed(1));
     stg.style.opacity=fill>0.12?Math.min(1,(fill-.12)*1.6).toFixed(2):0;
   }
-  function msg(){tst.textContent=fill>=1?'الكاس امتلى. بالعافية، اشربه!':fill>0.05?(tilt>0.55?'يصب...':'تمام، كمّل أو اشربه'):'مرّر على الإبريق، أو اسحب المؤشر'}
+  /* سطر واحد فوق: يتغير فقط حين يمتلئ الكاس (لتعرف أن الكاس يُضغط) ثم يرجع */
+  var HINT='اضغط على الإبريق ليصبّ لك شاهي خدير',FULL='بالعافية! اضغط على الكاس لتشربه';
+  function msg(){var s=fill>=1?FULL:HINT;if(tst.textContent!==s)tst.textContent=s;gl.style.cursor=fill>0.02?'pointer':'default'}
+  /* الضغط على الإبريق: يميل بنعومة ويصب حتى يمتلئ الكاس (قرابة ثانيتين) ثم يرجع */
   function loop(t){
     raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;
     if(fill>=1)auto=false;
-    target=(hold||hov||auto)&&fill<1?1:(+sl.value/100);
-    tilt+=(target-tilt)*Math.min(1,dt*7);
-    if(tilt>0.55&&fill<1)fill=Math.min(1,fill+dt*0.16*(tilt-.5)*2);
+    target=auto&&fill<1?1:0;
+    tilt+=(target-tilt)*Math.min(1,dt*6);
+    if(tilt>0.55&&fill<1)fill=Math.min(1,fill+dt*0.62*(tilt-.5)*2);
     draw();msg();
     if(on&&(Math.abs(target-tilt)>0.003||(tilt>0.55&&fill<1)))raf=requestAnimationFrame(loop);else last=0;
   }
   function kick(){if(!raf&&on)raf=requestAnimationFrame(loop)}
-  sl.addEventListener('input',kick);
+  function pour(){if(drinking||fill>=1)return;auto=true;kick()}
+  function drink(){if(fill<=0.02||drinking)return;auto=false;drinking=true;var t0=0,f0=fill;
+    (function d(t){if(!t0)t0=t;var u=Math.min(1,(t-t0)/1300);fill=f0*(1-u*u*(3-2*u));draw();msg();if(u<1)requestAnimationFrame(d);else{fill=0;drinking=false;draw();msg();kick()}})(performance.now())}
   var pg=document.getElementById('pot');
-  pg.addEventListener('pointerdown',function(e){hold=true;try{pg.setPointerCapture(e.pointerId)}catch(_){}kick()});
-  ['pointerup','pointercancel','lostpointercapture'].forEach(function(n){pg.addEventListener(n,function(){if(hold&&fill<1)auto=true;hold=false;kick()})});
-  pg.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){hov=true;kick()}});
-  pg.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){hov=false;kick()}});
-  dr.addEventListener('click',function(){auto=false;
-    (function d(){fill=Math.max(0,fill-.06);draw();msg();if(fill>0)requestAnimationFrame(d);else kick()})();
-  });
+  pg.addEventListener('click',pour);
+  gl.addEventListener('click',drink);
+  [[pg,pour],[gl,drink]].forEach(function(p){p[0].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();p[1]()}})});
   new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)kick();else{cancelAnimationFrame(raf);raf=0}}).observe(box);
   draw();msg();
 }var CG=[];
@@ -1121,7 +1153,7 @@ function constHTML(){
   return '<section class="const" id="const" style="scroll-margin-top:80px"><h2 class="sec">كوكبة مِداد</h2><p class="sub">من سطح القمر: اضغط الأرض وادخل مدار مِداد، كل لعبة عرّبناها نجمة فيه.</p>'+
    '<div class="cwrap portal" id="cwrap">'+
     '<div class="moon" id="moon">'+pic+'<div class="ebloom" aria-hidden="true"></div>'+
-     '<button type="button" class="earth" id="earthbtn" aria-label="اضغط لدخول مدار مِداد"></button><span class="etext" aria-hidden="true">اضغط لدخول مدار مِداد ✦</span>'+
+     '<button type="button" class="earth" id="earthbtn" aria-label="اضغط على الأرض لدخول المدار"></button><span class="etext" aria-hidden="true">✦ اضغط على الأرض لدخول المدار</span>'+
      '</div>'+
     '<div class="cflash" id="cflash"></div>'+
     '<div class="orbit" id="orbit" aria-hidden="true" inert><div class="ostage" id="ostage">'+
@@ -1211,11 +1243,34 @@ function initBA(){
 function screensHTML(){return GAMES.filter(function(g){return !g.guest}).map(function(g){return screen(g,'big')}).join('')}
 /* المعرّب: ah أبو حميد، an أبو النوفي، guest ترجمة غيرنا (تعديل خط) */
 function byKey(g){return g.guest?'guest':g.by==='أبو حميد'?'ah':g.by==='أبو النوفي'?'an':'other'}
-var FILTERS=[['all','الكل'],['ah','تعريب أبو حميد'],['an','تعريب أبو النوفي'],['guest','تعديلات الخطوط']];
+var FILTERS=[['all','الكل'],['ah','أبو حميد'],['an','أبو النوفي'],['guest','تعديلات الخطوط']];
 function filtersHTML(){
-  return '<div class="fpills" role="group" aria-label="فلترة التعريبات">'+FILTERS.map(function(f,i){
+  return '<div class="fbar"><div class="fpills" role="group" aria-label="فلترة التعريبات">'+FILTERS.map(function(f,i){
     var n=f[0]==='all'?GAMES.length:GAMES.filter(function(g){return byKey(g)===f[0]}).length;
-    return n||f[0]==='all'?'<button type="button" class="fpill'+(i?'':' on')+'" data-f="'+f[0]+'" aria-pressed="'+(i?'false':'true')+'">'+f[1]+'<b>'+n.toLocaleString('ar-EG')+'</b></button>':''}).join('')+'</div>';
+    return n||f[0]==='all'?'<button type="button" class="fpill'+(i?'':' on')+'" data-f="'+f[0]+'" aria-pressed="'+(i?'false':'true')+'">'+f[1]+'<b>'+n.toLocaleString('ar-EG')+'</b></button>':''}).join('')+'</div>'+
+   '<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن لعبة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div>';
+}
+/* أول 6 بطاقات فقط، والباقي بزر «عرض جميع التعريبات»؛ الفلتر والبحث يعرضان كل ما يطابق */
+var LIB={f:'all',q:'',open:false,N:6};
+function normAr(s){return String(s).toLowerCase().replace(/[ً-ْٰـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim()}
+function gameOf(c){return gById(c.getAttribute('href').slice(1))}
+function libHay(g){return g._hay||(g._hay=normAr([g.ar,g.en,g.by,g.dev,(g.tags||[]).join(' ')].join(' ')))}
+function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;return n>LIB.N?'<button type="button" class="morebtn" id="morebtn" aria-expanded="false"><span>عرض جميع التعريبات ('+n.toLocaleString('ar-EG')+' لعبة)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>':''}
+function applyLib(instant){
+  var cards=[].slice.call(document.querySelectorAll('#all .screen')),q=normAr(LIB.q);
+  var ok=function(c){var g=gameOf(c);return (LIB.f==='all'||c.dataset.by===LIB.f)&&(!q||libHay(g).indexOf(q)>=0)};
+  var hits=cards.filter(ok),limited=LIB.f==='all'&&!q&&!LIB.open,k=0;
+  cards.forEach(function(c){var i=hits.indexOf(c),show=i>=0&&(!limited||i<LIB.N);
+    if(instant){c.hidden=!show;return}
+    if(show&&c.hidden){var d=(k++)*70;setTimeout(function(){fadeTo(c,true)},d)}else fadeTo(c,show)});
+  var md=document.getElementById('mods'),ms=false;
+  if(md){var gm=[].slice.call(md.querySelectorAll('.screen')).some(function(c){return !q||libHay(gameOf(c)).indexOf(q)>=0});
+    md.classList.toggle('solo',LIB.f==='guest');ms=(LIB.f==='all'||LIB.f==='guest')&&gm;if(instant)md.hidden=!ms;else fadeTo(md,ms)}
+  var mb=document.getElementById('morebtn');
+  if(mb){var showMb=LIB.f==='all'&&!q&&cards.length>LIB.N;mb.hidden=!showMb;mb.classList.toggle('open',LIB.open);mb.setAttribute('aria-expanded',LIB.open);
+    mb.querySelector('span').textContent=LIB.open?'عرض أقل':'عرض جميع التعريبات ('+cards.length.toLocaleString('ar-EG')+' لعبة)'}
+  var em=document.getElementById('fempty');if(em)em.hidden=!(q&&!hits.length&&!ms);
+  if(!instant){setTimeout(onScroll,340);setTimeout(spy,560)}
 }
 function fadeTo(el,show){
   if(!el)return;el._want=show;
@@ -1224,12 +1279,15 @@ function fadeTo(el,show){
 }
 function initFilters(){
   var box=document.querySelector('.fpills');if(!box)return;
-  box.addEventListener('click',function(e){var b=e.target.closest('.fpill');if(!b)return;var f=b.dataset.f;
+  LIB.f='all';LIB.q='';LIB.open=false;applyLib(true);
+  box.addEventListener('click',function(e){var b=e.target.closest('.fpill');if(!b)return;LIB.f=b.dataset.f;
     box.querySelectorAll('.fpill').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
-    document.querySelectorAll('#all .screen').forEach(function(c){fadeTo(c,f==='all'||c.dataset.by===f)});
-    var md=document.getElementById('mods');if(md)md.classList.toggle('solo',f==='guest');fadeTo(md,f==='all'||f==='guest');
-    setTimeout(onScroll,320);setTimeout(spy,520);
+    applyLib();
   });
+  var fq=document.getElementById('fq'),qt=0;
+  if(fq)fq.addEventListener('input',function(){clearTimeout(qt);qt=setTimeout(function(){LIB.q=fq.value;applyLib()},120)});
+  var mb=document.getElementById('morebtn');
+  if(mb)mb.addEventListener('click',function(){LIB.open=!LIB.open;applyLib();if(!LIB.open)setTimeout(function(){mb.scrollIntoView({behavior:'smooth',block:'center'})},300)});
 }
 /* قسم منفصل: ترجمة غيرنا وعدّلنا عليها (ضيوف guest:1) */
 function guestsHTML(){
@@ -1325,7 +1383,7 @@ function home(){document.body.removeAttribute('data-world');
    '<div class="cta"><a class="pill" href="#all">تصفّح التعريبات</a><span class="tea">'+cup+'صبّ لك شاهي، واختر تعريبك</span></div>'+
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
-   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+'</div>'+guestsHTML()+
+   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<p class="fempty" id="fempty" hidden>ما لقينا تعريباً بهذا الاسم. جرّب اسماً آخر أو اكتبه بالإنجليزي.</p></div>'+guestsHTML()+
    labHTML()+constHTML()+bentoHTML()+cozyHTML()+'</div>';
   initCards();initFilters();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
 }
