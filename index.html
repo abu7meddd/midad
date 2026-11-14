@@ -356,7 +356,7 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .hl:hover{transform:translateY(-4px);border-color:#f3b53f88}
 .hl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.6}
 .hl::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0a0b0dee 6%,#0a0b0d88 55%,#0a0b0d40)}
-.hl .k{color:var(--gold);letter-spacing:.06em;font-size:.82rem;font-weight:600}
+.hl .k{color:var(--gold);font-size:.82rem;font-weight:600}
 .hl h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);margin:2px 0 4px;line-height:1.25}
 .hl p{margin:0 0 6px;color:#dcd9e6;font-size:.92rem}
 .hl time{color:#a9a6b8;font-size:.8rem}
@@ -588,7 +588,7 @@ body[data-world] .navcap{display:none}
 .bento{padding-block:80px 0;scroll-margin-top:80px}
 .bgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
 .bt{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;background:linear-gradient(180deg,#131317,#0f0f12);border:1px solid #ffffff12;box-shadow:inset 0 1px 0 #ffffff0d,0 24px 60px -40px #000;padding:24px 26px}
-.bt .kk{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:var(--gold);font-size:.8rem;letter-spacing:.14em}
+.bt .kk{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:var(--gold);font-size:.86rem;font-weight:500}
 .bt .kk::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#f3b53f00,#f3b53f55)}
 .t-nums{grid-column:span 12;padding-block:22px 18px}
 .t-nums .nums{grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -640,6 +640,71 @@ body[data-world] .navcap{display:none}
 .jo .viz i{display:block;width:3px;height:100%;border-radius:2px;background:linear-gradient(#bfeaff,#1aa9ff);box-shadow:0 0 8px #1aa9ff88;transform-origin:50% 100%;transform:scaleY(.2);animation:eq var(--t,1.2s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
 @keyframes eq{0%{transform:scaleY(.14)}50%{transform:scaleY(var(--h,.7))}100%{transform:scaleY(.3)}}
 .jo figcaption{padding-inline-end:150px}
+/* 7) الصنوبر الفضي (Silver Pines): شعار شريطين أحمرين ممزقين على طراز شعار حزمة التعريب، وصفحة رعب داكنة (تقريب) */
+.lg-sp{display:inline-grid;grid-template-columns:1fr;gap:.16em;line-height:1;padding-bottom:.08em}
+.lg-sp .tp{display:block;text-align:center;font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1;padding:.2em .85em .08em;background:linear-gradient(170deg,#e51414,#c00d0d 55%,#d01010);color:#160606;text-shadow:0 0 1px #ff7a6e,0 0 .5px #ff7a6e;filter:url(#tapef) drop-shadow(0 6px 14px #0009)}
+.lg-sp .tp:last-child{transform:translateX(.08em) rotate(-.4deg)}
+.w-sp{--vg:14,8,9;--gl:#c4282870}
+@media (min-width:761px){.w-sp .logo-h{zoom:1}}
+body[data-world="sp"]{--w-bg:#0b0a0a;--w-ink:#ece4dc;--w-mute:#b3a69e;--w-nav-bg:#0b0a0a;--w-nav-bd:2px solid #9e1010;--w-vg:11,9,9;--w-r:2px;--w-panel:#141112;--w-panel-bd:1px solid #3d1717;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#9e1010;--w-title-fg:#f6ece6;--w-accent:#d4231d;--w-btn:#c0140f;--w-btn-fg:#fff6f2;--w-btn-bd:1px solid #ff5a4a66;--w-btn-r:2px;--w-shot-bd:1px solid #3d1717}
+/* 6) v5: الكوكبة على مرحلتين: بوابة القمر والأرض ← خريطة نجوم عريضة تُسحب. نسخة الرجوع index.v54-backup.html */
+.cwrap.portal{position:relative;aspect-ratio:16/9;padding:0;background:#050608;border-color:#1d1f25;
+  --ex:51%;--ey:-5.93%;--erx:38.5%;--ery:71.85%;--tx:51%;--ty:34%}
+.moon{position:absolute;inset:0;transform-origin:var(--tx) var(--ty);transition:transform 1.25s cubic-bezier(.65,0,.3,1),opacity 1s ease,filter 1.2s ease;
+  -webkit-mask-image:radial-gradient(ellipse 72% 92% at 50% 42%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 72% 92% at 50% 42%,#000 58%,transparent 100%)}
+.moon picture,.moon img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.moon img{object-fit:cover;user-select:none;-webkit-user-drag:none}
+.moon .eclip{clip-path:ellipse(var(--erx) var(--ery) at var(--ex) var(--ey));transform-origin:var(--ex) var(--ey);transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .9s ease;pointer-events:none}
+.earth{position:absolute;z-index:2;left:calc(var(--ex) - var(--erx));top:calc(var(--ey) - var(--ery));width:calc(2 * var(--erx));height:calc(2 * var(--ery));border-radius:50%;border:0;padding:0;margin:0;background:none;cursor:pointer;
+  box-shadow:0 0 34px 4px #7fc8ff26,0 0 90px 10px #7fc8ff12;animation:ehalo 5.5s ease-in-out infinite;transition:box-shadow .8s}
+.earth:focus-visible{outline:2px solid #bfe3f7;outline-offset:4px}
+@keyframes ehalo{0%,100%{box-shadow:0 0 30px 2px #7fc8ff1f,0 0 80px 8px #7fc8ff0f}50%{box-shadow:0 0 46px 8px #8fd0ff3d,0 0 120px 20px #7fc8ff1c}}
+.earth:hover,.earth:focus-visible{animation:none;box-shadow:0 0 60px 12px #9fd8ff55,0 0 150px 30px #7fc8ff2a}
+.moon:has(.earth:hover) .eclip,.moon:has(.earth:focus-visible) .eclip{transform:scale(1.03);filter:brightness(1.14) saturate(1.08)}
+.etext{position:absolute;z-index:3;left:var(--tx);top:var(--ty);transform:translate(-50%,-50%) translateY(8px);pointer-events:none;white-space:nowrap;
+  font-family:var(--body);font-weight:500;font-size:clamp(1rem,1.9vw,1.3rem);line-height:1.4;color:#fff6e4;letter-spacing:0;padding:.5em 1.3em .55em;border-radius:999px;
+  background:#0a0b0d55;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #ffffff2a;text-shadow:0 2px 14px #000;opacity:0;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{opacity:1;transform:translate(-50%,-50%)}
+@media (hover:none){.etext{opacity:.92;transform:translate(-50%,-50%);animation:tfloat 4s ease-in-out infinite}}
+@keyframes tfloat{50%{transform:translate(-50%,-50%) translateY(-5px)}}
+.mcred{margin:10px 4px 0;font-size:.78rem;color:var(--mute)}
+.cflash{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--tx) var(--ty),#eaf6ffcc,#9fd3f522 30%,transparent 62%)}
+.cflash.go{animation:flash 1.3s ease both}
+@keyframes flash{0%{opacity:0}45%{opacity:.9}100%{opacity:0}}
+.orbit{position:absolute;inset:0;z-index:4;display:grid;grid-template-rows:minmax(0,1fr) auto;opacity:0;transform:scale(.78);filter:blur(8px);pointer-events:none;
+  background:radial-gradient(90% 80% at 62% 30%,#16161c 0%,#0c0d10 72%);transition:opacity .7s ease,transform .9s cubic-bezier(.4,0,.6,1),filter .7s ease}
+.cwrap.in-orbit .orbit{opacity:1;transform:none;filter:none;pointer-events:auto;transition:opacity .9s ease .5s,transform 1.3s cubic-bezier(.2,.7,.2,1) .35s,filter 1s ease .45s}
+.cwrap.in-orbit .moon{transform:scale(3.2);opacity:0;filter:blur(10px);pointer-events:none;transition:transform 1.25s cubic-bezier(.65,0,.3,1),opacity .9s ease .3s,filter 1s ease .2s}
+.cwrap:not(.in-orbit) .moon{transition-delay:.25s,.25s,.25s}
+.ostage{position:relative;overflow:hidden;direction:ltr;cursor:grab;touch-action:pan-y;user-select:none}
+.ostage.drag{cursor:grabbing}
+.cbgl,.astrol,.ctrack{position:absolute;top:0;left:0;height:100%;will-change:transform}
+.cbgl{width:200%}.cbgl .cbg{position:absolute;inset:0}
+.astrol{width:200%;pointer-events:none}
+.astrol .astro{left:50%;width:auto}.astrol .astro.o{height:175%}.astrol .astro.r{height:128%}
+.ctrack{aspect-ratio:1900/480}
+.ctrack .csvg{width:100%;height:100%;display:block}
+.sect{position:absolute;z-index:4;bottom:16px;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.86rem;color:#e8e2d4;direction:rtl;
+  padding:8px 16px;border-radius:999px;background:#12110f99;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid #ffffff22;cursor:pointer;transition:border-color .3s,color .3s,opacity .4s}
+.sect svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sect.ah{right:16px;border-color:#f3b53f55}.sect.ah:hover{color:var(--gold);border-color:#f3b53faa}
+.sect.an{left:16px;border-color:#9fcbe355}.sect.an:hover{color:#cfe7f4;border-color:#9fcbe3aa}
+.sect.here{opacity:.38}
+.oback{position:absolute;z-index:4;top:14px;right:16px;font:inherit;font-size:.86rem;color:#f1ead8;direction:rtl;padding:8px 16px;border-radius:999px;background:#12110fa6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid #ffffff2a;cursor:pointer;transition:border-color .3s,color .3s}
+.oback:hover{border-color:#f3b53f99;color:var(--gold)}
+.ohint{position:absolute;z-index:3;top:18px;left:50%;transform:translateX(-50%);font-size:.78rem;color:#ffffff66;direction:rtl;pointer-events:none;white-space:nowrap;transition:opacity .6s}
+.ostage.moved .ohint{opacity:0}
+.orbit .clegend{padding:10px 16px 14px}
+.ostage .ctip{direction:rtl}.const>.clist{display:none!important}
+@media (max-width:760px){
+  .cwrap.portal{aspect-ratio:9/16;--ex:50.95%;--ey:37%;--erx:64.57%;--ery:25.67%;--tx:50.95%;--ty:40%}
+  .moon{-webkit-mask-image:radial-gradient(ellipse 95% 80% at 50% 45%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 95% 80% at 50% 45%,#000 62%,transparent 100%)}
+  .csvg text{display:block}.cs text.nm{font-size:17px;opacity:.75}
+  .cs .sg{transform:scale(var(--sc,1))}.cs:hover .sg{transform:scale(calc(var(--sc,1)*1.2))}.cs .halo{scale:1}.cl{stroke-width:1.2}
+  .sect{font-size:.78rem;padding:7px 12px;bottom:12px}.sect.ah{right:10px}.sect.an{left:10px}.oback{font-size:.78rem;top:10px;right:10px;padding:7px 12px}
+  .ohint{top:56px}
+  .ctrack{top:16%;height:64%}
+}
 @media (max-width:980px){.t-log{grid-column:span 12;grid-row:auto}.t-hl{grid-column:span 6}.t-poem,.t-req{grid-column:span 12}}
 @media (max-width:760px){
   .bgrid{gap:12px}.t-hl{grid-column:span 12;min-height:190px}
@@ -652,7 +717,7 @@ body[data-world] .navcap{display:none}
 }
 </style>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
 
 <nav class="top"><div class="in">
   <a class="logo" href="#" aria-label="مِداد"><b>مِداد</b><span>تعريبات أبو حميد</span></a>
@@ -691,9 +756,9 @@ var GAMES=[
   how:['ضع ملفات 3BADIOH_P الثلاثة في مجلد ~mods داخل Paks','شغّل اللعبة']},
  {id:'manor-lords',lines:2987,lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
   blurb:'«سادة الإقطاع» (Manor Lords) لعبة استراتيجية من العصور الوسطى، تجمع بين بناء المدن المتعمّق، ومعارك تكتيكية واسعة النطاق، ومحاكاة اقتصادية واجتماعية معقّدة. احكم أراضيك بصفتك سيّداً إقطاعياً؛ تتعاقب الفصول، ويتبدّل الطقس، وتنهض المدن وتسقط.',
-  engine:'Unreal Engine 5',kind:'حزمة (zip)',size:'6.2 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/manor-lords/ManorLords_Arabic_Patch.zip',
+  engine:'Unreal Engine 5',kind:'مثبّت (exe)',size:'30.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/manor-lords/ManorLords_Arabic_Setup.exe',
   feats:['نصوص الواجهة','القوائم والتلميحات'],
-  how:['فك ضغط الحزمة','انسخ محتواها إلى مجلد اللعبة حسب ملف الشرح','شغّل اللعبة']},
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'town-to-city',lines:3834,lg:'t2c',ba:[{en:'img/town-to-city-shot3.jpg',ar:'img/town-to-city-ar-3.jpg',ref:'مفتاح ST_CitySizeNames::Largecity',note:'اسم المدينة (Bellemont Peaks) يضعه اللاعب فيبقى كما هو.'}],glow:'#d9855266',ar:'من بلدة إلى مدينة',en:'Town to City',by:'أبو حميد',dev:'Galaxy Grove',tags:['بناء مدن','هادئة'],
   blurb:'ابنِ بلدة متوسطية حالمة من القرن التاسع عشر، وساعدها على الازدهار حتى تصير مدينة عامرة. ضع كل عنصر وخصّصه بحرية لتصنع البيت المثالي لسكانك المتزايدين، في لعبة بناء مدن مريحة من مطوّري Station to Station.',
   engine:'غير محدد',kind:'حزمة (zip)',size:'133 ميجا',date:'2026-11-03',dl:'https://github.com/abu7meddd/midad/releases/download/town-to-city/Town_To_City_Arabic_Patch.zip',
@@ -701,19 +766,19 @@ var GAMES=[
   how:['فك ضغط الحزمة','انسخ الملفات فوق مجلد اللعبة','شغّل اللعبة']},
  {id:'probably-stolen',lines:6681,lg:'ps',ba:[{en:'img/probably-stolen-shot1.jpg',ar:'img/probably-stolen-ar-1.jpg',ref:'حوار جو وايلد 420216476319859، مطلوب 93578349003980800، اليوم 273500078915614، الإيجار خلال 273500078915613',note:'أسماء الشخصيات المرسومة داخل الصورة تبقى كما هي.'},{en:'img/probably-stolen-shot2.jpg',ar:'img/probably-stolen-ar-2.jpg',ref:'طابعة 412772035510307، طلب سريع 172529243283832832، جاهز 193096504361034، المدخلات والمخرجات والوحدة والرقاقة، إنهاء 99322042457571328'},{en:'img/probably-stolen-shot3.jpg',ar:'img/probably-stolen-ar-3.jpg',ref:'حوار اللص 18267056043245618، دليل التعرف 144609586749161472، السمات 144609586782715904 إلى 144609586782715909'}],glow:'#3aa6c466',ar:'مسروقة غالباً',en:'Probably Stolen',by:'أبو النوفي',dev:'Questing Goose Studio',tags:['سايبربانك','محاكاة متجر'],
   blurb:'«مسروقة غالباً» (Probably Stolen) محاكاة إدارة متجر بأجواء السايبربانك، تدور في محطة فضائية بائسة. اصنع وتاجر وهرّب بضائع مشبوهة المصدر، وتنقّل بين ولاءات الفصائل، وقرّر إلى أي مدى أنت مستعد للذهاب كي تبقى طافياً. اكسب ما يكفي لشراء متجرك قبل أن يجبرك ارتفاع الإيجار على الاستسلام.',
-  engine:'غير محدد',kind:'حزمة (zip)',size:'0.6 ميجا',date:'2026-11-03',dl:'https://github.com/abu7meddd/midad/releases/download/probably-stolen/Probably_Stolen_Arabic.zip',
+  engine:'غير محدد',kind:'مثبّت (exe)',size:'18.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/probably-stolen/ProbablyStolen_Arabic_Setup.exe',
   feats:['تعريب النصوص'],
-  how:['فك ضغط الحزمة','انسخ الملفات فوق مجلد اللعبة','شغّل اللعبة']},
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'dave-the-diver',lines:16679,lg:'dave',ba:[{en:'img/dave-the-diver-ba-en-1.jpg',ar:'img/dave-the-diver-ar-1.jpg',ref:'Mission_Group_Name_10003، Mission_Condition_10030056، Mission_Group_Name_40001، Mission_Condition_40002، Tue_Short_forchina، ContentsName_DaycodeSkip، UI_Smartphone، SushiBar_Menu وResearch وStaff وIngredients وInterior',note:'عبارات فقاعات الزبائن فوق مشهد المطعم («This looks good!») تُركت كما هي.'},{en:'img/dave-the-diver-ba-en-2.jpg',ar:'img/dave-the-diver-ar-2.jpg',ref:'UI_Sushi_Guide_QTE_Beer، Wed_Short_forchina، UI_Smartphone، SushiBar_Menu وResearch وStaff وIngredients وInterior',note:'كلمة PERFECT مرسومة داخل اللعبة فتبقى كما هي.'}],glow:'#2fb7e066',ar:'ديف الغوّاص',en:'DAVE THE DIVER',by:'أبو النوفي',dev:'MINTROCKET',tags:['مغامرة','محاكاة','لعب أدوار'],
   blurb:'«ديف الغوّاص» (DAVE THE DIVER) لعبة مغامرات وأدوار هادئة تُلعب فردياً، تجمع بين استكشاف أعماق البحر وصيد الأسماك نهاراً وإدارة مطعم سوشي ليلاً. انضمّ إلى ديف وأصدقائه الطريفين وهم يكشفون أسرار الحفرة الزرقاء الغامضة.',
-  engine:'Unity',kind:'حزمة (zip)',size:'66.6 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/dave-the-diver/DaveTheDiver_Arabic.zip',
+  engine:'Unity',kind:'مثبّت (exe)',size:'75.1 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/dave-the-diver/DaveTheDiver_Arabic_Setup.exe',
   feats:['تعريب القوائم والحوارات والمهمات والأسماك','خط Rubik SemiBold','أربع حزم بيانات تُستبدل مع نسخ احتياطي للأصل'],
-  how:['أغلق اللعبة تماماً','شغّل Install-Arabic.bat (يجد مجلد اللعبة تلقائياً)','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']},
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'potion-craft',lines:4919,lg:'pc',ba:[{en:'img/potion-craft-shot1.jpg',ar:'img/potion-craft-ar-1.jpg',ref:'map_follow_button، new_potion_title، save_recipe، finish_potion، goal_SellPotion، goal_BuySomething، goal_LearnTalent',note:'الحجم والتاريخ والأرقام من اللقطة نفسها.'},{en:'img/potion-craft-shot2.jpg',ar:'img/potion-craft-ar-2.jpg',ref:'unique_quest_text_EvilDude_1_Poison_first_visit، potion_reaction_max_tier_2_Male، dialogue_give_potion، trading_start_haggle، end_of_dialogue، goal_PourBaseInCauldron، goal_SaveRecipe، goal_CreatePotionFromRecipeBook'}],glow:'#c8923f66',ar:'صناعة الجرعات',en:'Potion Craft: Alchemist Simulator',by:'أبو النوفي',dev:'niceplay games',tags:['محاكاة','مستقل'],
   blurb:'«صناعة الجرعات» (Potion Craft: Alchemist Simulator) محاكي خيمياء تتعامل فيه بيدك مع أدواتك ومكوّناتك لتحضّر الجرعات. أنت تتحكم في المتجر كله: ابتكر وصفات جديدة، واجذب الزبائن، وجرّب ما شئت. لكن تذكّر: البلدة كلها تعوّل عليك.',
-  engine:'Unity',kind:'حزمة (zip)',size:'0.5 ميجا',date:'2026-11-06',dl:'https://github.com/abu7meddd/midad/releases/download/potion-craft/PotionCraft_Arabic_Patch.zip',
+  engine:'Unity',kind:'مثبّت (exe)',size:'10.2 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/potion-craft/PotionCraft_Arabic_Setup.exe',
   feats:['الواجهات والقوائم والإعدادات','المكوّنات والوصفات وشجرة المواهب','حوارات الزبائن والشخصيات','شعار اللعبة بالعربي في القائمة الرئيسية','اتجاه كتابة RTL وخط Rubik SemiBold'],
-  how:['فك الضغط داخل مجلد اللعبة (حيث Potion Craft.exe)','شغّل Install-Arabic.bat','شغّل اللعبة. وللإزالة شغّل Uninstall-Arabic.bat']},
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'dredge',lines:4912,lg:'dredge',ba:[{"en": "img/dredge-ba-en-1.jpg", "ar": "img/dredge-ar-1.jpg", "ref": "title.shipwright-rods، button.repair-all، tab.cargo، tab.storage، boat-stats.harvest-types.name، boat-stats.hull، boat-stats.speed، boat-stats.fishingspeed، boat-stats.lightpower، harvest-type.coastal وshallow وdredge، day-and-date.5، character.shipwright.name، prompt.enter-repair-mode، prompt.return-to-town، line:0b592bb", "note": "كل النصوص ترجمت من الجدول. الوحدتان kn وlm وعلامة % والأرقام والمبلغ بالدولار والساعة تُركت لأنها تُركَّب من الكود ولا مقابل لها في جداول اللعبة. أحرف البوصلة وأزرار لوحة المفاتيح (Q وE وR وT وESC) مرسومة داخل اللعبة."}, {"en": "img/dredge-ba-en-2.jpg", "ar": "img/dredge-ar-2.jpg", "ref": "line:048a80c، prompt.continue، day-and-date.0", "note": "نص اللقطة الإنجليزي فيه «old open book» بينما سطر الجدول الحالي «old book»، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الساعة والأرقام وحروف البوصلة تبقى."}, {"en": "img/dredge-ba-en-3.jpg", "ar": "img/dredge-ar-3.jpg", "ref": "research.header، tab.research.rods وengines وpots وnets، research.header.description، research.part-count، research.for-sale، tooltip.rod.catches، harvest-type.abyssal، harvest-type.hadal، prompt.back، day-and-date.0", "note": "علامات الاستفهام «???» هي نفسها في الجدول (obscured.header). الساعة والأرقام وحروف البوصلة وأشكال المعدّات المرسومة تبقى."}],glow:'#c8693a66',ar:'دريدج',en:'DREDGE',by:'أبو حميد',dev:'Black Salt Games',tags:['مغامرة','لعب أدوار'],
   blurb:'«دريدج» (DREDGE) لعبة صيد ومغامرة فردية يسري تحتها تيار شرير. بع صيدك، وطوّر قاربك، واجرف الأعماق بحثاً عن أسرار دُفنت منذ زمن بعيد. استكشف أرخبيلاً غامضاً، واكتشف لماذا يُفضَّل أن تبقى بعض الأشياء منسيّة.',
   engine:'Unity',kind:'مثبّت (exe)',size:'75.9 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/dredge/DREDGE-Arabic-Setup.exe',
@@ -728,7 +793,12 @@ var GAMES=[
   blurb:'«حكاية مُرمَّمة» (ReStory: Chill Electronics Repairs) تضعك على رأس محل إصلاح إلكترونيات صغير في طوكيو منتصف الألفينيات. نمِّ عملك بترميم أجهزة ألعاب شهيرة وهواتف ومشغلات موسيقى وأجهزة أخرى تحنّ إليها القلوب، وتحدّث مع الزبائن واسمع حكاياتهم، وشاهد كيف تؤثر قراراتك في حياتهم وفي محلك.',
   engine:'Unity',kind:'مثبّت (exe)',size:'13.2 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/restory/ReStory-Arabic-Setup.exe',
   feats:['واجهة اللعبة وقوائمها ومهام الإصلاح','حوارات الزبائن (1131 حواراً)','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
-  how:['أغلق اللعبة تماماً','شغّل المثبّت (يجد مجلد اللعبة)','افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']}
+  how:['أغلق اللعبة تماماً','شغّل المثبّت (يجد مجلد اللعبة)','افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
+ {id:'silver-pines',lines:3385,lg:'sp',ba:[{en:'img/silver-pines-ba-en-1.jpg',ar:'img/silver-pines-ar-1.jpg',ref:'شاشة الحقيبة: UIGame 69502511202304 (Use) و69810440224768 (Combine) و251595320292093952 (Examine)، Items 239246190904676352 و239246190904676353 (المفتاح ووصفه)، UICommon 24628805632 (Back)؛ الإنجليزي من localization-string-tables-english(en) والعربي من LocalizationOverlay.json بنفس المفتاح',note:'اللقطة من نسخة أقدم: اسم المفتاح فيها «Motel Poolside Key» ووصفه «A key to the gate leading to the poolside area»، وصار في الجدول الحالي «Poolside Key» بوصف جديد، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الأرقام وزر لوحة التحكم (B) والمرسوم على علب الذخيرة تبقى.'}],glow:'#c4282866',ar:'الصنوبر الفضي',en:'Silver Pines',by:'أبو النوفي',dev:'Wych Elm / Team17',tags:['رعب وبقاء','ميترويدفانيا','مغامرة'],
+  blurb:'«الصنوبر الفضي» (Silver Pines) لعبة رعب وبقاء بأسلوب الميترويدفانيا، تدور أحداثها في بلدة أمريكية صغيرة. واجه أهوالاً كأنها خرجت من الكوابيس، وحُلّ الألغاز، وأنت تدبّر مواردك الشحيحة بحذر، بينما تكشف أسراراً قد تحمل مفتاح الخلاص.',
+  engine:'Unity',kind:'مثبّت (exe)',size:'192.3 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/silver-pines/SilverPines_Arabic_Setup.exe',
+  feats:['الحوارات والقوائم والأغراض والسجلات والتلميحات','شعار اللعبة وخرائط المناطق بالعربي','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -815,6 +885,7 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
+  if(g.lg==='sp')return '<span class="lg lg-sp"><span class="tp">الصنوبر</span><span class="tp">الفضي</span></span>';
   if(g.lg==='ps')return '<span class="lg lg-ps"><span class="stamp"><span>مسروقة</span><span>غالباً</span></span></span>';
   return '<span class="lg">'+esc(g.ar)+'</span>';
 }
@@ -840,6 +911,11 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-14',t:'إضافة',id:'silver-pines',n:'تعريب أبو النوفي الكامل بمثبّت يعمل مع خط HeshamRTL، مع شعار اللعبة وخرائطها بالعربي.'},
+ {d:'2026-11-14',t:'تحديث',id:'dave-the-diver',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
+ {d:'2026-11-14',t:'تحديث',id:'potion-craft',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
+ {d:'2026-11-14',t:'تحديث',id:'probably-stolen',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
+ {d:'2026-11-14',t:'تحديث',id:'manor-lords',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
  {d:'2026-11-12',t:'إضافة',id:'restory',n:'حزمة تعريب أبو النوفي بمثبّت يعمل مع خط HeshamRTL.'},
  {d:'2026-11-12',t:'إضافة',id:'celeste',n:'تعريب كامل للحوارات والواجهة مع تعريب صور الافتتاح والقوائم.'},
  {d:'2026-11-12',t:'إضافة',id:'dredge',n:'تعريب كامل للنصوص مع شعار اللعبة ولافتاتها بالعربي.'},
@@ -902,7 +978,7 @@ function initPoem(){
 }/* كوكبة مِداد: كل لعبة نجمة، تتصل بخط رفيع، وتزيد نجمة مع كل تعريب جديد */
 /* خريطة عضوية (viewBox 1000×480): أبو حميد يمين، أبو النوفي يسار. لعبة جديدة بلا موضع تأخذ أبعد مكان فاضي تلقائياً */
 var CW=1000,CH=480,CPOS={'sovereign-tower':[795,205],'celeste':[690,95],'dredge':[905,335],'town-to-city':[680,360],
- 'dave-the-diver':[430,165],'potion-craft':[525,330],'probably-stolen':[315,320],'restory':[190,140],'manor-lords':[105,300]};
+ 'dave-the-diver':[430,165],'silver-pines':[318,72],'potion-craft':[525,330],'probably-stolen':[315,320],'restory':[190,140],'manor-lords':[105,300]};
 function cposAll(G){
   var s=11;function r(){s=(s*9301+49297)%233280;return s/233280}
   var P=G.map(function(g){return CPOS[g.id]||null});
@@ -1004,9 +1080,12 @@ function initTea(){
   draw();msg();
 }var CG=[];
 function constHTML(){
-  var G=GAMES.filter(function(g){return !g.guest}),P=cposAll(G);CG=G;
+  /* السماء أعرض بـ1.9: قطاع أبو النوفي يسار وقطاع أبو حميد يمين */
+  var G=GAMES.filter(function(g){return !g.guest}),P=cposAll(G).map(function(p){return [Math.round(p[0]*SKYX),p[1]]});CG=G;
   var L=G.map(function(g){return g.lines||800}),lo=Math.log(400),hi=Math.log(Math.max.apply(null,L));
   var A=[],B=[];G.forEach(function(g,i){(byKey(g)==='ah'?A:B).push(i)});
+  function mid(ix){if(!ix.length)return 0;var a=1e9,b=-1e9;ix.forEach(function(i){a=Math.min(a,P[i][0]);b=Math.max(b,P[i][0])});return (a+b)/2/(CW*SKYX)}
+  SECT={ah:mid(A),an:mid(B)};
   var E=mst(A,P).map(function(e){return [e,'']}).concat(mst(B,P).map(function(e){return [e,'an']}));
   if(A.length&&B.length){var bd=1e12,br=null;A.forEach(function(a){B.forEach(function(b){var dx=P[a][0]-P[b][0],dy=P[a][1]-P[b][1],d=dx*dx+dy*dy;if(d<bd){bd=d;br=[a,b]}})});E.push([br,'br'])}
   var lines=E.map(function(x){var a=P[x[0][0]],b=P[x[0][1]];return '<path class="cl '+x[1]+'" pathLength="1" d="M'+a[0]+' '+a[1]+'L'+b[0]+' '+b[1]+'"/>'}).join('');
@@ -1018,12 +1097,59 @@ function constHTML(){
       '<circle class="halo" r="'+(36*s).toFixed(1)+'" fill="url(#'+(an?'hs':'hg')+')"/><g class="sg" style="--sc:'+s.toFixed(2)+'"><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></g></g>'+
       '<text class="nm" y="'+(17*s+24).toFixed(0)+'">'+esc(g.ar)+'</text></g></a>'}).join('');
   var chips=G.map(function(g){return '<a href="#'+g.id+'">'+esc(g.ar)+'</a>'}).join('');
-  return '<section class="const" id="const" style="scroll-margin-top:80px"><h2 class="sec">كوكبة مِداد</h2><p class="sub">كل لعبة عرّبناها نجمة. مرّر على أي نجمة لتعرفها، واضغط لتفتح صفحتها.</p><div class="cwrap">'+bgStars()+astroSVG('o')+astroSVG('r',1)+
-    '<div class="cstage"><svg class="csvg" viewBox="0 0 '+CW+' '+CH+'" role="group" aria-label="كوكبة الألعاب">'+defs+lines+stars+'</svg><div class="ctip" id="ctip" aria-hidden="true"></div></div>'+
-    '<div class="clegend"><span><i></i>تعريب أبو حميد</span><span><i class="an"></i>تعريب أبو النوفي</span><span>حجم النجمة بعدد الأسطر المعرّبة</span></div><div class="clist">'+chips+'</div></div></section>';
+  var pic='<picture><source media="(max-width:760px)" srcset="img/moon-portal-tall.jpg"><img src="img/moon-portal.jpg" alt="" draggable="false"></picture>';
+  return '<section class="const" id="const" style="scroll-margin-top:80px"><h2 class="sec">كوكبة مِداد</h2><p class="sub">من سطح القمر: اضغط الأرض وادخل مدار مِداد، كل لعبة عرّبناها نجمة فيه.</p>'+
+   '<div class="cwrap portal" id="cwrap">'+
+    '<div class="moon" id="moon">'+pic+'<div class="eclip" aria-hidden="true">'+pic+'</div>'+
+     '<button type="button" class="earth" id="earthbtn" aria-label="اضغط لدخول مدار مِداد"></button><span class="etext" aria-hidden="true">اضغط لدخول مدار مِداد ✦</span>'+
+     '</div>'+
+    '<div class="cflash" id="cflash"></div>'+
+    '<div class="orbit" id="orbit" aria-hidden="true" inert><div class="ostage" id="ostage">'+
+     '<div class="cbgl" id="cbgl">'+bgStars()+'</div><div class="astrol" id="astrol">'+astroSVG('o')+astroSVG('r',1)+'</div>'+
+     '<div class="ctrack" id="ctrack"><svg class="csvg" viewBox="0 0 '+Math.round(CW*SKYX)+' '+CH+'" role="group" aria-label="كوكبة الألعاب">'+defs+lines+stars+'</svg></div>'+
+     '<div class="ctip" id="ctip" aria-hidden="true"></div><span class="ohint">اسحب السماء يميناً ويساراً</span>'+
+     '<button type="button" class="oback" id="oback">☾ العودة لسطح القمر</button>'+
+     '<button type="button" class="sect ah" data-to="ah">'+CHEV_R+'قطاع أبو حميد</button><button type="button" class="sect an" data-to="an">قطاع أبو النوفي'+CHEV_L+'</button>'+
+    '</div><div class="clegend"><span><i></i>تعريب أبو حميد</span><span><i class="an"></i>تعريب أبو النوفي</span><span>حجم النجمة بعدد الأسطر المعرّبة</span></div></div>'+
+   '</div><p class="mcred">مشهد البوابة من <bdi dir="ltr">Cyberpunk: Edgerunners</bdi>، والصورة لأصحابها.</p><div class="clist">'+chips+'</div></section>';
+}
+var SKYX=1.9,SECT={ah:1,an:0};
+/* المرحلتان: الأرض تفتح المدار بتقريب سينمائي، وزر القمر يرجع بتبعيد ناعم. السماء تُسحب بالماوس أو اللمس مع بارالاكس */
+function initPortal(){
+  var cw=document.getElementById('cwrap');if(!cw)return;
+  var orb=document.getElementById('orbit'),st=document.getElementById('ostage'),tr=document.getElementById('ctrack'),bgl=document.getElementById('cbgl'),asl=document.getElementById('astrol'),fl=document.getElementById('cflash');
+  var x=0,tx=0,min=0,raf=0,W=0;
+  function bounds(){W=st.clientWidth;min=Math.min(0,W-tr.offsetWidth);var span=-min;bgl.style.width=(W+span*.35+40)+'px';asl.style.width=(W+span*.55)+'px';x=tx=Math.max(min,Math.min(0,tx));apply()}
+  function apply(){tr.style.transform='translate3d('+x.toFixed(1)+'px,0,0)';bgl.style.transform='translate3d('+(x*.35).toFixed(1)+'px,0,0)';asl.style.transform='translate3d('+(x*.55).toFixed(1)+'px,0,0)';
+    st.querySelector('.sect.ah').classList.toggle('here',Math.abs(x-sectX('ah'))<W*.15);st.querySelector('.sect.an').classList.toggle('here',Math.abs(x-sectX('an'))<W*.15)}
+  function anim(){raf=0;x+=(tx-x)*.12;if(Math.abs(tx-x)<.4)x=tx;else raf=requestAnimationFrame(anim);apply()}
+  function go(v){tx=Math.max(min,Math.min(0,v));if(!raf)raf=requestAnimationFrame(anim)}
+  function sectX(k){return Math.max(min,Math.min(0,W/2-SECT[k]*tr.offsetWidth))}
+  function open(){cw.classList.add('in-orbit');orb.removeAttribute('inert');orb.setAttribute('aria-hidden','false');
+    fl.classList.remove('go');void fl.offsetWidth;fl.classList.add('go');
+    requestAnimationFrame(function(){bounds();tx=x=sectX('ah');apply()});
+    setTimeout(function(){var b=document.getElementById('oback');if(b)b.focus({preventScroll:true})},1400)}
+  function close(){cw.classList.remove('in-orbit');orb.setAttribute('inert','');orb.setAttribute('aria-hidden','true');tip.classList.remove('on');
+    setTimeout(function(){var e=document.getElementById('earthbtn');if(e)e.focus({preventScroll:true})},900)}
+  document.getElementById('earthbtn').onclick=open;
+  document.getElementById('oback').onclick=close;
+  st.querySelectorAll('.sect').forEach(function(b){b.onclick=function(){st.classList.add('moved');go(sectX(b.dataset.to))}});
+  /* السحب: لا نلتقط المؤشر إلا بعد حركة حقيقية حتى يبقى الضغط على النجمة يفتح صفحتها */
+  var down=false,sx=0,sx0=0,moved=false,cap=false,lx=0,lt=0,vx=0,pid=0;
+  st.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;down=true;moved=false;cap=false;sx=e.clientX;sx0=x;lx=e.clientX;lt=performance.now();vx=0;pid=e.pointerId;cancelAnimationFrame(raf);raf=0;tx=x});
+  st.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;
+    if(!moved&&Math.abs(dx)>6){moved=true;st.classList.add('drag','moved');tip.classList.remove('on');try{st.setPointerCapture(pid);cap=true}catch(_){}}
+    if(moved){x=tx=Math.max(min-60,Math.min(60,sx0+dx));apply();var now=performance.now();vx=(e.clientX-lx)/Math.max(1,now-lt);lx=e.clientX;lt=now}});
+  function up(){if(!down)return;down=false;st.classList.remove('drag');if(moved)go(x+vx*260)}
+  st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+  st.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+  st.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(x-W*.4);e.preventDefault()}else if(e.key==='ArrowLeft'){go(x+W*.4);e.preventDefault()}});
+  window.addEventListener('resize',function(){if(document.getElementById('ostage')===st)bounds()});
+  var tip=document.getElementById('ctip');
+  bounds();
 }
 function initConst(){
-  var st=document.querySelector('.cstage'),tip=document.getElementById('ctip');if(!st||!tip)return;
+  var st=document.getElementById('ostage'),tip=document.getElementById('ctip');if(!st||!tip)return;initPortal();
   function show(a){var g=CG[+a.dataset.i];if(!g)return;var r=a.querySelector('.sg').getBoundingClientRect(),b=st.getBoundingClientRect();
     tip.innerHTML='<b>'+esc(g.ar)+'</b><span>تعريب <i>'+esc(g.by)+'</i></span><span>'+esc(g.kind)+(g.lines?' · '+g.lines.toLocaleString('ar-EG')+' سطر':'')+'</span><small>اضغط لتفتح صفحتها</small>';
     tip.className='ctip'+(byKey(g)!=='ah'?' an':'');
