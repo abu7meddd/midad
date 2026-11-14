@@ -654,7 +654,8 @@ body[data-world="sp"]{--w-bg:#0b0a0a;--w-ink:#ece4dc;--w-mute:#b3a69e;--w-nav-bg
 body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-bg:#0c0806;--w-nav-bd:2px solid #6b4224;--w-vg:16,11,8;--w-r:2px;--w-panel:#1b130d;--w-panel-bd:1px solid #5a3a22;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2b1c12;--w-title-fg:#dfe2ad;--w-accent:#d9762b;--w-btn:#d9762b;--w-btn-fg:#160d07;--w-btn-bd:1px solid #f0a060;--w-btn-r:2px;--w-shot-bd:1px solid #5a3a22}
 /* 6) v5: الكوكبة على مرحلتين: بوابة القمر والأرض ← خريطة نجوم عريضة تُسحب. نسخة الرجوع index.v54-backup.html */
 .cwrap.portal{position:relative;aspect-ratio:16/9;padding:0;background:#050608;border-color:#1d1f25;
-  --ex:51%;--ey:-5.93%;--erx:38.5%;--ery:71.85%;--tx:51%;--ty:34%}
+  --ex:51.31%;--ey:-8.44%;--erx:37.53%;--ery:72.57%;--tx:51.31%;--ty:30%}
+/* صورة البوابة العريضة moon-portal-2.jpg (421×237، اختيار أبو حميد) والقديمة moon-portal.jpg (1200×675) باقية للرجوع بقيمها: --ex:51%;--ey:-5.93%;--erx:38.5%;--ery:71.85%;--tx:51%;--ty:34% */
 .moon{position:absolute;inset:0;transform-origin:var(--tx) var(--ty);transition:transform 1.25s cubic-bezier(.65,0,.3,1),opacity 1s ease,filter 1.2s ease;
   -webkit-mask-image:radial-gradient(ellipse 72% 92% at 50% 42%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 72% 92% at 50% 42%,#000 58%,transparent 100%)}
 .moon picture,.moon img{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -1114,7 +1115,7 @@ function constHTML(){
       '<circle class="halo" r="'+(36*s).toFixed(1)+'" fill="url(#'+(an?'hs':'hg')+')"/><g class="sg" style="--sc:'+s.toFixed(2)+'"><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></g></g>'+
       '<text class="nm" y="'+(17*s+24).toFixed(0)+'">'+esc(g.ar)+'</text></g></a>'}).join('');
   var chips=G.map(function(g){return '<a href="#'+g.id+'">'+esc(g.ar)+'</a>'}).join('');
-  var pic='<picture><source media="(max-width:760px)" srcset="img/moon-portal-tall.jpg"><img src="img/moon-portal.jpg" alt="" draggable="false"></picture>';
+  var pic='<picture><source media="(max-width:760px)" srcset="img/moon-portal-tall.jpg"><img src="img/moon-portal-2.jpg" alt="" draggable="false"></picture>';
   return '<section class="const" id="const" style="scroll-margin-top:80px"><h2 class="sec">كوكبة مِداد</h2><p class="sub">من سطح القمر: اضغط الأرض وادخل مدار مِداد، كل لعبة عرّبناها نجمة فيه.</p>'+
    '<div class="cwrap portal" id="cwrap">'+
     '<div class="moon" id="moon">'+pic+'<div class="eclip" aria-hidden="true">'+pic+'</div>'+
