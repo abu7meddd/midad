@@ -620,7 +620,12 @@ body[data-world] .navcap{display:none}
 .t-hl .hl{border:0;border-radius:0;min-height:0;height:100%}
 .t-hl .hl img{opacity:.55;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .6s}
 .t-hl .hl:hover{transform:none}.t-hl .hl:hover img{transform:scale(1.05);opacity:.7}
-.t-poem{grid-column:span 8;text-align:center;padding:34px 26px 28px}
+.t-poem{grid-column:span 12;text-align:center;padding:38px 26px 30px}
+/* «ما لقيت لعبتك؟» آخر الصفحة تحت ركن الراحة */
+.req2{margin-top:70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:30px 34px;border-radius:22px;border:1px solid #ffffff12;
+  background:radial-gradient(90% 140% at 100% 0%,#f3b53f14,transparent 60%),linear-gradient(180deg,#131317,#0f0f12);box-shadow:inset 0 1px 0 #ffffff0d,0 24px 60px -40px #000}
+.req2 h3{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.2rem);margin:0;line-height:1.3}.req2 p{margin:4px 0 0;color:var(--mute)}
+@media (max-width:760px){.req2{padding:24px 20px}}
 .t-req{grid-column:span 4;display:flex;flex-direction:column;justify-content:center;gap:10px;background:radial-gradient(120% 120% at 100% 0%,#f3b53f14,transparent 60%),linear-gradient(180deg,#131317,#0f0f12)}
 .t-req h3{font-family:var(--display);font-size:2rem;margin:0;line-height:1.3}.t-req p{margin:0;color:var(--mute)}.t-req .pill{align-self:flex-start;margin-top:6px}
 /* السجل */
@@ -699,9 +704,10 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 .etext{position:absolute;z-index:3;left:var(--tx);top:var(--ty);transform:translate(-50%,-50%) translateY(8px);pointer-events:none;white-space:nowrap;
   font-family:var(--body);font-weight:500;font-size:clamp(1rem,1.9vw,1.3rem);line-height:1.4;color:#fff6e4;letter-spacing:0;padding:.5em 1.3em .55em;border-radius:999px;
   background:#0a0b0d55;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #ffffff2a;text-shadow:0 2px 14px #000;opacity:0;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1)}
-/* شارة دائمة فوق الأرض تنبض بنعومة حتى يعرف الزائر أن الكوكب يُضغط */
-.etext{opacity:.94;transform:translate(-50%,-50%);font-size:clamp(.95rem,1.7vw,1.2rem);background:#0a0b0d70;border-color:#f3b53f44;animation:tfloat 4.5s ease-in-out infinite,epulse 2.8s ease-in-out infinite}
-.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{opacity:1;background:#0a0b0d99;border-color:#f3b53fb0;color:#fff}
+/* الشارة تظهر فقط عند المرور على الأرض (أو التركيز بالكيبورد)، وتنبض بنعومة وهي ظاهرة. على شاشات اللمس بلا مرور تبقى ظاهرة */
+.etext{font-size:clamp(.95rem,1.7vw,1.2rem);background:#0a0b0d99;border-color:#f3b53fb0;color:#fff}
+.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{opacity:1;transform:translate(-50%,-50%);animation:epulse 2.8s ease-in-out infinite}
+@media (hover:none){.etext{opacity:.94;transform:translate(-50%,-50%);animation:tfloat 4.5s ease-in-out infinite,epulse 2.8s ease-in-out infinite}}
 @keyframes tfloat{50%{transform:translate(-50%,-50%) translateY(-5px)}}
 @keyframes epulse{0%,100%{box-shadow:0 0 0 0 #f3b53f00,0 6px 20px -8px #000}50%{box-shadow:0 0 22px 2px #f3b53f40,0 6px 20px -8px #000}}
 .mcred{margin:10px 4px 0;font-size:.78rem;color:var(--mute)}
@@ -771,7 +777,7 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
    <path d="M11 21h26c-1 10-5 17-13 17S12 31 11 21z" fill="none" stroke="#e8e2d4" stroke-width="1.6" stroke-linejoin="round"/>
    <path d="M7 40q17 7 34 0" fill="none" stroke="#f3b53f" stroke-width="1.6" stroke-linecap="round"/></svg></span>
 </div></nav>
-<nav class="navcap" id="navcap" aria-label="أقسام الصفحة"><i class="ind" aria-hidden="true"></i><a href="#all" data-s="all">المكتبة</a><a href="#lab" data-s="lab">المختبر</a><a href="#const" data-s="const">الكوكبة</a><a href="#bento" data-s="bento">السجل</a><a href="#cozy" data-s="cozy">ركن الراحة</a></nav>
+<nav class="navcap" id="navcap" aria-label="أقسام الصفحة"><i class="ind" aria-hidden="true"></i><a href="#all" data-s="all">المكتبة</a><a href="#lab" data-s="lab">عوالمنا</a><a href="#const" data-s="const">الكوكبة</a><a href="#bento" data-s="bento">السجل</a><a href="#cozy" data-s="cozy">ركن الراحة</a></nav>
 <div id="wglow" aria-hidden="true"></div><div id="app"></div>
 <div class="wrap"><footer><span>مِداد · تعريبات أبو حميد وأصدقائه</span><span>الصور من متجر ستيم الرسمي وحقوقها لأصحابها</span></footer></div>
 <div id="lb" class="lb" hidden></div>
@@ -999,7 +1005,6 @@ function bentoHTML(){
    hl(la,'آخر لعبة أُضيفت')+hl(lu,'آخر لعبة حُدّث تعريبها')+
    '<div class="bt t-poem"><div class="wm" aria-hidden="true"><b>مِداد</b>'+STAR8+STAR8.replace('<svg ','<svg class="b" ')+'</div><p class="kk" style="justify-content:center">حبر اليوم</p><div class="pq" id="pq"></div><div class="pa" id="pa"></div>'+
     '<div class="pctl"><button type="button" class="rbtn" id="pprev" aria-label="البيت السابق">'+CHEV_R+'</button><div class="pdots" id="pdots">'+QUOTES.map(function(q,i){return '<i data-k="'+i+'" title="'+esc(q[1])+'"></i>'}).join('')+'</div><button type="button" class="rbtn" id="pnext" aria-label="البيت التالي">'+CHEV_L+'</button></div></div>'+
-   '<div class="bt t-req" id="request"><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p><span class="pill ghost">الطلبات تفتح قريباً</span></div>'+
    '</div></section>';
 }
 function initBento(){
@@ -1073,7 +1078,7 @@ function modHTML(g){
 function cozyHTML(){
   var bars='';for(var i=0;i<14;i++)bars+='<i style="--t:'+(0.8+((i*37)%9)/10).toFixed(2)+'s;--dl:-'+((i*53)%11/10).toFixed(1)+'s;--h:'+(0.45+((i*29)%6)/10).toFixed(2)+'"></i>';
   return '<section class="cozy" id="cozy" style="scroll-margin-top:80px" aria-label="ركن الراحة"><div class="hd2"><h2 class="sec">ركن الراحة</h2><p class="sub" style="margin-bottom:0">صبّ لك شاهي بنفسك، وخلّ جوني يعزف لك.</p></div><div class="cscene">'+
-  '<div class="tea3" id="tea3"><p class="hint" id="tst" aria-live="polite">اضغط على الإبريق ليصبّ لك شاهي خدير</p><svg viewBox="0 0 340 300" aria-label="إبريق شاهي وكاس">'+
+  '<div class="tea3" id="tea3"><p class="hint">مرّر على الإبريق أو اضغطه، ويصب لك</p><svg viewBox="0 0 340 300" aria-label="إبريق شاهي وكاس">'+
    '<defs><clipPath id="gclip"><path d="M222 168h56l-7 66q-1 10-10 10h-22q-9 0-10-10z"/></clipPath><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8452a" stop-opacity=".92"/><stop offset=".55" stop-color="#9c2d16"/><stop offset="1" stop-color="#6e1b0c"/></linearGradient><filter id="wblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4"/></filter></defs>'+
    '<path class="ink gd" d="M20 262h300"/>'+
    '<path class="ink" d="M206 252q44 12 88 0" /><ellipse cx="250" cy="250" rx="50" ry="7" fill="#f3b53f22" stroke="#f3b53f" stroke-width="1.6"/>'+
@@ -1082,22 +1087,21 @@ function cozyHTML(){
    '<g id="steamg" style="opacity:0"><path class="wisp" d="M238 158c-8-10 8-16 0-30"/><path class="wisp" d="M251 160c-8-12 8-18 0-34"/><path class="wisp" d="M264 158c-8-10 8-16 0-30"/></g>'+
    '<path d="M226 174l-5 56" stroke="#ffffff22" stroke-width="3" stroke-linecap="round" fill="none"/>'+
    '<path class="strm" id="strm" d="M0 0" style="display:none"/>'+
-   '<g class="pot" id="pot" role="button" tabindex="0" aria-label="اضغط على الإبريق ليصب الشاهي"><g id="potg">'+
+   '<g class="pot" id="pot"><g id="potg">'+
     '<path d="M50 210c-4-34 14-60 52-60s56 26 52 60c-2 16-12 26-52 26s-50-10-52-26z" fill="#f3b53f18" class="ink"/>'+
     '<path class="ink" d="M82 150c0-14 10-22 20-22s20 8 20 22M96 126l6-12 6 12"/><circle cx="102" cy="112" r="4" class="ink gd"/>'+
     '<path class="ink" d="M146 178c14-4 24-22 38-46 3-5 8-8 12-6 2 4-2 8-6 12-10 14-18 36-40 46"/>'+
     '<path class="ink" d="M54 182c-30-8-34 36-6 36"/><path class="ink gd" d="M58 190h88M60 204h86"/>'+
-   '</g></g>'+
-   '<rect id="glass" class="glass" x="212" y="150" width="76" height="108" fill="transparent" role="button" tabindex="0" aria-label="اشرب الكاس"/>'+
-   '</svg></div>'+
+   '</g></g></svg>'+
+   '<div class="ctl"><label for="tilt" class="st2">ميّل الإبريق (أو اضغط عليه واسحب)</label><input id="tilt" type="range" min="0" max="100" value="0" aria-label="ميّل الإبريق ليصب الشاهي"><div class="row2"><button type="button" id="drink">اشرب الكاس ☕</button></div><div class="st2" id="tst">اسحب المؤشر ليبدأ الصب</div></div></div>'+
   '<figure class="jo"><img src="img/johnny.gif" alt="جوني سيلفرهاند يعزف على الجيتار" loading="lazy"><div class="viz" aria-hidden="true">'+bars+'</div><figcaption>جوني سيلفرهاند، من لعبة Cyberpunk 2077. الصورة لصاحبها (علامة MIYKU عليها).</figcaption></figure>'+
   '</div></section>';
 }
 function initTea(){
   var box=document.getElementById('tea3');if(!box||box._on)return;box._on=1;
-  var pot=document.getElementById('potg'),liq=document.getElementById('liq'),strm=document.getElementById('strm'),tst=document.getElementById('tst'),gl=document.getElementById('glass');
+  var pot=document.getElementById('potg'),sl=document.getElementById('tilt'),liq=document.getElementById('liq'),strm=document.getElementById('strm'),tst=document.getElementById('tst'),dr=document.getElementById('drink');
   var stg=document.getElementById('steamg');
-  var tilt=0,target=0,fill=0,auto=false,drinking=false,last=0,raf=0,on=true;
+  var tilt=0,target=0,fill=0,hold=false,hov=false,auto=false,last=0,raf=0,on=true;
   var PX=102,PY=200,TIP=[196,126],MAXA=36,GX=250,GY=244;
   function tip(a){var r=a*Math.PI/180,dx=TIP[0]-PX,dy=TIP[1]-PY;return [PX+dx*Math.cos(r)-dy*Math.sin(r),PY+dx*Math.sin(r)+dy*Math.cos(r)]}
   function draw(){
@@ -1107,27 +1111,26 @@ function initTea(){
     liq.setAttribute('y',surf.toFixed(1));liq.setAttribute('height',(fill*72).toFixed(1));
     stg.style.opacity=fill>0.12?Math.min(1,(fill-.12)*1.6).toFixed(2):0;
   }
-  /* سطر واحد فوق: يتغير فقط حين يمتلئ الكاس (لتعرف أن الكاس يُضغط) ثم يرجع */
-  var HINT='اضغط على الإبريق ليصبّ لك شاهي خدير',FULL='بالعافية! اضغط على الكاس لتشربه';
-  function msg(){var s=fill>=1?FULL:HINT;if(tst.textContent!==s)tst.textContent=s;gl.style.cursor=fill>0.02?'pointer':'default'}
-  /* الضغط على الإبريق: يميل بنعومة ويصب حتى يمتلئ الكاس (قرابة ثانيتين) ثم يرجع */
+  function msg(){tst.textContent=fill>=1?'الكاس امتلى. بالعافية، اشربه!':fill>0.05?(tilt>0.55?'يصب...':'تمام، كمّل أو اشربه'):'مرّر على الإبريق، أو اسحب المؤشر'}
   function loop(t){
     raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;
     if(fill>=1)auto=false;
-    target=auto&&fill<1?1:0;
-    tilt+=(target-tilt)*Math.min(1,dt*6);
-    if(tilt>0.55&&fill<1)fill=Math.min(1,fill+dt*0.62*(tilt-.5)*2);
+    target=(hold||hov||auto)&&fill<1?1:(+sl.value/100);
+    tilt+=(target-tilt)*Math.min(1,dt*7);
+    if(tilt>0.55&&fill<1)fill=Math.min(1,fill+dt*0.16*(tilt-.5)*2);
     draw();msg();
     if(on&&(Math.abs(target-tilt)>0.003||(tilt>0.55&&fill<1)))raf=requestAnimationFrame(loop);else last=0;
   }
   function kick(){if(!raf&&on)raf=requestAnimationFrame(loop)}
-  function pour(){if(drinking||fill>=1)return;auto=true;kick()}
-  function drink(){if(fill<=0.02||drinking)return;auto=false;drinking=true;var t0=0,f0=fill;
-    (function d(t){if(!t0)t0=t;var u=Math.min(1,(t-t0)/1300);fill=f0*(1-u*u*(3-2*u));draw();msg();if(u<1)requestAnimationFrame(d);else{fill=0;drinking=false;draw();msg();kick()}})(performance.now())}
+  sl.addEventListener('input',kick);
   var pg=document.getElementById('pot');
-  pg.addEventListener('click',pour);
-  gl.addEventListener('click',drink);
-  [[pg,pour],[gl,drink]].forEach(function(p){p[0].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();p[1]()}})});
+  pg.addEventListener('pointerdown',function(e){hold=true;try{pg.setPointerCapture(e.pointerId)}catch(_){}kick()});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(function(n){pg.addEventListener(n,function(){if(hold&&fill<1)auto=true;hold=false;kick()})});
+  pg.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){hov=true;kick()}});
+  pg.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){hov=false;kick()}});
+  dr.addEventListener('click',function(){auto=false;
+    (function d(){fill=Math.max(0,fill-.06);draw();msg();if(fill>0)requestAnimationFrame(d);else kick()})();
+  });
   new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)kick();else{cancelAnimationFrame(raf);raf=0}}).observe(box);
   draw();msg();
 }var CG=[];
@@ -1243,7 +1246,7 @@ function initBA(){
 function screensHTML(){return GAMES.filter(function(g){return !g.guest}).map(function(g){return screen(g,'big')}).join('')}
 /* المعرّب: ah أبو حميد، an أبو النوفي، guest ترجمة غيرنا (تعديل خط) */
 function byKey(g){return g.guest?'guest':g.by==='أبو حميد'?'ah':g.by==='أبو النوفي'?'an':'other'}
-var FILTERS=[['all','الكل'],['ah','أبو حميد'],['an','أبو النوفي'],['guest','تعديلات الخطوط']];
+var FILTERS=[['all','الكل'],['ah','أبو حميد'],['an','أبو النوفي']];
 function filtersHTML(){
   return '<div class="fbar"><div class="fpills" role="group" aria-label="فلترة التعريبات">'+FILTERS.map(function(f,i){
     var n=f[0]==='all'?GAMES.length:GAMES.filter(function(g){return byKey(g)===f[0]}).length;
@@ -1384,7 +1387,8 @@ function home(){document.body.removeAttribute('data-world');
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
    '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<p class="fempty" id="fempty" hidden>ما لقينا تعريباً بهذا الاسم. جرّب اسماً آخر أو اكتبه بالإنجليزي.</p></div>'+guestsHTML()+
-   labHTML()+constHTML()+bentoHTML()+cozyHTML()+'</div>';
+   labHTML()+constHTML()+bentoHTML()+cozyHTML()+
+   '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
   initCards();initFilters();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
 }
 /* كبسولة التنقل: الضغط ينزل للقسم بنعومة، والمؤشر يتبع القسم الظاهر */
