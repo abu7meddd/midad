@@ -1386,7 +1386,7 @@ function home(){document.body.removeAttribute('data-world');
    '<div class="cta"><a class="pill" href="#all">تصفّح التعريبات</a><span class="tea">'+cup+'صبّ لك شاهي، واختر تعريبك</span></div>'+
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
-   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل التعريبات</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<p class="fempty" id="fempty" hidden>ما لقينا تعريباً بهذا الاسم. جرّب اسماً آخر أو اكتبه بالإنجليزي.</p></div>'+guestsHTML()+
+   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل تحفنا</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<p class="fempty" id="fempty" hidden>ما لقينا تعريباً بهذا الاسم. جرّب اسماً آخر أو اكتبه بالإنجليزي.</p></div>'+guestsHTML()+
    labHTML()+constHTML()+bentoHTML()+cozyHTML()+
    '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
   initCards();initFilters();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
@@ -1419,7 +1419,7 @@ function detail(g){document.body.dataset.world=g.lg;
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
-   '<a class="back" href="#">&rarr; كل التعريبات</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
+   '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
    '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
