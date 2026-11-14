@@ -640,13 +640,18 @@ body[data-world] .navcap{display:none}
 .jo .viz i{display:block;width:3px;height:100%;border-radius:2px;background:linear-gradient(#bfeaff,#1aa9ff);box-shadow:0 0 8px #1aa9ff88;transform-origin:50% 100%;transform:scaleY(.2);animation:eq var(--t,1.2s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
 @keyframes eq{0%{transform:scaleY(.14)}50%{transform:scaleY(var(--h,.7))}100%{transform:scaleY(.3)}}
 .jo figcaption{padding-inline-end:150px}
-/* 7) الصنوبر الفضي (Silver Pines): شعار شريطين أحمرين ممزقين على طراز شعار حزمة التعريب، وصفحة رعب داكنة (تقريب) */
+/* 7) سيلفر باينز (Silver Pines، الاسم منقحر بطلب أبو حميد مثل شعار الحزمة): شعار شريطين أحمرين ممزقين على طراز شعار حزمة التعريب، وصفحة رعب داكنة (تقريب) */
 .lg-sp{display:inline-grid;grid-template-columns:1fr;gap:.16em;line-height:1;padding-bottom:.08em}
 .lg-sp .tp{display:block;text-align:center;font-family:'Lalezar','Rubik',sans-serif;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1;padding:.2em .85em .08em;background:linear-gradient(170deg,#e51414,#c00d0d 55%,#d01010);color:#160606;text-shadow:0 0 1px #ff7a6e,0 0 .5px #ff7a6e;filter:url(#tapef) drop-shadow(0 6px 14px #0009)}
 .lg-sp .tp:last-child{transform:translateX(.08em) rotate(-.4deg)}
 .w-sp{--vg:14,8,9;--gl:#c4282870}
 @media (min-width:761px){.w-sp .logo-h{zoom:1}}
 body[data-world="sp"]{--w-bg:#0b0a0a;--w-ink:#ece4dc;--w-mute:#b3a69e;--w-nav-bg:#0b0a0a;--w-nav-bd:2px solid #9e1010;--w-vg:11,9,9;--w-r:2px;--w-panel:#141112;--w-panel-bd:1px solid #3d1717;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#9e1010;--w-title-fg:#f6ece6;--w-accent:#d4231d;--w-btn:#c0140f;--w-btn-fg:#fff6f2;--w-btn-bd:1px solid #ff5a4a66;--w-btn-r:2px;--w-shot-bd:1px solid #3d1717}
+/* 8) إنسكريبشن (Inscryption): الشعار العربي الأصلي من حزمة التعريب (logo_banner.png 280×84 بكسل آرت) مكبّراً بلا تغبيش، وصفحة كوخ خشبي وشموع (تقريب) */
+.lg-insc{display:block;line-height:0}.lg-insc img{display:block;height:clamp(78px,10vw,126px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 14px #000a)}
+.w-insc{--vg:20,12,8;--gl:#d9762b70}
+@media (min-width:761px){.w-insc .logo-h{zoom:1}}
+body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-bg:#0c0806;--w-nav-bd:2px solid #6b4224;--w-vg:16,11,8;--w-r:2px;--w-panel:#1b130d;--w-panel-bd:1px solid #5a3a22;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2b1c12;--w-title-fg:#dfe2ad;--w-accent:#d9762b;--w-btn:#d9762b;--w-btn-fg:#160d07;--w-btn-bd:1px solid #f0a060;--w-btn-r:2px;--w-shot-bd:1px solid #5a3a22}
 /* 6) v5: الكوكبة على مرحلتين: بوابة القمر والأرض ← خريطة نجوم عريضة تُسحب. نسخة الرجوع index.v54-backup.html */
 .cwrap.portal{position:relative;aspect-ratio:16/9;padding:0;background:#050608;border-color:#1d1f25;
   --ex:51%;--ey:-5.93%;--erx:38.5%;--ery:71.85%;--tx:51%;--ty:34%}
@@ -794,11 +799,21 @@ var GAMES=[
   engine:'Unity',kind:'مثبّت (exe)',size:'13.2 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/restory/ReStory-Arabic-Setup.exe',
   feats:['واجهة اللعبة وقوائمها ومهام الإصلاح','حوارات الزبائن (1131 حواراً)','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت (يجد مجلد اللعبة)','افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
- {id:'silver-pines',lines:3385,lg:'sp',ba:[{en:'img/silver-pines-ba-en-1.jpg',ar:'img/silver-pines-ar-1.jpg',ref:'شاشة الحقيبة: UIGame 69502511202304 (Use) و69810440224768 (Combine) و251595320292093952 (Examine)، Items 239246190904676352 و239246190904676353 (المفتاح ووصفه)، UICommon 24628805632 (Back)؛ الإنجليزي من localization-string-tables-english(en) والعربي من LocalizationOverlay.json بنفس المفتاح',note:'اللقطة من نسخة أقدم: اسم المفتاح فيها «Motel Poolside Key» ووصفه «A key to the gate leading to the poolside area»، وصار في الجدول الحالي «Poolside Key» بوصف جديد، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الأرقام وزر لوحة التحكم (B) والمرسوم على علب الذخيرة تبقى.'}],glow:'#c4282866',ar:'الصنوبر الفضي',en:'Silver Pines',by:'أبو النوفي',dev:'Wych Elm / Team17',tags:['رعب وبقاء','ميترويدفانيا','مغامرة'],
-  blurb:'«الصنوبر الفضي» (Silver Pines) لعبة رعب وبقاء بأسلوب الميترويدفانيا، تدور أحداثها في بلدة أمريكية صغيرة. واجه أهوالاً كأنها خرجت من الكوابيس، وحُلّ الألغاز، وأنت تدبّر مواردك الشحيحة بحذر، بينما تكشف أسراراً قد تحمل مفتاح الخلاص.',
+ {id:'silver-pines',lines:3385,lg:'sp',ba:[{en:'img/silver-pines-ba-en-1.jpg',ar:'img/silver-pines-ar-1.jpg',ref:'شاشة الحقيبة: UIGame 69502511202304 (Use) و69810440224768 (Combine) و251595320292093952 (Examine)، Items 239246190904676352 و239246190904676353 (المفتاح ووصفه)، UICommon 24628805632 (Back)؛ الإنجليزي من localization-string-tables-english(en) والعربي من LocalizationOverlay.json بنفس المفتاح',note:'اللقطة من نسخة أقدم: اسم المفتاح فيها «Motel Poolside Key» ووصفه «A key to the gate leading to the poolside area»، وصار في الجدول الحالي «Poolside Key» بوصف جديد، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الأرقام وزر لوحة التحكم (B) والمرسوم على علب الذخيرة تبقى.'}],glow:'#c4282866',ar:'سيلفر باينز',en:'Silver Pines',by:'أبو النوفي',dev:'Wych Elm / Team17',tags:['رعب وبقاء','ميترويدفانيا','مغامرة'],
+  blurb:'«سيلفر باينز» (Silver Pines) لعبة رعب وبقاء بأسلوب الميترويدفانيا، تدور أحداثها في بلدة أمريكية صغيرة. واجه أهوالاً كأنها خرجت من الكوابيس، وحُلّ الألغاز، وأنت تدبّر مواردك الشحيحة بحذر، بينما تكشف أسراراً قد تحمل مفتاح الخلاص.',
   engine:'Unity',kind:'مثبّت (exe)',size:'192.3 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/silver-pines/SilverPines_Arabic_Setup.exe',
   feats:['الحوارات والقوائم والأغراض والسجلات والتلميحات','شعار اللعبة وخرائط المناطق بالعربي','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
-  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']}
+  how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
+ {id:'inscryption',lines:5263,lg:'insc',ba:[
+   {en:'img/inscryption-ba-en-1.jpg',ar:'img/inscryption-ar-1.jpg',ref:'GAME_FLOW_REGIONWETLANDS_REPEAT_#2_432_M',note:'لون «الأراضي الرطبة» الأحمر من وسم اللعبة نفسه ([c:bR]). موضع النص تقريب تركيب.'},
+   {en:'img/inscryption-ba-en-2.jpg',ar:'img/inscryption-ar-2.jpg',ref:'TUTORIAL_TUTORIALBUYPELTSPILE_967_M',note:'موضع النص تقريب تركيب.'},
+   {en:'img/inscryption-ba-en-3.jpg',ar:'img/inscryption-ar-3.jpg',ref:'TUTORIALGAMEFLOWSEQUENCER_187_M',note:'موضع النص تقريب تركيب.'},
+   {en:'img/inscryption-ba-en-4.jpg',ar:'img/inscryption-ar-4.jpg',ref:'TUTORIAL_TUTORIALDECKTRIAL_693_M',note:'اللون الأخضر للكلام المقتبس من وسم اللعبة ([c:bSG]). أسماء البطاقات المرسومة على الطاولة في الخلفية لم تُركَّب. موضع النص تقريب تركيب.'}],
+  glow:'#d9762b66',ar:'إنسكريبشن',en:'Inscryption',by:'أبو حميد',dev:'Daniel Mullins Games',tags:['بطاقات','رعب نفسي','ألغاز'],
+  blurb:'«إنسكريبشن» (Inscryption) رحلة حالكة السواد قائمة على البطاقات، تمزج ألعاب الروغلايك القائمة على بناء المجموعة، وألغاز غرف الهروب، والرعب النفسي، في خليط يقطر دماً. وأشدّ منها ظلمةً الأسرار المنقوشة على البطاقات...',
+  engine:'Unity',kind:'مثبّت (exe)',size:'24.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/inscryption/Inscryption-Arabic-Setup.exe',
+  feats:['ترجمة كاملة: الحوارات والبطاقات والقوائم والشعار','شعار اللعبة بالعربي في شاشة البداية','خط ثمانية Bold مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -885,7 +900,8 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
-  if(g.lg==='sp')return '<span class="lg lg-sp"><span class="tp">الصنوبر</span><span class="tp">الفضي</span></span>';
+  if(g.lg==='insc')return '<span class="lg lg-insc"><img src="img/inscryption-logo.png" alt="إنسكريبشن"></span>';
+  if(g.lg==='sp')return '<span class="lg lg-sp"><span class="tp">سيلفر</span><span class="tp">باينز</span></span>';
   if(g.lg==='ps')return '<span class="lg lg-ps"><span class="stamp"><span>مسروقة</span><span>غالباً</span></span></span>';
   return '<span class="lg">'+esc(g.ar)+'</span>';
 }
@@ -911,6 +927,7 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-14',t:'إضافة',id:'inscryption',n:'تعريب كامل للحوارات والبطاقات والقوائم مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
  {d:'2026-11-14',t:'إضافة',id:'silver-pines',n:'تعريب أبو النوفي الكامل بمثبّت يعمل مع خط HeshamRTL، مع شعار اللعبة وخرائطها بالعربي.'},
  {d:'2026-11-14',t:'تحديث',id:'dave-the-diver',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
  {d:'2026-11-14',t:'تحديث',id:'potion-craft',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
@@ -977,7 +994,7 @@ function initPoem(){
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!pTimer)showQuote()}else{clearTimeout(pTimer);pTimer=null}})},{threshold:.3}).observe(s)}else showQuote();
 }/* كوكبة مِداد: كل لعبة نجمة، تتصل بخط رفيع، وتزيد نجمة مع كل تعريب جديد */
 /* خريطة عضوية (viewBox 1000×480): أبو حميد يمين، أبو النوفي يسار. لعبة جديدة بلا موضع تأخذ أبعد مكان فاضي تلقائياً */
-var CW=1000,CH=480,CPOS={'sovereign-tower':[795,205],'celeste':[690,95],'dredge':[905,335],'town-to-city':[680,360],
+var CW=1000,CH=480,CPOS={'sovereign-tower':[795,205],'inscryption':[900,92],'celeste':[690,95],'dredge':[905,335],'town-to-city':[680,360],
  'dave-the-diver':[430,165],'silver-pines':[318,72],'potion-craft':[525,330],'probably-stolen':[315,320],'restory':[190,140],'manor-lords':[105,300]};
 function cposAll(G){
   var s=11;function r(){s=(s*9301+49297)%233280;return s/233280}
