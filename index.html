@@ -894,7 +894,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-hd .sec{margin:0}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
 .vt-cl{position:absolute;inset:0;perspective:2400px;perspective-origin:50% 45%}
 /* البطانة الداخلية */
-.vt-lin{position:absolute;top:16vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
+.vt-lin{position:absolute;top:21vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
  background:radial-gradient(ellipse 70% 55% at 50% 40%,#16121a00 0,#000a 100%),
   repeating-linear-gradient(45deg,#ffffff07 0 1px,#0000 1px 54px),repeating-linear-gradient(-45deg,#ffffff07 0 1px,#0000 1px 54px),
   radial-gradient(circle at 50% 50%,#ffffff08,#0000 62%) 0 0/76.4px 76.4px,linear-gradient(180deg,#0d0b10,#09080b 50%,#050407);
@@ -922,17 +922,26 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-emb{position:absolute;top:0;bottom:0;width:46px;background:var(--vemb) center top/46px 96px repeat-y,linear-gradient(90deg,#07070d,#10111c 50%,#07070d);box-shadow:inset 0 0 14px #000;
  -webkit-mask:linear-gradient(#0000 6%,#000 22%,#000 82%,#0000 98%);mask:linear-gradient(#0000 6%,#000 22%,#000 82%,#0000 98%)}
 .vt-fl.R .vt-emb{left:0}.vt-fl.L .vt-emb{right:0}
-.vt-hand{position:absolute;top:36%;width:clamp(200px,29vw,520px);aspect-ratio:480/400;z-index:2;pointer-events:none;filter:drop-shadow(0 14px 18px #000c)}
-.vt-chest{position:absolute;top:13vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
+.vt-arm{position:absolute;z-index:2;display:flex;align-items:center;direction:ltr;height:clamp(130px,12.5vw,250px);pointer-events:none}
+.vt-arm .vt-fist{height:100%;width:auto;aspect-ratio:300/260;flex:none;overflow:visible;position:relative;z-index:2}
+.vt-arm .vt-cuff{height:100%;width:auto;aspect-ratio:112/260;flex:none;position:relative;z-index:1;margin-left:-3%}
+.vt-slv{flex:1;height:80%;margin-left:-4px;position:relative;z-index:0}
+.vt-arm.dm{filter:drop-shadow(0 16px 20px #000d)}
+.vt-arm.dm .vt-slv{background:linear-gradient(180deg,#0000 16%,#d9d2c48c 16%,#d9d2c48c 17.4%,#0000 17.4%,#0000 82%,#d4af37 82%,#d4af37 83.2%,#0000 83.2%),repeating-linear-gradient(97deg,#0000 0 44px,#ffffff08 58px,#0000 72px,#00000040 86px,#0000 100px),linear-gradient(180deg,#30303a,#121219 28%,#07070b 66%,#000)}
+.vt-arm.an{filter:drop-shadow(0 0 16px #fff1c41c) drop-shadow(0 14px 18px #000b)}
+.vt-arm.an .vt-slv{background:linear-gradient(180deg,#0000 15%,#d4af37 15%,#d4af37 16.5%,#0000 16.5%,#0000 83%,#d4af37 83%,#d4af37 84.5%,#0000 84.5%),repeating-linear-gradient(97deg,#0000 0 40px,#0000001c 54px,#0000 68px,#ffffff2e 78px,#0000 92px),linear-gradient(180deg,#f3eee3,#e0d6c2 26%,#bcae93 62%,#7f7259)}
+.vt-fl.R .vt-arm{left:-.4%;right:-2vw;top:35%;transform:rotate(-8deg);transform-origin:left center}
+.vt-fl.L .vt-arm{right:-.4%;left:-2vw;top:58%;flex-direction:row-reverse;transform:rotate(6deg);transform-origin:right center}
+.vt-fl.L .vt-arm .vt-fist,.vt-fl.L .vt-arm .vt-cuff{transform:scaleX(-1)}
+.vt-fl.L .vt-arm .vt-cuff{margin-left:0;margin-right:-3%}.vt-fl.L .vt-slv{margin-left:0;margin-right:-4px}
+.vt-chest{position:absolute;top:21vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
 .vt-fl.R .vt-chest{left:50px}.vt-fl.L .vt-chest{right:50px;transform:scaleX(-1)}
 .vt-hem{position:absolute;inset-inline:0;bottom:10vh;height:46px;background:var(--vhem) left center/96px 46px repeat-x;opacity:.75;pointer-events:none;-webkit-mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000);mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000)}
-.vt-hand svg{width:100%;height:100%;display:block;overflow:visible}
-.vt-fl.R .vt-hand{left:-.6%}.vt-fl.L .vt-hand{right:-.6%}.vt-fl.L .vt-hand svg{transform:scaleX(-1)}
 /* الأكتاف الغارقة في السواد */
-.vt-sh{position:absolute;inset:0 0 auto;height:34vh;width:100%;z-index:4;pointer-events:none}
+.vt-sh{position:absolute;inset:0 0 auto;height:40vh;width:100%;z-index:4;pointer-events:none}
 /* الشق */
-.vt-seam{position:absolute;top:12vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
-.vt-glow{position:absolute;top:10vh;bottom:8vh;left:50%;width:180px;margin-left:-90px;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s;mix-blend-mode:screen;
+.vt-seam{position:absolute;top:18vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
+.vt-glow{position:absolute;top:18vh;bottom:8vh;left:50%;width:180px;margin-left:-90px;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s;mix-blend-mode:screen;
  background:linear-gradient(90deg,#0000,#8f1c1c2a 34%,#d4a24a66 50%,#8f1c1c2a 66%,#0000);
  -webkit-mask:linear-gradient(#0000,#000 18%,#000 82%,#0000);mask:linear-gradient(#0000,#000 18%,#000 82%,#0000)}
 .vt[data-st=closed][data-h=r] .vt-glow{opacity:1}
@@ -972,10 +981,10 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-p1 .vt-pf{z-index:4}.vt-p1 .vt-pm{z-index:1}
 .vt-p1 .vt-pf::before{border-color:#d4af3799;box-shadow:inset 0 0 0 3px #0000,inset 0 0 0 4px #d4af3733}
 .vt-p1 .vt-pf::after{content:"";position:absolute;top:4px;inset-inline:12px;height:23px;background:var(--vhem) left center/48px 23px repeat-x;opacity:.9}
-.vt-emt{position:absolute;inset:calc(var(--pt,20%) + 19%) 0 auto;z-index:5;text-align:center;pointer-events:none;line-height:1}
-.vt-emt b{display:block;font:700 clamp(1.05rem,1.55vw,1.55rem)/1.3 var(--display);background:linear-gradient(180deg,#f8e0a0,#d6aa4c 55%,#9a7128);-webkit-background-clip:text;background-clip:text;color:#0000;filter:drop-shadow(0 1px 0 #000) drop-shadow(0 0 6px #d4a73a40)}
-.vt-emt i{display:block;margin-top:6px;font:500 clamp(.56rem,.7vw,.7rem) 'Cinzel',serif;font-style:normal;letter-spacing:.42em;color:#d4af37;text-shadow:0 1px 0 #000}
-.vt-emt small{display:block;margin-top:7px;font:500 .62rem 'Cinzel',serif;letter-spacing:.3em;color:#d4af3799}
+.vt-med{position:absolute;left:27%;width:46%;top:calc(var(--pt,20%) + 14%);aspect-ratio:16/10;z-index:5;border-radius:3px;overflow:hidden;border:2px solid #c9a24e;box-shadow:0 0 0 3px #0c0a0e,0 0 0 4px #d4af37a8,0 8px 16px #000d;pointer-events:none;background:#0e0809}
+.vt-med img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 30%}
+.vt-med .lgo{position:absolute;left:8%;width:84%;bottom:8%;image-rendering:pixelated;filter:drop-shadow(0 2px 5px #000)}
+.vt-med::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 14px #000c;background:radial-gradient(circle at 6px 6px,#f3d68e 2px,#7a5a1c 3px,#0000 3.6px),radial-gradient(circle at calc(100% - 6px) 6px,#f3d68e 2px,#7a5a1c 3px,#0000 3.6px),radial-gradient(circle at 6px calc(100% - 6px),#f3d68e 2px,#7a5a1c 3px,#0000 3.6px),radial-gradient(circle at calc(100% - 6px) calc(100% - 6px),#f3d68e 2px,#7a5a1c 3px,#0000 3.6px)}
 .vt-c1 img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 30%}
 .vt-c1::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 62%,#0e080970 100%)}
 .vt-c1 .lgo{position:absolute;inset:auto 8% 47% ;z-index:1;width:84%;image-rendering:pixelated;filter:drop-shadow(0 3px 8px #000)}
@@ -1045,7 +1054,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 @media (hover:none){.vt-cap{opacity:1;transform:none}}
 @media (max-width:760px){
  .vt{min-height:175vh}
- .vt-hand{width:44vw;top:40%}
+ .vt-arm{height:26vw}
  .vt-lin{left:9vw;right:9vw;top:20vh}
  .vt[data-st=open] .vt-fl.R{transform:translateX(82%) rotateY(-18deg) scale(1.03)}
  .vt[data-st=open] .vt-fl.L{transform:translateX(-82%)}
@@ -1663,66 +1672,85 @@ var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%
 function vSvgUrl(s){return 'url("data:image/svg+xml,'+encodeURIComponent(s)+'")'}
 /* يد عملاقة بقفاز جلدي قديم: أربعة أصابع ملتفة على حافة الوشاح، إضاءة حواف ذهبية ورمادية */
 function vHandSVG(k){
-  /* يد يمنى بقفاز جلدي مدرّع، ظهرها للزائر: الساعد يأتي من الكم (يمين الرسم)، والأصابع الأربعة أفقية تلتف حول حافة الوشاح عند الشق (يسار الرسم)،
-     والإبهام تحتها يضغط على القماش. اليسرى = نفس الرسم معكوساً. لا هالة ولا خطوط حولها. */
-  var id=function(n){return n+k},u=function(n){return 'url(#'+n+k+')'};
-  var defs=
-   '<linearGradient id="'+id('g')+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262c40"/><stop offset=".28" stop-color="#151a2a"/><stop offset=".7" stop-color="#0b0d17"/><stop offset="1" stop-color="#05060b"/></linearGradient>'+
-   '<linearGradient id="'+id('p')+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e3448"/><stop offset=".45" stop-color="#161a28"/><stop offset="1" stop-color="#080a12"/></linearGradient>'+
-   '<linearGradient id="'+id('t')+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".92"/><stop offset=".22" stop-color="#000" stop-opacity=".45"/><stop offset=".45" stop-color="#000" stop-opacity="0"/></linearGradient>'+
-   '<linearGradient id="'+id('r')+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d4af37" stop-opacity=".15"/><stop offset=".4" stop-color="#f1d38a" stop-opacity=".95"/><stop offset=".8" stop-color="#d4af37" stop-opacity=".55"/><stop offset="1" stop-color="#d4af37" stop-opacity=".1"/></linearGradient>'+
-   '<linearGradient id="'+id('s')+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d0f1a"/><stop offset=".6" stop-color="#0b0c15" stop-opacity=".9"/><stop offset="1" stop-color="#0a0a12" stop-opacity="0"/></linearGradient>'+
-   '<radialGradient id="'+id('k')+'" cx=".45" cy=".3" r=".6"><stop offset="0" stop-color="#f0cf7e" stop-opacity=".3"/><stop offset="1" stop-color="#f0cf7e" stop-opacity="0"/></radialGradient>'+
+  /* قبضة على حافة الوشاح (الشق عند x=0 والمعصم عند x=300). R: يد شيطانية فحمية بمخالب، L: يد ملائكية عاجية.
+     الذراع والكمّ يكملان بعدها حتى حافة الشاشة (vArmHTML). */
+  var D=k==='R',id=function(n){return n+k},u=function(n){return 'url(#'+n+k+')'};
+  var C=D?{s0:'#2b2427',s1:'#141115',s2:'#070607',rim0:'#e2bd6a',rim1:'#a3202a',glow:'#a3202a',line:'#000',vein:'#b02a32'}
+         :{s0:'#fffaf0',s1:'#efe2c6',s2:'#bfa77e',rim0:'#fff4cf',rim1:'#e6c574',glow:'#fff1c4',line:'#8a7553',vein:'#d9b96f'};
+  var defs='<linearGradient id="'+id('g')+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.s0+'"/><stop offset=".4" stop-color="'+C.s1+'"/><stop offset="1" stop-color="'+C.s2+'"/></linearGradient>'+
+   '<linearGradient id="'+id('r')+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="'+C.rim1+'" stop-opacity=".2"/><stop offset=".45" stop-color="'+C.rim0+'" stop-opacity=".95"/><stop offset="1" stop-color="'+C.rim1+'" stop-opacity=".35"/></linearGradient>'+
+   '<radialGradient id="'+id('k')+'"><stop offset="0" stop-color="'+C.glow+'" stop-opacity="'+(D?'.32':'.7')+'"/><stop offset="1" stop-color="'+C.glow+'" stop-opacity="0"/></radialGradient>'+
+   '<linearGradient id="'+id('t')+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="'+(D?'#000':'#6b5634')+'" stop-opacity="'+(D?'.9':'.22')+'"/><stop offset=".35" stop-color="#000" stop-opacity="0"/></linearGradient>'+
+   '<linearGradient id="'+id('c')+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a2e30"/><stop offset=".5" stop-color="#0d0a0b"/><stop offset="1" stop-color="#000"/></linearGradient>'+
    '<filter id="'+id('b')+'" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="2"/></filter>';
-  var o='',gold='#d4af37';
-  /* الكم والساعد يخرجان من الرداء */
-  o+='<path d="M480 118 C430 112 380 116 342 126 L338 302 C380 310 430 312 480 304 Z" fill="'+u('s')+'"/>';
-  o+='<path d="M342 126 C380 116 430 112 480 118" fill="none" stroke="'+gold+'" stroke-opacity=".3" stroke-width="1.2"/>';
-  /* كفّة مطرزة */
-  o+='<path d="M356 122 C344 124 332 127 322 132 L320 296 C330 300 344 303 356 304 Z" fill="#0c0e19"/>';
-  o+='<path d="M330 130 L328 298 M350 124 L350 302" stroke="'+gold+'" stroke-opacity=".5" stroke-width="1.1"/>';
-  o+='<path d="M339 128 L338 300" stroke="'+gold+'" stroke-opacity=".45" stroke-width="1" stroke-dasharray="1.5 3.5"/>';
-  [150,190,232,272].forEach(function(y){o+='<path d="M339 '+(y-9)+' c6 3 6 9 0 12 c-6-3-6-9 0-12z" fill="none" stroke="'+gold+'" stroke-opacity=".55" stroke-width=".9"/>'});
-  /* ظهر الكف */
-  var back='M326 136 C296 128 250 104 196 94 C178 92 166 104 166 120 L166 302 C166 320 182 330 200 324 C250 312 296 298 324 290 Z';
+  var o='';
+  /* ظهر الكف: عظمي مشدود للشيطانية، ناعم للملائكية */
+  var back=D?'M300 62 C268 50 236 34 206 28 C192 26 182 36 182 48 L182 214 C182 230 196 238 210 232 C240 222 270 210 300 200 Z'
+            :'M300 66 C270 52 240 38 210 32 C194 30 184 40 184 52 L184 210 C184 228 198 236 214 230 C244 220 272 208 300 198 Z';
   o+='<path d="'+back+'" fill="'+u('g')+'"/>';
-  o+='<path d="M306 152 C276 138 238 122 208 118 C200 160 200 250 208 292 C240 296 276 288 306 278 C313 240 313 190 306 152 Z" fill="'+u('p')+'" stroke="'+gold+'" stroke-opacity=".22" stroke-width="1"/>';
-  [150,192,236,276].forEach(function(y,i){o+='<path d="M300 '+(206+i*8-12)+' C270 '+(200+i*10-14)+' 240 '+(y-6)+' 214 '+y+'" fill="none" stroke="#000" stroke-opacity=".45" stroke-width="3"/><path d="M300 '+(204+i*8-12)+' C270 '+(198+i*10-14)+' 240 '+(y-8)+' 214 '+(y-2)+'" fill="none" stroke="#9aa6c8" stroke-opacity=".08" stroke-width="1.2"/>'});
-  o+='<path d="M210 118 C240 122 280 136 306 150" fill="none" stroke="'+u('r')+'" stroke-width="1.6"/>';
-  [[298,160],[298,270]].forEach(function(q){o+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="3" fill="#1b1f2c" stroke="'+gold+'" stroke-opacity=".5" stroke-width=".9"/>'});
-  o+='<path d="M196 94 C250 104 296 128 326 136" fill="none" stroke="'+u('r')+'" stroke-width="5" opacity=".3" filter="'+u('b')+'"/><path d="M196 94 C250 104 296 128 326 136" fill="none" stroke="'+u('r')+'" stroke-width="1.6"/>';
-  /* الأصابع: من الأعلى الخنصر ثم البنصر ثم الوسطى ثم السبابة */
-  var F=[[118,44,30],[170,52,16],[226,56,8],[282,54,14]];
-  F.forEach(function(f){
-    var cy=f[0],h=f[1],xe=f[2],t=cy-h/2,b=cy+h/2;
-    var body='M186 '+t+' C150 '+(t-2)+' 124 '+(t-6)+' 104 '+(t-5)+' C80 '+(t-3)+' 56 '+(t+1)+' '+(xe+14)+' '+(t+4)+' C'+(xe+2)+' '+(t+7)+' '+(xe-4)+' '+(cy-h*.05)+' '+xe+' '+(cy+h*.22)+
-      ' C'+(xe+4)+' '+(b-2)+' '+(xe+18)+' '+(b+1)+' 46 '+b+' C80 '+(b+1)+' 140 '+(b+3)+' 186 '+b+' Z';
-    var rim='M186 '+t+' C150 '+(t-2)+' 124 '+(t-6)+' 104 '+(t-5)+' C80 '+(t-3)+' 56 '+(t+1)+' '+(xe+14)+' '+(t+4);
-    o+='<path d="'+body+'" fill="#000" opacity=".8" transform="translate(2 6)" filter="'+u('b')+'"/>';
-    o+='<path d="'+body+'" fill="'+u('g')+'"/>';
-    o+='<path d="'+body+'" fill="'+u('t')+'"/>';
-    /* مفصل الأصابع الأوسط وتجاعيد الجلد */
-    o+='<ellipse cx="104" cy="'+(cy-h*.18)+'" rx="'+(h*.55)+'" ry="'+(h*.34)+'" fill="'+u('k')+'"/>';
-    [0,1].forEach(function(j){var x=96+j*12;o+='<path d="M'+x+' '+(t+5)+' q-5 '+(h*.4)+' 0 '+(h*.78)+'" fill="none" stroke="#000" stroke-opacity="'+(.75-j*.25)+'" stroke-width="'+(2-j*.6)+'"/><path d="M'+(x+2.5)+' '+(t+7)+' q-5 '+(h*.38)+' 0 '+(h*.72)+'" fill="none" stroke="#e8c87a" stroke-opacity=".12" stroke-width=".9"/>'});
-    o+='<path d="M'+(xe+30)+' '+(t+6)+' q-4 '+(h*.4)+' 0 '+(h*.76)+'" fill="none" stroke="#000" stroke-opacity=".6" stroke-width="1.6"/>';
-    /* درزة ذهبية وحافة الضوء */
-    o+='<path d="M180 '+(cy+h*.2)+' C150 '+(cy+h*.22)+' 120 '+(cy+h*.24)+' 70 '+(cy+h*.24)+'" fill="none" stroke="'+gold+'" stroke-opacity=".28" stroke-width="1" stroke-dasharray="3 4"/>';
-    o+='<path d="'+rim+'" fill="none" stroke="'+u('r')+'" stroke-width="5" opacity=".28" filter="'+u('b')+'"/><path d="'+rim+'" fill="none" stroke="'+u('r')+'" stroke-width="1.5"/>';
-    o+='<path d="M140 '+(b+2)+' C110 '+(b+2)+' 80 '+(b+1)+' 50 '+b+'" fill="none" stroke="#a9b0c4" stroke-opacity=".22" stroke-width="1"/>';
+  [54,96,140,182].forEach(function(y,i){
+    o+='<path d="M300 '+(118+i*10-16)+' C270 '+(112+i*12-18)+' 236 '+(y-4)+' 204 '+y+'" fill="none" stroke="'+C.line+'" stroke-opacity="'+(D?'.7':'.18')+'" stroke-width="'+(D?3.4:2)+'"/>'+
+      '<path d="M300 '+(116+i*10-16)+' C270 '+(110+i*12-18)+' 236 '+(y-6)+' 204 '+(y-2)+'" fill="none" stroke="'+C.rim0+'" stroke-opacity="'+(D?'.18':'.5')+'" stroke-width="1.2"/>'});
+  if(D)o+='<path d="M296 150 C270 140 246 128 222 120 C240 112 256 96 262 80" fill="none" stroke="'+C.vein+'" stroke-opacity=".45" stroke-width="1.3" filter="'+u('b')+'"/><path d="M296 150 C270 140 246 128 222 120" fill="none" stroke="#ff5a5a" stroke-opacity=".25" stroke-width=".7"/>';
+  o+='<path d="M206 28 C236 34 268 50 300 62" fill="none" stroke="'+u('r')+'" stroke-width="5" opacity=".35" filter="'+u('b')+'"/><path d="M206 28 C236 34 268 50 300 62" fill="none" stroke="'+u('r')+'" stroke-width="1.5"/>';
+  /* الأصابع الأربعة أفقية ملتفة على الحافة؛ الشيطانية بمفاصل حادة ومخالب */
+  var F=D?[[46,38,10],[94,42,2],[142,42,6],[188,36,16]]:[[50,36,16],[96,40,8],[142,40,12],[186,34,22]];
+  F.forEach(function(f){var cy=f[0],h=f[1],xe=f[2],t=cy-h/2,b=cy+h/2,body,rim;
+    if(D){
+      body='M196 '+t+' C170 '+(t-2)+' 148 '+(t-4)+' 128 '+(t-11)+' L118 '+(t-12)+' C96 '+(t-5)+' 60 '+(t-1)+' '+(xe+16)+' '+(t+2)+' C'+(xe+4)+' '+(t+4)+' '+(xe-2)+' '+(cy-2)+' '+(xe-2)+' '+(cy+5)+
+        ' C'+xe+' '+(b-2)+' '+(xe+14)+' '+(b+1)+' 50 '+b+' C90 '+(b+1)+' 150 '+(b+3)+' 196 '+b+' Z';
+      rim='M196 '+t+' C170 '+(t-2)+' 148 '+(t-4)+' 128 '+(t-11)+' L118 '+(t-12)+' C96 '+(t-5)+' 60 '+(t-1)+' '+(xe+16)+' '+(t+2);
+    }else{
+      body='M196 '+t+' C160 '+(t-2)+' 130 '+(t-5)+' 112 '+(t-5)+' C90 '+(t-4)+' 56 '+t+' '+(xe+14)+' '+(t+3)+' C'+(xe+2)+' '+(t+5)+' '+(xe-3)+' '+(cy-2)+' '+(xe-1)+' '+(cy+6)+
+        ' C'+(xe+2)+' '+(b-2)+' '+(xe+14)+' '+(b+1)+' 46 '+b+' C90 '+(b+1)+' 150 '+(b+2)+' 196 '+b+' Z';
+      rim='M196 '+t+' C160 '+(t-2)+' 130 '+(t-5)+' 112 '+(t-5)+' C90 '+(t-4)+' 56 '+t+' '+(xe+14)+' '+(t+3);
+    }
+    o+='<path d="'+body+'" fill="#000" opacity="'+(D?'.8':'.35')+'" transform="translate(2 6)" filter="'+u('b')+'"/>';
+    o+='<path d="'+body+'" fill="'+u('g')+'"/><path d="'+body+'" fill="'+u('t')+'"/>';
+    o+='<ellipse cx="120" cy="'+(t+h*.18)+'" rx="'+(h*.6)+'" ry="'+(h*.34)+'" fill="'+u('k')+'"/>';
+    [0,1].forEach(function(j){var x=112+j*12;o+='<path d="M'+x+' '+(t+4)+' q-5 '+(h*.4)+' 0 '+(h*.78)+'" fill="none" stroke="'+C.line+'" stroke-opacity="'+(D?(.8-j*.3):(.28-j*.1))+'" stroke-width="'+(1.8-j*.5)+'"/>'});
+    o+='<path d="M'+(xe+34)+' '+(t+5)+' q-4 '+(h*.4)+' 0 '+(h*.76)+'" fill="none" stroke="'+C.line+'" stroke-opacity="'+(D?.6:.22)+'" stroke-width="1.4"/>';
+    o+='<path d="'+rim+'" fill="none" stroke="'+u('r')+'" stroke-width="5" opacity=".3" filter="'+u('b')+'"/><path d="'+rim+'" fill="none" stroke="'+u('r')+'" stroke-width="1.5"/>';
+    if(D){/* مخلب قوطي يلتف فوق الحافة */
+      var cx=xe-1,cy2=cy+5;
+      var claw='M'+(cx+2)+' '+(cy2-8)+' C'+(cx-12)+' '+(cy2-4)+' '+(cx-20)+' '+(cy2+8)+' '+(cx-16)+' '+(cy2+26)+' C'+(cx-10)+' '+(cy2+14)+' '+(cx-2)+' '+(cy2+8)+' '+(cx+8)+' '+(cy2+6)+' Z';
+      o+='<path d="'+claw+'" fill="'+u('c')+'" stroke="#e2bd6a" stroke-opacity=".55" stroke-width=".9"/>';
+      o+='<path d="M'+(cx-4)+' '+(cy2-4)+' C'+(cx-14)+' '+(cy2+2)+' '+(cx-17)+' '+(cy2+12)+' '+(cx-15)+' '+(cy2+22)+'" fill="none" stroke="#ff6b5e" stroke-opacity=".35" stroke-width=".8"/>';
+    }else{/* ظفر لؤلؤي خفيف */
+      o+='<ellipse cx="'+(xe+6)+'" cy="'+(cy+2)+'" rx="5" ry="'+(h*.22)+'" fill="#fffdf6" opacity=".55"/>';
+    }
   });
-  /* المفاصل الأربعة عند بداية الأصابع */
+  /* مفاصل اليد */
   F.forEach(function(f){var cy=f[0],h=f[1];
-    o+='<ellipse cx="188" cy="'+(cy-3)+'" rx="'+(h*.3)+'" ry="'+(h*.44)+'" fill="'+u('p')+'"/><ellipse cx="186" cy="'+(cy-h*.14)+'" rx="'+(h*.22)+'" ry="'+(h*.26)+'" fill="'+u('k')+'"/>'+
-      '<path d="M'+(184-h*.3)+' '+(cy-h*.32)+' C'+(184-h*.1)+' '+(cy-h*.52)+' '+(184+h*.2)+' '+(cy-h*.48)+' '+(184+h*.32)+' '+(cy-h*.24)+'" fill="none" stroke="'+u('r')+'" stroke-width="1.4"/>'});
-  /* الإبهام تحت السبابة يضغط على القماش */
-  var th='M318 286 C286 306 236 324 168 332 C134 336 104 338 90 330 C78 322 84 306 102 304 C150 298 210 290 262 270 Z';
-  o+='<path d="'+th+'" fill="#000" opacity=".8" transform="translate(2 7)" filter="'+u('b')+'"/>';
-  o+='<path d="'+th+'" fill="'+u('g')+'"/>';
-  o+='<path d="M150 300 q-4 16 2 32" fill="none" stroke="#000" stroke-opacity=".6" stroke-width="1.8"/>';
-  o+='<path d="M102 304 C150 298 210 290 262 270" fill="none" stroke="'+u('r')+'" stroke-width="1.5"/>';
-  o+='<path d="M250 296 C210 310 170 318 120 322" fill="none" stroke="'+gold+'" stroke-opacity=".25" stroke-width="1" stroke-dasharray="3 4"/>';
-  return '<svg viewBox="0 0 480 400" aria-hidden="true"><defs>'+defs+'</defs>'+o+'</svg>';
+    if(D)o+='<path d="M190 '+(cy-h*.5)+' L202 '+(cy-h*.2)+' L196 '+(cy+h*.3)+' L184 '+(cy-h*.05)+' Z" fill="#1e191c" stroke="'+C.rim0+'" stroke-opacity=".45" stroke-width=".9"/><circle cx="194" cy="'+(cy-h*.12)+'" r="'+(h*.35)+'" fill="'+u('k')+'"/>';
+    else o+='<ellipse cx="194" cy="'+(cy-3)+'" rx="'+(h*.28)+'" ry="'+(h*.4)+'" fill="'+u('g')+'"/><ellipse cx="192" cy="'+(cy-h*.16)+'" rx="'+(h*.2)+'" ry="'+(h*.22)+'" fill="'+u('k')+'"/>'});
+  /* الإبهام تحت السبابة */
+  var th=D?'M300 196 C270 214 230 232 172 244 C140 250 110 254 96 248 C86 242 90 228 106 226 C150 220 210 210 262 186 Z'
+          :'M300 194 C270 210 232 226 176 238 C146 244 116 248 102 242 C90 236 94 222 110 220 C154 214 212 206 262 184 Z';
+  o+='<path d="'+th+'" fill="#000" opacity="'+(D?'.8':'.3')+'" transform="translate(2 6)" filter="'+u('b')+'"/><path d="'+th+'" fill="'+u('g')+'"/>';
+  o+='<path d="M'+(D?106:110)+' '+(D?226:220)+' C150 '+(D?220:214)+' 210 '+(D?210:206)+' 262 '+(D?186:184)+'" fill="none" stroke="'+u('r')+'" stroke-width="1.5"/>';
+  if(D)o+='<path d="M100 236 C86 238 76 248 74 262 C84 252 94 248 106 246 Z" fill="'+u('c')+'" stroke="#e2bd6a" stroke-opacity=".5" stroke-width=".8"/>';
+  return '<svg class="vt-fist" viewBox="0 0 300 260" aria-hidden="true"><defs>'+defs+'</defs>'+o+'</svg>';
 }
+/* الكمّ: R كشكشة فيكتورية بيضاء ناصعة، L كمّ ملكي أبيض بحافة ذهبية */
+function vCuffSVG(k){
+  var D=k==='R',o='',g='vcf'+k;
+  o+='<defs><linearGradient id="'+g+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ece6da"/><stop offset="1" stop-color="#b9b0a0"/></linearGradient></defs>';
+  if(D){
+    [0,1,2].forEach(function(j){var x=34-j*12,sc='';for(var y=18;y<=244;y+=18)sc+=' Q'+(x-12)+' '+(y+9)+' '+x+' '+(y+18);
+      o+='<path d="M'+(x+50)+' 18 L'+x+' 18'+sc+' L'+(x+50)+' 252 Z" fill="url(#'+g+')" opacity="'+(1-j*.12)+'" stroke="#9c9486" stroke-opacity=".5" stroke-width=".8"/>';
+      for(var y2=30;y2<240;y2+=18)o+='<circle cx="'+(x+6)+'" cy="'+y2+'" r="1.4" fill="#8f8677" opacity=".5"/>'});
+    o+='<path d="M48 10 H110 V250 H48 Z" fill="url(#'+g+')" stroke="#c9a24e" stroke-opacity=".7"/><path d="M56 10 V250 M102 10 V250" stroke="#d4af37" stroke-opacity=".6"/>';
+    [60,130,200].forEach(function(y){o+='<circle cx="79" cy="'+y+'" r="5" fill="#d4af37" stroke="#7a5a1c" stroke-width="1"/><circle cx="78" cy="'+(y-1.5)+'" r="1.6" fill="#fff3c4"/>'});
+  }else{
+    o+='<path d="M8 22 Q30 6 52 14 L112 14 L112 246 L52 246 Q30 254 8 238 Q18 130 8 22 Z" fill="url(#'+g+')" stroke="#d4af37" stroke-opacity=".8" stroke-width="1.2"/>';
+    o+='<path d="M16 28 Q34 16 52 22 M16 232 Q34 244 52 238 M30 30 Q40 130 30 230" fill="none" stroke="#d4af37" stroke-opacity=".7" stroke-width="1.4"/>';
+    o+='<path d="M60 14 V246 M66 14 V246" stroke="#d4af37" stroke-opacity=".75"/><path d="M63 14 V246" stroke="#d4af37" stroke-opacity=".55" stroke-dasharray="2 4"/>';
+    [70,130,190].forEach(function(y){o+='<path d="M86 '+(y-9)+' c7 4 7 14 0 18 c-7-4-7-14 0-18z" fill="#f1d78a" stroke="#a8842e" stroke-width=".8"/>'});
+  }
+  return '<svg class="vt-cuff" viewBox="0 0 112 260" preserveAspectRatio="none" aria-hidden="true">'+o+'</svg>';
+}
+function vArmHTML(k){return '<div class="vt-arm '+(k==='R'?'dm':'an')+'">'+vHandSVG(k)+vCuffSVG(k)+'<span class="vt-slv"></span></div>'}
 /* طيات القماش: داكنة جداً بكحلي ليلي (لا خطوط صفراء) */
 function vFoldsSVG(k){return '<canvas class="vt-folds" data-k="'+k+'" aria-hidden="true"></canvas>'}
 function vPaintFolds(cv){
@@ -1743,7 +1771,7 @@ function vPaintAll(){document.querySelectorAll('canvas.vt-folds').forEach(vPaint
 /* الأكتاف والياقة: داخل كل طرف حتى تتحرك معه، مع تطريز ذهبي على خط الكتف */
 function vBez(p0,p1,p2,p3,t){var m=1-t;return [m*m*m*p0[0]+3*m*m*t*p1[0]+3*m*t*t*p2[0]+t*t*t*p3[0],m*m*m*p0[1]+3*m*m*t*p1[1]+3*m*t*t*p2[1]+t*t*t*p3[1]]}
 function vShoulderSVG(k){
-  var vb=k==='R'?'500 0 500 300':'0 0 500 300',sh=k+'sh';
+  var vb=k==='R'?'500 -70 500 370':'0 -70 500 370',sh=k+'sh';
   var c='M0 215 C120 170 260 96 400 70 C440 64 470 76 500 112 C530 76 560 64 600 70 C740 96 880 170 1000 215';
   var orn='',seg=[[[600,70],[740,96],[880,170],[1000,215]],[[400,70],[260,96],[120,170],[0,215]]];
   seg.forEach(function(S){for(var i=1;i<9;i++){var p=vBez(S[0],S[1],S[2],S[3],i/9),y=p[1]+26;
@@ -1753,7 +1781,7 @@ function vShoulderSVG(k){
   return '<svg class="vt-sh" viewBox="'+vb+'" preserveAspectRatio="none" aria-hidden="true"><defs>'+
    '<linearGradient id="'+sh+'f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset=".55" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>'+
    '<filter id="'+sh+'b"><feGaussianBlur stdDeviation="3"/></filter></defs>'+
-   '<path d="M0 0 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
+   '<path d="M0 -70 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
    '<path d="'+c+' L1000 300 L0 300 Z" fill="url(#'+sh+'f)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".25" stroke-width="6" filter="url(#'+sh+'b)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.2" vector-effect="non-scaling-stroke"/>'+
@@ -1790,14 +1818,14 @@ function vSeriesPocket(S,p,i){
    '<span class="vt-gl"></span>'+
    '<span class="vt-cd vt-c2"><span class="n2">2</span><span class="t2">'+esc(B.ar||'')+'<i>'+esc((B.en||'').toUpperCase())+'</i></span></span>'+
    '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""><img class="lgo" src="img/blasphemous-logo.png" alt=""></span>'+
-   '<span class="vt-pm"></span><span class="vt-pf"></span><span class="vt-emt"><b>'+esc(S.ar)+'</b><i>'+esc(S.en.toUpperCase())+'</i><small>I • II</small></span>'+
+   '<span class="vt-pm"></span><span class="vt-pf"></span><span class="vt-med"><img class="bg" src="'+img(g,'hero')+'" alt=""><img class="lgo" src="img/blasphemous-logo.png" alt=""></span>'+
    '<span class="vt-cap">'+esc(S.ar)+' (الجزء 1 &amp; 2)<small>اضغط لدخول عالم السلسلة</small></span></button>';
 }
 function vaultHTML(){
   var pk=VPK.map(function(p,i){return SERIES[i]?vSeriesPocket(SERIES[i],p,i):vEmptyPocket(p,i)}).join('');
-  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح الوشاح الأيمن: خزانة سلاسل الألعاب"':' aria-label="الجانب الأيسر من الوشاح، يُفتح في تحديثات قادمة"')+'>'+
-    '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+'<div class="vt-hand">'+vHandSVG(s)+'</div>'+
-    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>اضغط لفتح الوشاح الأيمن</b><small>• خزانة سلاسل الألعاب •</small></span>':'<span class="vt-ban lk"><b>الجانب الأيسر من الوشاح</b><small>يُفتح في تحديثات قادمة</small></span>')+'</div></div>'};
+  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح الجناح الأيمن: خزانة السلاسل السوداوية"':' aria-label="الجناح الأيسر: خزانة السلاسل المسالمة، يُفتح قريباً"')+'>'+
+    '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+
+    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>افتح الجناح الأيمن</b><small>• خزانة السلاسل السوداوية •</small></span>':'<span class="vt-ban lk"><b>الجناح الأيسر</b><small>خزانة السلاسل المسالمة (يُفتح قريباً)</small></span>')+'</div></div>'};
   return '<section class="vt" id="vault" data-st="closed" aria-label="خزانة السلاسل"><div class="vt-hd"><h2 class="sec">خزانة السلاسل</h2><p class="sub">وشاح يحمل سلاسل الألعاب، كل جيب فيه سلسلة كاملة.</p></div>'+
    '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
