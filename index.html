@@ -787,7 +787,8 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
 
 /* الفراغ الأوسط صافٍ: العمود الأيسر ينزل 50px عن الأيمن، وعند المرور تتوهج الحافة الداخلية للبطاقة بلون المعرّب (للشاشات العريضة فقط) */
 @media (min-width:2440px){
- #all .screen.lf{margin-top:50px}
+ #all{width:min(calc(100vw - 48px),2388px);margin-inline:calc(50% - min(calc(50vw - 24px),1194px));grid-template-columns:repeat(2,1fr);column-gap:28px;row-gap:28px}
+ #all .screen,#all .screen.lf{width:100%;margin-top:0}
  #all .screen{--ig:#d4af37}
  #all .screen[data-by="an"]{--ig:#9fcbe3}
  #all .screen{transition:transform .9s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1)}
