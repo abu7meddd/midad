@@ -796,6 +796,33 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
  #all .screen:hover{box-shadow:-26px 0 60px -30px var(--ig),inset 1px 0 0 color-mix(in srgb,var(--ig) 55%,transparent),0 26px 60px -26px #000f}
  #all .screen.lf:hover{box-shadow:26px 0 60px -30px var(--ig),inset -1px 0 0 color-mix(in srgb,var(--ig) 55%,transparent),0 26px 60px -26px #000f}
 }
+
+/* دواة مِداد فوق البحث */
+.fbar{align-items:flex-end}
+.fside{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.inkw{display:flex;align-items:flex-end;gap:12px;min-height:66px}
+.inkw .ipot{width:60px;height:60px;flex-shrink:0;overflow:visible}
+.inkw .ipen{transform-box:view-box;transform-origin:42px 6px;animation:isway 6s ease-in-out infinite}
+@keyframes isway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.inkw.dip .ipen{animation:idip .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes idip{0%{transform:rotate(0) translateY(0)}45%{transform:rotate(2deg) translate(-1px,6px)}100%{transform:rotate(0) translateY(0)}}
+.inkw.dip .ishine{animation:ishine .6s ease}
+@keyframes ishine{0%{opacity:.35}40%{opacity:.9}100%{opacity:.35}}
+.inkx{display:grid;justify-items:end;text-align:left;min-width:180px}
+.inkx>*{grid-area:1/1;transition:opacity .45s cubic-bezier(.2,.7,.2,1),transform .45s cubic-bezier(.2,.7,.2,1)}
+.ihint{font-family:'Aref Ruqaa',serif;font-size:1.05rem;color:#b7a77d;opacity:.8;align-self:end;padding-bottom:6px;white-space:nowrap}
+.iword{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:1.9rem;line-height:1.2;color:#f3d27a;text-shadow:0 0 14px #d4af3744;opacity:0;transform:translateY(4px);white-space:nowrap;max-width:min(420px,60vw);overflow:hidden;text-overflow:ellipsis;align-self:start}
+.iword.wet{animation:iwet .6s ease}
+@keyframes iwet{0%{filter:blur(1.6px);opacity:.55}100%{filter:none;opacity:1}}
+.icount{font:600 .85rem var(--body);color:#c9c4d6;opacity:0;align-self:end;padding-bottom:2px}
+.icount.none{color:#e9a76b}
+.inkw.on .ihint{opacity:0;transform:translateY(-4px)}
+.inkw.on .iword{opacity:1;transform:none}
+.inkw.on .icount{opacity:1}
+.inkx{grid-template-rows:auto auto}
+.inkw.on .inkx{min-height:66px}
+.inkw.on .iword{grid-row:1}.inkw.on .icount{grid-row:2}
+@media (max-width:760px){.fside{width:100%;align-items:stretch}.inkw{justify-content:flex-end}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
@@ -1309,7 +1336,7 @@ function filtersHTML(){
   return '<div class="fbar"><div class="fpills" role="group" aria-label="فلترة التعريبات">'+FILTERS.map(function(f,i){
     var n=f[0]==='all'?GAMES.length:GAMES.filter(function(g){return byKey(g)===f[0]}).length;
     return n||f[0]==='all'?'<button type="button" class="fpill'+(i?'':' on')+'" data-f="'+f[0]+'" aria-pressed="'+(i?'false':'true')+'">'+f[1]+'<b>'+n.toLocaleString('ar-EG')+'</b></button>':''}).join('')+'</div>'+
-   '<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن تحفة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div>';
+   '<div class="fside">'+inkwellHTML()+'<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن تحفة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div></div>';
 }
 /* أول 6 بطاقات فقط، والباقي بزر «عرض جميع التعريبات»؛ الفلتر والبحث يعرضان كل ما يطابق */
 var LIB={f:'all',q:'',open:false,N:9999};
@@ -1318,6 +1345,28 @@ function gameOf(c){return gById(c.getAttribute('href').slice(1))}
 function libHay(g){return g._hay||(g._hay=normAr([g.ar,g.en,g.by,g.dev,(g.tags||[]).join(' ')].join(' ')))}
 function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;return n>LIB.N?'<button type="button" class="morebtn" id="morebtn" aria-expanded="false"><span>عرض جميع التعريبات ('+n.toLocaleString('ar-EG')+' لعبة)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>':''}
 
+/* دواة مِداد: قلم يغمس في الحبر ويخط ما تكتبه في البحث، مع عدّاد التحف المطابقة */
+function inkwellHTML(){
+  return '<div class="inkw" id="inkw" aria-live="polite"><div class="inkx"><span class="ihint">اكتب اسم تحفة… وأنا أخطّها بالحبر</span><span class="iword" id="iword"></span><span class="icount" id="icount"></span></div>'+
+   '<svg class="ipot" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="ipg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2730"/><stop offset="1" stop-color="#121116"/></linearGradient><linearGradient id="ipn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d27a"/><stop offset="1" stop-color="#a8862a"/></linearGradient></defs>'+
+   '<g class="ipen"><path d="M40 4L44 6L33 40L30 39Z" fill="#6b5232"/><path d="M30 39L33 40L31 47L29.5 46Z" fill="url(#ipn)"/></g>'+
+   '<path d="M14 34h36l-3 22a5 5 0 0 1-5 4H22a5 5 0 0 1-5-4z" fill="url(#ipg)" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.2"/>'+
+   '<rect x="20" y="29" width="24" height="6" rx="2" fill="#1a181e" stroke="#d4af37" stroke-opacity=".8" stroke-width="1.2"/>'+
+   '<ellipse cx="32" cy="29.5" rx="10" ry="2" fill="#0a0b0d"/><ellipse class="ishine" cx="32" cy="29.5" rx="6" ry="1" fill="#d4af37" opacity=".35"/>'+
+   '<path d="M20 44c4 1.5 8 1.5 12 0s8-1.5 12 0" stroke="#d4af37" stroke-opacity=".35" fill="none"/></svg></div>';
+}
+var inkLast='',inkT=0;
+function inkUpdate(q,n){
+  var w=document.getElementById('inkw');if(!w)return;
+  var wd=document.getElementById('iword'),ct=document.getElementById('icount');q=String(q||'').trim();
+  w.classList.toggle('on',!!q);
+  if(q!==inkLast){w.classList.remove('dip');void w.offsetWidth;if(q)w.classList.add('dip');
+    wd.classList.remove('wet');void wd.offsetWidth;wd.classList.add('wet');inkLast=q}
+  if(q){wd.textContent=q;
+    ct.textContent=n===0?'ما لقيناها… اطلبها تحت':n===1?'تحفة واحدة':n===2?'تحفتان':n<=10?n.toLocaleString('ar-EG')+' تحف':n.toLocaleString('ar-EG')+' تحفة';
+    ct.classList.toggle('none',n===0)}
+  else{clearTimeout(inkT);inkT=setTimeout(function(){if(!inkLast){wd.textContent='';ct.textContent=''}},600)}
+}
 function applyLib(instant){
   var cards=[].slice.call(document.querySelectorAll('#all .screen')),q=normAr(LIB.q);
   var ok=function(c){var g=gameOf(c);return (LIB.f==='all'||c.dataset.by===LIB.f)&&(!q||libHay(g).indexOf(q)>=0)};
@@ -1332,6 +1381,7 @@ function applyLib(instant){
   var mb=document.getElementById('morebtn');
   if(mb){var showMb=LIB.f==='all'&&!q&&cards.length>LIB.N;mb.hidden=!showMb;mb.classList.toggle('open',LIB.open);mb.setAttribute('aria-expanded',LIB.open);
     mb.querySelector('span').textContent=LIB.open?'عرض أقل':'عرض جميع التعريبات ('+cards.length.toLocaleString('ar-EG')+' لعبة)'}
+  inkUpdate(LIB.q,hits.length);
   var em=document.getElementById('fempty');if(em)em.hidden=!(q&&!hits.length&&!ms);
   if(!instant){setTimeout(onScroll,340);setTimeout(spy,560)}
 }
