@@ -815,7 +815,7 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
 .iword.wet{animation:iwet .6s ease}
 @keyframes iwet{0%{filter:blur(1.6px);opacity:.55}100%{filter:none;opacity:1}}
 .icount{font:600 .85rem var(--body);color:#c9c4d6;opacity:0;align-self:end;padding-bottom:2px}
-.icount.none{color:#e9a76b}
+.icount.none{color:#e7c9a0;font-weight:500;font-size:1rem;letter-spacing:.01em}
 .inkw.on .ihint{opacity:0;transform:translateY(-4px)}
 .inkw.on .iword{opacity:1;transform:none}
 .inkw.on .icount{opacity:1}
@@ -1363,7 +1363,7 @@ function inkUpdate(q,n){
   if(q!==inkLast){w.classList.remove('dip');void w.offsetWidth;if(q)w.classList.add('dip');
     wd.classList.remove('wet');void wd.offsetWidth;wd.classList.add('wet');inkLast=q}
   if(q){wd.textContent=q;
-    ct.textContent=n===0?'ما لقيناها… اطلبها تحت':n===1?'تحفة واحدة':n===2?'تحفتان':n<=10?n.toLocaleString('ar-EG')+' تحف':n.toLocaleString('ar-EG')+' تحفة';
+    ct.textContent=n===0?'غابتْ عن الحبر… وما كلُّ غائبٍ يهون':n===1?'تحفة واحدة':n===2?'تحفتان':n<=10?n.toLocaleString('ar-EG')+' تحف':n.toLocaleString('ar-EG')+' تحفة';
     ct.classList.toggle('none',n===0)}
   else{clearTimeout(inkT);inkT=setTimeout(function(){if(!inkLast){wd.textContent='';ct.textContent=''}},600)}
 }
