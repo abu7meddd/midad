@@ -967,7 +967,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-tip{position:absolute;inset:0;pointer-events:none;z-index:5}
 /* بقعة ضوء سينمائية على نقطة لقاء اليدين، وكل ما يبتعد يغرق في الظلام */
 .vt-spot{position:absolute;inset:0;z-index:3;pointer-events:none}
-.vt-fl.L .vt-spot{background:radial-gradient(ellipse 26% 11% at 84% 44%,#ffe7a814,#0000 100%),radial-gradient(ellipse 40% 15% at 84% 44%,#0000 34%,#060505cc 74%,#040404f2 100%)}
+.vt-fl.L .vt-spot{background:radial-gradient(ellipse 20% 9% at 89% 43%,#ffe7a814,#0000 100%),radial-gradient(ellipse 28% 11% at 89% 43%,#0000 32%,#060505dc 72%,#040404f6 100%)}
 .vt-fl.R .vt-spot{background:radial-gradient(ellipse 26% 11% at 16% 41%,#ff3a1a10,#0000 100%),radial-gradient(ellipse 42% 15% at 16% 41%,#0000 34%,#04040acc 74%,#040409f2 100%)}
 .vt-tip>span{position:sticky;top:30vh;display:block;margin-top:30vh;width:max-content;max-width:78%;margin-inline:auto 9%;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s}
 .vt-fl.L .vt-tip>span{margin-inline:9% auto}
@@ -1015,7 +1015,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-p1:hover .vt-c1,.vt-p1:focus-visible .vt-c1{transform:translate(-30px,-60px) rotate(-10deg)}
 .vt-p1:hover .vt-c2,.vt-p1:focus-visible .vt-c2{transform:translate(64px,-84px) rotate(13deg)}
 .vt-p1:hover .vt-gl,.vt-p1:focus-visible .vt-gl{opacity:1}
-.vt-lgo{position:absolute;left:11%;width:78%;top:calc(var(--pt,20%) + 17%);z-index:5;image-rendering:pixelated;pointer-events:none;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 10px #a3202a45);transition:filter .4s}
+.vt-lgo{position:absolute;left:11%;width:78%;top:calc(var(--pt,20%) + 7%);z-index:5;image-rendering:pixelated;pointer-events:none;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 10px #a3202a45);transition:filter .4s}
 .vt-p1:hover .vt-lgo,.vt-p1:focus-visible .vt-lgo{filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 16px #d4202a90)}
 .vt-w{position:fixed;inset:0;width:100vw;height:100vh;z-index:9999;background:#0e0809;color:#efe3c8;opacity:0;transform:scale(1.03);transition:opacity .5s,transform .6s cubic-bezier(.22,1,.36,1)}
 .vt-w.on{opacity:1;transform:none}
@@ -1707,7 +1707,7 @@ function vArmLayout(){var s=Math.max(.17,Math.min(.46,innerWidth*.000235));
         GL=Math.abs(A.w*Math.sin(th))+Math.abs(A.h*Math.cos(th)),pos=function(o){var qx=A.wx+ux*o-A.w/2,qy=A.wy+uy*o-A.h/2;return ((qx*Math.sin(th)-qy*Math.cos(th))/GL+.5)*100},
         so=D?-55:-200,mk='linear-gradient('+th*180/Math.PI+'deg,#0000 '+pos(so-28)+'%,#000 '+pos(so-6)+'%)';
     h.style.left=hx+'px';h.style.top=hy+'px';h.style.width=A.w*s+'px';h.style.webkitMaskImage=h.style.maskImage=mk;
-    var ang=Math.atan2(A.cut[1]-A.wy,A.cut[0]-A.wx)-(D?0:Math.PI),ax=hx+(A.wx+ux*so)*s,ay=hy+(A.wy+uy*so)*s;
+    var ang=Math.atan2(A.cut[1]-A.wy,A.cut[0]-A.wx)-(D?0:Math.PI),ax=hx+(A.wx+ux*so)*s,ay=hy+(A.wy+uy*so-(D?0:34))*s;
     var SL=1.4,sw=A.sl.w*s*SL;sl.style.width=sw+'px';sl.style.height=A.sl.h*s+'px';sl.style.top=(ay-A.sl.cy*s)+'px';sl.style.left=(D?ax:ax-sw)+'px';sl.style.webkitMaskImage=sl.style.maskImage='linear-gradient('+(D?270:90)+'deg,#0000 0,#000 16%)';
     sl.style.transformOrigin=(D?0:sw)+'px '+A.sl.cy*s+'px';sl.style.transform='rotate('+ang+'rad)'})}
 /* طيات القماش: داكنة جداً بكحلي ليلي (لا خطوط صفراء) */
@@ -1775,8 +1775,8 @@ function vSeriesPocket(S,p,i){
   var A=S.parts[0],B=S.parts[1],g=GAMES.filter(function(x){return x.id===A.gid})[0]||{};
   return '<button type="button" class="vt-pk vt-p1" data-series="'+S.key+'" style="'+vPkStyle(p,i)+'" aria-label="'+esc(S.ar)+': اضغط لدخول عالم السلسلة">'+
    '<span class="vt-gl"></span>'+
-   '<span class="vt-cd vt-c2"><span class="n2">2</span><span class="t2">'+esc(B.ar||'')+'<i>'+esc((B.en||'').toUpperCase())+'</i></span></span>'+
-   '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""><img class="lgo" src="img/blasphemous-logo.png" alt=""></span>'+
+   '<span class="vt-cd vt-c2"><span class="n2">2</span></span>'+
+   '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""></span>'+
    '<span class="vt-pm"></span><span class="vt-pf"></span><img class="vt-lgo" src="img/blasphemous-logo.png" alt="'+esc(S.ar)+'">'+
    '</button>';
 }
