@@ -785,22 +785,19 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
  #all>*:not(.screen){grid-column:1/-1}
 }
 
-/* خيط الحبر والنجوم: في الفراغ بين التعريبين (للشاشات العريضة فقط) */
+/* من الإنجليزي إلى الحبر: كلمة لكل تعريب في الفراغ بين البطاقتين، تتحول من إنجليزية باهتة إلى عربية بحبر ذهبي كلما اقترب سطرها من وسط الشاشة (للشاشات العريضة فقط) */
 #all{position:relative}
 .thr{display:none;position:absolute;left:50%;width:0;z-index:3;pointer-events:none}
 @media (min-width:2440px){.thr{display:block}}
-.thr .tl{position:absolute;left:-1px;top:0;bottom:0;width:2px;background:linear-gradient(#f3b53f00,#f3b53f26 7%,#f3b53f26 93%,#f3b53f00)}
-.thr .tf{position:absolute;left:-1px;top:0;bottom:0;width:2px;transform-origin:top;transform:scaleY(var(--p,0));transition:transform .18s linear;background:linear-gradient(#f3b53f00,#f3b53f 5%,#f6cf7a);box-shadow:0 0 10px #f3b53f66}
-.thr .ts{position:absolute;left:0;width:44px;height:44px;margin:-22px 0 0 -22px;pointer-events:auto;cursor:default}
-.thr .ts svg{display:block;width:100%;height:100%;overflow:visible;opacity:.22;filter:grayscale(.6);transform:scale(.7);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1),filter .5s}
-.thr .ts .sp{fill:#f6cf7a}.thr .ts .co{fill:#fff}.thr .ts .hl{fill:#f3b53f;opacity:0;transition:opacity .5s}
-.thr .ts.on svg{opacity:.85;filter:none;transform:scale(1)}
-.thr .ts.cur svg{opacity:1;transform:scale(1.35)}.thr .ts.cur .hl{opacity:.28}
-.thr .tn{position:absolute;top:30px;display:grid;justify-items:center;line-height:1.15;opacity:0;transform:translateY(-4px);transition:opacity .5s,transform .5s;white-space:nowrap}
-.thr .tn.r{left:calc(50% + 14px)}.thr .tn.l{right:calc(50% + 14px)}
-.thr .tn b{font:600 1rem var(--body);color:#f6cf7a}.thr .tn.an b{color:#cfe7f4}
-.thr .tn small{font-size:.68rem;color:#a9a6b8;letter-spacing:.06em}
-.thr .ts.on .tn{opacity:.55;transform:none}.thr .ts.cur .tn{opacity:1;transform:none}
+.thr .tw{position:absolute;left:0;width:0;--t:0}
+.thr .wd{position:absolute;top:0;width:88px;height:80px;transform:translateY(-50%);pointer-events:auto;display:grid;place-items:center;text-align:center}
+.thr .wd.r{left:4px}.thr .wd.l{right:4px}
+.thr .wd>*{grid-area:1/1}
+.thr .wd .en{font:500 .7rem var(--body);letter-spacing:.15em;text-transform:uppercase;direction:ltr;color:#8d8a99;opacity:calc(.85 - var(--t)*1.1);filter:blur(calc(var(--t)*3px));padding-inline-start:.15em}
+.thr .wd .ar{font-family:'Aref Ruqaa','Rubik',serif;font-weight:700;font-size:1.75rem;line-height:1.3;white-space:nowrap;color:#f6cf7a;text-shadow:0 0 18px #f3b53f55;opacity:calc(.15 + var(--t)*.85);clip-path:inset(-10px 0 -10px calc((1 - var(--t))*100%));filter:blur(calc((1 - var(--t))*2.5px))}
+.thr .wd.an .ar{color:#cfe7f4;text-shadow:0 0 18px #9fcbe355}
+.thr .wd s{align-self:end;justify-self:center;width:46px;height:2px;margin-bottom:6px;background:linear-gradient(90deg,#f3b53f00,#f3b53f,#f3b53f00);transform:scaleX(var(--t));transform-origin:center;opacity:var(--t);text-decoration:none}
+.thr .wd.an s{background:linear-gradient(90deg,#9fcbe300,#9fcbe3,#9fcbe300)}
 .screen.hl{box-shadow:0 0 0 1px #f3b53f88,0 30px 80px -26px var(--glow,#000)!important}
 </style>
 
@@ -1324,37 +1321,34 @@ function gameOf(c){return gById(c.getAttribute('href').slice(1))}
 function libHay(g){return g._hay||(g._hay=normAr([g.ar,g.en,g.by,g.dev,(g.tags||[]).join(' ')].join(' ')))}
 function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;return n>LIB.N?'<button type="button" class="morebtn" id="morebtn" aria-expanded="false"><span>عرض جميع التعريبات ('+n.toLocaleString('ar-EG')+' لعبة)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>':''}
 
-/* خيط الحبر والنجوم بين التعريبين */
-var STAR4='<svg viewBox="-30 -30 60 60"><circle class="hl" r="26"/><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></svg>';
-function thrNum(g){return (g.lines||0).toLocaleString('ar-EG')}
+/* من الإنجليزي إلى الحبر: كلمات حقيقية من أسماء الألعاب وتعريبها */
+var WORDS={'sovereign-tower':['Tower','برج'],'manor-lords':['Lords','سادة'],'town-to-city':['City','مدينة'],'probably-stolen':['Stolen','مسروقة'],'dave-the-diver':['Diver','غوّاص'],'potion-craft':['Potion','جرعة'],'dredge':['Dredge','دريدج'],'celeste':['Mountain','جبل'],'restory':['Story','حكاية'],'silver-pines':['Pines','باينز'],'inscryption':['Cards','بطاقات'],'blasphemous':['Penitent','تائب'],'stardew-valley':['Valley','وادي']};
+function inkWord(g,side){var w=WORDS[g.id]||[g.en.split(' ')[0],g.ar.split(' ')[0]];
+  return '<span class="wd '+side+(byKey(g)==='an'?' an':'')+'"><i class="en">'+esc(w[0])+'</i><b class="ar">'+esc(w[1])+'</b><s></s></span>'}
 function buildThread(){
   var all=document.getElementById('all');if(!all)return;
   var old=all.querySelector('.thr');if(old)old.remove();
   if(innerWidth<2440)return;
   var vis=[].slice.call(all.querySelectorAll('.screen')).filter(function(c){return !c.hidden&&c.offsetHeight>0});
-  if(vis.length<2)return;
-  var top=vis[0].offsetTop,last=vis[vis.length-1],bot=last.offsetTop+last.offsetHeight;
-  var th=document.createElement('div');th.className='thr';th.setAttribute('aria-hidden','true');th.style.top=top+'px';th.style.height=(bot-top)+'px';
-  var h='<i class="tl"></i><i class="tf"></i>';
+  if(vis.length<1)return;
+  var th=document.createElement('div');th.className='thr';th.setAttribute('aria-hidden','true');th.style.top='0px';th.style.height='0px';
+  var h='';
   for(var i=0;i<vis.length;i+=2){
-    var a=vis[i],b=vis[i+1],y=a.offsetTop+a.offsetHeight/2-top,ga=gameOf(a),gb=b?gameOf(b):null;
-    h+='<span class="ts" data-i="'+i+'" style="top:'+y+'px">'+STAR4+
-      '<span class="tn r'+(byKey(ga)==='an'?' an':'')+'"><b>'+thrNum(ga)+'</b><small>سطر</small></span>'+
-      (gb?'<span class="tn l'+(byKey(gb)==='an'?' an':'')+'"><b>'+thrNum(gb)+'</b><small>سطر</small></span>':'')+'</span>';
+    var a=vis[i],b=vis[i+1],y=a.offsetTop+a.offsetHeight/2;
+    h+='<div class="tw" data-i="'+i+'" style="top:'+y+'px">'+inkWord(gameOf(a),'r')+(b?inkWord(gameOf(b),'l'):'')+'</div>';
   }
   th.innerHTML=h;all.appendChild(th);
-  [].forEach.call(th.querySelectorAll('.ts'),function(st){var i=+st.dataset.i,a=vis[i],b=vis[i+1];
-    st.addEventListener('mouseenter',function(){a.classList.add('hl');if(b)b.classList.add('hl')});
-    st.addEventListener('mouseleave',function(){a.classList.remove('hl');if(b)b.classList.remove('hl')})});
+  [].forEach.call(th.querySelectorAll('.tw'),function(tw){var i=+tw.dataset.i,a=vis[i],b=vis[i+1];
+    [].forEach.call(tw.querySelectorAll('.wd'),function(w,k){var c=k?b:a;
+      w.addEventListener('mouseenter',function(){c.classList.add('hl')});w.addEventListener('mouseleave',function(){c.classList.remove('hl')})})});
   thrTick();
 }
 var thrRaf=0;
 function thrTick(){
   thrRaf=0;var th=document.querySelector('#all .thr');if(!th)return;
-  var r=th.getBoundingClientRect(),H=th.offsetHeight,reach=innerHeight*.62-r.top;
-  th.style.setProperty('--p',Math.max(0,Math.min(1,reach/H)).toFixed(4));
-  [].forEach.call(th.querySelectorAll('.ts'),function(st){var y=st.offsetTop;
-    st.classList.toggle('on',y<=reach);st.classList.toggle('cur',Math.abs(r.top+y-innerHeight*.5)<260)});
+  var r=th.getBoundingClientRect(),cy=innerHeight*.5;
+  [].forEach.call(th.querySelectorAll('.tw'),function(tw){var d=Math.abs(r.top+tw.offsetTop-cy)/innerHeight;
+    var t=Math.max(0,Math.min(1,(.62-d)/.4));t=t*t*(3-2*t);tw.style.setProperty('--t',t.toFixed(3))});
 }
 function thrReq(){if(!thrRaf)thrRaf=requestAnimationFrame(thrTick)}
 window.addEventListener('scroll',thrReq,{passive:true});
