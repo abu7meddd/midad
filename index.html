@@ -1782,9 +1782,9 @@ function vSeriesPocket(S,p,i){
 }
 function vaultHTML(){
   var pk=VPK.map(function(p,i){return SERIES[i]?vSeriesPocket(SERIES[i],p,i):vEmptyPocket(p,i)}).join('');
-  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح الجناح الأيمن: خزانة السلاسل السوداوية"':' aria-label="الجناح الأيسر: خزانة السلاسل المسالمة، يُفتح قريباً"')+'>'+
+  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح سِفر الظلام: سلاسل كُتبت بحبرٍ من جمر"':' aria-label="سِفر النور: سلاسل كُتبت بحبرٍ من ضوء، يُفتح قريباً"')+'>'+
     '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+'<div class="vt-spot"></div>'+
-    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>الجناح الأيمن</b><small>• خزانة السلاسل السوداوية (اضغط للفتح) •</small></span>':'<span class="vt-ban lk"><b>الجناح الأيسر</b><small>خزانة السلاسل المسالمة (يُفتح قريباً)</small></span>')+'</div></div>'};
+    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>سِفرُ الظلام</b><small>سلاسلُ كُتبت بحبرٍ من جمر • اضغط لتفتح</small></span>':'<span class="vt-ban lk"><b>سِفرُ النور</b><small>سلاسلُ كُتبت بحبرٍ من ضوء • يُفتح قريباً</small></span>')+'</div></div>'};
   return '<section class="vt" id="vault" data-st="closed" aria-label="خزانة السلاسل"><div class="vt-hd"><h2 class="sec">خزانة السلاسل</h2><p class="sub">وشاح يحمل سلاسل الألعاب، كل جيب فيه سلسلة كاملة.</p></div>'+
    '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
