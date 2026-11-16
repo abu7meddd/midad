@@ -782,7 +782,7 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
 /* شاشة عريضة (2440px فأكثر): تعريبان في كل سطر بحجمهما الأصلي، الأول أقصى اليمين والثاني أقصى اليسار */
 @media (min-width:2440px){
  #all{width:calc(100vw - 48px);margin-inline:calc(50% - 50vw + 24px);grid-template-columns:1fr 1fr}
- #all>*:not(.screen){grid-column:1/-1}
+ #all>*:not(.screen){grid-column:1/-1;width:100%!important;justify-self:stretch!important}
 }
 
 /* الفراغ الأوسط صافٍ: العمود الأيسر ينزل 50px عن الأيمن، وعند المرور تتوهج الحافة الداخلية للبطاقة بلون المعرّب (للشاشات العريضة فقط) */
@@ -1309,7 +1309,7 @@ function filtersHTML(){
   return '<div class="fbar"><div class="fpills" role="group" aria-label="فلترة التعريبات">'+FILTERS.map(function(f,i){
     var n=f[0]==='all'?GAMES.length:GAMES.filter(function(g){return byKey(g)===f[0]}).length;
     return n||f[0]==='all'?'<button type="button" class="fpill'+(i?'':' on')+'" data-f="'+f[0]+'" aria-pressed="'+(i?'false':'true')+'">'+f[1]+'<b>'+n.toLocaleString('ar-EG')+'</b></button>':''}).join('')+'</div>'+
-   '<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن لعبة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div>';
+   '<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن تحفة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div>';
 }
 /* أول 6 بطاقات فقط، والباقي بزر «عرض جميع التعريبات»؛ الفلتر والبحث يعرضان كل ما يطابق */
 var LIB={f:'all',q:'',open:false,N:9999};
