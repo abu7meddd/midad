@@ -771,6 +771,17 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
   .labbar{flex-wrap:wrap}.labname{flex:1 1 100%}.labnav{margin-inline-start:auto}
   .jo figcaption{padding-inline-end:18px;padding-bottom:72px}
 }
+
+/* مكتبة التعريبات: عمودان (يمين ويسار بالتناوب) وكلها ظاهرة بلا زر «عرض الكل» */
+@media (min-width:761px){
+ #all{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.2vw,30px)}
+ #all>*:not(.screen){grid-column:1/-1}
+ #all .screen,#all .screen.big{height:540px;min-height:0;align-items:end}
+ #all .screen::before{background:linear-gradient(0deg,rgba(var(--vg),.95) 0%,rgba(var(--vg),.86) 46%,rgba(var(--vg),0) 80%)}
+ #all .screen .info{width:100%;max-width:none;box-sizing:border-box;padding:28px 32px 32px;align-items:flex-start;justify-content:flex-end}
+ #all .screen .logo-h{zoom:.8}
+ #all .screen.solo{grid-column:1/-1}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
@@ -1287,7 +1298,7 @@ function filtersHTML(){
    '<label class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fq" placeholder="ابحث عن لعبة…" aria-label="ابحث في التعريبات" autocomplete="off"></label></div>';
 }
 /* أول 6 بطاقات فقط، والباقي بزر «عرض جميع التعريبات»؛ الفلتر والبحث يعرضان كل ما يطابق */
-var LIB={f:'all',q:'',open:false,N:6};
+var LIB={f:'all',q:'',open:false,N:9999};
 function normAr(s){return String(s).toLowerCase().replace(/[ً-ْٰـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim()}
 function gameOf(c){return gById(c.getAttribute('href').slice(1))}
 function libHay(g){return g._hay||(g._hay=normAr([g.ar,g.en,g.by,g.dev,(g.tags||[]).join(' ')].join(' ')))}
@@ -1296,6 +1307,7 @@ function applyLib(instant){
   var cards=[].slice.call(document.querySelectorAll('#all .screen')),q=normAr(LIB.q);
   var ok=function(c){var g=gameOf(c);return (LIB.f==='all'||c.dataset.by===LIB.f)&&(!q||libHay(g).indexOf(q)>=0)};
   var hits=cards.filter(ok),limited=LIB.f==='all'&&!q&&!LIB.open,k=0;
+  cards.forEach(function(c){c.classList.remove('solo')});if(hits.length%2)hits[hits.length-1].classList.add('solo');
   cards.forEach(function(c){var i=hits.indexOf(c),show=i>=0&&(!limited||i<LIB.N);
     if(instant){c.hidden=!show;return}
     if(show&&c.hidden){var d=(k++)*70;setTimeout(function(){fadeTo(c,true)},d)}else fadeTo(c,show)});
