@@ -683,6 +683,19 @@ body[data-world="sp"]{--w-bg:#0b0a0a;--w-ink:#ece4dc;--w-mute:#b3a69e;--w-nav-bg
 .w-insc{--vg:20,12,8;--gl:#d9762b70}
 @media (min-width:761px){.w-insc .logo-h{zoom:1}}
 body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-bg:#0c0806;--w-nav-bd:2px solid #6b4224;--w-vg:16,11,8;--w-r:2px;--w-panel:#1b130d;--w-panel-bd:1px solid #5a3a22;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2b1c12;--w-title-fg:#dfe2ad;--w-accent:#d9762b;--w-btn:#d9762b;--w-btn-fg:#160d07;--w-btn-bd:1px solid #f0a060;--w-btn-r:2px;--w-shot-bd:1px solid #5a3a22}
+
+.lg-bl{display:block;line-height:0}.lg-bl img{display:block;height:clamp(92px,12vw,150px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 14px #000a)}
+.w-bl{--vg:14,8,10;--gl:#d4a73a60}
+@media (min-width:761px){.w-bl .logo-h{zoom:1.05}}
+body[data-world="bl"]{--w-bg:#0e0809;--w-ink:#efe3c8;--w-mute:#b9a583;--w-nav-bg:#0b0607;--w-nav-bd:2px solid #8a6a2a;--w-vg:14,8,10;--w-r:2px;--w-panel:#1a0f11;--w-panel-bd:1px solid #6b5224;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2a1417;--w-title-fg:#e4c566;--w-accent:#d4a73a;--w-btn:#9c1f36;--w-btn-fg:#f6e9c8;--w-btn-bd:1px solid #d4a73a;--w-btn-r:2px;--w-shot-bd:1px solid #6b5224}
+
+.lg-sdv{display:block;line-height:0}.lg-sdv img{display:block;height:clamp(96px,13vw,160px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 12px #000a)}
+.w-sdv{--vg:30,18,8;--gl:#e0932f60}
+@media (min-width:761px){.w-sdv .logo-h{zoom:1.05}}
+body[data-world="sdv"]{--w-bg:#cfa86a url(img/stardew-valley-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#3a2210;--w-mute:#6b4a2a;--w-nav-bg:#5a3216;--w-nav-bd:3px solid #2e1a0a;--w-vg:207,168,106;--w-r:4px;--w-panel:#f1cf8e;--w-panel-bd:3px solid #8a4a1a;--w-panel-sh:0 10px 22px -12px #3a221088;--w-title-bg:#8a4a1a;--w-title-fg:#fbe9c4;--w-accent:#a85a1c;--w-btn:#8a4a1a;--w-btn-fg:#fbe9c4;--w-btn-bd:3px solid #2e1a0a;--w-btn-r:4px;--w-shot-bd:5px solid #8a4a1a}
+body[data-world="sdv"] .dhero p,body[data-world="sdv"] .dhero .en,body[data-world="sdv"] .back,body[data-world="sdv"] .dl small{color:#3a2210;text-shadow:none}
+body[data-world="sdv"] .tag{background:#f1cf8ecc;color:#3a2210;border-color:#8a4a1a}body[data-world="sdv"] .tag.gold{background:#8a4a1a;color:#fbe9c4}
+body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{color:#3a2210;border-top-color:#8a4a1a}
 /* 6) v5: الكوكبة على مرحلتين: بوابة القمر والأرض ← خريطة نجوم عريضة تُسحب. نسخة الرجوع index.v54-backup.html */
 .cwrap.portal{position:relative;aspect-ratio:16/9;padding:0;background:#050608;border-color:#1d1f25;
   --ex:50.89%;--ey:21.3%;--erx:36.72%;--ery:43.52%;--tx:50.89%;--ty:30.5%}
@@ -797,7 +810,7 @@ var GAMES=[
    kept:[{t:'الترجمة والنصوص',d:'ملف Game.locres كما هو بلا أي حرف مغيَّر، وبصمته مطابقة للأصل'},{t:'حزم اللعبة (ucas / utoc)',d:'بلا أي تغيير'}]},
   feats:['ترجمة كاملة بصيغة locres','26 خطاً استُبدلت بخط Rubik','الترجمة مطابقة للأصل بالبصمة'],
   how:['ضع ملفات 3BADIOH_P الثلاثة في مجلد ~mods داخل Paks','شغّل اللعبة']},
- {id:'manor-lords',lines:2987,lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
+ {id:'manor-lords',real:['img/manor-lords-real-1.webp','img/manor-lords-real-2.webp'],lines:2987,lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
   blurb:'«سادة الإقطاع» (Manor Lords) لعبة استراتيجية من العصور الوسطى، تجمع بين بناء المدن المتعمّق، ومعارك تكتيكية واسعة النطاق، ومحاكاة اقتصادية واجتماعية معقّدة. احكم أراضيك بصفتك سيّداً إقطاعياً؛ تتعاقب الفصول، ويتبدّل الطقس، وتنهض المدن وتسقط.',
   engine:'Unreal Engine 5',kind:'مثبّت (exe)',size:'30.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/manor-lords/ManorLords_Arabic_Setup.exe',
   feats:['نصوص الواجهة','القوائم والتلميحات'],
@@ -837,7 +850,7 @@ var GAMES=[
   engine:'Unity',kind:'مثبّت (exe)',size:'13.2 ميجا',date:'2026-11-12',dl:'https://github.com/abu7meddd/midad/releases/download/restory/ReStory-Arabic-Setup.exe',
   feats:['واجهة اللعبة وقوائمها ومهام الإصلاح','حوارات الزبائن (1131 حواراً)','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت (يجد مجلد اللعبة)','افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
- {id:'silver-pines',lines:3385,lg:'sp',ba:[{en:'img/silver-pines-ba-en-1.jpg',ar:'img/silver-pines-ar-1.jpg',ref:'شاشة الحقيبة: UIGame 69502511202304 (Use) و69810440224768 (Combine) و251595320292093952 (Examine)، Items 239246190904676352 و239246190904676353 (المفتاح ووصفه)، UICommon 24628805632 (Back)؛ الإنجليزي من localization-string-tables-english(en) والعربي من LocalizationOverlay.json بنفس المفتاح',note:'اللقطة من نسخة أقدم: اسم المفتاح فيها «Motel Poolside Key» ووصفه «A key to the gate leading to the poolside area»، وصار في الجدول الحالي «Poolside Key» بوصف جديد، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الأرقام وزر لوحة التحكم (B) والمرسوم على علب الذخيرة تبقى.'}],glow:'#c4282866',ar:'سيلفر باينز',en:'Silver Pines',by:'أبو النوفي',dev:'Wych Elm / Team17',tags:['رعب وبقاء','ميترويدفانيا','مغامرة'],
+ {id:'silver-pines',real:['img/silver-pines-real-1.webp','img/silver-pines-real-2.webp'],lines:3385,lg:'sp',ba:[{en:'img/silver-pines-ba-en-1.jpg',ar:'img/silver-pines-ar-1.jpg',ref:'شاشة الحقيبة: UIGame 69502511202304 (Use) و69810440224768 (Combine) و251595320292093952 (Examine)، Items 239246190904676352 و239246190904676353 (المفتاح ووصفه)، UICommon 24628805632 (Back)؛ الإنجليزي من localization-string-tables-english(en) والعربي من LocalizationOverlay.json بنفس المفتاح',note:'اللقطة من نسخة أقدم: اسم المفتاح فيها «Motel Poolside Key» ووصفه «A key to the gate leading to the poolside area»، وصار في الجدول الحالي «Poolside Key» بوصف جديد، فالعربي مأخوذ من السطر الموجود في ملف التعريب كما هو. الأرقام وزر لوحة التحكم (B) والمرسوم على علب الذخيرة تبقى.'}],glow:'#c4282866',ar:'سيلفر باينز',en:'Silver Pines',by:'أبو النوفي',dev:'Wych Elm / Team17',tags:['رعب وبقاء','ميترويدفانيا','مغامرة'],
   blurb:'«سيلفر باينز» (Silver Pines) لعبة رعب وبقاء بأسلوب الميترويدفانيا، تدور أحداثها في بلدة أمريكية صغيرة. واجه أهوالاً كأنها خرجت من الكوابيس، وحُلّ الألغاز، وأنت تدبّر مواردك الشحيحة بحذر، بينما تكشف أسراراً قد تحمل مفتاح الخلاص.',
   engine:'Unity',kind:'مثبّت (exe)',size:'192.3 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/silver-pines/SilverPines_Arabic_Setup.exe',
   feats:['الحوارات والقوائم والأغراض والسجلات والتلميحات','شعار اللعبة وخرائط المناطق بالعربي','خط HeshamRTL مع اتجاه كتابة RTL','نسخ احتياطي للملفات الأصلية وإزالة من المثبّت'],
@@ -851,7 +864,19 @@ var GAMES=[
   blurb:'«إنسكريبشن» (Inscryption) رحلة حالكة السواد قائمة على البطاقات، تمزج ألعاب الروغلايك القائمة على بناء المجموعة، وألغاز غرف الهروب، والرعب النفسي، في خليط يقطر دماً. وأشدّ منها ظلمةً الأسرار المنقوشة على البطاقات...',
   engine:'Unity',kind:'مثبّت (exe)',size:'24.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/inscryption/Inscryption-Arabic-Setup.exe',
   feats:['ترجمة كاملة: الحوارات والبطاقات والقوائم والشعار','شعار اللعبة بالعربي في شاشة البداية','خط ثمانية Bold مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
-  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']}
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']},
+ {id:'blasphemous',lines:1866,lg:'bl',ba:[{"en": "img/blasphemous-ba-en-1.jpg", "ar": "img/blasphemous-ar-1.jpg", "ref": "Bosses/BLINDBABY_NAME (Expósito, Scion of Abjuration → إكسبوسيتو، سليل الجحود)", "note": "اسم الزعيم فوق شريط صحته؛ رُسم بخط اللعبة البكسلي العربي نفسه (ذرة الخط pixel.png) وبمقياس اللعبة ×4. التشكيل (الشدّة وغيرها) لا يظهر لأن خط اللعبة بلا علامات تشكيل. لا نص آخر في اللقطة، وعدّاد الدموع أرقام فقط."}, {"en": "img/blasphemous-ba-en-2.jpg", "ar": "img/blasphemous-ar-2.jpg", "ref": "Bosses/BURNTFACE_NAME (Our Lady of the Charred Visage → سيدتنا ذات الوجه المتفحّم)", "note": "لقطة Steam بنسبة 1920×1041 (ليست 16:9) فبقيت على نسبتها. شكل اللعبة الحقيقي للعربي مركّب بالخط البكسلي نفسه؛ علامة الشدّة محذوفة لعدم وجودها في خط اللعبة."}],
+  glow:'#d4a73a55',ar:'بلاسفيموس',en:'Blasphemous',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
+  blurb:'«بلاسفيموس» (Blasphemous) لعبة منصّات حركة وحشية بقتال سيف متقن، تدور في عالم كابوسي اسمه «كفستوديا». استكشف، وطوّر قدراتك، ونفّذ إعدامات قاسية بحق جحافل الأعداء التي تقف بينك وبين مهمتك في كسر اللعنة الأبدية.',
+  engine:'Unity',kind:'مثبّت (exe)',size:'20.0 ميجا',date:'2026-11-16',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous/Blasphemous-Arabic-Setup.exe',
+  feats:['ترجمة كاملة: الحوارات والمتاع والإنجازات والشعار','خط بكسل عربي يناسب لوحات اللعبة','شعار اللعبة بالعربي في شاشة البداية','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة. وللإزالة شغّل المثبّت واختر إزالة. وبعد «التحقق من الملفات» في Steam اختر «تحديث التعريب»']},
+ {id:'stardew-valley',lines:13301,lg:'sdv',ba:[{"en": "img/stardew-valley-ba-en-1.jpg", "ar": "img/stardew-valley-ar-1.jpg", "ref": "Data/Festivals/summer11.xnb ← Governor (الصفحة الأولى قبل #$e#)، Strings/NPCNames.xnb ← Governor", "note": "نص الحوار واسم المتحدث من ملفات اللعبة نفسها (النص الإنجليزي الأصلي في Content والعربي في حزمة التعريب). الصفحة الثانية من الحوار («أتحدث مع السيدة…») لا تظهر في اللقطة. موضع النص وكسر الأسطر تقريب تركيب."}, {"en": "img/stardew-valley-ba-en-2.jpg", "ar": "img/stardew-valley-ar-2.jpg", "ref": "Data/Events/SeedShop.xnb ← «1/f Abigail 500/…» المقطع 45، Strings/NPCNames.xnb ← Abigail", "note": "عبارة أبيغيل ضمن مشهد حدث في غرفتها (سطر speak 45 في الحدث)، واسمها من NPCNames. لقطات Steam الأربع عشرة الأخرى لا نص فيها غير الرسوم، فلا قبل وبعد لها. موضع النص تقريب تركيب."}],
+  glow:'#e0932f55',ar:'ستاردو فالي',en:'Stardew Valley',by:'أبو النوفي',dev:'ConcernedApe',tags:['محاكاة','لعب أدوار','مستقل'],
+  blurb:'ورثتَ قطعة مزرعة جدّك القديمة في «ستاردو فالي» (Stardew Valley). وبأدوات متوارثة وبضع قطع نقدية، تنطلق لبدء حياتك الجديدة. هل تستطيع أن تتعلم العيش من الأرض، وتحوّل هذه الحقول المهملة إلى بيت عامر؟',
+  engine:'MonoGame (.NET)',kind:'مثبّت (exe)',size:'20.9 ميجا',date:'2026-11-16',dl:'https://github.com/abu7meddd/midad/releases/download/stardew-valley/StardewValley_Arabic_Setup.exe',
+  feats:['ترجمة نصوص اللعبة كاملة: أكثر من 160 ملف بيانات ونصوص','خط عربي بأشكال الحروف المتصلة','شعار اللعبة بالعربي وصور الواجهة المعرّبة','تعديل مكتبتين من ملفات اللعبة لدعم العربية'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -938,6 +963,8 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
+  if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
+  if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
   if(g.lg==='insc')return '<span class="lg lg-insc"><img src="img/inscryption-logo.png" alt="إنسكريبشن"></span>';
   if(g.lg==='sp')return '<span class="lg lg-sp"><span class="tp">سيلفر</span><span class="tp">باينز</span></span>';
   if(g.lg==='ps')return '<span class="lg lg-ps"><span class="stamp"><span>مسروقة</span><span>غالباً</span></span></span>';
@@ -965,6 +992,8 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-16',t:'إضافة',id:'stardew-valley',n:'تعريب كامل للنصوص والحوارات والمهرجانات مع شعار اللعبة بالعربي، بمثبّت أبو النوفي.'},
+ {d:'2026-11-16',t:'إضافة',id:'blasphemous',n:'تعريب كامل للحوارات والمتاع والإنجازات مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
  {d:'2026-11-14',t:'إضافة',id:'inscryption',n:'تعريب كامل للحوارات والبطاقات والقوائم مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
  {d:'2026-11-14',t:'إضافة',id:'silver-pines',n:'تعريب أبو النوفي الكامل بمثبّت يعمل مع خط HeshamRTL، مع شعار اللعبة وخرائطها بالعربي.'},
  {d:'2026-11-14',t:'تحديث',id:'dave-the-diver',n:'نسخة جديدة من التعريب بمثبّت (exe) بدل الحزمة، مع إزالة من المثبّت نفسه.'},
@@ -1227,7 +1256,11 @@ function initConstNums(){
   var co=document.getElementById('const'),no=document.getElementById('nums');
   if(co)new IntersectionObserver(function(es,ob){es.forEach(function(e){if(e.isIntersecting){co.classList.add('in');ob.disconnect()}})},{threshold:.25}).observe(co);
   if(no)new IntersectionObserver(function(es,ob){es.forEach(function(e){if(e.isIntersecting){ob.disconnect();no.querySelectorAll('.num strong').forEach(function(el){var to=+el.dataset.to,t0=performance.now(),dur=1500;(function step(now){var p=Math.min(1,(now-t0)/dur),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('ar-EG');if(p<1)requestAnimationFrame(step)})(t0)})}})},{threshold:.4}).observe(no);
-}function baHTML(g){
+}function realHTML(g){
+  if(!g.real||!g.real.length)return '';
+  return '<section class="ba"><h2>من داخل اللعبة</h2><p class="bsub">لقطات من اللعبة نفسها بعد التعريب. اضغط للتكبير.</p><div class="shots">'+g.real.map(function(src){return '<button data-src="'+src+'" aria-label="تكبير الصورة"><img src="'+src+'" alt="" loading="lazy"></button>'}).join('')+'</div></section>';
+}
+function baHTML(g){
   if(!g.ba||!g.ba.length)return '';
   return '<section class="ba"><h2>قبل وبعد</h2><p class="bsub">حرّك المقبض: يسار الإنجليزي الأصلي ويمين التعريب.</p><div class="bagrid">'+g.ba.map(function(b){
     return '<figure style="margin:0"><div class="bacard" tabindex="0" role="slider" aria-label="مقارنة الإنجليزي بالعربي" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><img src="'+b.en+'" alt="النص الإنجليزي" draggable="false"><img class="ar" src="'+b.ar+'" alt="النص العربي" draggable="false"><span class="chip l">English</span><span class="chip r">عربي</span><i class="h"></i></div>'+
@@ -1421,7 +1454,7 @@ function detail(g){document.body.dataset.world=g.lg;
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
-   '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+modHTML(g)+'<div class="panels">'+
+   '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
