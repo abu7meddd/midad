@@ -784,6 +784,24 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
  #all{width:calc(100vw - 48px);margin-inline:calc(50% - 50vw + 24px);grid-template-columns:1fr 1fr}
  #all>*:not(.screen){grid-column:1/-1}
 }
+
+/* خيط الحبر والنجوم: في الفراغ بين التعريبين (للشاشات العريضة فقط) */
+#all{position:relative}
+.thr{display:none;position:absolute;left:50%;width:0;z-index:3;pointer-events:none}
+@media (min-width:2440px){.thr{display:block}}
+.thr .tl{position:absolute;left:-1px;top:0;bottom:0;width:2px;background:linear-gradient(#f3b53f00,#f3b53f26 7%,#f3b53f26 93%,#f3b53f00)}
+.thr .tf{position:absolute;left:-1px;top:0;bottom:0;width:2px;transform-origin:top;transform:scaleY(var(--p,0));transition:transform .18s linear;background:linear-gradient(#f3b53f00,#f3b53f 5%,#f6cf7a);box-shadow:0 0 10px #f3b53f66}
+.thr .ts{position:absolute;left:0;width:44px;height:44px;margin:-22px 0 0 -22px;pointer-events:auto;cursor:default}
+.thr .ts svg{display:block;width:100%;height:100%;overflow:visible;opacity:.22;filter:grayscale(.6);transform:scale(.7);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1),filter .5s}
+.thr .ts .sp{fill:#f6cf7a}.thr .ts .co{fill:#fff}.thr .ts .hl{fill:#f3b53f;opacity:0;transition:opacity .5s}
+.thr .ts.on svg{opacity:.85;filter:none;transform:scale(1)}
+.thr .ts.cur svg{opacity:1;transform:scale(1.35)}.thr .ts.cur .hl{opacity:.28}
+.thr .tn{position:absolute;top:30px;display:grid;justify-items:center;line-height:1.15;opacity:0;transform:translateY(-4px);transition:opacity .5s,transform .5s;white-space:nowrap}
+.thr .tn.r{left:calc(50% + 14px)}.thr .tn.l{right:calc(50% + 14px)}
+.thr .tn b{font:600 1rem var(--body);color:#f6cf7a}.thr .tn.an b{color:#cfe7f4}
+.thr .tn small{font-size:.68rem;color:#a9a6b8;letter-spacing:.06em}
+.thr .ts.on .tn{opacity:.55;transform:none}.thr .ts.cur .tn{opacity:1;transform:none}
+.screen.hl{box-shadow:0 0 0 1px #f3b53f88,0 30px 80px -26px var(--glow,#000)!important}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
@@ -1305,6 +1323,42 @@ function normAr(s){return String(s).toLowerCase().replace(/[ً-ْٰـ]/g,'').rep
 function gameOf(c){return gById(c.getAttribute('href').slice(1))}
 function libHay(g){return g._hay||(g._hay=normAr([g.ar,g.en,g.by,g.dev,(g.tags||[]).join(' ')].join(' ')))}
 function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;return n>LIB.N?'<button type="button" class="morebtn" id="morebtn" aria-expanded="false"><span>عرض جميع التعريبات ('+n.toLocaleString('ar-EG')+' لعبة)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>':''}
+
+/* خيط الحبر والنجوم بين التعريبين */
+var STAR4='<svg viewBox="-30 -30 60 60"><circle class="hl" r="26"/><path class="sp" d="M0-15L3.4-3.4L15 0L3.4 3.4L0 15L-3.4 3.4L-15 0L-3.4-3.4Z"/><circle class="co" r="3.4"/></svg>';
+function thrNum(g){return (g.lines||0).toLocaleString('ar-EG')}
+function buildThread(){
+  var all=document.getElementById('all');if(!all)return;
+  var old=all.querySelector('.thr');if(old)old.remove();
+  if(innerWidth<2440)return;
+  var vis=[].slice.call(all.querySelectorAll('.screen')).filter(function(c){return !c.hidden&&c.offsetHeight>0});
+  if(vis.length<2)return;
+  var top=vis[0].offsetTop,last=vis[vis.length-1],bot=last.offsetTop+last.offsetHeight;
+  var th=document.createElement('div');th.className='thr';th.setAttribute('aria-hidden','true');th.style.top=top+'px';th.style.height=(bot-top)+'px';
+  var h='<i class="tl"></i><i class="tf"></i>';
+  for(var i=0;i<vis.length;i+=2){
+    var a=vis[i],b=vis[i+1],y=a.offsetTop+a.offsetHeight/2-top,ga=gameOf(a),gb=b?gameOf(b):null;
+    h+='<span class="ts" data-i="'+i+'" style="top:'+y+'px">'+STAR4+
+      '<span class="tn r'+(byKey(ga)==='an'?' an':'')+'"><b>'+thrNum(ga)+'</b><small>سطر</small></span>'+
+      (gb?'<span class="tn l'+(byKey(gb)==='an'?' an':'')+'"><b>'+thrNum(gb)+'</b><small>سطر</small></span>':'')+'</span>';
+  }
+  th.innerHTML=h;all.appendChild(th);
+  [].forEach.call(th.querySelectorAll('.ts'),function(st){var i=+st.dataset.i,a=vis[i],b=vis[i+1];
+    st.addEventListener('mouseenter',function(){a.classList.add('hl');if(b)b.classList.add('hl')});
+    st.addEventListener('mouseleave',function(){a.classList.remove('hl');if(b)b.classList.remove('hl')})});
+  thrTick();
+}
+var thrRaf=0;
+function thrTick(){
+  thrRaf=0;var th=document.querySelector('#all .thr');if(!th)return;
+  var r=th.getBoundingClientRect(),H=th.offsetHeight,reach=innerHeight*.62-r.top;
+  th.style.setProperty('--p',Math.max(0,Math.min(1,reach/H)).toFixed(4));
+  [].forEach.call(th.querySelectorAll('.ts'),function(st){var y=st.offsetTop;
+    st.classList.toggle('on',y<=reach);st.classList.toggle('cur',Math.abs(r.top+y-innerHeight*.5)<260)});
+}
+function thrReq(){if(!thrRaf)thrRaf=requestAnimationFrame(thrTick)}
+window.addEventListener('scroll',thrReq,{passive:true});
+var thrRt=0;window.addEventListener('resize',function(){clearTimeout(thrRt);thrRt=setTimeout(buildThread,200)});
 function applyLib(instant){
   var cards=[].slice.call(document.querySelectorAll('#all .screen')),q=normAr(LIB.q);
   var ok=function(c){var g=gameOf(c);return (LIB.f==='all'||c.dataset.by===LIB.f)&&(!q||libHay(g).indexOf(q)>=0)};
@@ -1321,6 +1375,7 @@ function applyLib(instant){
     mb.querySelector('span').textContent=LIB.open?'عرض أقل':'عرض جميع التعريبات ('+cards.length.toLocaleString('ar-EG')+' لعبة)'}
   var em=document.getElementById('fempty');if(em)em.hidden=!(q&&!hits.length&&!ms);
   if(!instant){setTimeout(onScroll,340);setTimeout(spy,560)}
+  buildThread();setTimeout(buildThread,instant?300:800);
 }
 function fadeTo(el,show){
   if(!el)return;el._want=show;
