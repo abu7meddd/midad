@@ -834,6 +834,13 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .inkw.on .inkx{min-height:66px}
 .inkw.on .iword{grid-row:1}.inkw.on .icount{grid-row:2}
 @media (max-width:760px){.fside{width:100%;align-items:stretch}.inkw{justify-content:flex-end}}
+
+/* بطاقة النجمة في المدار: بلا صندوق ولا زجاج؛ كتابة هادئة بجنب النجمة على طريقة خرائط النجوم القديمة */
+.ctip{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border:0!important;box-shadow:none!important;border-radius:0;padding:0!important;min-width:0;max-width:none;text-align:center;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 12px #000,0 0 24px #000c}
+.ctip b{font-size:1.3rem;color:#f4ecd8;margin-bottom:2px}
+.ctip span{font-size:.8rem;color:#d3ccbb}
+.ctip small{margin-top:5px;font-size:.7rem;color:#a29eaf;letter-spacing:.04em}
+.cs:hover .halo,.cs:focus-visible .halo{opacity:.55}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
