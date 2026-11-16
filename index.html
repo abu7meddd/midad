@@ -779,6 +779,11 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
  #all .screen{width:min(1180px,100%);justify-self:start}
  #all .screen.lf{justify-self:end}
 }
+/* شاشة عريضة (2440px فأكثر): تعريبان في كل سطر بحجمهما الأصلي، الأول أقصى اليمين والثاني أقصى اليسار */
+@media (min-width:2440px){
+ #all{width:calc(100vw - 48px);margin-inline:calc(50% - 50vw + 24px);grid-template-columns:1fr 1fr}
+ #all>*:not(.screen){grid-column:1/-1}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
