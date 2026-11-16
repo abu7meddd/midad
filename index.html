@@ -799,6 +799,29 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
 .thr .wd s{align-self:end;justify-self:center;width:46px;height:2px;margin-bottom:6px;background:linear-gradient(90deg,#f3b53f00,#f3b53f,#f3b53f00);transform:scaleX(var(--t));transform-origin:center;opacity:var(--t);text-decoration:none}
 .thr .wd.an s{background:linear-gradient(90deg,#9fcbe300,#9fcbe3,#9fcbe300)}
 .screen.hl{box-shadow:0 0 0 1px #f3b53f88,0 30px 80px -26px var(--glow,#000)!important}
+
+/* عمود الحبر الحي: خط ذهبي يرسم نفسه مع النزول وريشة عند رأسه، وفرع حبر بالتاريخ ينبض نحو البطاقة عند المرور */
+.thr .tl{position:absolute;left:-1px;top:0;bottom:0;width:2px;background:linear-gradient(#f3b53f00,#f3b53f22 7%,#f3b53f22 93%,#f3b53f00)}
+.thr .tf{position:absolute;left:-1px;top:0;bottom:0;width:2px;transform-origin:top;transform:scaleY(var(--p,0));transition:transform .18s linear;background:linear-gradient(#f3b53f00,#f3b53f 5%,#f6cf7a);box-shadow:0 0 10px #f3b53f55}
+.thr .nib{position:absolute;left:0;top:var(--ny,0px);width:30px;height:36px;margin:-34px 0 0 -4px;transition:top .18s linear;filter:drop-shadow(0 0 8px #f3b53f88)}
+.thr .nib svg{display:block;width:100%;height:100%;overflow:visible}
+.thr .br{position:absolute;top:0;height:0;width:92px;pointer-events:none}
+.thr .br.r{left:0}.thr .br.l{right:0}
+.thr .br i{position:absolute;top:-1px;height:2px;width:100%;background:#f3b53f;box-shadow:0 0 12px #f3b53f88;transform:scaleX(0);transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.thr .br.r i{left:0;transform-origin:left}.thr .br.l i{right:0;transform-origin:right}
+.thr .br.an i{background:#9fcbe3;box-shadow:0 0 12px #9fcbe388}
+.thr .br b{position:absolute;top:-6px;width:12px;height:12px;border-radius:50%;background:#f6cf7a;box-shadow:0 0 14px #f3b53f;transform:scale(0);transition:transform .35s .35s}
+.thr .br.r b{right:-4px}.thr .br.l b{left:-4px}
+.thr .br.an b{background:#cfe7f4;box-shadow:0 0 14px #9fcbe3}
+.thr .br span{position:absolute;left:0;width:100%;text-align:center;opacity:0;transition:opacity .4s .25s;direction:rtl;line-height:1.2}
+.thr .br .y{top:-44px;font:700 1.35rem var(--body);color:#f6cf7a}
+.thr .br .d{top:12px;font:500 .78rem var(--body);color:#c9c4d6}
+.thr .br.an .y{color:#cfe7f4}
+.thr .tw.hr .br.r i,.thr .tw.hl2 .br.l i{transform:scaleX(1)}
+.thr .tw.hr .br.r b,.thr .tw.hl2 .br.l b{transform:scale(1)}
+.thr .tw.hr .br.r span,.thr .tw.hl2 .br.l span{opacity:1}
+.thr .tw.hr .wd.r,.thr .tw.hl2 .wd.l{opacity:0;transition:opacity .3s}
+.thr .wd{transition:opacity .4s}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
@@ -1325,28 +1348,36 @@ function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;retu
 var WORDS={'sovereign-tower':['Tower','برج'],'manor-lords':['Lords','سادة'],'town-to-city':['City','مدينة'],'probably-stolen':['Stolen','مسروقة'],'dave-the-diver':['Diver','غوّاص'],'potion-craft':['Potion','جرعة'],'dredge':['Dredge','دريدج'],'celeste':['Mountain','جبل'],'restory':['Story','حكاية'],'silver-pines':['Pines','باينز'],'inscryption':['Cards','بطاقات'],'blasphemous':['Penitent','تائب'],'stardew-valley':['Valley','وادي']};
 function inkWord(g,side){var w=WORDS[g.id]||[g.en.split(' ')[0],g.ar.split(' ')[0]];
   return '<span class="wd '+side+(byKey(g)==='an'?' an':'')+'"><i class="en">'+esc(w[0])+'</i><b class="ar">'+esc(w[1])+'</b><s></s></span>'}
+var NIB='<svg viewBox="-4 -34 30 36"><path d="M0 0L5-12L12-30L23-25L12-8Z" fill="#f6cf7a"/><path d="M0 0L9-15" stroke="#0a0b0d" stroke-width="1.2"/></svg>';
+function brHTML(g,side){var d=String(g.date||'').split('-'),mn=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  var yr=(+d[0]).toLocaleString('ar-EG',{useGrouping:false}),dd=d[2]?(+d[2]).toLocaleString('ar-EG')+' '+mn[(+d[1])-1]:'';
+  return '<span class="br '+side+(byKey(g)==='an'?' an':'')+'"><i></i><b></b><span class="y">'+yr+'</span><span class="d">'+dd+'</span></span>'}
 function buildThread(){
   var all=document.getElementById('all');if(!all)return;
   var old=all.querySelector('.thr');if(old)old.remove();
   if(innerWidth<2440)return;
   var vis=[].slice.call(all.querySelectorAll('.screen')).filter(function(c){return !c.hidden&&c.offsetHeight>0});
   if(vis.length<1)return;
-  var th=document.createElement('div');th.className='thr';th.setAttribute('aria-hidden','true');th.style.top='0px';th.style.height='0px';
-  var h='';
+  var top=vis[0].offsetTop,last=vis[vis.length-1],bot=last.offsetTop+last.offsetHeight;
+  var th=document.createElement('div');th.className='thr';th.setAttribute('aria-hidden','true');th.style.top=top+'px';th.style.height=(bot-top)+'px';
+  var h='<i class="tl"></i><i class="tf"></i><span class="nib">'+NIB+'</span>';
   for(var i=0;i<vis.length;i+=2){
-    var a=vis[i],b=vis[i+1],y=a.offsetTop+a.offsetHeight/2;
-    h+='<div class="tw" data-i="'+i+'" style="top:'+y+'px">'+inkWord(gameOf(a),'r')+(b?inkWord(gameOf(b),'l'):'')+'</div>';
+    var a=vis[i],b=vis[i+1],y=a.offsetTop+a.offsetHeight/2-top,ga=gameOf(a),gb=b?gameOf(b):null;
+    h+='<div class="tw" data-i="'+i+'" style="top:'+y+'px">'+inkWord(ga,'r')+(gb?inkWord(gb,'l'):'')+brHTML(ga,'r')+(gb?brHTML(gb,'l'):'')+'</div>';
   }
   th.innerHTML=h;all.appendChild(th);
   [].forEach.call(th.querySelectorAll('.tw'),function(tw){var i=+tw.dataset.i,a=vis[i],b=vis[i+1];
-    [].forEach.call(tw.querySelectorAll('.wd'),function(w,k){var c=k?b:a;
-      w.addEventListener('mouseenter',function(){c.classList.add('hl')});w.addEventListener('mouseleave',function(){c.classList.remove('hl')})})});
+    function on(c,cls){return function(){tw.classList.add(cls);c.classList.add('hl')}}
+    function off(c,cls){return function(){tw.classList.remove(cls);c.classList.remove('hl')}}
+    a.onmouseenter=on(a,'hr');a.onmouseleave=off(a,'hr');
+    if(b){b.onmouseenter=on(b,'hl2');b.onmouseleave=off(b,'hl2')}});
   thrTick();
 }
 var thrRaf=0;
 function thrTick(){
   thrRaf=0;var th=document.querySelector('#all .thr');if(!th)return;
-  var r=th.getBoundingClientRect(),cy=innerHeight*.5;
+  var r=th.getBoundingClientRect(),cy=innerHeight*.5,H=th.offsetHeight,reach=innerHeight*.62-r.top,p=Math.max(0,Math.min(1,reach/H));
+  th.style.setProperty('--p',p.toFixed(4));th.style.setProperty('--ny',(p*H).toFixed(1)+'px');
   [].forEach.call(th.querySelectorAll('.tw'),function(tw){var d=Math.abs(r.top+tw.offsetTop-cy)/innerHeight;
     var t=Math.max(0,Math.min(1,(.62-d)/.4));t=t*t*(3-2*t);tw.style.setProperty('--t',t.toFixed(3))});
 }
