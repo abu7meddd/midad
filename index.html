@@ -14,7 +14,7 @@
 <meta name="twitter:description" content="منصة مِداد لتحميل تعريبات الألعاب على PC — ترجمة احترافية وأدوات تثبيت مباشرة.">
 <meta name="twitter:image" content="https://abu7meddd.github.io/midad/og-logo.png">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&family=Rajdhani:wght@600;700&display=swap">
 <style>
 /* Concept: a quiet dark cinema wall. Wide game screens in a stack, then a slow reel of stills at the bottom. The hero dissolves into the page instead of ending on a hard edge. */
 :root{
@@ -841,6 +841,50 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .ctip span{font-size:.8rem;color:#d3ccbb}
 .ctip small{margin-top:5px;font-size:.7rem;color:#a29eaf;letter-spacing:.04em}
 .cs:hover .halo,.cs:focus-visible .halo{opacity:.55}
+
+/* شارة دخول المدار بطابع عالم سايبربنك (Edgerunners): لوحة HUD بزوايا مقصوصة، شريط أصفر، سطر تقني صغير، وتشويش رقمي لحظة الظهور، مع إطار «قفل الهدف» حول وسط الأرض */
+.etext{display:grid;justify-items:start;gap:2px;padding:.55em 1.25em .6em 1.1em!important;border:0!important;border-radius:0!important;
+  background:linear-gradient(90deg,#0a0a0fe6,#0a0a0fb8)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  box-shadow:inset -3px 0 0 #fcee0a,inset 0 0 0 1px #fcee0a40!important;text-shadow:none!important;animation:none!important;direction:rtl}
+.etext::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#ffffff08 0 1px,transparent 1px 3px);mix-blend-mode:screen}
+.etext .ek{font:600 .62em/1 'Rajdhani',var(--body);letter-spacing:.22em;color:#5ef6ff;direction:ltr;font-style:normal;justify-self:end;opacity:.9}
+.etext .ek u{text-decoration:none;color:#fcee0a;margin-inline:.35em}
+.etext .et{position:relative;font:700 1.15em/1.25 var(--body);color:#fcee0a;letter-spacing:.01em}
+.etext .es{font:500 .7em/1.2 var(--body);color:#e9e6dc;font-style:normal;opacity:.85}
+.etext .et::before,.etext .et::after{content:attr(data-t);position:absolute;inset:0;opacity:0;pointer-events:none}
+.etext .et::before{color:#ff2a6d;transform:translate(2px,0)}.etext .et::after{color:#5ef6ff;transform:translate(-2px,0)}
+.moon:has(.earth:hover) .etext,.moon:has(.earth:focus-visible) .etext{animation:hudflick 4.2s steps(1,end) .6s infinite!important}
+.moon:has(.earth:hover) .etext .et::before,.moon:has(.earth:focus-visible) .etext .et::before{animation:glitchA .5s steps(2,end) 1}
+.moon:has(.earth:hover) .etext .et::after,.moon:has(.earth:focus-visible) .etext .et::after{animation:glitchB .5s steps(2,end) 1}
+@keyframes glitchA{0%{opacity:.9;clip-path:inset(0 0 60% 0);transform:translate(4px,-1px)}50%{opacity:.8;clip-path:inset(55% 0 0 0);transform:translate(-3px,1px)}100%{opacity:0}}
+@keyframes glitchB{0%{opacity:.9;clip-path:inset(40% 0 20% 0);transform:translate(-4px,1px)}50%{opacity:.7;clip-path:inset(0 0 70% 0);transform:translate(3px,0)}100%{opacity:0}}
+@keyframes hudflick{0%,93%,100%{opacity:1}94%{opacity:.55}96%{opacity:1}97%{opacity:.7}}
+@media (hover:none){.etext{animation:hudflick 4.2s steps(1,end) infinite!important}}
+.ehud{position:absolute;z-index:3;left:var(--tx);top:var(--ty);width:min(44%,560px);height:44%;transform:translate(-50%,-50%) scale(1.12);pointer-events:none;opacity:0;transition:opacity .45s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.ehud i{position:absolute;width:26px;height:26px;border:0 solid #fcee0a;opacity:.9}
+.ehud i:nth-child(1){top:0;left:0;border-top-width:2px;border-left-width:2px}
+.ehud i:nth-child(2){top:0;right:0;border-top-width:2px;border-right-width:2px}
+.ehud i:nth-child(3){bottom:0;left:0;border-bottom-width:2px;border-left-width:2px}
+.ehud i:nth-child(4){bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;border-color:#5ef6ff}
+.moon:has(.earth:hover) .ehud,.moon:has(.earth:focus-visible) .ehud{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (hover:none){.ehud{opacity:.8;transform:translate(-50%,-50%) scale(1)}}
+
+/* شريحة مِداد: شريحة بيانات بطابع سايبربنك (مثل الشرائح اللي تنحط في منفذ الرقبة) تنزلق داخل منفذ في لوحة الدخول عند المرور على الأرض، ثم يضيء مؤشرها ويظهر النص */
+.etext{grid-template-columns:auto auto;column-gap:14px;align-items:center}
+.etext .ek,.etext .et,.etext .es{grid-column:1}
+.etext .eslot{grid-column:2;grid-row:1/4;position:relative;width:150px;height:56px;overflow:hidden;background:#040406;box-shadow:inset 0 0 0 1px #fcee0a40,inset 0 0 12px #000;clip-path:polygon(0 0,100% 0,100% 100%,8px 100%,0 calc(100% - 8px))}
+.etext .eslot::before{content:"";position:absolute;right:0;top:4px;bottom:4px;width:2px;background:#fcee0a;opacity:.5}
+.etext .shard{position:absolute;inset:3px 6px 3px 2px;width:calc(100% - 8px);height:calc(100% - 6px);transform:translateX(-115%);transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.etext .shard .led{opacity:.25}
+.etext .ek,.etext .et,.etext .es{opacity:.0;transition:opacity .35s ease .45s}
+.moon:has(.earth:hover) .etext .shard,.moon:has(.earth:focus-visible) .etext .shard{transform:none}
+.moon:has(.earth:hover) .etext .shard .led,.moon:has(.earth:focus-visible) .etext .shard .led{animation:shled 1.6s steps(1,end) .55s infinite}
+.moon:has(.earth:hover) .etext .ek,.moon:has(.earth:hover) .etext .et,.moon:has(.earth:hover) .etext .es,.moon:has(.earth:focus-visible) .etext .ek,.moon:has(.earth:focus-visible) .etext .et,.moon:has(.earth:focus-visible) .etext .es{opacity:1}
+.moon:has(.earth:hover) .etext .et::before,.moon:has(.earth:focus-visible) .etext .et::before{animation-delay:.5s}
+.moon:has(.earth:hover) .etext .et::after,.moon:has(.earth:focus-visible) .etext .et::after{animation-delay:.5s}
+@keyframes shled{0%{opacity:1}50%{opacity:.35}}
+@media (hover:none){.etext .shard{transform:none}.etext .shard .led{opacity:1}.etext .ek,.etext .et,.etext .es{opacity:1}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tapef" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="n2"/><feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.15" result="m"/><feComposite in="d" in2="m" operator="in"/></filter><filter id="stampf"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
@@ -1263,7 +1307,7 @@ function constHTML(){
   return '<section class="const" id="const" style="scroll-margin-top:80px"><h2 class="sec">كوكبة مِداد</h2><p class="sub">من سطح القمر: اضغط الأرض وادخل مدار مِداد، كل لعبة عرّبناها نجمة فيه.</p>'+
    '<div class="cwrap portal" id="cwrap">'+
     '<div class="moon" id="moon">'+pic+'<div class="ebloom" aria-hidden="true"></div>'+
-     '<button type="button" class="earth" id="earthbtn" aria-label="اضغط على الأرض لدخول المدار"></button><span class="etext" aria-hidden="true">✦ اضغط على الأرض لدخول المدار</span>'+
+     '<button type="button" class="earth" id="earthbtn" aria-label="اضغط على الأرض لدخول المدار"></button><span class="etext" aria-hidden="true"><i class="ek">NC//NETLINK <u>◢</u> LUNA-01</i><b class="et" data-t="ادخل المدار">ادخل المدار</b><i class="es">اضغط على الأرض</i><span class="eslot"><svg class="shard" viewBox="0 0 120 44" aria-hidden="true"><defs><linearGradient id="shg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22202a"/><stop offset="1" stop-color="#0c0b11"/></linearGradient><linearGradient id="shf" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#b8902a"/></linearGradient></defs><path d="M4 2H104L116 14V42H4Z" fill="url(#shg)" stroke="url(#shf)" stroke-width="1.6"/><g fill="#fcee0a"><rect x="8" y="6" width="3" height="32"/><rect x="13" y="6" width="1.5" height="32"/><rect x="16.5" y="6" width="2.5" height="32"/><rect x="21" y="6" width="1" height="32"/></g><g stroke="#d4af37" stroke-opacity=".55" stroke-width=".8" fill="none"><path d="M28 28H44L50 22H70"/><path d="M60 34H62L66 30H92"/><path d="M76 24V12H96"/><circle cx="70" cy="22" r="1.4" fill="#d4af37"/><circle cx="92" cy="30" r="1.4" fill="#d4af37"/></g><text x="62" y="21" text-anchor="middle" font-family="Aref Ruqaa,serif" font-weight="700" font-size="15" fill="#f3d27a">مِداد</text><text x="28" y="40.5" direction="ltr" style="direction:ltr" font-family="Rajdhani,sans-serif" font-weight="700" font-size="5.5" letter-spacing="1.2" fill="#5ef6ff">MDD-SHARD</text><g fill="url(#shf)"><rect x="104" y="18" width="10" height="2.4"/><rect x="104" y="23" width="10" height="2.4"/><rect x="104" y="28" width="10" height="2.4"/><rect x="104" y="33" width="10" height="2.4"/><rect x="104" y="38" width="10" height="2"/></g><circle class="led" cx="98" cy="8" r="2.2" fill="#5ef6ff"/></svg></span></span>'+
      '</div>'+
     '<div class="cflash" id="cflash"></div>'+
     '<div class="orbit" id="orbit" aria-hidden="true" inert><div class="ostage" id="ostage">'+
