@@ -537,6 +537,9 @@ body[data-world] .navcap{display:none}
 .morebtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .morebtn.open svg{transform:rotate(180deg)}
 .fempty{color:var(--mute);text-align:center;padding:30px 0;margin:0}
+.fempty{display:grid;justify-items:center;gap:14px}.fempty p{margin:0;font-size:1.05rem;color:#d9cfb4}
+.fempty .freq{display:inline-block;padding:9px 22px;border-radius:999px;border:1px solid #d4af37aa;color:#f3d27a;text-decoration:none;font-weight:600;font-size:.92rem;background:#d4af370d;transition:background .3s,border-color .3s}
+.fempty .freq:hover{background:#d4af371f;border-color:#d4af37}
 @media (max-width:760px){.fsearch{width:100%}}
 
 /* 3) الكوكبة: خريطة فلكية بإسطرلاب */
@@ -1496,7 +1499,7 @@ function home(){document.body.removeAttribute('data-world');
    '<div class="cta"><a class="pill" href="#all">تصفّح التعريبات</a><span class="tea">'+cup+'صبّ لك شاهي، واختر تعريبك</span></div>'+
    '<div class="stats"><div class="stat"><strong>'+GAMES.filter(function(g){return !g.guest}).length+'</strong><span>لعبة معرّبة</span></div><div class="stat"><strong style="direction:ltr">'+last+'</strong><span>آخر تحديث</span></div></div>'+
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
-   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل تحفنا</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<p class="fempty" id="fempty" hidden>ما لقينا تعريباً بهذا الاسم. جرّب اسماً آخر أو اكتبه بالإنجليزي.</p></div>'+guestsHTML()+
+   '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل تحفنا</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<div class="fempty" id="fempty" hidden><p>جرّب اسمها بالإنجليزي… أو اطلبها، ونكتبها لك.</p><a class="freq" href="#request">اطلب تعريبك ↓</a></div></div>'+guestsHTML()+
    labHTML()+constHTML()+bentoHTML()+cozyHTML()+
    '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
   initCards();initFilters();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
