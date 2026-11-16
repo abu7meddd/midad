@@ -810,7 +810,7 @@ body[data-world="sdv"] .logo span{color:#f0d6a0}body[data-world="sdv"] footer{co
 @keyframes ishine{0%{opacity:.35}40%{opacity:.9}100%{opacity:.35}}
 .inkx{display:grid;justify-items:end;text-align:left;min-width:180px}
 .inkx>*{grid-area:1/1;transition:opacity .45s cubic-bezier(.2,.7,.2,1),transform .45s cubic-bezier(.2,.7,.2,1)}
-.ihint{font-family:'Aref Ruqaa',serif;font-size:1.05rem;color:#b7a77d;opacity:.8;align-self:end;padding-bottom:6px;white-space:nowrap}
+.ihint{font-family:var(--body);font-weight:500;font-size:1.02rem;letter-spacing:.01em;color:#d9cfb4;opacity:.95;align-self:end;padding-bottom:6px;white-space:nowrap}
 .iword{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:1.9rem;line-height:1.2;color:#f3d27a;text-shadow:0 0 14px #d4af3744;opacity:0;transform:translateY(4px);white-space:nowrap;max-width:min(420px,60vw);overflow:hidden;text-overflow:ellipsis;align-self:start}
 .iword.wet{animation:iwet .6s ease}
 @keyframes iwet{0%{filter:blur(1.6px);opacity:.55}100%{filter:none;opacity:1}}
@@ -1347,7 +1347,7 @@ function moreHTML(){var n=GAMES.filter(function(g){return !g.guest}).length;retu
 
 /* دواة مِداد: قلم يغمس في الحبر ويخط ما تكتبه في البحث، مع عدّاد التحف المطابقة */
 function inkwellHTML(){
-  return '<div class="inkw" id="inkw" aria-live="polite"><div class="inkx"><span class="ihint">اكتب اسم تحفة… وأنا أخطّها بالحبر</span><span class="iword" id="iword"></span><span class="icount" id="icount"></span></div>'+
+  return '<div class="inkw" id="inkw" aria-live="polite"><div class="inkx"><span class="ihint">اكتبْ… فللمِدادِ ذاكرةٌ لا تخون</span><span class="iword" id="iword"></span><span class="icount" id="icount"></span></div>'+
    '<svg class="ipot" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="ipg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2730"/><stop offset="1" stop-color="#121116"/></linearGradient><linearGradient id="ipn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d27a"/><stop offset="1" stop-color="#a8862a"/></linearGradient></defs>'+
    '<g class="ipen"><path d="M40 4L44 6L33 40L30 39Z" fill="#6b5232"/><path d="M30 39L33 40L31 47L29.5 46Z" fill="url(#ipn)"/></g>'+
    '<path d="M14 34h36l-3 22a5 5 0 0 1-5 4H22a5 5 0 0 1-5-4z" fill="url(#ipg)" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.2"/>'+
