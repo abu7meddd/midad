@@ -890,13 +890,9 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt::before,.vt::after{content:"";position:absolute;inset-inline:0;z-index:8;pointer-events:none}
 .vt::before{top:0;height:9vh;background:linear-gradient(#0a0b0d,#0a0b0d00)}
 .vt::after{bottom:0;height:10vh;background:linear-gradient(#0a0b0d00,#0a0b0d)}
-.vt-hd{position:absolute;top:1vh;inset-inline:0;z-index:9;text-align:center;pointer-events:none;display:flex;flex-direction:column;align-items:center}
+.vt-hd{position:absolute;top:4vh;inset-inline:0;z-index:9;text-align:center;pointer-events:none}
 .vt-hd .sec{margin:0}
-.vt-t1{margin:0;padding:.42em .3em .06em;font:700 clamp(2.7rem,4.6vw,4.5rem)/1.35 'Amiri',serif;background:linear-gradient(180deg,#fff4cc 0%,#f2d283 30%,#bf8f36 56%,#f3d98f 76%,#9a6f26 100%);-webkit-background-clip:text;background-clip:text;color:#0000;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 22px #d4a73a2e)}
-.vt-t2{margin:.2em 0 0;display:flex;align-items:center;gap:18px;font:700 clamp(1.15rem,1.6vw,1.55rem)/1.9 'Amiri',serif;color:#dcc690;letter-spacing:.03em}
-.vt-t2::before,.vt-t2::after{content:"";width:clamp(40px,6vw,90px);height:1px;background:linear-gradient(90deg,#0000,#d4af37aa)}
-.vt-t2::after{transform:scaleX(-1)}
-.vt-t3{margin:.7em auto 0;max-width:min(720px,88vw);font:400 clamp(.88rem,1vw,1.02rem)/2 'Cairo',sans-serif;color:#a89d87}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
+.vt-hd .vt-s1{margin:.2em auto 0;color:#9a978f;font-size:clamp(1rem,1.3vw,1.2rem)}.vt-hd .vt-s2{margin:.5em auto 0;max-width:min(720px,88vw);color:#8d8a83;font-size:clamp(.88rem,1vw,1rem);line-height:1.9}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
 .vt-cl{position:absolute;inset:0;perspective:2400px;perspective-origin:50% 45%}
 /* البطانة الداخلية */
 .vt-lin{position:absolute;top:31vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
@@ -985,12 +981,22 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-tip>span{position:sticky;top:30vh;display:block;margin-top:30vh;width:max-content;max-width:78%;margin-inline:auto 9%;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s}
 .vt-fl.L .vt-tip>span{margin-inline:9% auto}
 .vt[data-st=closed][data-h=r] .vt-fl.R .vt-tip>span,.vt[data-st=closed][data-h=l] .vt-fl.L .vt-tip>span{opacity:1;transform:none}
-.vt-ban{padding:22px 34px;background:#07060aeb;border:1px solid #d4af3759;border-radius:4px;box-shadow:0 20px 60px #000,inset 0 0 0 4px #07060a,inset 0 0 0 5px #d4af3726;text-align:center}
-.vt-ban b{display:block;font:700 clamp(1.5rem,2.3vw,2.2rem)/1.45 'Amiri',serif;color:#ecd18a;text-shadow:0 0 22px #d4a24a40}
-.vt-ban small{display:block;margin-top:6px;font:500 clamp(.85rem,1vw,1rem)/1.8 'Cairo',sans-serif;color:#b9a583;letter-spacing:.02em}
+.vt-ban{position:relative;padding:20px 40px 18px;border-radius:3px;text-align:center;box-shadow:0 22px 60px #000c}
+.vt-ban::before{content:"";position:absolute;inset:6px;pointer-events:none;background-repeat:no-repeat;background-size:22px 22px;background-position:top left,bottom right}
+.vt-ban::after{content:"";position:absolute;left:18%;right:18%;top:-1px;height:1px}
+.vt-ban b{display:block;font:700 clamp(1.45rem,2.1vw,2rem)/1.5 var(--display)}
+.vt-ban small{display:block;margin-top:4px;font:400 clamp(.84rem,.95vw,.98rem)/1.8 var(--body);letter-spacing:.01em}
 .vt-ban{min-width:min(360px,80vw)}
-.vt-ban.lk{border-color:#d4af3740}
-.vt-ban.lk b{color:#efe6cf;text-shadow:0 0 22px #fff1c430}
+/* يمين الشقاء: قرمزي فحمي، حافة جمر، أشواك في الزوايا */
+.vt-fl.R .vt-ban{background:linear-gradient(180deg,#1b0a0bf2,#0b0506f5);border:1px solid #6e1d17;box-shadow:0 22px 60px #000c,inset 0 0 26px #4a080866,0 0 26px #ff3a1a1c}
+.vt-fl.R .vt-ban::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M3 25C8 14 14 8 25 3' stroke='%23b8341f' stroke-width='1.3' fill='none'/%3E%3Cpath d='M9 15l-5-1M13 10l-1-5M18 7l4-2' stroke='%23b8341f' stroke-width='1.1'/%3E%3Ccircle cx='25' cy='3' r='1.6' fill='%23ff5a2e'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cg transform='rotate(180 14 14)'%3E%3Cpath d='M3 25C8 14 14 8 25 3' stroke='%23b8341f' stroke-width='1.3' fill='none'/%3E%3Cpath d='M9 15l-5-1M13 10l-1-5M18 7l4-2' stroke='%23b8341f' stroke-width='1.1'/%3E%3Ccircle cx='25' cy='3' r='1.6' fill='%23ff5a2e'/%3E%3C/g%3E%3C/svg%3E")}
+.vt-fl.R .vt-ban::after{background:linear-gradient(90deg,#0000,#ff5a2e,#0000)}
+.vt-fl.R .vt-ban b{color:#f2bf98;text-shadow:0 0 18px #ff4a1a40}.vt-fl.R .vt-ban small{color:#b48c7c}
+/* شمال الرخاء: عاجي دافئ، ضوء ناعم، أوراق في الزوايا */
+.vt-ban.lk{background:linear-gradient(180deg,#16150ff2,#0c0c09f5);border:1px solid #a8996566;box-shadow:0 22px 60px #000c,inset 0 0 26px #fff4d40d,0 0 26px #fff1c41a}
+.vt-ban.lk::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M3 25C9 18 15 11 25 3' stroke='%23cdb77a' stroke-width='1.1' fill='none'/%3E%3Cpath d='M10 17q-7-1-7-8q7 0 7 8zM16 11q1-7 8-7q0 7-8 7z' fill='%23e9dfb6' opacity='.85'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cg transform='rotate(180 14 14)'%3E%3Cpath d='M3 25C9 18 15 11 25 3' stroke='%23cdb77a' stroke-width='1.1' fill='none'/%3E%3Cpath d='M10 17q-7-1-7-8q7 0 7 8zM16 11q1-7 8-7q0 7-8 7z' fill='%23e9dfb6' opacity='.85'/%3E%3C/g%3E%3C/svg%3E")}
+.vt-ban.lk::after{background:linear-gradient(90deg,#0000,#f4e7bb,#0000)}
+.vt-ban.lk b{color:#f1e9d2;text-shadow:0 0 18px #fff1c433}.vt-ban.lk small{color:#aca58f}
 /* الجيوب */
 .vt-pk{position:absolute;opacity:0;transform:translateY(34px) rotate(var(--r,0deg));transition:opacity .6s,transform .8s cubic-bezier(.22,1,.36,1);transition-delay:0s}
 .vt[data-st=open] .vt-pk{opacity:1;transform:rotate(var(--r,0deg));transition-delay:calc(.45s + var(--d,0s))}
@@ -1800,7 +1806,7 @@ function vaultHTML(){
   var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يمين الشقاء: سلاسل خُطّت بمداد الدم والرماد"':' aria-label="شمال الرخاء: سلاسل نُسجت من صفاء الحلم، تُفتح قريباً"')+'>'+
     '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+'<div class="vt-spot"></div>'+
     '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يَمِينُ الشَّقَاء</b><small>سلاسلٌ خُطَّت بمدادِ الدمِ والرماد • اضغط لكشفِ الستار</small></span>':'<span class="vt-ban lk"><b>شِمَالُ الرَّخَاء</b><small>سلاسلٌ نُسِجَت من صفاءِ الحُلْم • تُفتحُ قريباً</small></span>')+'</div></div>'};
-  return '<section class="vt" id="vault" data-st="closed" aria-label="المسرح"><div class="vt-hd"><h2 class="vt-t1">المَسْرَح</h2><p class="vt-t2">بَيْنَ كَفَّيْن</p><p class="vt-t3">هُنَا يَفْتَرِقُ المِدادُ بَيْنَ كَفَّيْن .. يَمِينٌ تَخُطُّ المَلاحِمَ وَيُسْرَى تَنْسِجُ الخَيال</p></div>'+
+  return '<section class="vt" id="vault" data-st="closed" aria-label="المسرح"><div class="vt-hd"><h2 class="sec">المَسْرَح</h2><p class="sub vt-s1">بَيْنَ كَفَّيْن</p><p class="sub vt-s2">هُنَا يَفْتَرِقُ المِدادُ بَيْنَ كَفَّيْن .. يَمِينٌ تَخُطُّ المَلاحِمَ وَيُسْرَى تَنْسِجُ الخَيال</p></div>'+
    '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
 }
