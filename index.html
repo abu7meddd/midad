@@ -14,7 +14,7 @@
 <meta name="twitter:description" content="منصة مِداد لتحميل تعريبات الألعاب على PC — ترجمة احترافية وأدوات تثبيت مباشرة.">
 <meta name="twitter:image" content="https://abu7meddd.github.io/midad/og-logo.png">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&family=Rajdhani:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&family=Cinzel:wght@500&family=Lalezar&family=Lemonada:wght@700&family=Changa:wght@800&family=Reem+Kufi:wght@700&family=Rubik:wght@300;400;500;600;800&family=Pixelify+Sans:wght@500;700&family=Rajdhani:wght@600;700&family=Cairo:wght@400;600;700&display=swap">
 <style>
 /* Concept: a quiet dark cinema wall. Wide game screens in a stack, then a slow reel of stills at the bottom. The hero dissolves into the page instead of ending on a hard edge. */
 :root{
@@ -890,11 +890,14 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt::before,.vt::after{content:"";position:absolute;inset-inline:0;z-index:8;pointer-events:none}
 .vt::before{top:0;height:9vh;background:linear-gradient(#0a0b0d,#0a0b0d00)}
 .vt::after{bottom:0;height:10vh;background:linear-gradient(#0a0b0d00,#0a0b0d)}
-.vt-hd{position:absolute;top:1.2vh;inset-inline:0;z-index:9;text-align:center;pointer-events:none}
-.vt-hd .sec{margin:0}.vt-verse span{display:block;line-height:1.7}.vt-hd .vt-verse{font-family:var(--display);font-size:clamp(1.05rem,1.35vw,1.35rem);color:#c4b89e}.vt-verse span{line-height:1.55}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
+.vt-hd{position:absolute;top:0;inset-inline:0;z-index:9;text-align:center;pointer-events:none}
+.vt-hd .sec{margin:0}
+.vt-t1{margin:0;padding:.28em .2em .02em;font:700 clamp(2.4rem,4.2vw,4rem)/1.5 'Amiri',serif;letter-spacing:.02em;background:linear-gradient(180deg,#fff3c4 0%,#f0cf78 32%,#b8862c 58%,#f6dc92 78%,#8a6220 100%);-webkit-background-clip:text;background-clip:text;color:#0000;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 18px #d4a73a33)}
+.vt-t2{margin:.05em 0 0;font:700 clamp(1.3rem,2vw,1.9rem)/1.35 'Amiri',serif;color:#e8d6a6}
+.vt-t3{margin:.45em auto 0;max-width:min(760px,90vw);font:500 clamp(.9rem,1.05vw,1.08rem)/1.9 'Cairo',sans-serif;color:#b8ad97}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
 .vt-cl{position:absolute;inset:0;perspective:2400px;perspective-origin:50% 45%}
 /* البطانة الداخلية */
-.vt-lin{position:absolute;top:21vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
+.vt-lin{position:absolute;top:26vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
  background:radial-gradient(ellipse 70% 55% at 50% 40%,#16121a00 0,#000a 100%),
   repeating-linear-gradient(45deg,#ffffff07 0 1px,#0000 1px 54px),repeating-linear-gradient(-45deg,#ffffff07 0 1px,#0000 1px 54px),
   radial-gradient(circle at 50% 50%,#ffffff08,#0000 62%) 0 0/76.4px 76.4px,linear-gradient(180deg,#0d0b10,#09080b 50%,#050407);
@@ -951,19 +954,20 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 @keyframes vtAsh{0%{opacity:0;transform:translate(0,30px) scale(.6)}15%{opacity:1}70%{opacity:.7}100%{opacity:0;transform:translate(var(--dx),-170px) scale(1)}}
 .vt-fx.leaf i{border-radius:0 100% 0 100%;background:linear-gradient(135deg,#9ccf7a,#4f8a3b 60%,#2f5a26);box-shadow:0 0 10px #fff6dc88;animation:vtLeaf var(--t) ease-in-out var(--dl) infinite}
 .vt-fx.leaf i.gd{background:linear-gradient(135deg,#fff1b8,#d4af37 60%,#9a7128)}
-@keyframes vtLeaf{0%{opacity:0;transform:translate(0,-40px) rotate(0)}15%{opacity:1}80%{opacity:.8}100%{opacity:0;transform:translate(var(--dx),150px) rotate(var(--rt))}}
+@keyframes vtLeaf{0%{opacity:0;transform:translate(0,-40px) rotate(0)}15%{opacity:var(--o,1)}80%{opacity:calc(var(--o,1)*.75)}100%{opacity:0;transform:translate(var(--dx),150px) rotate(var(--rt))}}
 .vt:not(.vt-run) .vt-glo,.vt:not(.vt-run) .vt-fx i,.vt:not(.vt-run) .vt-armw.an::before{animation-play-state:paused}
-.vt-chest{position:absolute;top:21vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
+.vt-chest{position:absolute;top:26vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
 .vt-fl.R .vt-chest{left:50px}.vt-fl.L .vt-chest{right:50px;transform:scaleX(-1)}
 .vt-hem{position:absolute;inset-inline:0;bottom:10vh;height:46px;background:var(--vhem) left center/96px 46px repeat-x;opacity:.75;pointer-events:none;-webkit-mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000);mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000)}
 /* الأكتاف الغارقة في السواد */
-.vt-sh{position:absolute;inset:0 0 auto;height:40vh;width:100%;z-index:4;pointer-events:none}
+.vt-sh{position:absolute;inset:0 0 auto;height:max(46vh,440px);width:100%;z-index:4;pointer-events:none}
 /* الشق */
-.vt-seam{position:absolute;top:18vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
-.vt-glow{position:absolute;top:18vh;bottom:8vh;left:50%;width:180px;margin-left:-90px;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s;mix-blend-mode:screen;
- background:linear-gradient(90deg,#0000,#8f1c1c2a 34%,#d4a24a66 50%,#8f1c1c2a 66%,#0000);
- -webkit-mask:linear-gradient(#0000,#000 18%,#000 82%,#0000);mask:linear-gradient(#0000,#000 18%,#000 82%,#0000)}
-.vt[data-st=closed][data-h=r] .vt-glow{opacity:1}
+.vt-seam{position:absolute;top:23vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
+.vt-glow{position:absolute;top:23vh;bottom:8vh;left:50%;width:260px;margin-left:-130px;z-index:4;pointer-events:none;opacity:0;transition:opacity .7s;mix-blend-mode:screen;
+ background:var(--gcol,linear-gradient(#d4a73a,#9c1f36));
+ -webkit-mask:linear-gradient(90deg,#0000,#0006 30%,#000 50%,#0006 70%,#0000),linear-gradient(#0000,#000 20%,#000 80%,#0000);-webkit-mask-composite:source-in;
+ mask:linear-gradient(90deg,#0000,#0006 30%,#000 50%,#0006 70%,#0000),linear-gradient(#0000,#000 20%,#000 80%,#0000);mask-composite:intersect}
+.vt[data-st=closed][data-h=r] .vt-glow,.vt[data-st=closed][data-h=l] .vt-glow{opacity:.55}
 .vt[data-st=closed][data-h=r] .vt-fl.R{transform:translateX(12px)}
 .vt[data-st=open] .vt-fl.R{transform:translateX(80%) rotateY(-18deg) scale(1.03);cursor:default}
 .vt[data-st=open] .vt-fl.L{transform:translateX(-5%)}
@@ -978,8 +982,8 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-fl.L .vt-tip>span{margin-inline:9% auto}
 .vt[data-st=closed][data-h=r] .vt-fl.R .vt-tip>span,.vt[data-st=closed][data-h=l] .vt-fl.L .vt-tip>span{opacity:1;transform:none}
 .vt-ban{padding:22px 34px;background:#07060aeb;border:1px solid #d4af3759;border-radius:4px;box-shadow:0 20px 60px #000,inset 0 0 0 4px #07060a,inset 0 0 0 5px #d4af3726;text-align:center}
-.vt-ban b{display:block;font:700 clamp(1.5rem,2.4vw,2.3rem)/1.35 var(--display);color:#ecd18a;text-shadow:0 0 22px #d4a24a40}
-.vt-ban small{display:block;margin-top:6px;font-size:clamp(.85rem,1vw,1rem);color:#b9a583;letter-spacing:.02em}
+.vt-ban b{display:block;font:700 clamp(1.5rem,2.3vw,2.2rem)/1.45 'Amiri',serif;color:#ecd18a;text-shadow:0 0 22px #d4a24a40}
+.vt-ban small{display:block;margin-top:6px;font:500 clamp(.85rem,1vw,1rem)/1.8 'Cairo',sans-serif;color:#b9a583;letter-spacing:.02em}
 .vt-ban{min-width:min(360px,80vw)}
 .vt-ban.lk{border-color:#d4af3740}
 .vt-ban.lk b{color:#efe6cf;text-shadow:0 0 22px #fff1c430}
@@ -1681,7 +1685,8 @@ function initFilters(){
 /* ===== خزانة السلاسل: الوشاح العملاق =====
    SERIES: كل سلسلة جيب. parts: جزء معرّب (gid من GAMES) أو جزء لم يُعرَّب (soon:1).
    الجيب الأول للسلسلة الأولى، والجيوب 2–6 تأخذ السلاسل التالية تلقائياً وإلا «قريباً». */
-var SERIES=[{key:'blasphemous',ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
+/* side: R يمين الشقاء، L شمال الرخاء. colors: ألوان عالم السلسلة، تمتزج في ضوء الشق عند المرور على جانبها */
+var SERIES=[{key:'blasphemous',side:'R',colors:['#d4a73a','#9c1f36'],ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
   parts:[{gid:'blasphemous',no:1},{no:2,ar:'بلاسفيموس 2',en:'Blasphemous II',soon:1}]}];
 var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%'},
  {top:'16%',right:'18%',w:'min(250px,26%)',ar:'250/300',r:'3deg',pt:'22%'},
@@ -1694,9 +1699,9 @@ function vSvgUrl(s){return 'url("data:image/svg+xml,'+encodeURIComponent(s)+'")'
 /* الذراعان صور WebP شفافة في assets/images (يدان من جدارية «خلق آدم» معاد تلوينهما، وكمّان من صور الأزياء التي أرسلها أبو حميد).
    الجسيمات CSS فقط (transform/opacity): رماد وشرر حول الشيطانية، أوراق وتوهج حول الملائكية. */
 function vFx(k){
-  var D=k==='R',n=D?34:26,o='',r=function(a,b){return (a+Math.random()*(b-a)).toFixed(2)};
+  var D=k==='R',n=D?34:13,o='',r=function(a,b){return (a+Math.random()*(b-a)).toFixed(2)};
   for(var i=0;i<n;i++){
-    o+='<i style="--x:'+r(4,92)+'%;--y:'+r(10,90)+'%;--s:'+(D?r(4,8):r(9,16))+'px;--t:'+(D?r(6,13):r(9,17))+'s;--dl:-'+r(0,14)+'s;--dx:'+r(-40,40)+'px;--rt:'+r(-200,200)+'deg"'+(D&&i%5===0?' class="sp"':(!D&&i%4===0?' class="gd"':''))+'></i>';
+    o+='<i style="--x:'+r(4,92)+'%;--y:'+r(10,90)+'%;--s:'+(D?r(4,8):r(6,15))+'px;--o:'+(D?1:r(.35,.9))+';--t:'+(D?r(6,13):r(9,17))+'s;--dl:-'+r(0,14)+'s;--dx:'+r(-40,40)+'px;--rt:'+r(-200,200)+'deg"'+(D&&i%5===0?' class="sp"':(!D&&i%4===0?' class="gd"':''))+'></i>';
   }
   return '<span class="vt-fx '+(D?'ash':'leaf')+'" aria-hidden="true">'+o+'</span>';
 }
@@ -1714,7 +1719,7 @@ function vArmLayout(){var s=Math.max(.17,Math.min(.46,innerWidth*.000235));
         so=D?-55:-200,mk='linear-gradient('+th*180/Math.PI+'deg,#0000 '+pos(so-28)+'%,#000 '+pos(so-6)+'%)';
     h.style.left=hx+'px';h.style.top=hy+'px';h.style.width=A.w*s+'px';h.style.webkitMaskImage=h.style.maskImage=mk;
     var ang=Math.atan2(A.cut[1]-A.wy,A.cut[0]-A.wx)-(D?0:Math.PI),ax=hx+(A.wx+ux*so)*s,ay=hy+(A.wy+uy*so-(D?0:34))*s;
-    var SL=1.4,sw=A.sl.w*s*SL;sl.style.width=sw+'px';sl.style.height=A.sl.h*s+'px';sl.style.top=(ay-A.sl.cy*s)+'px';sl.style.left=(D?ax:ax-sw)+'px';sl.style.webkitMaskImage=sl.style.maskImage='linear-gradient('+(D?270:90)+'deg,#0000 0,#000 16%)';
+    var SL=1.4,sw=A.sl.w*s*SL;sl.style.width=sw+'px';sl.style.height=A.sl.h*s+'px';sl.style.top=(ay-A.sl.cy*s)+'px';sl.style.left=(D?ax:ax-sw)+'px';sl.style.webkitMaskImage=sl.style.maskImage='linear-gradient('+(D?270:90)+'deg,#0000 0,#0000 8%,#0008 30%,#000 52%)';
     sl.style.transformOrigin=(D?0:sw)+'px '+A.sl.cy*s+'px';sl.style.transform='rotate('+ang+'rad)';var gl=el.parentNode.querySelector('.vt-fxw.'+(D?'dm':'an')+' .vt-glo');if(gl)gl.style.cssText=sl.style.cssText})}
 /* طيات القماش: داكنة جداً بكحلي ليلي (لا خطوط صفراء) */
 function vFoldsSVG(k){return '<canvas class="vt-folds" data-k="'+k+'" aria-hidden="true"></canvas>'}
@@ -1736,7 +1741,7 @@ function vPaintAll(){document.querySelectorAll('canvas.vt-folds').forEach(vPaint
 /* الأكتاف والياقة: داخل كل طرف حتى تتحرك معه، مع تطريز ذهبي على خط الكتف */
 function vBez(p0,p1,p2,p3,t){var m=1-t;return [m*m*m*p0[0]+3*m*m*t*p1[0]+3*m*t*t*p2[0]+t*t*t*p3[0],m*m*m*p0[1]+3*m*m*t*p1[1]+3*m*t*t*p2[1]+t*t*t*p3[1]]}
 function vShoulderSVG(k){
-  var vb=k==='R'?'500 -70 500 370':'0 -70 500 370',sh=k+'sh';
+  var vb=k==='R'?'500 -125 500 425':'0 -125 500 425',sh=k+'sh';
   var c='M0 215 C120 170 260 96 400 70 C440 64 470 76 500 112 C530 76 560 64 600 70 C740 96 880 170 1000 215';
   var orn='',seg=[[[600,70],[740,96],[880,170],[1000,215]],[[400,70],[260,96],[120,170],[0,215]]];
   seg.forEach(function(S){for(var i=1;i<9;i++){var p=vBez(S[0],S[1],S[2],S[3],i/9),y=p[1]+26;
@@ -1746,7 +1751,7 @@ function vShoulderSVG(k){
   return '<svg class="vt-sh" viewBox="'+vb+'" preserveAspectRatio="none" aria-hidden="true"><defs>'+
    '<linearGradient id="'+sh+'f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset=".55" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>'+
    '<filter id="'+sh+'b"><feGaussianBlur stdDeviation="3"/></filter></defs>'+
-   '<path d="M0 -70 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
+   '<path d="M0 -125 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
    '<path d="'+c+' L1000 300 L0 300 Z" fill="url(#'+sh+'f)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".25" stroke-width="6" filter="url(#'+sh+'b)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.2" vector-effect="non-scaling-stroke"/>'+
@@ -1788,10 +1793,10 @@ function vSeriesPocket(S,p,i){
 }
 function vaultHTML(){
   var pk=VPK.map(function(p,i){return SERIES[i]?vSeriesPocket(SERIES[i],p,i):vEmptyPocket(p,i)}).join('');
-  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يد الجمر: هنا الحكايات التي احترقت"':' aria-label="يد الضياء: هنا الحكايات التي لم تُكتب بعد، تُفتح قريباً"')+'>'+
+  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يمين الشقاء: سلاسل خُطّت بمداد الدم والرماد"':' aria-label="شمال الرخاء: سلاسل نُسجت من صفاء الحلم، تُفتح قريباً"')+'>'+
     '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+'<div class="vt-spot"></div>'+
-    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يدُ الجمر</b><small>هنا الحكاياتُ التي احترقت • اضغط لتفتح</small></span>':'<span class="vt-ban lk"><b>يدُ الضياء</b><small>هنا الحكاياتُ التي لم تُكتب بعد • تُفتح قريباً</small></span>')+'</div></div>'};
-  return '<section class="vt" id="vault" data-st="closed" aria-label="على مسافة إصبع"><div class="vt-hd"><h2 class="sec">على مسافةِ إصبع</h2><p class="sub vt-verse"><span>نارٌ تمدُّ يدًا… ونورٌ يمتنعْ</span><span>وبين إصبعِها وبينه: ملحمةْ</span></p></div>'+
+    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يَمِينُ الشَّقَاء</b><small>سلاسلٌ خُطَّت بمدادِ الدمِ والرماد • اضغط لكشفِ الستار</small></span>':'<span class="vt-ban lk"><b>شِمَالُ الرَّخَاء</b><small>سلاسلٌ نُسِجَت من صفاءِ الحُلْم • تُفتحُ قريباً</small></span>')+'</div></div>'};
+  return '<section class="vt" id="vault" data-st="closed" aria-label="المسرح"><div class="vt-hd"><h2 class="vt-t1">المَسْرَح</h2><p class="vt-t2">بَيْنَ كَفَّيْن</p><p class="vt-t3">هُنَا يَفْتَرِقُ المِدادُ بَيْنَ كَفَّيْن .. يَمِينٌ تَخُطُّ المَلاحِمَ وَيُسْرَى تَنْسِجُ الخَيال</p></div>'+
    '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
 }
@@ -1802,7 +1807,12 @@ function initVault(){
   v.style.setProperty('--vnoise',vSvgUrl("<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(#n)' opacity='.04'/></svg>"));
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){v.classList.toggle('vt-run',es[0].isIntersecting)}).observe(v);else v.classList.add('vt-run');
   var R=v.querySelector('.vt-fl.R'),L=v.querySelector('.vt-fl.L'),lin=v.querySelector('.vt-lin');
-  function setH(h){if(v.dataset.st==='closed')v.dataset.h=h}
+  /* ضوء الشق: يمزج ألوان كل السلاسل في الجانب المختار (سلسلة جديدة = لون جديد في المزيج) */
+  var GC={R:[],L:[]};SERIES.forEach(function(se){(GC[se.side||'R']).push.apply(GC[se.side||'R'],se.colors||[])});
+  if(!GC.L.length)GC.L=['#fff4d6','#e9f2d8'];if(!GC.R.length)GC.R=['#d4a73a','#9c1f36'];
+  function gcol(a){return a.length===1?'linear-gradient('+a[0]+','+a[0]+')':'linear-gradient(180deg,'+a.concat(a.slice(0,-1).reverse()).join(',')+')'}
+  var glw=v.querySelector('.vt-glow');
+  function setH(h){if(v.dataset.st==='closed'){v.dataset.h=h;if(glw&&h)glw.style.setProperty('--gcol',gcol(h==='r'?GC.R:GC.L))}}
   R.addEventListener('mouseenter',function(){setH('r')});R.addEventListener('mouseleave',function(){v.dataset.h=''});
   L.addEventListener('mouseenter',function(){setH('l')});L.addEventListener('mouseleave',function(){v.dataset.h=''});
   function open(){if(v.dataset.st==='open')return;v.dataset.st='open';v.dataset.h='';R.setAttribute('aria-expanded','true');lin.removeAttribute('inert');
