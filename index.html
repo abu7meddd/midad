@@ -890,14 +890,16 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt::before,.vt::after{content:"";position:absolute;inset-inline:0;z-index:8;pointer-events:none}
 .vt::before{top:0;height:9vh;background:linear-gradient(#0a0b0d,#0a0b0d00)}
 .vt::after{bottom:0;height:10vh;background:linear-gradient(#0a0b0d00,#0a0b0d)}
-.vt-hd{position:absolute;top:0;inset-inline:0;z-index:9;text-align:center;pointer-events:none}
+.vt-hd{position:absolute;top:1vh;inset-inline:0;z-index:9;text-align:center;pointer-events:none;display:flex;flex-direction:column;align-items:center}
 .vt-hd .sec{margin:0}
-.vt-t1{margin:0;padding:.28em .2em .02em;font:700 clamp(2.4rem,4.2vw,4rem)/1.5 'Amiri',serif;letter-spacing:.02em;background:linear-gradient(180deg,#fff3c4 0%,#f0cf78 32%,#b8862c 58%,#f6dc92 78%,#8a6220 100%);-webkit-background-clip:text;background-clip:text;color:#0000;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 18px #d4a73a33)}
-.vt-t2{margin:.05em 0 0;font:700 clamp(1.3rem,2vw,1.9rem)/1.35 'Amiri',serif;color:#e8d6a6}
-.vt-t3{margin:.45em auto 0;max-width:min(760px,90vw);font:500 clamp(.9rem,1.05vw,1.08rem)/1.9 'Cairo',sans-serif;color:#b8ad97}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
+.vt-t1{margin:0;padding:.42em .3em .06em;font:700 clamp(2.7rem,4.6vw,4.5rem)/1.35 'Amiri',serif;background:linear-gradient(180deg,#fff4cc 0%,#f2d283 30%,#bf8f36 56%,#f3d98f 76%,#9a6f26 100%);-webkit-background-clip:text;background-clip:text;color:#0000;filter:drop-shadow(0 2px 0 #000) drop-shadow(0 0 22px #d4a73a2e)}
+.vt-t2{margin:.2em 0 0;display:flex;align-items:center;gap:18px;font:700 clamp(1.15rem,1.6vw,1.55rem)/1.9 'Amiri',serif;color:#dcc690;letter-spacing:.03em}
+.vt-t2::before,.vt-t2::after{content:"";width:clamp(40px,6vw,90px);height:1px;background:linear-gradient(90deg,#0000,#d4af37aa)}
+.vt-t2::after{transform:scaleX(-1)}
+.vt-t3{margin:.7em auto 0;max-width:min(720px,88vw);font:400 clamp(.88rem,1vw,1.02rem)/2 'Cairo',sans-serif;color:#a89d87}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
 .vt-cl{position:absolute;inset:0;perspective:2400px;perspective-origin:50% 45%}
 /* البطانة الداخلية */
-.vt-lin{position:absolute;top:26vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
+.vt-lin{position:absolute;top:31vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
  background:radial-gradient(ellipse 70% 55% at 50% 40%,#16121a00 0,#000a 100%),
   repeating-linear-gradient(45deg,#ffffff07 0 1px,#0000 1px 54px),repeating-linear-gradient(-45deg,#ffffff07 0 1px,#0000 1px 54px),
   radial-gradient(circle at 50% 50%,#ffffff08,#0000 62%) 0 0/76.4px 76.4px,linear-gradient(180deg,#0d0b10,#09080b 50%,#050407);
@@ -911,7 +913,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 /* طرفا الوشاح */
 .vt-fl{position:absolute;top:0;bottom:0;width:50%;z-index:3;will-change:transform;transition:transform .9s cubic-bezier(.22,1,.36,1)}
 .vt-fl.L{left:0;transform-origin:left center}
-.vt-fl.R{right:0;transform-origin:right center;cursor:pointer;outline:none}
+.vt-fl.R{right:0;transform-origin:right center;outline:none}
 .vt-fl.R{box-shadow:-40px 0 70px #000}.vt-fl.L{box-shadow:40px 0 70px #000}
 .vt-fab{position:absolute;inset:0;overflow:hidden;background:
  radial-gradient(ellipse 55% 26% at var(--fx) 50%,#1a20383a,#0000 70%),
@@ -931,6 +933,8 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-armw.dm{left:16px;top:41%}
 .vt-armw.an{right:16px;top:calc(41% + 4vh)}
 .vt-armw img{position:absolute;max-width:none;display:block;user-select:none}
+.vt-armw .vt-hnd{pointer-events:auto}.vt-armw .vt-hnd.hot{cursor:pointer}
+.vt[data-st=open] .vt-armw .vt-hnd{pointer-events:none}
 .vt-armw .vt-hnd{z-index:1}.vt-armw .vt-slv{z-index:2}
 .vt-armw.dm .vt-hnd{filter:drop-shadow(0 14px 22px #000)}
 .vt-armw.an .vt-hnd{filter:drop-shadow(0 0 20px #fff8e04d) drop-shadow(0 14px 20px #000b)}
@@ -956,14 +960,14 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-fx.leaf i.gd{background:linear-gradient(135deg,#fff1b8,#d4af37 60%,#9a7128)}
 @keyframes vtLeaf{0%{opacity:0;transform:translate(0,-40px) rotate(0)}15%{opacity:var(--o,1)}80%{opacity:calc(var(--o,1)*.75)}100%{opacity:0;transform:translate(var(--dx),150px) rotate(var(--rt))}}
 .vt:not(.vt-run) .vt-glo,.vt:not(.vt-run) .vt-fx i,.vt:not(.vt-run) .vt-armw.an::before{animation-play-state:paused}
-.vt-chest{position:absolute;top:26vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
+.vt-chest{position:absolute;top:31vh;width:min(24vw,440px);height:auto;z-index:1;opacity:.85;pointer-events:none;-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
 .vt-fl.R .vt-chest{left:50px}.vt-fl.L .vt-chest{right:50px;transform:scaleX(-1)}
 .vt-hem{position:absolute;inset-inline:0;bottom:10vh;height:46px;background:var(--vhem) left center/96px 46px repeat-x;opacity:.75;pointer-events:none;-webkit-mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000);mask:linear-gradient(90deg,#0000,#000 12%,#000 88%,#0000)}
 /* الأكتاف الغارقة في السواد */
-.vt-sh{position:absolute;inset:0 0 auto;height:max(46vh,440px);width:100%;z-index:4;pointer-events:none}
+.vt-sh{position:absolute;inset:0 0 auto;height:max(52vh,520px);width:100%;z-index:4;pointer-events:none}
 /* الشق */
-.vt-seam{position:absolute;top:23vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
-.vt-glow{position:absolute;top:23vh;bottom:8vh;left:50%;width:260px;margin-left:-130px;z-index:4;pointer-events:none;opacity:0;transition:opacity .7s;mix-blend-mode:screen;
+.vt-seam{position:absolute;top:28vh;bottom:6vh;left:50%;width:3px;margin-left:-1.5px;z-index:4;background:linear-gradient(#0000,#000 10%,#000 90%,#0000);pointer-events:none;transition:opacity .4s}
+.vt-glow{position:absolute;top:28vh;bottom:8vh;left:50%;width:260px;margin-left:-130px;z-index:4;pointer-events:none;opacity:0;transition:opacity .7s;mix-blend-mode:screen;
  background:var(--gcol,linear-gradient(#d4a73a,#9c1f36));
  -webkit-mask:linear-gradient(90deg,#0000,#0006 30%,#000 50%,#0006 70%,#0000),linear-gradient(#0000,#000 20%,#000 80%,#0000);-webkit-mask-composite:source-in;
  mask:linear-gradient(90deg,#0000,#0006 30%,#000 50%,#0006 70%,#0000),linear-gradient(#0000,#000 20%,#000 80%,#0000);mask-composite:intersect}
@@ -1741,7 +1745,7 @@ function vPaintAll(){document.querySelectorAll('canvas.vt-folds').forEach(vPaint
 /* الأكتاف والياقة: داخل كل طرف حتى تتحرك معه، مع تطريز ذهبي على خط الكتف */
 function vBez(p0,p1,p2,p3,t){var m=1-t;return [m*m*m*p0[0]+3*m*m*t*p1[0]+3*m*t*t*p2[0]+t*t*t*p3[0],m*m*m*p0[1]+3*m*m*t*p1[1]+3*m*t*t*p2[1]+t*t*t*p3[1]]}
 function vShoulderSVG(k){
-  var vb=k==='R'?'500 -125 500 425':'0 -125 500 425',sh=k+'sh';
+  var vb=k==='R'?'500 -175 500 475':'0 -175 500 475',sh=k+'sh';
   var c='M0 215 C120 170 260 96 400 70 C440 64 470 76 500 112 C530 76 560 64 600 70 C740 96 880 170 1000 215';
   var orn='',seg=[[[600,70],[740,96],[880,170],[1000,215]],[[400,70],[260,96],[120,170],[0,215]]];
   seg.forEach(function(S){for(var i=1;i<9;i++){var p=vBez(S[0],S[1],S[2],S[3],i/9),y=p[1]+26;
@@ -1751,7 +1755,7 @@ function vShoulderSVG(k){
   return '<svg class="vt-sh" viewBox="'+vb+'" preserveAspectRatio="none" aria-hidden="true"><defs>'+
    '<linearGradient id="'+sh+'f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset=".55" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>'+
    '<filter id="'+sh+'b"><feGaussianBlur stdDeviation="3"/></filter></defs>'+
-   '<path d="M0 -125 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
+   '<path d="M0 -175 H1000 V215 C880 170 740 96 600 70 C560 64 530 76 500 112 C470 76 440 64 400 70 C260 96 120 170 0 215 Z" fill="#000"/>'+
    '<path d="'+c+' L1000 300 L0 300 Z" fill="url(#'+sh+'f)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".25" stroke-width="6" filter="url(#'+sh+'b)"/>'+
    '<path d="'+c+'" fill="none" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.2" vector-effect="non-scaling-stroke"/>'+
@@ -1813,12 +1817,19 @@ function initVault(){
   function gcol(a){return a.length===1?'linear-gradient('+a[0]+','+a[0]+')':'linear-gradient(180deg,'+a.concat(a.slice(0,-1).reverse()).join(',')+')'}
   var glw=v.querySelector('.vt-glow');
   function setH(h){if(v.dataset.st==='closed'){v.dataset.h=h;if(glw&&h)glw.style.setProperty('--gcol',gcol(h==='r'?GC.R:GC.L))}}
-  R.addEventListener('mouseenter',function(){setH('r')});R.addEventListener('mouseleave',function(){v.dataset.h=''});
-  L.addEventListener('mouseenter',function(){setH('l')});L.addEventListener('mouseleave',function(){v.dataset.h=''});
+  /* التفاعل على اليد نفسها فقط (بكسلات اليد لا مستطيلها): نفحص شفافية الصورة تحت المؤشر */
+  function handHit(img,A){var vx=A.wx-A.cut[0],vy=A.wy-A.cut[1],vl=Math.hypot(vx,vy),c=document.createElement('canvas'),x=c.getContext('2d',{willReadFrequently:true}),ok=false;
+    function prep(){c.width=img.naturalWidth;c.height=img.naturalHeight;x.drawImage(img,0,0);ok=true}
+    if(img.complete&&img.naturalWidth)prep();else img.addEventListener('load',prep);
+    return function(e){if(!ok)return false;var r=img.getBoundingClientRect(),px=(e.clientX-r.left)/r.width*c.width,py=(e.clientY-r.top)/r.height*c.height;
+      if(px<0||py<0||px>=c.width||py>=c.height)return false;if(((px-A.wx)*vx+(py-A.wy)*vy)/vl<-20)return false;return x.getImageData(px|0,py|0,1,1).data[3]>60}}
+  [['dm','r'],['an','l']].forEach(function(q){var img=v.querySelector('.vt-armw.'+q[0]+' .vt-hnd');if(!img)return;var hit=handHit(img,ARM[q[0]]),on=false;
+    img.addEventListener('pointermove',function(e){var h=hit(e);if(h!==on){on=h;img.classList.toggle('hot',h&&q[1]==='r');if(h)setH(q[1]);else v.dataset.h=''}});
+    img.addEventListener('pointerleave',function(){if(on){on=false;img.classList.remove('hot');v.dataset.h=''}});
+    if(q[1]==='r')img.addEventListener('click',function(e){if(hit(e))open()})});
   function open(){if(v.dataset.st==='open')return;v.dataset.st='open';v.dataset.h='';R.setAttribute('aria-expanded','true');lin.removeAttribute('inert');
     setTimeout(function(){var b=v.querySelector('.vt-p1');if(b&&document.activeElement===R)b.focus({preventScroll:true})},900)}
   function close(){v.dataset.st='closed';R.setAttribute('aria-expanded','false');lin.setAttribute('inert','')}
-  R.addEventListener('click',open);
   R.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
   v.querySelector('.vt-close').addEventListener('click',function(){close();R.focus({preventScroll:true})});
   vPaintAll();vArmLayout();if(!window._vtr){window._vtr=1;window.addEventListener('resize',function(){clearTimeout(window._vtt);window._vtt=setTimeout(function(){vPaintAll();vArmLayout()},250)})}
