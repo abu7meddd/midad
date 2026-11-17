@@ -1730,7 +1730,7 @@ function vArmLayout(){var s=Math.max(.17,Math.min(.46,innerWidth*.000235));
     h.style.left=hx+'px';h.style.top=hy+'px';h.style.width=A.w*s+'px';h.style.webkitMaskImage=h.style.maskImage=mk;
     var ang=Math.atan2(A.cut[1]-A.wy,A.cut[0]-A.wx)-(D?0:Math.PI),ax=hx+(A.wx+ux*so)*s,ay=hy+(A.wy+uy*so-(D?0:34))*s;
     var SL=1.4,sw=A.sl.w*s*SL;sl.style.width=sw+'px';sl.style.height=A.sl.h*s+'px';sl.style.top=(ay-A.sl.cy*s)+'px';sl.style.left=(D?ax:ax-sw)+'px';sl.style.webkitMaskImage=sl.style.maskImage='linear-gradient('+(D?270:90)+'deg,#0000 0,#0000 8%,#0008 30%,#000 52%)';
-    sl.style.transformOrigin=(D?0:sw)+'px '+A.sl.cy*s+'px';sl.style.transform='rotate('+ang+'rad)';var gl=el.parentNode.querySelector('.vt-fxw.'+(D?'dm':'an')+' .vt-glo');if(gl)gl.style.cssText=sl.style.cssText})}
+    sl.style.transformOrigin=(D?0:sw)+'px '+A.sl.cy*s+'px';sl.style.transform='rotate('+ang+'rad)';var gl=el.parentNode.querySelector('.vt-fxw.'+(D?'dm':'an')+' .vt-glo');if(gl){gl.style.cssText=sl.style.cssText;gl.style.webkitMaskImage=gl.style.maskImage='linear-gradient('+(D?270:90)+'deg,#0000 0,#000 22%)'}})}
 /* طيات القماش: داكنة جداً بكحلي ليلي (لا خطوط صفراء) */
 function vFoldsSVG(k){return '<canvas class="vt-folds" data-k="'+k+'" aria-hidden="true"></canvas>'}
 function vPaintFolds(cv){
