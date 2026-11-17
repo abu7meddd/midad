@@ -891,7 +891,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt::before{top:0;height:9vh;background:linear-gradient(#0a0b0d,#0a0b0d00)}
 .vt::after{bottom:0;height:10vh;background:linear-gradient(#0a0b0d00,#0a0b0d)}
 .vt-hd{position:absolute;top:1.2vh;inset-inline:0;z-index:9;text-align:center;pointer-events:none}
-.vt-hd .sec{margin:0}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
+.vt-hd .sec{margin:0}.vt-verse span{display:block;line-height:1.7}.vt-hd .vt-verse{font-family:var(--display);font-size:clamp(1.05rem,1.35vw,1.35rem);color:#c4b89e}.vt-verse span{line-height:1.55}.vt-hd .sub{margin:.3em auto 0;max-width:560px;color:#9c9488}
 .vt-cl{position:absolute;inset:0;perspective:2400px;perspective-origin:50% 45%}
 /* البطانة الداخلية */
 .vt-lin{position:absolute;top:21vh;bottom:7vh;left:48vw;right:12vw;z-index:1;border-radius:10px;
@@ -1788,10 +1788,10 @@ function vSeriesPocket(S,p,i){
 }
 function vaultHTML(){
   var pk=VPK.map(function(p,i){return SERIES[i]?vSeriesPocket(SERIES[i],p,i):vEmptyPocket(p,i)}).join('');
-  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح سِفر الظلام: سلاسل كُتبت بحبرٍ من جمر"':' aria-label="سِفر النور: سلاسل كُتبت بحبرٍ من ضوء، يُفتح قريباً"')+'>'+
+  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يد الجمر: هنا الحكايات التي احترقت"':' aria-label="يد الضياء: هنا الحكايات التي لم تُكتب بعد، تُفتح قريباً"')+'>'+
     '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+'<div class="vt-spot"></div>'+
-    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>سِفرُ الظلام</b><small>سلاسلُ كُتبت بحبرٍ من جمر • اضغط لتفتح</small></span>':'<span class="vt-ban lk"><b>سِفرُ النور</b><small>سلاسلُ كُتبت بحبرٍ من ضوء • يُفتح قريباً</small></span>')+'</div></div>'};
-  return '<section class="vt" id="vault" data-st="closed" aria-label="خزانة السلاسل"><div class="vt-hd"><h2 class="sec">خزانة السلاسل</h2><p class="sub">وشاح يحمل سلاسل الألعاب، كل جيب فيه سلسلة كاملة.</p></div>'+
+    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يدُ الجمر</b><small>هنا الحكاياتُ التي احترقت • اضغط لتفتح</small></span>':'<span class="vt-ban lk"><b>يدُ الضياء</b><small>هنا الحكاياتُ التي لم تُكتب بعد • تُفتح قريباً</small></span>')+'</div></div>'};
+  return '<section class="vt" id="vault" data-st="closed" aria-label="على مسافة إصبع"><div class="vt-hd"><h2 class="sec">على مسافةِ إصبع</h2><p class="sub vt-verse"><span>نارٌ تمدُّ يدًا… ونورٌ يمتنعْ</span><span>وبين إصبعِها وبينه: ملحمةْ</span></p></div>'+
    '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
 }
