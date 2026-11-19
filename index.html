@@ -1133,7 +1133,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 var GAMES=[
  {id:'sovereign-tower',lines:17751,lg:'st',ba:[{en:'img/sovereign-tower-shot2.jpg',ar:'img/sovereign-tower-ar-2.jpg',ref:'جيديون، وحدة الحوار رقم 7673'},{en:'img/sovereign-tower-shot3.jpg',ar:'img/sovereign-tower-ar-3.jpg',ref:'الراوي، وحدة الحوار رقم 15234'}],glow:'#8a5a9e66',ar:'برج السيادة',en:'Sovereign Tower',by:'أبو حميد',dev:'WILD WITS GAMES',tags:['لعب أدوار','إدارة'],
   blurb:'العب بدور سيّد برجٍ سحري في لعبة إدارة ولعب أدوار غنية بالقصة على طراز «المائدة المستديرة». جنِّد فرساناً غريبي الأطوار، وكلِّفهم بالمهام، ووازن بين غرورهم وأنت ترسم مصير مملكتك. وإن لم يسر القدر كما تشتهي، فأعد الزمن إلى الوراء مراراً، واكشف الأسرار، وأعد كتابة المصير مرة بعد مرة.',
-  engine:'Godot 4.6',kind:'مثبّت (exe)',size:'1.4 جيجا',date:'2026-11-09',dl:'https://github.com/abu7meddd/midad/releases/download/sovereign-tower/SovereignTower-Arabic-Setup.exe',
+  engine:'Godot 4.6',kind:'مثبّت (exe)',size:'1.4 جيجا',date:'2026-11-19',dl:'https://github.com/abu7meddd/midad/releases/download/sovereign-tower/SovereignTower-Arabic-Setup.exe',
   feats:['نصوص وحوارات اللعبة كاملة','قوائم الواجهة والإعدادات','معجم موحد لأسماء الشخصيات والألقاب','مثبّت بهوية أبو حميد'],
   how:['شغّل المثبّت كمسؤول','اختر مجلد اللعبة','اضغط تثبيت وافتح اللعبة']},
  {id:'phantom-blade-zero',guest:1,lg:'pbz',glow:'#b0382f66',ar:'نصل الطيف: صفر',en:'Phantom Blade Zero',by:'ترجمة عبادي · الخط أبو حميد',dev:'S-GAME Studio',tags:['أكشن','ووشيا'],
@@ -1196,7 +1196,7 @@ var GAMES=[
    {en:'img/inscryption-ba-en-4.jpg',ar:'img/inscryption-ar-4.jpg',ref:'TUTORIAL_TUTORIALDECKTRIAL_693_M',note:'اللون الأخضر للكلام المقتبس من وسم اللعبة ([c:bSG]). أسماء البطاقات المرسومة على الطاولة في الخلفية لم تُركَّب. موضع النص تقريب تركيب.'}],
   glow:'#d9762b66',ar:'إنسكريبشن',en:'Inscryption',by:'أبو حميد',dev:'Daniel Mullins Games',tags:['بطاقات','رعب نفسي','ألغاز'],
   blurb:'«إنسكريبشن» (Inscryption) رحلة حالكة السواد قائمة على البطاقات، تمزج ألعاب الروغلايك القائمة على بناء المجموعة، وألغاز غرف الهروب، والرعب النفسي، في خليط يقطر دماً. وأشدّ منها ظلمةً الأسرار المنقوشة على البطاقات...',
-  engine:'Unity',kind:'مثبّت (exe)',size:'24.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/inscryption/Inscryption-Arabic-Setup.exe',
+  engine:'Unity',kind:'مثبّت (exe)',size:'24.9 ميجا',date:'2026-11-19',dl:'https://github.com/abu7meddd/midad/releases/download/inscryption/Inscryption-Arabic-Setup.exe',
   feats:['ترجمة كاملة: الحوارات والبطاقات والقوائم والشعار','شعار اللعبة بالعربي في شاشة البداية','خط ثمانية Bold مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'blasphemous',lines:1866,lg:'bl',ba:[{"en": "img/blasphemous-ba-en-1.jpg", "ar": "img/blasphemous-ar-1.jpg", "ref": "Bosses/BLINDBABY_NAME (Expósito, Scion of Abjuration → إكسبوسيتو، سليل الجحود)", "note": "اسم الزعيم فوق شريط صحته؛ رُسم بخط اللعبة البكسلي العربي نفسه (ذرة الخط pixel.png) وبمقياس اللعبة ×4. التشكيل (الشدّة وغيرها) لا يظهر لأن خط اللعبة بلا علامات تشكيل. لا نص آخر في اللقطة، وعدّاد الدموع أرقام فقط."}, {"en": "img/blasphemous-ba-en-2.jpg", "ar": "img/blasphemous-ar-2.jpg", "ref": "Bosses/BURNTFACE_NAME (Our Lady of the Charred Visage → سيدتنا ذات الوجه المتفحّم)", "note": "لقطة Steam بنسبة 1920×1041 (ليست 16:9) فبقيت على نسبتها. شكل اللعبة الحقيقي للعربي مركّب بالخط البكسلي نفسه؛ علامة الشدّة محذوفة لعدم وجودها في خط اللعبة."}],
@@ -1333,6 +1333,8 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-19',t:'تحديث',id:'inscryption',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
+ {d:'2026-11-19',t:'تحديث',id:'sovereign-tower',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
  {d:'2026-11-16',t:'إضافة',id:'slime-rancher-2',n:'تعريب كامل للواجهة والحوار والموسوعة مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
  {d:'2026-11-16',t:'إضافة',id:'stardew-valley',n:'تعريب كامل للنصوص والحوارات والمهرجانات مع شعار اللعبة بالعربي، بمثبّت أبو النوفي.'},
  {d:'2026-11-16',t:'إضافة',id:'blasphemous',n:'تعريب كامل للحوارات والمتاع والإنجازات مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
