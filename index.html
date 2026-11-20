@@ -415,6 +415,7 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .shots button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in;display:block}
 .shots img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
 .shots button:hover img{transform:scale(1.05)}
+.shots.big{grid-template-columns:1fr;gap:clamp(18px,3vw,30px);margin-block:18px 8px}
 .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-block:30px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;min-width:0}
 .panel h2{margin:0 0 14px;font-size:1rem;font-weight:600;color:var(--gold)}
@@ -693,6 +694,7 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 .lg-bl{display:block;line-height:0}.lg-bl img{display:block;height:clamp(92px,12vw,150px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 14px #000a)}
 .w-bl{--vg:14,8,10;--gl:#d4a73a60}
 .w-bl2{--vg:8,13,18;--gl:#5e8c9a60}
+.lg-bl.b2 img{height:auto;width:clamp(250px,34vw,440px);max-width:100%;aspect-ratio:411/93}
 @media (min-width:761px){.w-bl2 .logo-h{zoom:1.05}}
 body[data-world="bl2"]{--w-bg:#080d12;--w-ink:#e9eef0;--w-mute:#a3b4ba;--w-nav-bg:#060a0e;--w-nav-bd:2px solid #8a6a2a;--w-vg:8,13,18;--w-r:2px;--w-panel:#0f1820;--w-panel-bd:1px solid #6b5224;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#1a1f2c;--w-title-fg:#e4c566;--w-accent:#d4a73a;--w-btn:#7c1d33;--w-btn-fg:#f6e9c8;--w-btn-bd:1px solid #d4a73a;--w-btn-r:2px;--w-shot-bd:1px solid #6b5224}
 @media (min-width:761px){.w-bl .logo-h{zoom:1.05}}
@@ -1209,7 +1211,7 @@ var GAMES=[
   engine:'Unity',kind:'مثبّت (exe)',size:'20.1 ميجا',date:'2026-11-20',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous/Blasphemous-Arabic-Setup.exe',
   feats:['ترجمة كاملة: الحوارات والمتاع والإنجازات والشعار','خط بكسل عربي يناسب لوحات اللعبة','شعار اللعبة بالعربي في شاشة البداية','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة. وللإزالة شغّل المثبّت واختر إزالة. وبعد «التحقق من الملفات» في Steam اختر «تحديث التعريب»']},
- {id:'blasphemous-2',lines:2572,lg:'bl2',
+ {id:'blasphemous-2',lines:2572,lg:'bl2',bigshots:1,
   glow:'#4f7f8c66',ar:'بلاسفيموس 2',en:'Blasphemous II',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
   blurb:'«بلاسفيموس 2» (Blasphemous II): يستيقظ «التائب» وينضم إليه «بلاسفيموس» من جديد في صراع لا ينتهي ضد «المعجزة». اغطس في عالم جديد محفوف بالمخاطر، مليء بالأسرار والألغاز التي تنتظر من يكشفها، وشقّ طريقك عبر الوحوش الشنيعة التي تقف بينك وبين غايتك: إنهاء الدورة مرة وإلى الأبد.',
   engine:'Unity (IL2CPP)',kind:'مثبّت (exe)',size:'33.7 ميجا',date:'2026-11-20',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous-2/Blasphemous2-Arabic-Setup.exe',
@@ -1313,7 +1315,7 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
-  if(g.lg==='bl2')return '<span class="lg lg-bl"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
+  if(g.lg==='bl2')return '<span class="lg lg-bl b2"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
   if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
   if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
   if(g.lg==='sr2')return '<span class="lg lg-sr2"><img src="img/slime-rancher-2-logo.png" alt="سلايم رانشر 2"></span>';
@@ -2026,7 +2028,7 @@ function detail(g){document.body.dataset.world=g.lg;
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
-   '<div class="wrap"><div class="shots">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
+   '<div class="wrap"><div class="shots'+(g.bigshots?' big':'')+'">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
