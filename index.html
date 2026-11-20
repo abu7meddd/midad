@@ -1120,6 +1120,45 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 @keyframes bwCue{0%,100%{transform:translateY(0) rotate(45deg);opacity:.5}50%{transform:translateY(6px) rotate(45deg);opacity:1}}
 .vt-w.bw .vt-wt small,.vt-w.bw .vt-wt p,.vt-w.bw .vt-prog span,.vt-w.bw .vt-prog em,.bw-cue{color:#f1e4c6;text-shadow:0 1px 2px #000,0 0 8px #000,0 0 16px #000,0 0 26px #000}
 .vt-w.bw .vt-wt h2{text-shadow:0 3px 0 #3a1014,0 0 18px #000,0 0 40px #000c}
+/* زر الموسيقى */
+.bw-snd{position:absolute;left:30px;bottom:30px;z-index:6;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;background:#0b0607cc;border:1px solid #8a6a2a;color:#e4c566;font:500 .9rem 'Amiri',serif;cursor:pointer;opacity:0;transition:opacity 1s 3.6s,border-color .3s}
+.vt-w.on .bw-snd{opacity:1}
+.bw-snd:hover{border-color:#e4c566}
+.bw-snd svg{width:22px;height:22px;fill:none;stroke:#e4c566;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bw-snd svg path:first-child{fill:#e4c56633}
+.bw-snd .x{display:none}.bw-snd.off .x{display:inline}.bw-snd.off .wv{display:none}
+.bw-snd:not(.off) .wv{animation:bwWv 1.6s ease-in-out infinite}
+@keyframes bwWv{0%,100%{opacity:.45}50%{opacity:1}}
+@media (max-width:760px){.bw-snd{left:16px;bottom:16px}.bw-snd span{display:none}}
+/* لوحة الجزء الطولية (أبو حميد 2026-11-21: البطاقات العرضية كانت صغيرة ومزعجة) */
+.vt-w.bw .vt-parts{max-width:1400px;gap:clamp(16px,2.2vw,32px)}
+.vt-w.bw .vt-pt{min-height:min(900px,calc(100vh - 50px));justify-content:flex-end}
+.vt-w.bw .vt-pim{position:absolute;inset:0;aspect-ratio:auto;overflow:hidden;background:#07040a;z-index:0}
+.vt-w.bw .vt-pim .sl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity 1.8s ease,transform 1.2s ease-out}
+.vt-w.bw .vt-pim .sl:not(.hero){image-rendering:pixelated}
+.vt-w.bw .vt-pt.p1 .sl.hero{object-position:64% 30%}
+.vt-w.bw .vt-pt.p2 .sl.hero{object-position:14% 30%}
+.vt-w.bw .vt-pim .sl.on{opacity:1;animation:bwZ 14s linear both}
+@keyframes bwZ{from{transform:scale(1.03)}to{transform:scale(1.12)}}
+.vt-w.bw .vt-pim::after{background:linear-gradient(180deg,#0b0607aa 0%,#0b060700 16%,#0b060700 30%,#0b0607cc 52%,#0b0607f5 70%,#0b0607 100%)}
+.vt-w.bw .vt-pno{right:50%;transform:translateX(50%);top:24px;z-index:2;font-size:.82rem;padding:6px 16px;background:#0b0607d9;border-color:#8a6a2a}
+.vt-w.bw .vt-pbd{position:relative;z-index:1;flex:0 0 auto;align-items:center;text-align:center;gap:16px;padding:0 clamp(22px,3.2vw,48px) 36px}
+.vt-w.bw .vt-pbd .lgo{--h:clamp(84px,8.4vw,124px);position:static;height:var(--h);width:auto;max-width:100%;image-rendering:pixelated;margin-bottom:2px}
+.vt-w.bw .vt-pbd .lgo.l1{--h:clamp(122px,12.2vw,180px);margin-block:calc(var(--h)*-.2)}
+.vt-w.bw .vt-pbd h3{font-size:0;line-height:1}
+.vt-w.bw .vt-pbd h3 i{margin:0;font-size:.82rem;letter-spacing:.32em;color:#b9a583}
+.vt-w.bw .vt-pbd p{max-width:48ch;font-size:1.02rem;line-height:1.95;color:#eadfc6;text-shadow:0 1px 2px #000,0 0 14px #000}
+.vt-w.bw .vt-meta{width:100%;background:none;border:0;border-block:1px solid #8a6a2a77;gap:0}
+.vt-w.bw .vt-meta div{background:none;text-align:center;padding:12px 6px}
+.vt-w.bw .vt-meta div+div{border-inline-start:1px solid #8a6a2a44}
+.vt-w.bw .vt-meta dd{font-size:1rem;color:#f1e4c6}
+.vt-w.bw .vt-meta dd[style]{text-align:center!important}
+.vt-w.bw .vt-shots{display:none}
+.vt-w.bw .vt-pbt{justify-content:center;margin-top:4px}
+.vt-w.bw .vt-pbt a{padding:12px 26px;font-size:1rem}
+.vt-w.bw .vt-pt:hover .vt-pim .sl.on{filter:brightness(1.08)}
+.bw-sword{align-self:center}
+@media (max-width:760px){.vt-w.bw .vt-pt{min-height:0}.vt-w.bw .vt-pbd{padding-top:min(78vw,340px)}.vt-w.bw .vt-meta{grid-template-columns:1fr 1fr}.vt-w.bw .vt-meta div:nth-child(3){border-inline-start:0}}
 /* البداية: لافتة اللعبة نفسها (شعار القسَم الأحمر) ثم يذوب السواد */
 .bw-intro{position:absolute;inset:0;z-index:20;background:#000;display:grid;place-content:center;justify-items:center;gap:18px;pointer-events:none;opacity:1;visibility:visible}
 .vt-w.on .bw-intro{opacity:0;visibility:hidden;transition:opacity 1.1s 2.3s,visibility 0s 3.4s}
@@ -1938,8 +1977,8 @@ function seriesPart(P,i){
     '<div class="vt-shots"><div></div><div></div><div></div></div><div class="vt-pbt"><span class="dis">التحميل قريباً</span></div></div></article>';
   var g=GAMES.filter(function(x){return x.id===P.gid})[0];if(!g)return '';
   dl=g.dl?'<a class="a1" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب ('+esc(g.size)+')</a>':'<span class="dis">التحميل قريباً</span>';
-  return '<article class="vt-pt" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img src="'+heroImg(g)+'" alt="'+esc(g.ar)+'"><img class="lgo l'+P.no+'" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt=""><span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
-   '<div class="vt-pbd"><h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
+  return '<article class="vt-pt p'+P.no+'" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img class="sl on hero" src="'+heroImg(g)+'" alt="'+esc(g.ar)+'">'+[1,2,3].map(function(n){return '<img class="sl" src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'<span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
+   '<div class="vt-pbd"><img class="lgo l'+P.no+'" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt="'+esc(g.ar)+'"><h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
    '<dl class="vt-meta"><div><dt>الحجم</dt><dd>'+esc(g.size)+'</dd></div><div><dt>المعرّب</dt><dd>'+esc(g.by)+'</dd></div><div><dt>الأسطر</dt><dd>'+(g.lines?g.lines.toLocaleString('ar-EG'):'—')+'</dd></div><div><dt>التاريخ</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></div></dl>'+
    '<div class="vt-shots">'+[1,2,3].map(function(n){return '<img src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'</div>'+
    '<div class="vt-pbt">'+dl+'<a class="a2" href="#'+g.id+'">افتح صفحة التعريب</a></div></div></article>';
@@ -1949,7 +1988,7 @@ function openSeries(key,from){
   var w=document.getElementById('vtw');
   if(!w){w=document.createElement('div');w.id='vtw';w.className='vt-w';w.hidden=true;
     w.addEventListener('pointermove',function(e){w.style.setProperty('--mx',((e.clientX/innerWidth-.5)*2).toFixed(3));w.style.setProperty('--my',((e.clientY/innerHeight-.5)*2).toFixed(3))});w.setAttribute('role','dialog');w.setAttribute('aria-modal','true');document.body.appendChild(w);
-    w.addEventListener('click',function(e){if(e.target.closest('.vt-back'))closeSeries();else if(e.target.closest('a[href^="#"]'))closeSeries(1)});
+    w.addEventListener('click',function(e){if(e.target.closest('.bw-snd')){bwToggle();return}if(e.target.closest('.vt-back'))closeSeries();else if(e.target.closest('a[href^="#"]'))closeSeries(1)});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!w.hidden)closeSeries()});
     window.addEventListener('hashchange',function(){if(!w.hidden)closeSeries(1)})}
   var done=S.parts.filter(function(p){return !p.soon}).length,pc=Math.round(done/S.parts.length*100);
@@ -1966,9 +2005,9 @@ function openSeries(key,from){
    (bw?'<i class="spr bw-deco" aria-hidden="true"></i><img class="bw-div" src="img/blw-div.png" alt="">':'<svg class="vt-orn" viewBox="0 0 420 14" aria-hidden="true"><path d="M0 7H180M240 7H420" stroke="#6b5224"/><path d="M210 0L217 7L210 14L203 7Z" fill="#d4a73a"/></svg>')+'</div>'+
    '<div class="vt-prog" style="--p:'+(pc/100)+'">'+(bw?'<div class="spr bw-broche"><b>'+pc+'%</b></div>':'<b>'+pc+'%</b>')+'<span>نسبة تعريب السلسلة</span><i></i><em>'+done.toLocaleString('ar-EG')+' من '+S.parts.length.toLocaleString('ar-EG')+' أجزاء معرّبة</em></div>'+(bw?'<button type="button" class="bw-cue">ادخل إلى الأجزاء<i></i></button>':'')+'</header>'+
    '<div class="vt-parts">'+parts.join('')+'</div></div>'+
-   (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'');
+   (bw?'<button type="button" class="bw-snd" aria-label="موسيقى اللعبة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="wv" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="M16 9l6 6M22 9l-6 6"/></svg><span>موسيقى اللعبة</span></button>':'')+(bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'');
   w.hidden=false;document.documentElement.style.overflow='hidden';
-  if(bw)bwStart(w);
+  if(bw){bwStart(w);bwMusic(0);bwSnd()}
   requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('on');var b=w.querySelector('.vt-back');if(b)b.focus({preventScroll:true})})});
 }
 /* محرّك أوراق الرسوم (sprite sheets) من ملفات اللعبة: إطار بإطار */
@@ -1983,16 +2022,37 @@ function bwStart(w){
   if(q('.bw-birds'))S.push(bwSpr(q('.bw-birds'),7,7,49,12,1));
   if(q('.bw-broche'))S.push(bwSpr(q('.bw-broche'),10,9,90,12,1,3200));
   if(q('.bw-deco'))S.push(bwSpr(q('.bw-deco'),2,9,18,16,0,3300));
+  w.querySelectorAll('.vt-pt').forEach(function(pt,k){var im=pt.querySelectorAll('.vt-pim .sl'),n=0;if(im.length<2)return;
+    var tm=setTimeout(function run(){im[n].classList.remove('on');n=(n+1)%im.length;im[n].classList.add('on');tm=setTimeout(run,n===0?10000:6000)},10000+k*3000);
+    S.push(function(){clearTimeout(tm)})});
   var bg=q('.vt-wbg'),cur=2,hold=0;
   var cyc=setInterval(function(){if(hold)return;cur=cur===2?1:2;bg.dataset.w=cur},11000);S.push(function(){clearInterval(cyc)});
   var sc=q('.vt-wsc'),cue=q('.bw-cue'),onS=function(){w.style.setProperty('--sc',Math.min(1,sc.scrollTop/(innerHeight*.55)).toFixed(3))};sc.addEventListener('scroll',onS,{passive:true});onS();
   if(cue)cue.addEventListener('click',function(){var p=q('.vt-parts');sc.scrollTo({top:p.offsetTop-30,behavior:'smooth'})});
-  w.querySelectorAll('.vt-pt').forEach(function(pt,i){pt.addEventListener('pointerenter',function(){hold=1;bg.dataset.w=i===0?1:2});pt.addEventListener('pointerleave',function(){hold=0})});
+  w.querySelectorAll('.vt-pt').forEach(function(pt,i){pt.addEventListener('pointerenter',function(){hold=1;bg.dataset.w=i===0?1:2;bwMusic(i===0?0:1)});pt.addEventListener('pointerleave',function(){hold=0})});
   w._stop=S;
 }
+/* أوست اللعبة: موسيقى القائمة الرئيسية لكل جزء (من ملفات اللعبة، نفس موسيقى المثبّت)، 35% وتتبدّل بنعومة */
+var BWA=null,BWV=.35;
+function bwAudio(){
+  if(!BWA){BWA={a:['img/blw-ost1.ogg','img/blw-ost2.ogg'].map(function(u){var a=new Audio(u);a.loop=true;a.volume=0;a.preload='auto';return a}),cur:-1,t:null,muted:false};
+    try{BWA.muted=localStorage.getItem('midad-mute')==='1'}catch(e){}}
+  return BWA;
+}
+function bwFade(){
+  var A=bwAudio();clearInterval(A.t);
+  A.a.forEach(function(a,i){if(i===A.cur&&!A.muted&&a.paused){var p=a.play();if(p&&p.catch)p.catch(function(){})}});
+  A.t=setInterval(function(){var done=true;
+    A.a.forEach(function(a,i){var g=(i===A.cur&&!A.muted)?BWV:0,v=a.volume;
+      if(Math.abs(v-g)>.02){done=false;a.volume=Math.max(0,Math.min(1,v+(g>v?.02:-.02)))}else{a.volume=g;if(g===0&&!a.paused)a.pause()}});
+    if(done)clearInterval(A.t)},70);
+}
+function bwMusic(i){var A=bwAudio();if(A.cur===i)return;A.cur=i;bwFade();bwSnd()}
+function bwSnd(){var b=document.querySelector('.bw-snd');if(b){var m=bwAudio().muted;b.setAttribute('aria-pressed',m?'false':'true');b.classList.toggle('off',m);b.title=m?'شغّل الموسيقى':'أوقف الموسيقى'}}
+function bwToggle(){var A=bwAudio();A.muted=!A.muted;try{localStorage.setItem('midad-mute',A.muted?'1':'0')}catch(e){}bwFade();bwSnd()}
 function closeSeries(nav){
   var w=document.getElementById('vtw');if(!w||w.hidden)return;
-  w.classList.remove('on');(w._stop||[]).forEach(function(f){f()});w._stop=[];document.documentElement.style.overflow='';
+  w.classList.remove('on');(w._stop||[]).forEach(function(f){f()});w._stop=[];if(BWA){BWA.cur=-1;bwFade()}document.documentElement.style.overflow='';
   if(nav){w.hidden=true;return}
   setTimeout(function(){if(!w.classList.contains('on'))w.hidden=true},520);
   if(vwLast&&document.contains(vwLast))vwLast.focus({preventScroll:true});
