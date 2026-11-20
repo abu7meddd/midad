@@ -1239,9 +1239,9 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
    <path d="M11 21h26c-1 10-5 17-13 17S12 31 11 21z" fill="none" stroke="#e8e2d4" stroke-width="1.6" stroke-linejoin="round"/>
    <path d="M7 40q17 7 34 0" fill="none" stroke="#f3b53f" stroke-width="1.6" stroke-linecap="round"/></svg></span>
 </div></nav>
-<nav class="navcap" id="navcap" aria-label="أقسام الصفحة"><i class="ind" aria-hidden="true"></i><a href="#all" data-s="all">المكتبة</a><a href="#lab" data-s="lab">عوالمنا</a><a href="#const" data-s="const">الكوكبة</a><a href="#bento" data-s="bento">السجل</a><a href="#cozy" data-s="cozy">ركن الراحة</a></nav>
+<nav class="navcap" id="navcap" aria-label="أقسام الصفحة"><i class="ind" aria-hidden="true"></i><a href="#all" data-s="all">المكتبة</a><a href="#vault" data-s="vault">المسرح</a><a href="#lab" data-s="lab">عوالمنا</a><a href="#const" data-s="const">الكوكبة</a><a href="#bento" data-s="bento">السجل</a><a href="#cozy" data-s="cozy">ركن الراحة</a></nav>
 <div id="wglow" aria-hidden="true"></div><div id="app"></div>
-<div class="wrap"><footer><span>مِداد · تعريبات أبو حميد وأصدقائه</span><span>الصور من متجر ستيم الرسمي وحقوقها لأصحابها</span></footer></div>
+<div class="wrap"><footer><span>مِداد · تعريبات أبو حميد وأصدقائه</span></footer></div>
 <div id="lb" class="lb" hidden></div>
 
 <script>
@@ -1591,7 +1591,7 @@ function cozyHTML(){
     '<path class="ink" d="M54 182c-30-8-34 36-6 36"/><path class="ink gd" d="M58 190h88M60 204h86"/>'+
    '</g></g></svg>'+
    '<div class="ctl"><label for="tilt" class="st2">ميّل الإبريق (أو اضغط عليه واسحب)</label><input id="tilt" type="range" min="0" max="100" value="0" aria-label="ميّل الإبريق ليصب الشاهي"><div class="row2"><button type="button" id="drink">اشرب الكاس ☕</button></div><div class="st2" id="tst">اسحب المؤشر ليبدأ الصب</div></div></div>'+
-  '<figure class="jo"><img src="img/johnny.gif" alt="جوني سيلفرهاند يعزف على الجيتار" loading="lazy"><div class="viz" aria-hidden="true">'+bars+'</div><figcaption>جوني سيلفرهاند، من لعبة Cyberpunk 2077. الصورة لصاحبها (علامة MIYKU عليها).</figcaption></figure>'+
+  '<figure class="jo"><img src="img/johnny.gif" alt="جوني سيلفرهاند يعزف على الجيتار" loading="lazy"><div class="viz" aria-hidden="true">'+bars+'</div></figure>'+
   '</div></section>';
 }
 function initTea(){
@@ -1663,7 +1663,7 @@ function constHTML(){
      '<button type="button" class="oback" id="oback">☾ العودة لسطح القمر</button>'+
      '<button type="button" class="sect ah" data-to="ah">'+CHEV_R+'قطاع أبو حميد</button><button type="button" class="sect an" data-to="an">قطاع أبو النوفي'+CHEV_L+'</button>'+
     '</div><div class="clegend"><span><i></i>تعريب أبو حميد</span><span><i class="an"></i>تعريب أبو النوفي</span><span>حجم النجمة بعدد الأسطر المعرّبة</span></div></div>'+
-   '</div><p class="mcred">مشهد البوابة من <bdi dir="ltr">Cyberpunk: Edgerunners</bdi>، والصورة لأصحابها.</p><div class="clist">'+chips+'</div></section>';
+   '</div><div class="clist">'+chips+'</div></section>';
 }
 var SKYX=1.9,SECT={ah:1,an:0};
 /* المرحلتان: الأرض تفتح المدار بتقريب سينمائي، وزر القمر يرجع بتبعيد ناعم. السماء تُسحب بالماوس أو اللمس مع بارالاكس */
@@ -2155,7 +2155,7 @@ function home(){document.body.removeAttribute('data-world');
   initCards();initFilters();initVault();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
 }
 /* كبسولة التنقل: الضغط ينزل للقسم بنعومة، والمؤشر يتبع القسم الظاهر */
-var SECS=['all','lab','const','bento','cozy'],spyOn=false,spyTick=false;
+var SECS=['all','vault','lab','const','bento','cozy'],spyOn=false,spyTick=false;
 function spy(){
   var cap=document.getElementById('navcap');if(!cap)return;
   if(document.body.dataset.world){cap.classList.remove('has','show');return}
