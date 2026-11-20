@@ -1121,7 +1121,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-w.bw .vt-wt small,.vt-w.bw .vt-wt p,.vt-w.bw .vt-prog span,.vt-w.bw .vt-prog em,.bw-cue{color:#f1e4c6;text-shadow:0 1px 2px #000,0 0 8px #000,0 0 16px #000,0 0 26px #000}
 .vt-w.bw .vt-wt h2{text-shadow:0 3px 0 #3a1014,0 0 18px #000,0 0 40px #000c}
 /* لوحة الجزء الطولية (أبو حميد 2026-11-21: البطاقات العرضية كانت صغيرة ومزعجة) */
-.vt-w.bw .vt-parts{max-width:none;width:100%;gap:clamp(16px,2.2vw,32px)}
+.vt-w.bw .vt-parts{max-width:1600px;width:100%;gap:clamp(16px,2.2vw,32px)}
 .vt-w.bw .vt-pt{min-height:min(900px,calc(100vh - 50px));justify-content:flex-end}
 .vt-w.bw .vt-pim{position:absolute;inset:0;aspect-ratio:auto;overflow:hidden;background:#07040a;z-index:0}
 .vt-w.bw .vt-pim .sl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity 1.8s ease,transform 1.2s ease-out}
@@ -1149,6 +1149,16 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-w.bw .vt-pt:hover .vt-pim .sl.on{filter:brightness(1.08)}
 .bw-sword{align-self:center}
 @media (max-width:760px){.vt-w.bw .vt-pt{min-height:0}.vt-w.bw .vt-pbd{padding-top:min(78vw,340px)}.vt-w.bw .vt-meta{grid-template-columns:1fr 1fr}.vt-w.bw .vt-meta div:nth-child(3){border-inline-start:0}}
+/* الزوايا والعنوان (أبو حميد 2026-11-21): النسبة في زاوية اليسار، الرجوع في زاوية اليمين، العنوان أكبر قليلاً */
+.vt-w.bw .vt-whd{max-width:none;grid-template-columns:1fr}
+.vt-w.bw .vt-back{position:absolute;top:30px;right:30px;z-index:3}
+.vt-w.bw .vt-prog{position:absolute;top:22px;left:30px;z-index:3}
+.vt-w.bw .vt-wt{grid-column:1/-1}
+.vt-w.bw .vt-wt h2{font-size:clamp(2.4rem,4.7vw,4rem)}
+.vt-w.bw .vt-wt p{font-size:.9rem}
+.vt-w.bw .bw-deco{width:min(610px,90%)}
+.vt-w.bw .bw-div{width:min(740px,96%);height:8px}
+@media (max-width:760px){.vt-w.bw .vt-back,.vt-w.bw .vt-prog{position:static}.vt-w.bw .vt-whd{justify-items:center}}
 /* البداية: لافتة اللعبة نفسها (شعار القسَم الأحمر) ثم يذوب السواد */
 .bw-intro{position:absolute;inset:0;z-index:20;background:#000;display:grid;place-content:center;justify-items:center;gap:18px;pointer-events:none;opacity:1;visibility:visible}
 .vt-w.on .bw-intro{opacity:0;visibility:hidden;transition:opacity 1.1s 2.3s,visibility 0s 3.4s}
