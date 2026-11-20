@@ -692,6 +692,9 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 
 .lg-bl{display:block;line-height:0}.lg-bl img{display:block;height:clamp(92px,12vw,150px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 14px #000a)}
 .w-bl{--vg:14,8,10;--gl:#d4a73a60}
+.w-bl2{--vg:8,13,18;--gl:#5e8c9a60}
+@media (min-width:761px){.w-bl2 .logo-h{zoom:1.05}}
+body[data-world="bl2"]{--w-bg:#080d12;--w-ink:#e9eef0;--w-mute:#a3b4ba;--w-nav-bg:#060a0e;--w-nav-bd:2px solid #8a6a2a;--w-vg:8,13,18;--w-r:2px;--w-panel:#0f1820;--w-panel-bd:1px solid #6b5224;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#1a1f2c;--w-title-fg:#e4c566;--w-accent:#d4a73a;--w-btn:#7c1d33;--w-btn-fg:#f6e9c8;--w-btn-bd:1px solid #d4a73a;--w-btn-r:2px;--w-shot-bd:1px solid #6b5224}
 @media (min-width:761px){.w-bl .logo-h{zoom:1.05}}
 body[data-world="bl"]{--w-bg:#0e0809;--w-ink:#efe3c8;--w-mute:#b9a583;--w-nav-bg:#0b0607;--w-nav-bd:2px solid #8a6a2a;--w-vg:14,8,10;--w-r:2px;--w-panel:#1a0f11;--w-panel-bd:1px solid #6b5224;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2a1417;--w-title-fg:#e4c566;--w-accent:#d4a73a;--w-btn:#9c1f36;--w-btn-fg:#f6e9c8;--w-btn-bd:1px solid #d4a73a;--w-btn-r:2px;--w-shot-bd:1px solid #6b5224}
 
@@ -1029,6 +1032,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-c1 .lgo{position:absolute;inset:auto 8% 47% ;z-index:1;width:84%;image-rendering:pixelated;filter:drop-shadow(0 3px 8px #000)}
 .vt-c2{background:radial-gradient(ellipse 90% 60% at 50% 30%,#5a1019,#1b0709 70%),#140608}
 .vt-c2::before{content:"";position:absolute;inset:8px;border:1px solid #d4af3740;border-radius:4px 4px 50% 50%/4px 4px 14% 14%}
+.vt-c2.has{background:#0a0d12}.vt-c2.has img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 30%}.vt-c2.has::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 55%,#05080c90)}
 .vt-c2 .n2{position:absolute;inset:6% 0 auto;text-align:center;font:500 clamp(4rem,7vw,6.6rem)/1 'Cinzel',serif;color:#e4c566;text-shadow:0 2px 0 #6b1a12,0 0 30px #d4a73a55}
 .vt-c2 .t2{position:absolute;inset:44% 0 auto;text-align:center;font:700 .8rem var(--body);color:#d8c79e;letter-spacing:.02em}
 .vt-c2 .t2 i{display:block;font:500 .62rem 'Cinzel',serif;color:#9c7f4a;font-style:normal;letter-spacing:.18em;margin-top:2px}
@@ -1202,9 +1206,15 @@ var GAMES=[
  {id:'blasphemous',lines:1866,lg:'bl',ba:[{"en": "img/blasphemous-ba-en-1.jpg", "ar": "img/blasphemous-ar-1.jpg", "ref": "Bosses/BLINDBABY_NAME (Expósito, Scion of Abjuration → إكسبوسيتو، سليل الجحود)", "note": "اسم الزعيم فوق شريط صحته؛ رُسم بخط اللعبة البكسلي العربي نفسه (ذرة الخط pixel.png) وبمقياس اللعبة ×4. التشكيل (الشدّة وغيرها) لا يظهر لأن خط اللعبة بلا علامات تشكيل. لا نص آخر في اللقطة، وعدّاد الدموع أرقام فقط."}, {"en": "img/blasphemous-ba-en-2.jpg", "ar": "img/blasphemous-ar-2.jpg", "ref": "Bosses/BURNTFACE_NAME (Our Lady of the Charred Visage → سيدتنا ذات الوجه المتفحّم)", "note": "لقطة Steam بنسبة 1920×1041 (ليست 16:9) فبقيت على نسبتها. شكل اللعبة الحقيقي للعربي مركّب بالخط البكسلي نفسه؛ علامة الشدّة محذوفة لعدم وجودها في خط اللعبة."}],
   glow:'#d4a73a55',ar:'بلاسفيموس',en:'Blasphemous',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
   blurb:'«بلاسفيموس» (Blasphemous) لعبة منصّات حركة وحشية بقتال سيف متقن، تدور في عالم كابوسي اسمه «كفستوديا». استكشف، وطوّر قدراتك، ونفّذ إعدامات قاسية بحق جحافل الأعداء التي تقف بينك وبين مهمتك في كسر اللعنة الأبدية.',
-  engine:'Unity',kind:'مثبّت (exe)',size:'20.0 ميجا',date:'2026-11-16',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous/Blasphemous-Arabic-Setup.exe',
+  engine:'Unity',kind:'مثبّت (exe)',size:'20.1 ميجا',date:'2026-11-20',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous/Blasphemous-Arabic-Setup.exe',
   feats:['ترجمة كاملة: الحوارات والمتاع والإنجازات والشعار','خط بكسل عربي يناسب لوحات اللعبة','شعار اللعبة بالعربي في شاشة البداية','نسخة احتياطية للملفات الأصلية وإزالة آمنة بضغطة زر'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة. وللإزالة شغّل المثبّت واختر إزالة. وبعد «التحقق من الملفات» في Steam اختر «تحديث التعريب»']},
+ {id:'blasphemous-2',lines:2572,lg:'bl2',
+  glow:'#4f7f8c66',ar:'بلاسفيموس 2',en:'Blasphemous II',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
+  blurb:'«بلاسفيموس 2» (Blasphemous II): يستيقظ «التائب» وينضم إليه «بلاسفيموس» من جديد في صراع لا ينتهي ضد «المعجزة». اغطس في عالم جديد محفوف بالمخاطر، مليء بالأسرار والألغاز التي تنتظر من يكشفها، وشقّ طريقك عبر الوحوش الشنيعة التي تقف بينك وبين غايتك: إنهاء الدورة مرة وإلى الأبد.',
+  engine:'Unity (IL2CPP)',kind:'مثبّت (exe)',size:'33.7 ميجا',date:'2026-11-20',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous-2/Blasphemous2-Arabic-Setup.exe',
+  feats:['ترجمة كاملة: الحوارات والأدعية والمتاع والإنجازات والشعار','شعار اللعبة بالعربي في شاشة البداية','خط عربي واضح مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة نظيفة بضغطة واحدة'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'stardew-valley',lines:13301,lg:'sdv',ba:[{"en": "img/stardew-valley-ba-en-1.jpg", "ar": "img/stardew-valley-ar-1.jpg", "ref": "Data/Festivals/summer11.xnb ← Governor (الصفحة الأولى قبل #$e#)، Strings/NPCNames.xnb ← Governor", "note": "نص الحوار واسم المتحدث من ملفات اللعبة نفسها (النص الإنجليزي الأصلي في Content والعربي في حزمة التعريب). الصفحة الثانية من الحوار («أتحدث مع السيدة…») لا تظهر في اللقطة. موضع النص وكسر الأسطر تقريب تركيب."}, {"en": "img/stardew-valley-ba-en-2.jpg", "ar": "img/stardew-valley-ar-2.jpg", "ref": "Data/Events/SeedShop.xnb ← «1/f Abigail 500/…» المقطع 45، Strings/NPCNames.xnb ← Abigail", "note": "عبارة أبيغيل ضمن مشهد حدث في غرفتها (سطر speak 45 في الحدث)، واسمها من NPCNames. لقطات Steam الأربع عشرة الأخرى لا نص فيها غير الرسوم، فلا قبل وبعد لها. موضع النص تقريب تركيب."}],
   glow:'#e0932f55',ar:'ستاردو فالي',en:'Stardew Valley',by:'أبو النوفي',dev:'ConcernedApe',tags:['محاكاة','لعب أدوار','مستقل'],
   blurb:'ورثتَ قطعة مزرعة جدّك القديمة في «ستاردو فالي» (Stardew Valley). وبأدوات متوارثة وبضع قطع نقدية، تنطلق لبدء حياتك الجديدة. هل تستطيع أن تتعلم العيش من الأرض، وتحوّل هذه الحقول المهملة إلى بيت عامر؟',
@@ -1303,6 +1313,7 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
+  if(g.lg==='bl2')return '<span class="lg lg-bl"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
   if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
   if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
   if(g.lg==='sr2')return '<span class="lg lg-sr2"><img src="img/slime-rancher-2-logo.png" alt="سلايم رانشر 2"></span>';
@@ -1333,6 +1344,8 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-20',t:'إضافة',id:'blasphemous-2',n:'تعريب كامل للحوارات والأدعية والمتاع والإنجازات مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
+ {d:'2026-11-20',t:'تحديث',id:'blasphemous',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
  {d:'2026-11-19',t:'تحديث',id:'inscryption',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
  {d:'2026-11-19',t:'تحديث',id:'sovereign-tower',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
  {d:'2026-11-16',t:'إضافة',id:'slime-rancher-2',n:'تعريب كامل للواجهة والحوار والموسوعة مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
@@ -1699,7 +1712,8 @@ function initFilters(){
    الجيب الأول للسلسلة الأولى، والجيوب 2–6 تأخذ السلاسل التالية تلقائياً وإلا «قريباً». */
 /* side: R يمين الشقاء، L شمال الرخاء. colors: ألوان عالم السلسلة، تمتزج في ضوء الشق عند المرور على جانبها */
 var SERIES=[{key:'blasphemous',side:'R',colors:['#d4a73a','#9c1f36'],ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
-  parts:[{gid:'blasphemous',no:1},{no:2,ar:'بلاسفيموس 2',en:'Blasphemous II',soon:1}]}];
+  parts:[{gid:'blasphemous',no:1},{gid:'blasphemous-2',no:2}]}];
+var SLOGO={'blasphemous':'img/blasphemous-logo.png','blasphemous-2':'img/blasphemous-2-logo.png'};
 var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%'},
  {top:'16%',right:'18%',w:'min(250px,26%)',ar:'250/300',r:'3deg',pt:'22%'},
  {top:'44%',left:'20%',w:'min(290px,31%)',ar:'290/320',r:'-2.5deg',pt:'20%'},
@@ -1795,10 +1809,10 @@ function vEmptyPocket(p,i){
 }
 function vPkStyle(p,i){return (p.left?'left:'+p.left:'right:'+p.right)+';top:'+p.top+';width:'+p.w+';aspect-ratio:'+p.ar+';--r:'+p.r+';--pt:'+p.pt+';--d:'+(i*.08)+'s'}
 function vSeriesPocket(S,p,i){
-  var A=S.parts[0],B=S.parts[1],g=GAMES.filter(function(x){return x.id===A.gid})[0]||{};
+  var A=S.parts[0],B=S.parts[1],g=GAMES.filter(function(x){return x.id===A.gid})[0]||{},g2=B&&B.gid?GAMES.filter(function(x){return x.id===B.gid})[0]:null;
   return '<button type="button" class="vt-pk vt-p1" data-series="'+S.key+'" style="'+vPkStyle(p,i)+'" aria-label="'+esc(S.ar)+': اضغط لدخول عالم السلسلة">'+
    '<span class="vt-gl"></span>'+
-   '<span class="vt-cd vt-c2"><span class="n2">2</span></span>'+
+   (g2?'<span class="vt-cd vt-c2 has"><img class="bg" src="'+img(g2,'hero')+'" alt=""></span>':'<span class="vt-cd vt-c2"><span class="n2">2</span></span>')+
    '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""></span>'+
    '<span class="vt-pm"></span><span class="vt-pf"></span><img class="vt-lgo" src="img/blasphemous-logo.png" alt="'+esc(S.ar)+'">'+
    '</button>';
@@ -1852,7 +1866,7 @@ function seriesPart(P,i){
     '<div class="vt-shots"><div></div><div></div><div></div></div><div class="vt-pbt"><span class="dis">التحميل قريباً</span></div></div></article>';
   var g=GAMES.filter(function(x){return x.id===P.gid})[0];if(!g)return '';
   dl=g.dl?'<a class="a1" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب ('+esc(g.size)+')</a>':'<span class="dis">التحميل قريباً</span>';
-  return '<article class="vt-pt" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img src="'+heroImg(g)+'" alt="'+esc(g.ar)+'"><img class="lgo" src="img/blasphemous-logo.png" alt=""><span class="vt-pno">PART I</span></div>'+
+  return '<article class="vt-pt" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img src="'+heroImg(g)+'" alt="'+esc(g.ar)+'"><img class="lgo" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt=""><span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
    '<div class="vt-pbd"><h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
    '<dl class="vt-meta"><div><dt>الحجم</dt><dd>'+esc(g.size)+'</dd></div><div><dt>المعرّب</dt><dd>'+esc(g.by)+'</dd></div><div><dt>الأسطر</dt><dd>'+(g.lines?g.lines.toLocaleString('ar-EG'):'—')+'</dd></div><div><dt>التاريخ</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></div></dl>'+
    '<div class="vt-shots">'+[1,2,3].map(function(n){return '<img src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'</div>'+
