@@ -717,6 +717,16 @@ body[data-world="sp"]{--w-bg:#0b0a0a;--w-ink:#ece4dc;--w-mute:#b3a69e;--w-nav-bg
 body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-bg:#0c0806;--w-nav-bd:2px solid #6b4224;--w-vg:16,11,8;--w-r:2px;--w-panel:#1b130d;--w-panel-bd:1px solid #5a3a22;--w-panel-sh:0 14px 30px -14px #000;--w-title-bg:#2b1c12;--w-title-fg:#dfe2ad;--w-accent:#d9762b;--w-btn:#d9762b;--w-btn-fg:#160d07;--w-btn-bd:1px solid #f0a060;--w-btn-r:2px;--w-shot-bd:1px solid #5a3a22}
 
 .lg-bl{display:block;line-height:0}.lg-bl img{display:block;height:clamp(92px,12vw,150px);width:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 4px 14px #000a)}
+/* ===== سلسلة أوري: شعار الواجهة الأصلي المعرَّب (من حزمة التعريب) + هوية كل جزء ===== */
+.lg-ori{display:inline-grid;justify-items:center;line-height:1}
+.lg-ori img{display:block;width:auto;max-width:100%;filter:drop-shadow(0 0 14px #ffd9a055) drop-shadow(0 4px 12px #0009)}
+.lg-ori.o1 img{height:clamp(120px,15vw,190px)}
+.lg-ori.o2 img{height:clamp(96px,11.5vw,150px)}
+.lg-ori .osub{margin-top:-.15em;font:700 clamp(1.5rem,3.2vw,2.5rem)/1.3 'Aref Ruqaa','Amiri',serif;color:#fff3dc;text-shadow:0 0 14px #ffd9a0bb,0 0 28px #b48cffaa,0 2px 8px #000a;padding-bottom:.1em}
+.w-ori1{--vg:6,15,31;--gl:#6fc8ff70}.w-ori2{--vg:16,10,38;--gl:#b48cff70}
+@media (min-width:761px){.w-ori1 .logo-h{zoom:.9}.w-ori2 .logo-h{zoom:.95}}
+body[data-world="ori1"]{--w-bg:#060f1f url(img/ori-blind-forest-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#eaf6ff;--w-mute:#9fc2dc;--w-nav-bg:#081426;--w-nav-bd:1px solid #6fc8ff55;--w-vg:6,15,31;--w-r:16px;--w-panel:#0a1a31;--w-panel-bd:1px solid #4d86b966;--w-panel-sh:0 14px 40px -16px #000;--w-title-bg:#12305a;--w-title-fg:#d6efff;--w-accent:#8fd8ff;--w-btn:#e2f3ff;--w-btn-fg:#09182c;--w-btn-bd:1px solid #ffffff99;--w-btn-r:999px;--w-shot-bd:1px solid #8fd8ff44}
+body[data-world="ori2"]{--w-bg:#0f0a24 url(img/ori-will-of-the-wisps-hero2x.jpg) center top/cover fixed no-repeat;--w-ink:#f2edff;--w-mute:#b8abd9;--w-nav-bg:#150e30;--w-nav-bd:1px solid #b48cff55;--w-vg:15,10,36;--w-r:16px;--w-panel:#180f3c;--w-panel-bd:1px solid #8a6fd077;--w-panel-sh:0 14px 40px -16px #000;--w-title-bg:#2a1b5e;--w-title-fg:#e9deff;--w-accent:#cbb0ff;--w-btn:#eee5ff;--w-btn-fg:#190f3b;--w-btn-bd:1px solid #ffffff99;--w-btn-r:999px;--w-shot-bd:1px solid #b48cff44}
 .w-bl{--vg:14,8,10;--gl:#d4a73a60}
 .w-bl2{--vg:8,13,18;--gl:#5e8c9a60}
 .lg-bl.b2 img{height:auto;width:clamp(250px,34vw,440px);max-width:100%;aspect-ratio:411/93}
@@ -1227,6 +1237,69 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .bw-sword img{width:100%;height:auto;image-rendering:pixelated;animation:bwSw 6s ease-in-out infinite alternate}
 @keyframes bwSw{from{filter:drop-shadow(0 0 6px #ff6a2a44)}to{filter:drop-shadow(0 0 22px #ff6a2aaa)}}
 @media (max-width:760px){.vt-w.bw .vt-parts{grid-template-columns:1fr}.bw-sword{display:none}.bw-broche{transform:scale(.8);margin:-20px 0}}
+/* ===== اليد اليسرى: شمال الرخاء (بطانة يسرى، جيب أوري) ===== */
+.vt-lin.L{left:12vw;right:48vw;visibility:hidden;transition:visibility 0s .95s;
+ background:radial-gradient(ellipse 70% 55% at 50% 40%,#0a163000 0,#000a 100%),repeating-linear-gradient(45deg,#ffffff09 0 1px,#0000 1px 54px),repeating-linear-gradient(-45deg,#ffffff09 0 1px,#0000 1px 54px),linear-gradient(180deg,#0b1430,#080e22 50%,#04081a);
+ box-shadow:inset 0 0 0 1px #bfe3ff1c,inset 0 0 120px #000}
+.vt-lin.L::before{border-color:#bfe3ff38}
+.vt[data-s=L] .vt-lin.L{visibility:visible;transition:none}
+.vt[data-s=L] .vt-lin.R{visibility:hidden;transition:visibility 0s .95s}
+.vt-lin.L .vt-close{margin:26px 26px 0 auto}
+.vt[data-st=closed][data-h=l] .vt-fl.L{transform:translateX(-12px)}
+.vt[data-st=open][data-s=L] .vt-fl.L{transform:translateX(-80%) rotateY(18deg) scale(1.03);cursor:default}
+.vt[data-st=open][data-s=L] .vt-fl.R{transform:translateX(5%)}
+.vt-fl.L{outline:none}
+.vt-pk.ori .vt-pf{background:radial-gradient(ellipse 80% 50% at 50% 0,#cfe8ff14,#0000 70%),linear-gradient(180deg,#16254a,#0e1936 55%,#060b1c);box-shadow:0 18px 34px #000d,0 0 0 1px #bfe3ff22,inset 0 2px 0 #ffffff1c,inset 0 -20px 40px #000}
+.vt-pk.ori .vt-pf::before{border-color:#bfe3ff55}
+.vt-pk.ori .vt-pf::after{opacity:.55;filter:hue-rotate(170deg) brightness(1.3)}
+.vt-pk.ori .vt-gl{background:radial-gradient(circle at 50% 42%,#6fc8ff55,#c9a7ff26 38%,#0000 66%)}
+.vt-pk.ori .vt-cd{border-color:#bfe3ff66}
+.vt-pk.ori .vt-c1 img.bg{object-position:50% 40%}
+.vt-pk.ori .vt-lgo{image-rendering:auto;left:14%;width:72%;filter:drop-shadow(0 0 10px #ffd9a0aa) drop-shadow(0 2px 6px #000)}
+.vt-pk.ori:hover .vt-lgo,.vt-pk.ori:focus-visible .vt-lgo{filter:drop-shadow(0 0 20px #fff0c8) drop-shadow(0 2px 6px #000)}
+.vt-pk.ori:focus-visible{outline-color:#bfe3ff}
+/* ===== عالم سلسلة أوري: فن المثبّتين (الشاشة الأولى) وشعار الواجهة المعرَّب، بروح هادئة مضيئة ===== */
+.vt-w.ow{background:#050b1a}
+.vt-w.ow .vt-wbg .bw-sc>img{image-rendering:auto}
+.vt-w.ow .vt-wbg::after{background:radial-gradient(ellipse 95% 85% at 50% 45%,#0000 62%,#04091799 100%),linear-gradient(180deg,#04091777 0%,#04091700 20%,#04091700 70%,#04091799 100%)}
+.vt-w.ow .vt-wfr{border-color:#bfe3ff26}.vt-w.ow .vt-wfr::before{border-color:#bfe3ff14}
+.vt-w.ow .bw-dim{background:#050b1a}
+.vt-w.ow .vt-wt h2{display:flex;justify-content:center;margin:.05em 0 0;line-height:0}
+.ow-ttl{height:clamp(120px,15vw,200px);width:auto;filter:drop-shadow(0 0 22px #ffd9a066) drop-shadow(0 4px 12px #000)}
+.vt-w.ow .vt-wt small,.vt-w.ow .vt-wt p,.vt-w.ow .vt-prog span,.vt-w.ow .vt-prog em,.vt-w.ow .bw-cue{color:#e6f3ff;text-shadow:0 1px 2px #000,0 0 8px #000,0 0 16px #000,0 0 26px #000}
+.vt-w.ow .bw-cue i{border-color:#cfe8ff}
+.ow-div{display:block;width:min(640px,90%);height:1px;margin:6px auto 0;background:linear-gradient(90deg,#0000,#cfe8ffcc,#0000);box-shadow:0 0 14px #8fd8ff88;opacity:0;transition:opacity 1s 3.4s}
+.vt-w.on .ow-div{opacity:1}
+.ow-ring{position:relative;width:140px;height:140px;display:grid;place-items:center}
+.ow-ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ow-ring circle{fill:#0a1a33aa;stroke:#bfe3ff33;stroke-width:3}
+.ow-ring circle.v{fill:none;stroke:#cfe8ff;stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 0 6px #8fd8ff)}
+.ow-ring b{position:relative;font:500 1.9rem/1 'Cinzel',serif;color:#f4fbff;text-shadow:0 0 14px #8fd8ffaa}
+.vt-w.ow .vt-back{background:#0a1a33aa;border:1px solid #cfe8ff66;border-image:none;border-radius:999px;color:#eaf6ff;padding:10px 22px;font:500 1rem 'Rubik',sans-serif;image-rendering:auto;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.vt-w.ow .vt-back:hover{background:#12305acc;filter:none}
+.vt-w.ow .vt-pt{background:#07142be8;border:1px solid #bfe3ff40;border-image:none;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -20px #000,inset 0 0 0 1px #ffffff0a;image-rendering:auto}
+.vt-w.ow .vt-pt.p2{background:#120a30e8;border-color:#cbb0ff44}
+.vt-w.ow .vt-pim{background:#050b1a}
+.vt-w.ow .vt-pim .sl:not(.hero){image-rendering:auto}
+.vt-w.ow .vt-pt.p1 .sl.hero{object-position:50% 30%}.vt-w.ow .vt-pt.p2 .sl.hero{object-position:50% 30%}
+.vt-w.ow .vt-pim::after{background:linear-gradient(180deg,#050b1a99 0%,#050b1a00 16%,#050b1a00 30%,#07142bcc 52%,#07142bf5 70%,#07142b 100%)}
+.vt-w.ow .vt-pt.p2 .vt-pim::after{background:linear-gradient(180deg,#0a061f99 0%,#0a061f00 16%,#0a061f00 30%,#120a30cc 52%,#120a30f5 70%,#120a30 100%)}
+.vt-w.ow .vt-pno{background:#0a1530cc;border-color:#bfe3ff55;color:#e6f3ff}
+.vt-w.ow .vt-pbd .lg-ori{margin-bottom:2px}
+.vt-w.ow .vt-pbd h3 i{color:#a9c6e2}
+.vt-w.ow .vt-pbd p{color:#e1eefb}
+.vt-w.ow .vt-meta{border-block-color:#bfe3ff33}.vt-w.ow .vt-meta div+div{border-inline-start-color:#bfe3ff22}
+.vt-w.ow .vt-meta dt{color:#9fbfdc}.vt-w.ow .vt-meta dd{color:#f4fbff}
+.vt-w.ow .vt-pbt .a1{background:#e2f3ff;color:#0a1a30;border-color:#fff;border-radius:999px}
+.vt-w.ow .vt-pt.p2 .vt-pbt .a1{background:#eee5ff;color:#190f3b}
+.vt-w.ow .vt-pbt .a1:hover{filter:brightness(1.08)}
+.vt-w.ow .vt-pbt .a2{color:#d6ecff;border-color:#cfe8ff66;border-radius:999px}.vt-w.ow .vt-pbt .a2:hover{background:#cfe8ff1a}
+.vt-w.ow .vt-pbt .dis{border-radius:999px}
+.vt-w.ow .vt-parts{grid-template-columns:1fr 1fr}
+.vt-w.ow .bw-intro{background:#02060f}
+.vt-w.ow .bw-intro img{width:min(440px,72vw);height:auto;image-rendering:auto;filter:drop-shadow(0 0 22px #ffd9a099)}
+.vt-w.ow .bw-intro h3{color:#cfe8ff;text-shadow:0 0 22px #8fd8ff66}.vt-w.ow .bw-intro h3 small{color:#9fc8ee}
+@media (max-width:760px){.vt-w.ow .vt-parts{grid-template-columns:1fr}.ow-ring{transform:scale(.8);margin:-14px 0}}
 @media (max-width:760px){
  .vt{min-height:175vh}
  .vt-lin{left:9vw;right:9vw;top:20vh}
@@ -1370,7 +1443,19 @@ var GAMES=[
   blurb:'«سلايم رانشر 2» (Slime Rancher 2): تابع مغامرات بياتريكس لوبو وهي تعبر بحر السلايم إلى «جزيرة قوس قزح»، أرضٍ تزخر بالأسرار القديمة وتعجّ بأنواع جديدة من السلايم المتمايل تنتظر من يرعاها، في هذا الجزء الثاني من اللعبة الشهيرة Slime Rancher.',
   engine:'Unity 6 (IL2CPP)',kind:'مثبّت (exe)',size:'30.4 ميجا',date:'2026-11-16',dl:'https://github.com/abu7meddd/midad/releases/download/slime-rancher-2/SlimeRancher2-Arabic-Setup.exe',
   feats:['ترجمة كاملة: الواجهة والحوار والموسوعة','شعار اللعبة بالعربي','خط ثمانية Bold مع اتجاه كتابة RTL','إزالة آمنة بضغطة زر'],
-  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة من Steam أو من زر «تشغيل اللعبة» في المثبّت']}
+  how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة من Steam أو من زر «تشغيل اللعبة» في المثبّت']},
+ {id:'ori-blind-forest',lines:562,lg:'ori1',
+  glow:'#6fc8ff66',ar:'أوري والغابة العمياء',en:'Ori and the Blind Forest: Definitive Edition',by:'أبو النوفي',dev:'Moon Studios',tags:['منصّات','مغامرة','حركة'],
+  blurb:'«أوري والغابة العمياء» (Ori and the Blind Forest) تحكي قصة يتيم صغير مقدَّر له البطولة، في لعبة منصّات وحركة آسرة بصرياً من صنع استوديو Moon Studios. هذه النسخة النهائية (Definitive Edition).',
+  engine:'Unity',kind:'مثبّت (exe)',size:'11.6 ميجا',date:'2026-11-20',dl:'https://github.com/abu7meddd/midad/releases/download/ori-blind-forest/OriDE_Arabic_Setup.exe',
+  feats:['القصة وشجرة الأرواح وشجرة القدرات والقوائم والإعدادات والخرائط والتلميحات ومحتوى النسخة النهائية','شعار اللعبة بالعربي بطابع الأصل','خط روبيك بتقنية SDF لوضوح بلا حروف مقطّعة، مع تشبيك وعكس اتجاه وقت التشغيل','نسخة احتياطية للملف الأصلي وإزالة كاملة من المثبّت'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت (يتعرف على مجلد اللعبة في ستيم)','اضغط «تثبيت التعريب» ثم «تشغيل اللعبة». وللإزالة شغّل المثبّت واضغط «إزالة التعريب»']},
+ {id:'ori-will-of-the-wisps',lg:'ori2',
+  glow:'#b48cff66',ar:'أوري وإرادة الأطياف',en:'Ori and the Will of the Wisps',by:'أبو النوفي',dev:'Moon Studios',tags:['منصّات','مغامرة','حركة'],
+  blurb:'«أوري وإرادة الأطياف» (Ori and the Will of the Wisps): العب التحفة الفنية التي نالت إشادة واسعة، وانطلق في رحلة جديدة عبر عالم واسع وغريب، حيث ستواجه أعداءً شاهقين وألغازاً صعبة في سعيك لكشف مصير أوري.',
+  engine:'Unity',kind:'مثبّت (exe)',size:'29.3 ميجا',date:'2026-11-21',dl:'https://github.com/abu7meddd/midad/releases/download/ori-will-of-the-wisps/OriWOTW_Arabic_Setup.exe',
+  feats:['القصة والحوارات والمهام الجانبية والقدرات وشظايا الأرواح والخرائط والقوائم','شعار اللعبة بالعربي','خط روبيك مطوَّر بتصيير متصل بلا فواصل بين الحروف','ترقيع ثنائي بنسخ احتياطية لكل ملف معدَّل، والإزالة تعيد ملفات اللعبة الأصلية كما كانت'],
+  how:['أغلق اللعبة تماماً','شغّل المثبّت (يتعرف على مجلد اللعبة في ستيم)','اضغط «تثبيت التعريب» ثم «تشغيل اللعبة». وللتحديث شغّل المثبّت الجديد، وللإزالة اضغط «إزالة التعريب»']}
 ];
 var app=document.getElementById('app'),lb=document.getElementById('lb'),timer=null,rIdx=0,rCur=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -1457,6 +1542,8 @@ function logoHTML(g){
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
+  if(g.lg==='ori1')return '<span class="lg lg-ori o1"><img src="img/ori-blind-forest-logo.png" alt="أوري والغابة العمياء"></span>';
+  if(g.lg==='ori2')return '<span class="lg lg-ori o2"><img src="img/ori-word.png" alt="أوري"><span class="osub">وإرادة الأطياف</span></span>';
   if(g.lg==='bl2')return '<span class="lg lg-bl b2"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
   if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
   if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
@@ -1488,6 +1575,8 @@ function initSky(){
   size();window.addEventListener('resize',function(){clearTimeout(cv._r);cv._r=setTimeout(size,200)});requestAnimationFrame(frame);
 }function buildMural(){initSky();initTea()}/* سجل التحديثات الحقيقي: أضف سطراً هنا عند كل إضافة أو تحديث (t: إضافة | تحديث) */
 var LOG=[
+ {d:'2026-11-21',t:'إضافة',id:'ori-will-of-the-wisps',n:'تعريب القصة والحوارات والمهام والقدرات والقوائم مع شعار اللعبة بالعربي، بمثبّت أبو النوفي.'},
+ {d:'2026-11-21',t:'إضافة',id:'ori-blind-forest',n:'تعريب النسخة النهائية كاملة: القصة وشجرة الأرواح والقدرات والقوائم مع شعار اللعبة بالعربي، بمثبّت أبو النوفي.'},
  {d:'2026-11-20',t:'إضافة',id:'blasphemous-2',n:'تعريب كامل للحوارات والأدعية والمتاع والإنجازات مع شعار اللعبة بالعربي، بمثبّت أبو حميد.'},
  {d:'2026-11-20',t:'تحديث',id:'blasphemous',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
  {d:'2026-11-19',t:'تحديث',id:'inscryption',n:'مثبّت محدَّث بتعديلات أبو حميد على التعريب.'},
@@ -1856,8 +1945,10 @@ function initFilters(){
    الجيب الأول للسلسلة الأولى، والجيوب 2–6 تأخذ السلاسل التالية تلقائياً وإلا «قريباً». */
 /* side: R يمين الشقاء، L شمال الرخاء. colors: ألوان عالم السلسلة، تمتزج في ضوء الشق عند المرور على جانبها */
 var SERIES=[{key:'blasphemous',side:'R',colors:['#d4a73a','#9c1f36'],ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
-  parts:[{gid:'blasphemous',no:1},{gid:'blasphemous-2',no:2}]}];
-var SLOGO={'blasphemous':'img/blasphemous-logo.png','blasphemous-2':'img/blasphemous-2-logo.png'};
+  lgo:'img/blasphemous-logo.png',parts:[{gid:'blasphemous',no:1},{gid:'blasphemous-2',no:2}]},
+ {key:'ori',side:'L',colors:['#8fd8ff','#c9a7ff'],ar:'سلسلة أوري',en:'Ori',dev:'Moon Studios',bg:'img/ori-blind-forest-scene.jpg',
+  lgo:'img/ori-word.png',cls:'ori',parts:[{gid:'ori-blind-forest',no:1},{gid:'ori-will-of-the-wisps',no:2}]}];
+var SLOGO={'blasphemous':'img/blasphemous-logo.png','blasphemous-2':'img/blasphemous-2-logo.png','ori-blind-forest':'img/ori-blind-forest-logo.png'};
 var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%'},
  {top:'16%',right:'18%',w:'min(250px,26%)',ar:'250/300',r:'3deg',pt:'22%'},
  {top:'44%',left:'20%',w:'min(290px,31%)',ar:'290/320',r:'-2.5deg',pt:'20%'},
@@ -1954,20 +2045,21 @@ function vEmptyPocket(p,i){
 function vPkStyle(p,i){return (p.left?'left:'+p.left:'right:'+p.right)+';top:'+p.top+';width:'+p.w+';aspect-ratio:'+p.ar+';--r:'+p.r+';--pt:'+p.pt+';--d:'+(i*.08)+'s'}
 function vSeriesPocket(S,p,i){
   var A=S.parts[0],B=S.parts[1],g=GAMES.filter(function(x){return x.id===A.gid})[0]||{},g2=B&&B.gid?GAMES.filter(function(x){return x.id===B.gid})[0]:null;
-  return '<button type="button" class="vt-pk vt-p1" data-series="'+S.key+'" style="'+vPkStyle(p,i)+'" aria-label="'+esc(S.ar)+': اضغط لدخول عالم السلسلة">'+
+  return '<button type="button" class="vt-pk vt-p1'+(S.cls?' '+S.cls:'')+'" data-series="'+S.key+'" style="'+vPkStyle(p,i)+'" aria-label="'+esc(S.ar)+': اضغط لدخول عالم السلسلة">'+
    '<span class="vt-gl"></span>'+
    (g2?'<span class="vt-cd vt-c2 has"><img class="bg" src="'+img(g2,'hero')+'" alt=""></span>':'<span class="vt-cd vt-c2"><span class="n2">2</span></span>')+
    '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""></span>'+
-   '<span class="vt-pm"></span><span class="vt-pf"></span><img class="vt-lgo" src="img/blasphemous-logo.png" alt="'+esc(S.ar)+'">'+
+   '<span class="vt-pm"></span><span class="vt-pf"></span><img class="vt-lgo" src="'+S.lgo+'" alt="'+esc(S.ar)+'">'+
    '</button>';
 }
 function vaultHTML(){
-  var pk=VPK.map(function(p,i){return SERIES[i]?vSeriesPocket(SERIES[i],p,i):vEmptyPocket(p,i)}).join('');
-  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يمين الشقاء: سلاسل خُطّت بمداد الدم والرماد"':' aria-label="شمال الرخاء: سلاسل نُسجت من صفاء الحلم، تُفتح قريباً"')+'>'+
+  var pkS=function(sd){var A=SERIES.filter(function(x){return (x.side||'R')===sd});return VPK.map(function(p,i){return A[i]?vSeriesPocket(A[i],p,i):vEmptyPocket(p,i)}).join('')};
+  var side=function(s){return '<div class="vt-fl '+s+'"'+(s==='R'?' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlin" aria-label="افتح يمين الشقاء: سلاسل خُطّت بمداد الدم والرماد"':' role="button" tabindex="0" aria-expanded="false" aria-controls="vtlinL" aria-label="افتح شمال الرخاء: سلاسل نُسجت من صفاء الحلم"')+'>'+
     '<div class="vt-fab">'+vFoldsSVG(s)+'</div>'+vChestSVG(s)+'<div class="vt-hem"></div><div class="vt-emb"></div>'+vShoulderSVG(s)+vArmHTML(s)+'<div class="vt-spot"></div>'+
-    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يَمِينُ الشَّقَاء</b><small>سلاسلٌ خُطَّت بمدادِ الدمِ والرماد • اضغط لكشفِ الستار</small></span>':'<span class="vt-ban lk"><b>شِمَالُ الرَّخَاء</b><small>سلاسلٌ نُسِجَت من صفاءِ الحُلْم • تُفتحُ قريباً</small></span>')+'</div></div>'};
+    '<div class="vt-tip">'+(s==='R'?'<span class="vt-ban"><b>يَمِينُ الشَّقَاء</b><small>سلاسلٌ خُطَّت بمدادِ الدمِ والرماد • اضغط لكشفِ الستار</small></span>':'<span class="vt-ban lk"><b>شِمَالُ الرَّخَاء</b><small>سلاسلٌ نُسِجَت من صفاءِ الحُلْم • اضغط لكشفِ الستار</small></span>')+'</div></div>'};
   return '<section class="vt" id="vault" data-st="closed" aria-label="المسرح"><div class="vt-hd"><h2 class="sec">المَسْرَح</h2><p class="sub vt-s1">بَيْنَ كَفَّيْن</p><p class="sub vt-s2">هُنَا يَفْتَرِقُ المِدادُ بَيْنَ كَفَّيْن .. يَمِينٌ تَخُطُّ المَلاحِمَ وَيُسْرَى تَنْسِجُ الخَيال</p></div>'+
-   '<div class="vt-cl"><div class="vt-lin" id="vtlin" inert><div class="vt-pks">'+pk+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
+   '<div class="vt-cl"><div class="vt-lin R" id="vtlin" inert><div class="vt-pks">'+pkS('R')+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
+   '<div class="vt-lin L" id="vtlinL" inert><div class="vt-pks">'+pkS('L')+'</div><div class="vt-cw"><button type="button" class="vt-close">إغلاق الوشاح ×</button></div></div>'+
    side('L')+side('R')+'<div class="vt-seam"></div><div class="vt-glow"></div></div></section>';
 }
 function initVault(){
@@ -1976,7 +2068,7 @@ function initVault(){
   v.style.setProperty('--vhem',vSvgUrl("<svg xmlns='http://www.w3.org/2000/svg' width='96' height='46'><g transform='translate(96 0) rotate(90)'><g fill='none' stroke='rgba(212,175,55,.55)' stroke-width='1' stroke-linecap='round'><path d='M3 0V96M43 0V96'/><path d='M7 0V96M39 0V96' stroke-dasharray='1.5 3' stroke='rgba(212,175,55,.4)'/><path d='M23 0C33 10 33 22 23 30C13 38 13 58 23 66C33 74 33 86 23 96' stroke-width='1.3'/><path d='M23 0C13 10 13 22 23 30C33 38 33 58 23 66C13 74 13 86 23 96' stroke-opacity='.6'/><path d='M29 18c5-3 9 2 6 6c-2 3-6 1-5-2M17 18c-5-3-9 2-6 6c2 3 6 1 5-2M29 78c5 3 9-2 6-6c-2-3-6-1-5 2M17 78c-5 3-9-2-6-6c2-3 6-1 5 2'/><path d='M23 40q-5 8 0 16q5-8 0-16z' fill='rgba(212,175,55,.3)'/></g><circle cx='23' cy='48' r='1.6' fill='rgba(240,210,130,.75)'/><circle cx='11' cy='48' r='1' fill='rgba(240,210,130,.5)'/><circle cx='35' cy='48' r='1' fill='rgba(240,210,130,.5)'/><circle cx='23' cy='0' r='1.8' fill='rgba(240,210,130,.6)'/><circle cx='23' cy='96' r='1.8' fill='rgba(240,210,130,.6)'/></g></svg>"));
   v.style.setProperty('--vnoise',vSvgUrl("<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(#n)' opacity='.04'/></svg>"));
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){v.classList.toggle('vt-run',es[0].isIntersecting)}).observe(v);else v.classList.add('vt-run');
-  var R=v.querySelector('.vt-fl.R'),L=v.querySelector('.vt-fl.L'),lin=v.querySelector('.vt-lin');
+  var R=v.querySelector('.vt-fl.R'),L=v.querySelector('.vt-fl.L'),FL={R:R,L:L},LN={R:v.querySelector('.vt-lin.R'),L:v.querySelector('.vt-lin.L')};
   /* ضوء الشق: يمزج ألوان كل السلاسل في الجانب المختار (سلسلة جديدة = لون جديد في المزيج) */
   var GC={R:[],L:[]};SERIES.forEach(function(se){(GC[se.side||'R']).push.apply(GC[se.side||'R'],se.colors||[])});
   if(!GC.L.length)GC.L=['#fff4d6','#e9f2d8'];if(!GC.R.length)GC.R=['#d4a73a','#9c1f36'];
@@ -1990,14 +2082,15 @@ function initVault(){
     return function(e){if(!ok)return false;var r=img.getBoundingClientRect(),px=(e.clientX-r.left)/r.width*c.width,py=(e.clientY-r.top)/r.height*c.height;
       if(px<0||py<0||px>=c.width||py>=c.height)return false;if(((px-A.wx)*vx+(py-A.wy)*vy)/vl<-20)return false;return x.getImageData(px|0,py|0,1,1).data[3]>60}}
   [['dm','r'],['an','l']].forEach(function(q){var img=v.querySelector('.vt-armw.'+q[0]+' .vt-hnd');if(!img)return;var hit=handHit(img,ARM[q[0]]),on=false;
-    img.addEventListener('pointermove',function(e){var h=hit(e);if(h!==on){on=h;img.classList.toggle('hot',h&&q[1]==='r');if(h)setH(q[1]);else v.dataset.h=''}});
+    img.addEventListener('pointermove',function(e){var h=hit(e);if(h!==on){on=h;img.classList.toggle('hot',h);if(h)setH(q[1]);else v.dataset.h=''}});
     img.addEventListener('pointerleave',function(){if(on){on=false;img.classList.remove('hot');v.dataset.h=''}});
-    if(q[1]==='r')img.addEventListener('click',function(e){if(hit(e))open()})});
-  function open(){if(v.dataset.st==='open')return;v.dataset.st='open';v.dataset.h='';R.setAttribute('aria-expanded','true');lin.removeAttribute('inert');
-    setTimeout(function(){var b=v.querySelector('.vt-p1');if(b&&document.activeElement===R)b.focus({preventScroll:true})},900)}
-  function close(){v.dataset.st='closed';R.setAttribute('aria-expanded','false');lin.setAttribute('inert','')}
-  R.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
-  v.querySelector('.vt-close').addEventListener('click',function(){close();R.focus({preventScroll:true})});
+    img.addEventListener('click',function(e){if(hit(e))open(q[1].toUpperCase())})});
+  var cur='R';
+  function open(sd){if(v.dataset.st==='open')return;cur=sd;v.dataset.st='open';v.dataset.s=sd;v.dataset.h='';FL[sd].setAttribute('aria-expanded','true');LN[sd].removeAttribute('inert');
+    setTimeout(function(){var b=LN[sd].querySelector('.vt-p1');if(b&&document.activeElement===FL[sd])b.focus({preventScroll:true})},900)}
+  function close(){v.dataset.st='closed';FL[cur].setAttribute('aria-expanded','false');LN[cur].setAttribute('inert','')}
+  ['R','L'].forEach(function(sd){FL[sd].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(sd)}})});
+  v.querySelectorAll('.vt-close').forEach(function(b){b.addEventListener('click',function(){close();FL[cur].focus({preventScroll:true})})});
   vPaintAll();vArmLayout();if(!window._vtr){window._vtr=1;window.addEventListener('resize',function(){clearTimeout(window._vtt);window._vtt=setTimeout(function(){vPaintAll();vArmLayout()},250)})}
   v.querySelectorAll('.vt-p1').forEach(function(b){b.addEventListener('click',function(){openSeries(b.dataset.series,b)})});
 }
@@ -2011,7 +2104,7 @@ function seriesPart(P,i){
   var g=GAMES.filter(function(x){return x.id===P.gid})[0];if(!g)return '';
   dl=g.dl?'<a class="a1" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب ('+esc(g.size)+')</a>':'<span class="dis">التحميل قريباً</span>';
   return '<article class="vt-pt p'+P.no+'" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img class="sl on hero" src="'+heroImg(g)+'" alt="'+esc(g.ar)+'">'+[1,2,3].map(function(n){return '<img class="sl" src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'<span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
-   '<div class="vt-pbd"><img class="lgo l'+P.no+'" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt="'+esc(g.ar)+'"><h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
+   '<div class="vt-pbd">'+(g.lg==='ori1'||g.lg==='ori2'?logoHTML(g):'<img class="lgo l'+P.no+'" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt="'+esc(g.ar)+'">')+'<h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
    '<dl class="vt-meta"><div><dt>الحجم</dt><dd>'+esc(g.size)+'</dd></div><div><dt>المعرّب</dt><dd>'+esc(g.by)+'</dd></div><div><dt>الأسطر</dt><dd>'+(g.lines?g.lines.toLocaleString('ar-EG'):'—')+'</dd></div><div><dt>التاريخ</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></div></dl>'+
    '<div class="vt-shots">'+[1,2,3].map(function(n){return '<img src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'</div>'+
    '<div class="vt-pbt">'+dl+'<a class="a2" href="#'+g.id+'">افتح صفحة التعريب</a></div></div></article>';
@@ -2027,20 +2120,23 @@ function openSeries(key,from){
   var done=S.parts.filter(function(p){return !p.soon}).length,pc=Math.round(done/S.parts.length*100);
   w.setAttribute('aria-label','عالم '+S.ar);
   var ttl=S.ar.split(' ').map(function(x,i){return '<span style="--i:'+i+'">'+esc(x)+'</span>'}).join(' ');
-  var bw=S.key==='blasphemous',sw=bw?'<div class="bw-sword" aria-hidden="true"><img src="img/blw-sword.png" alt=""></div>':'';
+  var ow=S.key==='ori',bw=S.key==='blasphemous',fx=bw||ow,sw=bw?'<div class="bw-sword" aria-hidden="true"><img src="img/blw-sword.png" alt=""></div>':'';
+  BWK=S.key;
   var parts=S.parts.map(seriesPart);if(bw&&parts.length===2)parts.splice(1,0,sw);
-  w.className='vt-w'+(bw?' bw':'');
+  w.className='vt-w'+(fx?' bw':'')+(ow?' ow':'');
   w.innerHTML='<div class="vt-wbg" data-w="2"><img src="'+S.bg+'" alt="">'+
    (bw?'<div class="bw-sc bw1"><img src="img/blw-art1.png" alt=""></div><div class="bw-sc bw2"><img src="img/blw-scene2.png" alt=""><i class="spr bw-heart"></i><i class="spr bw-birds"></i></div>':'')+
-   '</div>'+(bw?'<div class="bw-dim"></div>':'')+'<div class="vt-wfr"></div><div class="vt-wsc">'+
+   (ow?'<div class="bw-sc bw1"><img src="img/ori-blind-forest-scene.jpg" alt=""></div><div class="bw-sc bw2"><img src="img/ori-will-of-the-wisps-scene.jpg" alt=""></div>':'')+
+   '</div>'+(fx?'<div class="bw-dim"></div>':'')+'<div class="vt-wfr"></div><div class="vt-wsc">'+
    '<header class="vt-whd"><button type="button" class="vt-back">× العودة إلى داخل الوشاح</button>'+
-   '<div class="vt-wt"><small>عالم السلسلة</small><h2>'+ttl+'</h2><p>'+esc(S.en.toUpperCase())+' · '+esc(S.dev)+'</p>'+
-   (bw?'<i class="spr bw-deco" aria-hidden="true"></i><img class="bw-div" src="img/blw-div.png" alt="">':'<svg class="vt-orn" viewBox="0 0 420 14" aria-hidden="true"><path d="M0 7H180M240 7H420" stroke="#6b5224"/><path d="M210 0L217 7L210 14L203 7Z" fill="#d4a73a"/></svg>')+'</div>'+
-   '<div class="vt-prog" style="--p:'+(pc/100)+'">'+(bw?'<div class="spr bw-broche"><b>'+pc+'%</b></div>':'<b>'+pc+'%</b>')+'<span>نسبة تعريب السلسلة</span><i></i><em>'+done.toLocaleString('ar-EG')+' من '+S.parts.length.toLocaleString('ar-EG')+' أجزاء معرّبة</em></div>'+(bw?'<button type="button" class="bw-cue">ادخل إلى الأجزاء<i></i></button>':'')+'</header>'+
+   '<div class="vt-wt"><small>عالم السلسلة</small><h2>'+(ow?'<img class="ow-ttl" src="img/ori-word.png" alt="'+esc(S.ar)+'">':ttl)+'</h2><p>'+esc(S.en.toUpperCase())+' · '+esc(S.dev)+'</p>'+
+   (bw?'<i class="spr bw-deco" aria-hidden="true"></i><img class="bw-div" src="img/blw-div.png" alt="">':ow?'<i class="ow-div" aria-hidden="true"></i>':'<svg class="vt-orn" viewBox="0 0 420 14" aria-hidden="true"><path d="M0 7H180M240 7H420" stroke="#6b5224"/><path d="M210 0L217 7L210 14L203 7Z" fill="#d4a73a"/></svg>')+'</div>'+
+   '<div class="vt-prog" style="--p:'+(pc/100)+'">'+(bw?'<div class="spr bw-broche"><b>'+pc+'%</b></div>':ow?'<div class="ow-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="45"/><circle class="v" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="'+pc+' 100"/></svg><b>'+pc+'%</b></div>':'<b>'+pc+'%</b>')+'<span>نسبة تعريب السلسلة</span><i></i><em>'+done.toLocaleString('ar-EG')+' من '+S.parts.length.toLocaleString('ar-EG')+' أجزاء معرّبة</em></div>'+(fx?'<button type="button" class="bw-cue">ادخل إلى الأجزاء<i></i></button>':'')+'</header>'+
    '<div class="vt-parts">'+parts.join('')+'</div></div>'+
-   (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'');
+   (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'')+
+   (ow?'<div class="bw-intro" aria-hidden="true"><h3><small>سلسلة</small></h3><img src="img/ori-word.png" alt=""></div>':'');
   w.hidden=false;document.documentElement.style.overflow='hidden';
-  if(bw){bwStart(w);bwMusic(0)}
+  if(fx){bwStart(w);bwMusic(0)}
   requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('on');var b=w.querySelector('.vt-back');if(b)b.focus({preventScroll:true})})});
 }
 /* محرّك أوراق الرسوم (sprite sheets) من ملفات اللعبة: إطار بإطار */
@@ -2066,11 +2162,11 @@ function bwStart(w){
   w._stop=S;
 }
 /* أوست اللعبة: موسيقى القائمة الرئيسية لكل جزء (من ملفات اللعبة، نفس موسيقى المثبّت)، 35% وتتبدّل بنعومة */
-var BWA=null,BWV=.35;
+var BWA=null,BWV=.35,BWK='blasphemous',BWS={blasphemous:['img/blw-ost1.ogg','img/blw-ost2.ogg'],ori:['img/ori-ost1.ogg','img/ori-ost2.ogg']},BWM={};
 function bwAudio(){
-  if(!BWA){BWA={a:['img/blw-ost1.ogg','img/blw-ost2.ogg'].map(function(u){var a=new Audio(u);a.loop=true;a.volume=0;a.preload='auto';return a}),cur:-1,t:null};
+  if(!BWM[BWK]){BWM[BWK]={a:BWS[BWK].map(function(u){var a=new Audio(u);a.loop=true;a.volume=0;a.preload='auto';return a}),cur:-1,t:null};
     try{localStorage.removeItem('midad-mute')}catch(e){}}
-  return BWA;
+  return BWA=BWM[BWK];
 }
 function bwFade(){
   var A=bwAudio();clearInterval(A.t);
@@ -2083,7 +2179,7 @@ function bwFade(){
 function bwMusic(i){var A=bwAudio();if(A.cur===i)return;A.cur=i;bwFade()}
 function closeSeries(nav){
   var w=document.getElementById('vtw');if(!w||w.hidden)return;
-  w.classList.remove('on');(w._stop||[]).forEach(function(f){f()});w._stop=[];if(BWA){BWA.cur=-1;bwFade()}document.documentElement.style.overflow='';
+  w.classList.remove('on');(w._stop||[]).forEach(function(f){f()});w._stop=[];if(BWM[BWK]){BWM[BWK].cur=-1;bwFade()}document.documentElement.style.overflow='';
   if(nav){w.hidden=true;return}
   setTimeout(function(){if(!w.classList.contains('on'))w.hidden=true},520);
   if(vwLast&&document.contains(vwLast))vwLast.focus({preventScroll:true});
