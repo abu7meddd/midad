@@ -435,6 +435,21 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .lb{position:fixed;inset:0;z-index:60;background:#000e;display:grid;place-items:center;padding:20px}
 .lb img{max-width:100%;max-height:88vh;border-radius:12px}
 .lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));inset-inline-end:16px;font:inherit;background:#ffffff22;color:#fff;border:0;border-radius:99px;padding:6px 18px;cursor:pointer}
+.ft{flex-direction:column;align-items:center;text-align:center;gap:14px}
+.ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px}
+.ft-links a{color:inherit;text-decoration:none;opacity:.85;display:inline-flex;align-items:center;gap:6px;transition:color .2s,opacity .2s}
+.ft-links a:hover,.ft-links a:focus-visible{color:var(--gold);opacity:1}
+.ft-x{direction:ltr;unicode-bidi:isolate}
+.info[hidden]{display:none!important}
+.info{position:fixed;inset:0;z-index:9999;background:rgba(5,5,8,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.info-box{position:relative;background:#14141a;color:#e8e2d4;border:1px solid #2c2c36;border-radius:18px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:30px 28px 26px;line-height:1.95;font-size:.95rem;text-align:right}
+.info-box h2{margin:0 0 14px;font-family:'Aref Ruqaa',serif;color:var(--gold);font-size:1.6rem}
+.info-box p{margin:0 0 12px}.info-box ul{margin:0;padding-inline-start:20px}.info-box li{margin-bottom:10px}
+.info-x{position:absolute;top:12px;left:14px;background:none;border:0;color:#a8a294;font-size:1.8rem;line-height:1;cursor:pointer}
+.info-x:hover{color:var(--gold)}
+.info-btn{display:inline-block;padding:10px 20px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);text-decoration:none;direction:ltr}
+.info-btn:hover{background:var(--gold);color:#14141a}
+.info-d{color:#8d8878;font-size:.8rem}
 footer{margin-top:80px;padding-block:28px 40px;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 @media (max-width:760px){
   .pair{grid-template-columns:1fr}
@@ -1251,7 +1266,15 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 </div></nav>
 <nav class="navcap" id="navcap" aria-label="أقسام الصفحة"><i class="ind" aria-hidden="true"></i><a href="#all" data-s="all">المكتبة</a><a href="#vault" data-s="vault">المسرح</a><a href="#lab" data-s="lab">عوالمنا</a><a href="#const" data-s="const">الكوكبة</a><a href="#bento" data-s="bento">السجل</a><a href="#cozy" data-s="cozy">ركن الراحة</a></nav>
 <div id="wglow" aria-hidden="true"></div><div id="app"></div>
-<div class="wrap"><footer><span>© مِداد · تعريبات أبو حميد وأصدقائه · جميع الحقوق محفوظة</span></footer></div>
+<div class="wrap"><footer class="ft">
+  <div class="ft-links" role="navigation" aria-label="روابط المعلومات">
+    <a href="https://x.com/abu7meddd" target="_blank" rel="noopener noreferrer" class="ft-x" aria-label="حسابي في إكس"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M18.2 2.5h3.3l-7.2 8.3 8.5 11.2h-6.7l-5.2-6.8-6 6.8H1.6l7.7-8.8L1.2 2.5h6.8l4.7 6.2zm-1.2 17.5h1.8L7.1 4.4H5.2z"/></svg>حسابي في إكس @abu7meddd</a>
+    <a href="#about" data-info="about">عن مِداد</a>
+    <a href="#contact" data-info="contact">تواصل معنا</a>
+  </div>
+  <span class="ft-c">© مِداد · تعريبات أبو حميد وأصدقائه · جميع الحقوق محفوظة</span>
+</footer></div>
+<div id="info" class="info" hidden role="dialog" aria-modal="true" aria-labelledby="info-t"><div class="info-box"><button type="button" class="info-x" aria-label="إغلاق">×</button><h2 id="info-t"></h2><div id="info-b"></div></div></div>
 <div id="lb" class="lb" hidden></div>
 
 <script>
@@ -2161,7 +2184,7 @@ function home(){document.body.removeAttribute('data-world');
    '</div><a class="down" href="#all" aria-label="انزل لتشوف التعريبات"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a></section>'+
    '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل تحفنا</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<div class="fempty" id="fempty" hidden><span class="fverse">لا تأسَ إن غابتْ… فكم من غائبٍ عادَ يُكتَبُ بالمِداد</span><p>جرّب اسمها بالإنجليزي… أو اطلبها، ونكتبها لك.</p><a class="freq" href="#request">اطلب تعريبك ↓</a></div></div>'+vaultHTML()+guestsHTML()+
    labHTML()+constHTML()+bentoHTML()+cozyHTML()+
-   '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي.</p></div><span class="pill ghost">الطلبات تفتح قريباً</span></section></div>';
+   '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي. الطلب بمقابل رمزي يبدأ من 10 دولار ويتحدد حسب حجم اللعبة، وبعد التسليم ينزل التعريب في الموقع مجاناً للجميع واسمك على بطاقته. لا نضمن إمكانية تعريب كل لعبة، ونؤكد لك ذلك قبل الدفع.</p></div><a class="pill" href="https://x.com/abu7meddd" target="_blank" rel="noopener noreferrer" style="text-decoration:none">اطلب تعريب عبر إكس</a></section></div>';
   initCards();initFilters();initVault();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
 }
 /* كبسولة التنقل: الضغط ينزل للقسم بنعومة، والمؤشر يتبع القسم الظاهر */
@@ -2200,6 +2223,19 @@ function detail(g){document.body.dataset.world=g.lg;
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
   initBA();app.querySelectorAll('.shots button').forEach(function(b){b.onclick=function(){lb.innerHTML='<button>إغلاق</button><img src="'+b.dataset.src+'" alt="">';lb.hidden=false}});
 }
+var INFO={
+ about:{t:'عن مِداد',b:'<p><b>مِداد</b> موقع عربي يجمع تعريبات ألعاب الحاسب التي أعمل عليها أنا <b>أبو حميد</b> مع أصدقائي. التعريبات كلها مجانية للتحميل، وهي عمل جماهيري غير رسمي.</p><p>لكل لعبة صفحة خاصة فيها لقطات منها، ومقارنة «قبل وبعد» بنصوص اللعبة نفسها، وما يشمله التعريب، وطريقة التثبيت خطوة بخطوة، ورابط التحميل.</p><p>في «آخر تحديثاتنا» تجد سجلاً بكل لعبة تُضاف وكل تعريب يتحدّث. وإن لم تجد لعبتك فاكتب لنا اسمها وننظر في الأمر.</p><p>الموقع لا يوزّع الألعاب نفسها، وكل تعريب يحتاج نسختك الأصلية منها. وإن كانت الترجمة لصديق فاسمه مذكور عند اللعبة. للتواصل: <a href="https://x.com/abu7meddd" target="_blank" rel="noopener noreferrer" style="color:var(--gold)">حسابي في إكس</a>.</p>'},
+ contact:{t:'تواصل معنا',b:'<p>للاقتراحات، أو الإبلاغ عن مشكلة في تعريب، أو طلب تعريب لعبة جديدة، راسلني على حسابي في إكس:</p><p><a class="info-btn" href="https://x.com/abu7meddd" target="_blank" rel="noopener noreferrer">@abu7meddd على إكس</a></p><p>عند الإبلاغ عن مشكلة اذكر اسم اللعبة ونسخة التعريب ولقطة للمشكلة إن أمكن. الرد قد يتأخر أحياناً، فلا تستعجلني.</p>'},
+ terms:{t:'الشروط وإخلاء المسؤولية',b:'<p>باستخدامك موقع <b dir="ltr">midadabuhameed.com</b> (مِداد) فإنك توافق على ما يلي:</p><ul><li>التعريبات هنا <b>عمل جماهيري غير رسمي</b>، لا علاقة لها بمطوّري الألعاب أو ناشريها ولا تحظى بدعمهم. أسماء الألعاب وشعاراتها وصورها ملك لأصحابها، وتُعرض هنا للتعريف فقط.</li><li><b>لا نوزّع ملفات اللعبة الأصلية.</b> تحتاج نسخة أصلية مثبّتة عندك، والتعريب يعدّل ملفات الترجمة والخطوط فقط.</li><li>التعريبات مقدَّمة <b>«كما هي»</b> بلا أي ضمان. استخدامها على مسؤوليتك، وبعد تحديث اللعبة قد يتوقف التعريب إلى أن يُحدَّث.</li><li>يُنصح بأخذ نسخة احتياطية من ملفات اللعبة قبل التثبيت. لا أتحمّل مسؤولية أي فقد بيانات أو مشكلة في الحسابات أو الحفظ الناتجة عن التثبيت.</li><li>التعريبات للاستخدام الشخصي وغير التجاري. لا يجوز بيعها، ولا إعادة نشرها منسوبة لغير أصحابها.</li><li>لأصحاب الحقوق: إن رغبتم بإزالة محتوى فتواصلوا معي على إكس وسأستجيب.</li><li>حقوق تصميم الموقع ومحتواه محفوظة لمِداد.</li></ul>'},
+ privacy:{t:'سياسة الخصوصية',b:'<p>تنطبق هذه السياسة على موقع <b dir="ltr">midadabuhameed.com</b> (مِداد).</p><ul><li><b>لا حسابات ولا تسجيل.</b> الموقع لا يطلب اسمك ولا بريدك ولا أي بيانات شخصية.</li><li><b>لا نجمع بيانات ولا نستخدم أدوات تتبّع أو إعلانات.</b></li><li>الموقع مستضاف لدى مزوّد استضافة خارجي، وملفات التحميل على GitHub Releases. وقد يسجّل المزوّد وGitHub بيانات تقنية عند زيارتك أو تحميلك (مثل عنوان IP) وفق سياساتهم الخاصة.</li><li>قد يحمّل الموقع خطوطاً من Google Fonts، وقد تتلقى Google طلباً تقنياً عند ذلك وفق سياستها.</li><li>روابط حسابي في إكس وصفحات التحميل تنقلك لمواقع خارجية لها سياساتها الخاصة، ولا أتحكم بها.</li><li>إن راسلتني على إكس فرسالتك تخضع لسياسة إكس، ولن أشاركها مع أحد.</li><li>أي تغيير على هذه السياسة سيُنشر في هذه الصفحة.</li></ul><p class="info-d">آخر تحديث: 2026-11-21</p>'}
+};
+(function(){var m=document.getElementById('info'),t=document.getElementById('info-t'),b=document.getElementById('info-b'),last=null;
+ function open(k,a){var d=INFO[k];if(!d)return;last=a||null;t.textContent=d.t;b.innerHTML=d.b;m.hidden=false;document.body.style.overflow='hidden';m.querySelector('.info-x').focus()}
+ function close(){if(m.hidden)return;m.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+ document.querySelectorAll('[data-info]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open(a.dataset.info,a)})});
+ m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('info-x'))close()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
 lb.onclick=function(){lb.hidden=true};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true});
 var HOMESECS=['all','request','vault','mods','lab','const','bento','cozy','nums'];
