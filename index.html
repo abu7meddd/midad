@@ -722,6 +722,8 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 .lg-ori img{display:block;width:auto;max-width:100%;filter:drop-shadow(0 0 14px #ffd9a055) drop-shadow(0 4px 12px #0009)}
 .lg-ori.o1 img{height:clamp(120px,15vw,190px)}
 .lg-ori.o2 img{height:clamp(96px,11.5vw,150px)}
+.lg-ori.o2 img{filter:drop-shadow(0 0 14px #b48cff77) drop-shadow(0 4px 12px #0009)}
+.lg-ori.o2 .osub{color:#f1e8ff;text-shadow:0 0 14px #c9a7ffcc,0 0 28px #8a5cffaa,0 2px 8px #000a}
 .lg-ori .osub{margin-top:-.15em;font:700 clamp(1.5rem,3.2vw,2.5rem)/1.3 'Aref Ruqaa','Amiri',serif;color:#fff3dc;text-shadow:0 0 14px #ffd9a0bb,0 0 28px #b48cffaa,0 2px 8px #000a;padding-bottom:.1em}
 .w-ori1{--vg:6,15,31;--gl:#6fc8ff70}.w-ori2{--vg:16,10,38;--gl:#b48cff70}
 @media (min-width:761px){.w-ori1 .logo-h{zoom:.9}.w-ori2 .logo-h{zoom:.95}}
@@ -1256,7 +1258,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-pk.ori .vt-cd{border-color:#bfe3ff66}
 .vt-pk.ori .vt-c1 img.bg{object-position:50% 62%}
 .vt-lin.L .vt-ep:first-of-type,.vt-lin.L .vt-pk:nth-child(2){right:5%!important;top:20%!important;width:min(230px,24%)!important}
-.vt-pk.ori .vt-lgo{image-rendering:auto;left:17%;width:66%;top:calc(var(--pt,20%) + (100% - var(--pt,20%))*.36);filter:drop-shadow(0 0 10px #ffd9a0aa) drop-shadow(0 2px 6px #000)}
+.vt-pk.ori .vt-lgo{image-rendering:auto;left:17%;width:66%;top:calc(var(--pt,20%) + (100% - var(--pt,20%))*.02);filter:drop-shadow(0 0 10px #ffd9a0aa) drop-shadow(0 2px 6px #000)}
 .vt-pk.ori:hover .vt-lgo,.vt-pk.ori:focus-visible .vt-lgo{filter:drop-shadow(0 0 20px #fff0c8) drop-shadow(0 2px 6px #000)}
 .vt-pk.ori:focus-visible{outline-color:#bfe3ff}
 /* ===== عالم سلسلة أوري: فن المثبّتين (الشاشة الأولى) وشعار الواجهة المعرَّب، بروح هادئة مضيئة ===== */
@@ -1544,7 +1546,7 @@ function logoHTML(g){
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
   if(g.lg==='ori1')return '<span class="lg lg-ori o1"><img src="img/ori-blind-forest-logo.png" alt="أوري والغابة العمياء"></span>';
-  if(g.lg==='ori2')return '<span class="lg lg-ori o2"><img src="img/ori-word.png" alt="أوري"><span class="osub">وإرادة الأطياف</span></span>';
+  if(g.lg==='ori2')return '<span class="lg lg-ori o2"><img src="img/ori-word-violet.png" alt="أوري"><span class="osub">وإرادة الأطياف</span></span>';
   if(g.lg==='bl2')return '<span class="lg lg-bl b2"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
   if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
   if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
