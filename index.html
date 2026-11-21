@@ -102,6 +102,7 @@ body{position:relative}
 .lg-ml .rule::before,.lg-ml .rule::after{content:"";position:absolute;top:50%;transform:translateY(-50%);border:6px solid transparent}
 .lg-ml .rule::before{left:-2px;border-left:0;border-right-color:#fff}
 .lg-ml .rule::after{right:-2px;border-right:0;border-left-color:#fff}
+.lg-t2c2{display:block;line-height:0}.lg-t2c2 img{display:block;height:clamp(96px,13vw,170px);width:auto;max-width:100%;filter:drop-shadow(0 4px 12px #0006)}
 .lg-t2c{display:inline-grid;justify-items:center;gap:.05em}
 .lg-t2c .t{font-family:'Lemonada',cursive;font-weight:700;font-size:clamp(2rem,5.2vw,3.7rem);line-height:1.2;color:#fff;text-shadow:0 3px 0 #7fb2dd,0 12px 26px #0007}
 .lg-t2c .sky{width:clamp(110px,15vw,170px);height:auto}
@@ -1390,7 +1391,7 @@ var GAMES=[
   engine:'Unreal Engine 5',kind:'مثبّت (exe)',size:'30.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/manor-lords/ManorLords_Arabic_Setup.exe',
   feats:['نصوص الواجهة','القوائم والتلميحات'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت، واختر مجلد اللعبة إن لم يجده','اضغط تثبيت ثم افتح اللعبة. وللإزالة شغّل المثبّت واختر إزالة']},
- {id:'town-to-city',real:['img/town-to-city-real-1.webp','img/town-to-city-real-2.webp'],lines:3834,lg:'t2c',ba:[{en:'img/town-to-city-shot3.jpg',ar:'img/town-to-city-ar-3.jpg',ref:'مفتاح ST_CitySizeNames::Largecity',note:'اسم المدينة (Bellemont Peaks) يضعه اللاعب فيبقى كما هو.'}],glow:'#d9855266',ar:'من بلدة إلى مدينة',en:'Town to City',by:'أبو حميد',dev:'Galaxy Grove',tags:['بناء مدن','هادئة'],
+ {id:'town-to-city',shotsOnly:[1],lines:3834,lg:'t2c',ba:[{en:'img/town-to-city-en-1.jpg',ar:'img/town-to-city-ar-1.jpg',ref:'القائمة الرئيسية: Continue، New game، Load game، Sandbox mode، Settings، Credits، Quit، Join our Discord!، Fountains DLC out now!، Click here for the Roadmap!',rev:1},{en:'img/town-to-city-en-2.jpg',ar:'img/town-to-city-ar-2.jpg',ref:'Build 3 houses، Connect the houses to the station with a road، Townsfolk Residence، وصف المنزل، {NR} times placed in the city',rev:1}],glow:'#d9855266',ar:'من بلدة إلى مدينة',en:'Town to City',by:'أبو حميد',dev:'Galaxy Grove',tags:['بناء مدن','هادئة'],
   blurb:'ابنِ بلدة متوسطية حالمة من القرن التاسع عشر، وساعدها على الازدهار حتى تصير مدينة عامرة. ضع كل عنصر وخصّصه بحرية لتصنع البيت المثالي لسكانك المتزايدين، في لعبة بناء مدن مريحة من مطوّري Station to Station.',
   engine:'غير محدد',kind:'مثبّت (exe)',size:'152.4 ميجا',date:'2026-11-22',dl:'https://github.com/abu7meddd/midad/releases/download/town-to-city/TownToCity-Arabic-Setup.exe',
   feats:['نصوص اللعبة','مثبّت يضع الملفات تلقائياً'],
@@ -1556,7 +1557,7 @@ function logoHTML(g){
   if(g.lg==='st')return '<span class="lg lg-st"><span class="l1">برج</span><span class="l2">السيادة</span></span>';
   if(g.lg==='pbz')return '<span class="lg lg-pbz"><span class="a">نصل الطيف<i class="slash"></i>صفر</span><span class="e">P H A N T O M &nbsp; B L A D E &nbsp; Ø</span></span>';
   if(g.lg==='ml')return '<span class="lg lg-ml"><span>سادة</span><i class="rule"><b></b></i><span>الإقطاع</span></span>';
-  if(g.lg==='t2c')return '<span class="lg lg-t2c">'+SKY+'<span class="t">من بلدة إلى مدينة</span>'+SWASH+'</span>';
+  if(g.lg==='t2c')return '<span class="lg lg-t2c2"><img src="img/town-to-city-logo.png" alt="من بلدة إلى مدينة"></span>';
   if(g.lg==='dave')return '<span class="lg lg-dave"><span class="d1">ديف</span><span class="d2">الغوّاص</span></span>';
   if(g.lg==='pc')return '<span class="lg lg-pc"><img class="pd" src="img/potion-craft-logo-light.png" alt="صناعة الجرعات"><img class="pl" src="img/potion-craft-logo.png" alt="" aria-hidden="true"></span>';
   if(g.lg==='dredge')return '<span class="lg lg-dredge"><span class="r">دريدج</span><span class="sb">D R E D G E</span></span>';
@@ -1876,7 +1877,7 @@ function baHTML(g){
   if(!g.ba||!g.ba.length)return '';
   return '<section class="ba"><h2>قبل وبعد</h2><p class="bsub">حرّك المقبض: يسار الإنجليزي الأصلي ويمين التعريب.</p><div class="bagrid">'+g.ba.map(function(b){
     return '<figure style="margin:0"><div class="bacard" tabindex="0" role="slider" aria-label="مقارنة الإنجليزي بالعربي" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><img src="'+b.en+'" alt="النص الإنجليزي" draggable="false"><img class="ar" src="'+b.ar+'" alt="النص العربي" draggable="false"><span class="chip l">English</span><span class="chip r">عربي</span><i class="h"></i></div>'+
-    '<figcaption class="bacap"><b>معاينة تركيب:</b> النص العربي مأخوذ حرفياً من ملف تعريب '+esc(g.ar)+' ('+esc(b.ref)+') ومركّب على اللقطة الأصلية، فقد يختلف الإطار والتفاف الأسطر شيئاً يسيراً عمّا يظهر داخل اللعبة. '+(b.note?esc(b.note):'')+'</figcaption></figure>'}).join('')+'</div></section>';
+    '<figcaption class="bacap"><b>معاينة تركيب:</b> '+(b.rev?'العربي لقطة حقيقية من داخل اللعبة بعد التعريب، والإنجليزي مركّب عليها بنص اللعبة الأصلي ('+esc(b.ref)+'). الخط والتفاف الأسطر في «قبل» تقريب. '+(b.note?esc(b.note):''):'النص العربي مأخوذ حرفياً من ملف تعريب '+esc(g.ar)+' ('+esc(b.ref)+') ومركّب على اللقطة الأصلية، فقد يختلف الإطار والتفاف الأسطر شيئاً يسيراً عمّا يظهر داخل اللعبة. '+(b.note?esc(b.note):''))+'</figcaption></figure>'}).join('')+'</div></section>';
 }
 function initBA(){
   document.querySelectorAll('.bacard').forEach(function(c){bindBA(c)});
@@ -2329,13 +2330,13 @@ function initSpy(){
 }
 function detail(g){document.body.dataset.world=g.lg;
   stopTimer();
-  var shots=[1,2,3].map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
+  var shots=(g.shotsOnly||[1,2,3]).map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
-   '<div class="wrap"><div class="shots'+(g.bigshots?' big':'')+'">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
+   '<div class="wrap"><div class="shots'+(g.bigshots||g.shotsOnly?' big':'')+'">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
