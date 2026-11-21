@@ -722,7 +722,7 @@ body[data-world="insc"]{--w-bg:#100b08;--w-ink:#ebe2cf;--w-mute:#b8a68a;--w-nav-
 .lg-ori img{display:block;width:auto;max-width:100%;filter:drop-shadow(0 0 14px #ffd9a055) drop-shadow(0 4px 12px #0009)}
 .lg-ori.o1 img{height:clamp(120px,15vw,190px)}
 .lg-ori.o2 img{height:clamp(96px,11.5vw,150px)}
-.lg-ori.o2 img{filter:drop-shadow(0 0 8px #c9a7ffcc) drop-shadow(0 0 22px #8a5cff88) drop-shadow(0 4px 12px #0009)}
+.lg-ori.o2 img{filter:drop-shadow(0 4px 12px #0009)}
 .lg-ori.o2 .osub{color:#f1e8ff;text-shadow:0 0 14px #c9a7ffcc,0 0 28px #8a5cffaa,0 2px 8px #000a}
 .lg-ori .osub{margin-top:-.15em;font:700 clamp(1.5rem,3.2vw,2.5rem)/1.3 'Aref Ruqaa','Amiri',serif;color:#fff3dc;text-shadow:0 0 14px #ffd9a0bb,0 0 28px #b48cffaa,0 2px 8px #000a;padding-bottom:.1em}
 .w-ori1{--vg:6,15,31;--gl:#6fc8ff70}.w-ori2{--vg:16,10,38;--gl:#b48cff70}
@@ -1309,7 +1309,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 @keyframes owFloat{from{transform:translateY(-9px)}to{transform:translateY(9px)}}
 @keyframes owPulse{from{opacity:.5;transform:scale(.9)}to{opacity:1;transform:scale(1.08)}}
 .vt-w.ow .bw-intro{background:#02060f}
-.vt-w.ow .bw-intro img{width:auto;height:222px;image-rendering:auto;filter:drop-shadow(0 0 18px #cfe8ffaa)}
+.vt-w.ow .bw-intro img{width:min(720px,86vw);height:auto;image-rendering:auto;filter:none}
 .vt-w.ow .bw-intro h3{color:#eef6ff;text-shadow:0 0 22px #8fd8ff66}.vt-w.ow .bw-intro h3 small{color:#9fc8ee}
 @media (max-width:760px){.vt-w.ow .vt-parts{grid-template-columns:1fr}.ow-mid{display:none}.ow-ring{transform:scale(.8);margin:-14px 0}}
 @media (max-width:760px){
@@ -1555,7 +1555,7 @@ function logoHTML(g){
   if(g.lg==='celeste')return '<span class="lg lg-celeste"><svg class="pk" viewBox="0 0 120 70" aria-hidden="true"><path d="M2 68L46 6l14 22 14-18 44 58z" fill="#c9b8f5" stroke="#3b2e6b" stroke-width="4" stroke-linejoin="round"/><path d="M46 6l14 22 14-18-10 22-8-8-8 10z" fill="#f2f8ff" stroke="#3b2e6b" stroke-width="3" stroke-linejoin="round"/></svg><span class="t">سيليست</span></span>';
   if(g.lg==='restory')return '<span class="lg lg-restory"><svg class="tape" viewBox="0 0 140 56" aria-hidden="true"><rect x="3" y="6" width="134" height="46" rx="6" fill="#f6d54a" stroke="#3b1c12" stroke-width="4"/><rect x="18" y="14" width="104" height="14" rx="3" fill="#fff7e3" stroke="#3b1c12" stroke-width="3"/><circle cx="46" cy="40" r="7" fill="#3b1c12"/><circle cx="94" cy="40" r="7" fill="#3b1c12"/><path d="M53 40h34" stroke="#3b1c12" stroke-width="4"/></svg><span class="t">حكاية مُرمَّمة</span><span class="j">مصلح الذكريات</span></span>';
   if(g.lg==='ori1')return '<span class="lg lg-ori o1"><img src="img/ori-blind-forest-logo.png" alt="أوري والغابة العمياء"></span>';
-  if(g.lg==='ori2')return '<span class="lg lg-ori o2"><img src="img/ori-word-crisp.png" alt="أوري"><span class="osub">وإرادة الأطياف</span></span>';
+  if(g.lg==='ori2')return '<span class="lg lg-ori o2"><img src="img/ori-word-green.png" alt="أوري"><span class="osub">وإرادة الأطياف</span></span>';
   if(g.lg==='bl2')return '<span class="lg lg-bl b2"><img src="img/blasphemous-2-logo.png" alt="بلاسفيموس 2"></span>';
   if(g.lg==='bl')return '<span class="lg lg-bl"><img src="img/blasphemous-logo.png" alt="بلاسفيموس"></span>';
   if(g.lg==='sdv')return '<span class="lg lg-sdv"><img src="img/stardew-valley-logo.png" alt="ستاردو فالي"></span>';
@@ -1958,7 +1958,7 @@ function initFilters(){
 /* side: R يمين الشقاء، L شمال الرخاء. colors: ألوان عالم السلسلة، تمتزج في ضوء الشق عند المرور على جانبها */
 var SERIES=[{key:'blasphemous',side:'R',colors:['#d4a73a','#9c1f36'],ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
   lgo:'img/blasphemous-logo.png',parts:[{gid:'blasphemous',no:1},{gid:'blasphemous-2',no:2}]},
- {key:'ori',side:'L',colors:['#8fd8ff','#c9a7ff'],ar:'سلسلة أوري',en:'Ori',dev:'Moon Studios',bg:'img/ori-blind-forest-scene.jpg',
+ {key:'ori',side:'L',colors:['#8fd8ff','#c9a7ff'],ar:'سلسلة أوري',en:'Ori',dev:'Moon Studios',bg:'img/ori-blind-forest-bg.jpg',
   lgo:'img/ori-word-crisp.png',cls:'ori',parts:[{gid:'ori-blind-forest',no:1},{gid:'ori-will-of-the-wisps',no:2}]}];
 var SLOGO={'blasphemous':'img/blasphemous-logo.png','blasphemous-2':'img/blasphemous-2-logo.png','ori-blind-forest':'img/ori-blind-forest-logo.png'};
 var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%'},
@@ -2138,7 +2138,7 @@ function openSeries(key,from){
   w.className='vt-w'+(fx?' bw':'')+(ow?' ow':'');
   w.innerHTML='<div class="vt-wbg" data-w="2"><img src="'+S.bg+'" alt="">'+
    (bw?'<div class="bw-sc bw1"><img src="img/blw-art1.png" alt=""></div><div class="bw-sc bw2"><img src="img/blw-scene2.png" alt=""><i class="spr bw-heart"></i><i class="spr bw-birds"></i></div>':'')+
-   (ow?'<div class="bw-sc bw1"><img src="img/ori-blind-forest-scene.jpg" alt=""></div><div class="bw-sc bw2"><img src="img/ori-will-of-the-wisps-scene.jpg" alt=""></div>':'')+
+   (ow?'<div class="bw-sc bw1"><img src="img/ori-blind-forest-bg.jpg" alt=""></div><div class="bw-sc bw2"><img src="img/ori-will-of-the-wisps-bg.jpg" alt=""></div>':'')+
    '</div>'+(fx?'<div class="bw-dim"></div>':'')+'<div class="vt-wfr"></div><div class="vt-wsc">'+
    '<header class="vt-whd"><button type="button" class="vt-back">× العودة إلى داخل الوشاح</button>'+
    '<div class="vt-wt"><small>عالم السلسلة</small><h2>'+ttl+'</h2><p>'+esc(S.en.toUpperCase())+' · '+esc(S.dev)+'</p>'+
@@ -2146,7 +2146,7 @@ function openSeries(key,from){
    '<div class="vt-prog" style="--p:'+(pc/100)+'">'+(bw?'<div class="spr bw-broche"><b>'+pc+'%</b></div>':ow?'<div class="ow-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="45"/><circle class="v" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="'+pc+' 100"/></svg><b>'+pc+'%</b></div>':'<b>'+pc+'%</b>')+'<span>نسبة تعريب السلسلة</span><i></i><em>'+done.toLocaleString('ar-EG')+' من '+S.parts.length.toLocaleString('ar-EG')+' أجزاء معرّبة</em></div>'+(fx?'<button type="button" class="bw-cue">ادخل إلى الأجزاء<i></i></button>':'')+'</header>'+
    '<div class="vt-parts">'+parts.join('')+'</div></div>'+
    (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'')+
-   (ow?'<div class="bw-intro" aria-hidden="true"><img src="img/ori-spirit.png" alt=""><h3><small>سلسلة</small>أوري</h3></div>':'');
+   (ow?'<div class="bw-intro ow-load" aria-hidden="true"><img src="img/ori-logo-ar-full.png" alt=""></div>':'');
   w.hidden=false;document.documentElement.style.overflow='hidden';
   if(fx){bwStart(w);bwMusic(0)}
   requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('on');var b=w.querySelector('.vt-back');if(b)b.focus({preventScroll:true})})});
