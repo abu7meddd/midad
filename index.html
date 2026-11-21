@@ -1258,8 +1258,16 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-pk.ori .vt-cd{border-color:#bfe3ff66}
 .vt-pk.ori .vt-c1 img.bg{object-position:50% 62%}
 .vt-lin.L .vt-pk:nth-child(2){right:3%!important;top:26%!important;width:min(220px,23%)!important}
-.vt-pk.ori .vt-lgo{image-rendering:auto;left:50%;width:auto;height:calc((100% - var(--pt,20%))*.66);max-width:70%;object-fit:contain;top:calc(var(--pt,20%) + (100% - var(--pt,20%))*.5);transform:translate(-50%,-50%);filter:drop-shadow(0 1px 0 #0008) drop-shadow(0 0 8px #ffd9a040)}
-.vt-pk.ori:hover .vt-lgo,.vt-pk.ori:focus-visible .vt-lgo{filter:drop-shadow(0 1px 0 #0008) drop-shadow(0 0 12px #ffd9a088)}
+.vt-pk.ori .vt-lgo{image-rendering:auto;left:50%;width:auto;height:calc((100% - var(--pt,20%))*.92);max-width:96%;object-fit:contain;top:calc(var(--pt,20%) + (100% - var(--pt,20%))*.5);transform:translate(-50%,-50%);filter:drop-shadow(0 0 6px #ffb86a88) drop-shadow(0 0 16px #ff9a3c66);animation:oriWord 3.6s ease-in-out infinite alternate}
+.vt-pk.ori:hover .vt-lgo,.vt-pk.ori:focus-visible .vt-lgo{filter:drop-shadow(0 0 8px #ffd29aaa) drop-shadow(0 0 22px #ffa84fa0)}
+@keyframes oriWord{from{filter:drop-shadow(0 0 5px #ffb86a77) drop-shadow(0 0 12px #ff9a3c44) brightness(1)}to{filter:drop-shadow(0 0 9px #ffd29acc) drop-shadow(0 0 24px #ffa84f88) brightness(1.12)}}
+/* حواف زجاجية ناعمة لكل بطاقات الجيوب (كل الألعاب): استدارة كبيرة، حد شفاف، لمعة زجاج */
+.vt-cd{border-radius:22px;border:1px solid #ffffff55;box-shadow:0 20px 40px #000,inset 0 0 0 1px #ffffff1f,inset 0 2px 12px #ffffff30,inset 0 -12px 20px #0005}
+.vt-cd::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,#ffffff3d 0%,#ffffff0d 26%,#0000 52%,#ffffff12 100%);pointer-events:none}
+.vt-pk.ori .vt-cd{border-color:#d9efff88}
+.vt-shots img{border-radius:12px}
+.ow-sr{position:relative;z-index:1;margin:0 0 -34px;text-align:center;font:700 clamp(2.1rem,4.4vw,3.4rem)/1 'Amiri',serif;color:#eef6ff;text-shadow:0 0 16px #ffd9a0aa,0 0 34px #8fd8ff66,0 2px 8px #000;opacity:0}
+.vt-w.on .ow-sr{opacity:1;transition:opacity 1s .6s}
 .vt-pk.ori:focus-visible{outline-color:#bfe3ff}
 /* ===== عالم سلسلة أوري: فن المثبّتين (الشاشة الأولى) وشعار الواجهة المعرَّب، بروح هادئة مضيئة ===== */
 .vt-w.ow{background:#050b1a}
@@ -1959,7 +1967,7 @@ function initFilters(){
 var SERIES=[{key:'blasphemous',side:'R',colors:['#d4a73a','#9c1f36'],ar:'سلسلة بلاسفيموس',en:'Blasphemous',dev:'The Game Kitchen',bg:'img/blasphemous-hero2x.jpg',
   lgo:'img/blasphemous-logo.png',parts:[{gid:'blasphemous',no:1},{gid:'blasphemous-2',no:2}]},
  {key:'ori',side:'L',colors:['#8fd8ff','#c9a7ff'],ar:'سلسلة أوري',en:'Ori',dev:'Moon Studios',bg:'img/ori-blind-forest-bg.jpg',
-  lgo:'img/ori-word-crisp.png',cls:'ori',parts:[{gid:'ori-blind-forest',no:1},{gid:'ori-will-of-the-wisps',no:2}]}];
+  lgo:'img/ori-word-glow.png',cls:'ori',parts:[{gid:'ori-blind-forest',no:1},{gid:'ori-will-of-the-wisps',no:2}]}];
 var SLOGO={'blasphemous':'img/blasphemous-logo.png','blasphemous-2':'img/blasphemous-2-logo.png','ori-blind-forest':'img/ori-blind-forest-logo.png'};
 var VPK=[{top:'10%',left:'12%',w:'min(340px,44%)',ar:'340/400',r:'-1deg',pt:'50%'},
  {top:'16%',right:'18%',w:'min(250px,26%)',ar:'250/300',r:'3deg',pt:'22%'},
@@ -2146,7 +2154,7 @@ function openSeries(key,from){
    '<div class="vt-prog" style="--p:'+(pc/100)+'">'+(bw?'<div class="spr bw-broche"><b>'+pc+'%</b></div>':ow?'<div class="ow-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="45"/><circle class="v" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="'+pc+' 100"/></svg><b>'+pc+'%</b></div>':'<b>'+pc+'%</b>')+'<span>نسبة تعريب السلسلة</span><i></i><em>'+done.toLocaleString('ar-EG')+' من '+S.parts.length.toLocaleString('ar-EG')+' أجزاء معرّبة</em></div>'+(fx?'<button type="button" class="bw-cue">ادخل إلى الأجزاء<i></i></button>':'')+'</header>'+
    '<div class="vt-parts">'+parts.join('')+'</div></div>'+
    (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'')+
-   (ow?'<div class="bw-intro ow-load" aria-hidden="true"><img src="img/ori-logo-ar-full.png" alt=""></div>':'');
+   (ow?'<div class="bw-intro ow-load" aria-hidden="true"><div class="ow-sr">سلسلة</div><img src="img/ori-logo-ar-full.png" alt=""></div>':'');
   w.hidden=false;document.documentElement.style.overflow='hidden';
   if(fx){bwStart(w);bwMusic(0)}
   requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('on');var b=w.querySelector('.vt-back');if(b)b.focus({preventScroll:true})})});
@@ -2173,8 +2181,8 @@ function bwStart(w){
   w.querySelectorAll('.vt-pt').forEach(function(pt,i){pt.addEventListener('pointerenter',function(){hold=1;bg.dataset.w=i===0?1:2;bwMusic(i===0?0:1)});pt.addEventListener('pointerleave',function(){hold=0})});
   w._stop=S;
 }
-/* أوست اللعبة: موسيقى القائمة الرئيسية لكل جزء (من ملفات اللعبة، نفس موسيقى المثبّت)، 35% وتتبدّل بنعومة */
-var BWA=null,BWV=.35,BWK='blasphemous',BWS={blasphemous:['img/blw-ost1.ogg','img/blw-ost2.ogg'],ori:['img/ori-ost1.ogg','img/ori-ost2.ogg']},BWM={};
+/* أوست اللعبة: موسيقى القائمة الرئيسية لكل جزء (من ملفات اللعبة، نفس موسيقى المثبّت)، 30% وتتبدّل بنعومة */
+var BWA=null,BWV=.30,BWK='blasphemous',BWS={blasphemous:['img/blw-ost1.ogg','img/blw-ost2.ogg'],ori:['img/ori-ost1.ogg','img/ori-ost2.ogg']},BWM={};
 function bwAudio(){
   if(!BWM[BWK]){BWM[BWK]={a:BWS[BWK].map(function(u){var a=new Audio(u);a.loop=true;a.volume=0;a.preload='auto';return a}),cur:-1,t:null};
     try{localStorage.removeItem('midad-mute')}catch(e){}}
