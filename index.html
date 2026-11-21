@@ -1254,8 +1254,9 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-pk.ori .vt-pf::after{opacity:.55;filter:hue-rotate(170deg) brightness(1.3)}
 .vt-pk.ori .vt-gl{background:radial-gradient(circle at 50% 42%,#6fc8ff55,#c9a7ff26 38%,#0000 66%)}
 .vt-pk.ori .vt-cd{border-color:#bfe3ff66}
-.vt-pk.ori .vt-c1 img.bg{object-position:50% 40%}
-.vt-pk.ori .vt-lgo{image-rendering:auto;left:14%;width:72%;filter:drop-shadow(0 0 10px #ffd9a0aa) drop-shadow(0 2px 6px #000)}
+.vt-pk.ori .vt-c1 img.bg{object-position:50% 62%}
+.vt-lin.L .vt-ep:first-of-type,.vt-lin.L .vt-pk:nth-child(2){right:5%!important;top:20%!important;width:min(230px,24%)!important}
+.vt-pk.ori .vt-lgo{image-rendering:auto;left:17%;width:66%;top:calc(var(--pt,20%) + (100% - var(--pt,20%))*.36);filter:drop-shadow(0 0 10px #ffd9a0aa) drop-shadow(0 2px 6px #000)}
 .vt-pk.ori:hover .vt-lgo,.vt-pk.ori:focus-visible .vt-lgo{filter:drop-shadow(0 0 20px #fff0c8) drop-shadow(0 2px 6px #000)}
 .vt-pk.ori:focus-visible{outline-color:#bfe3ff}
 /* ===== عالم سلسلة أوري: فن المثبّتين (الشاشة الأولى) وشعار الواجهة المعرَّب، بروح هادئة مضيئة ===== */
@@ -1281,7 +1282,7 @@ body[data-world="sr2"]{--w-bg:#0d1d27;--w-ink:#eef8ff;--w-mute:#a9c7d6;--w-nav-b
 .vt-w.ow .vt-pt.p2{background:#120a30e8;border-color:#cbb0ff44}
 .vt-w.ow .vt-pim{background:#050b1a}
 .vt-w.ow .vt-pim .sl:not(.hero){image-rendering:auto}
-.vt-w.ow .vt-pt.p1 .sl.hero{object-position:50% 30%}.vt-w.ow .vt-pt.p2 .sl.hero{object-position:50% 30%}
+.vt-w.ow .vt-pt.p1 .sl.hero{object-position:48% 62%}.vt-w.ow .vt-pt.p2 .sl.hero{object-position:50% 30%}
 .vt-w.ow .vt-pim::after{background:linear-gradient(180deg,#050b1a99 0%,#050b1a00 16%,#050b1a00 30%,#07142bcc 52%,#07142bf5 70%,#07142b 100%)}
 .vt-w.ow .vt-pt.p2 .vt-pim::after{background:linear-gradient(180deg,#0a061f99 0%,#0a061f00 16%,#0a061f00 30%,#120a30cc 52%,#120a30f5 70%,#120a30 100%)}
 .vt-w.ow .vt-pno{background:#0a1530cc;border-color:#bfe3ff55;color:#e6f3ff}
@@ -2048,7 +2049,7 @@ function vSeriesPocket(S,p,i){
   return '<button type="button" class="vt-pk vt-p1'+(S.cls?' '+S.cls:'')+'" data-series="'+S.key+'" style="'+vPkStyle(p,i)+'" aria-label="'+esc(S.ar)+': اضغط لدخول عالم السلسلة">'+
    '<span class="vt-gl"></span>'+
    (g2?'<span class="vt-cd vt-c2 has"><img class="bg" src="'+img(g2,'hero')+'" alt=""></span>':'<span class="vt-cd vt-c2"><span class="n2">2</span></span>')+
-   '<span class="vt-cd vt-c1"><img class="bg" src="'+img(g,'hero')+'" alt=""></span>'+
+   '<span class="vt-cd vt-c1"><img class="bg" src="'+(g.id==='ori-blind-forest'?'img/ori-blind-forest-scene.jpg':img(g,'hero'))+'" alt=""></span>'+
    '<span class="vt-pm"></span><span class="vt-pf"></span><img class="vt-lgo" src="'+S.lgo+'" alt="'+esc(S.ar)+'">'+
    '</button>';
 }
@@ -2103,7 +2104,7 @@ function seriesPart(P,i){
     '<div class="vt-shots"><div></div><div></div><div></div></div><div class="vt-pbt"><span class="dis">التحميل قريباً</span></div></div></article>';
   var g=GAMES.filter(function(x){return x.id===P.gid})[0];if(!g)return '';
   dl=g.dl?'<a class="a1" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب ('+esc(g.size)+')</a>':'<span class="dis">التحميل قريباً</span>';
-  return '<article class="vt-pt p'+P.no+'" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img class="sl on hero" src="'+heroImg(g)+'" alt="'+esc(g.ar)+'">'+[1,2,3].map(function(n){return '<img class="sl" src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'<span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
+  return '<article class="vt-pt p'+P.no+'" style="--d:'+(i*.12)+'s"><div class="vt-pim"><img class="sl on hero" src="'+(g.id==='ori-blind-forest'?'img/ori-blind-forest-scene.jpg':heroImg(g))+'" alt="'+esc(g.ar)+'">'+(g.id==='ori-blind-forest'?[1,2]:[1,2,3]).map(function(n){return '<img class="sl" src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'<span class="vt-pno">PART '+(['','I','II','III','IV','V'][P.no]||P.no)+'</span></div>'+
    '<div class="vt-pbd">'+(g.lg==='ori1'||g.lg==='ori2'?logoHTML(g):'<img class="lgo l'+P.no+'" src="'+(SLOGO[g.id]||'img/blasphemous-logo.png')+'" alt="'+esc(g.ar)+'">')+'<h3>'+esc(g.ar)+'<i>'+esc(g.en.toUpperCase())+'</i></h3><p>'+esc(g.blurb)+'</p>'+
    '<dl class="vt-meta"><div><dt>الحجم</dt><dd>'+esc(g.size)+'</dd></div><div><dt>المعرّب</dt><dd>'+esc(g.by)+'</dd></div><div><dt>الأسطر</dt><dd>'+(g.lines?g.lines.toLocaleString('ar-EG'):'—')+'</dd></div><div><dt>التاريخ</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></div></dl>'+
    '<div class="vt-shots">'+[1,2,3].map(function(n){return '<img src="'+cimg(g,'shot'+n)+'" alt="" loading="lazy">'}).join('')+'</div>'+
