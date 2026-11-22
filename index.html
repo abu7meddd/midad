@@ -397,7 +397,7 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .ba{margin-block:34px 6px}
 .ba h2{font-family:var(--display);font-size:clamp(1.6rem,3.4vw,2.2rem);margin:0 0 4px}
 .ba .bsub{color:var(--mute);margin:0 0 16px;font-size:.95rem}
-.bagrid{display:grid;gap:26px}
+.bagrid{display:grid;gap:26px}.ba .bacard{--p:7%}
 .bacard{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;--p:50%;touch-action:pan-y;cursor:ew-resize;direction:ltr;background:#000;outline-offset:3px}
 .bacard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
 .bacard .ar{clip-path:inset(0 0 0 var(--p))}
@@ -1875,7 +1875,7 @@ function initConstNums(){
 function baHTML(g){
   var hasBA=g.ba&&g.ba.length,hasR=g.real&&g.real.length;if(!hasBA&&!hasR)return '';
   var realH=hasR?'<div class="shots big"'+(hasBA?' style="margin-top:26px"':'')+'>'+g.real.map(function(src){return '<button data-src="'+src+'" aria-label="تكبير الصورة"><img src="'+src+'" alt="" loading="lazy"></button>'}).join('')+'</div>':'';
-  return '<section class="ba"><h2>من داخل اللعبة</h2><p class="bsub">'+(hasBA?'حرّك المقبض: يسار الإنجليزي الأصلي ويمين التعريب.':'لقطات من اللعبة نفسها بعد التعريب. اضغط للتكبير.')+'</p>'+(hasBA?'<div class="bagrid">'+g.ba.map(function(b){
+  return '<section class="ba"><h2>من داخل اللعبة</h2><p class="bsub">'+(hasBA?'الصورة بالعربي كاملة. اسحب المقبض نحو اليمين لترى الإنجليزي الأصلي.':'لقطات من اللعبة نفسها بعد التعريب. اضغط للتكبير.')+'</p>'+(hasBA?'<div class="bagrid">'+g.ba.map(function(b){
     return '<figure style="margin:0"><div class="bacard" tabindex="0" role="slider" aria-label="مقارنة الإنجليزي بالعربي" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><img src="'+b.en+'" alt="النص الإنجليزي" draggable="false"><img class="ar" src="'+b.ar+'" alt="النص العربي" draggable="false"><span class="chip l">English</span><span class="chip r">عربي</span><i class="h"></i></div>'+
     '<figcaption class="bacap"><b>معاينة تركيب:</b> '+(b.rev?'العربي لقطة حقيقية من داخل اللعبة بعد التعريب، والإنجليزي مركّب عليها بنص اللعبة الأصلي ('+esc(b.ref)+'). الخط والتفاف الأسطر في «قبل» تقريب. '+(b.note?esc(b.note):''):'النص العربي مأخوذ حرفياً من ملف تعريب '+esc(g.ar)+' ('+esc(b.ref)+') ومركّب على اللقطة الأصلية، فقد يختلف الإطار والتفاف الأسطر شيئاً يسيراً عمّا يظهر داخل اللعبة. '+(b.note?esc(b.note):''))+'</figcaption></figure>'}).join('')+'</div>':'')+realH+'</section>';
 }
