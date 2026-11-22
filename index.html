@@ -2159,7 +2159,7 @@ function openSeries(key,from){
    (bw?'<div class="bw-intro" aria-hidden="true"><img src="img/blw-emblem.png" alt=""><h3><small>سلسلة</small>بلاسفيموس</h3></div>':'')+
    (ow?'<div class="bw-intro ow-load" aria-hidden="true"><div class="ow-sr">سلسلة</div><img src="img/ori-logo-ar-full.png" alt=""></div>':'');
   w.hidden=false;document.documentElement.style.overflow='hidden';
-  if(fx){bwStart(w);bwMusic(0)}
+  if(fx){bwStart(w);bwMusic(ow?1:0)}
   requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('on');var b=w.querySelector('.vt-back');if(b)b.focus({preventScroll:true})})});
 }
 /* محرّك أوراق الرسوم (sprite sheets) من ملفات اللعبة: إطار بإطار */
