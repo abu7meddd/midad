@@ -1386,7 +1386,7 @@ var GAMES=[
    kept:[{t:'الترجمة والنصوص',d:'ملف Game.locres كما هو بلا أي حرف مغيَّر، وبصمته مطابقة للأصل'},{t:'حزم اللعبة (ucas / utoc)',d:'بلا أي تغيير'}]},
   feats:['ترجمة كاملة بصيغة locres','26 خطاً استُبدلت بخط Rubik','الترجمة مطابقة للأصل بالبصمة'],
   how:['ضع ملفات 3BADIOH_P الثلاثة في مجلد ~mods داخل Paks','شغّل اللعبة']},
- {id:'manor-lords',real:['img/manor-lords-real-1.jpg','img/manor-lords-real-2.jpg'],lines:2987,lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
+ {id:'manor-lords',ba:[{en:'img/manor-lords-en-1.jpg',ar:'img/manor-lords-real-1.jpg',ref:'ترجمة إنجليزية تقريبية من معنى النص العربي، لا من ملف اللعبة',note:'ما توفر عندي ملف تعريب مانور، فالنص الإنجليزي هنا تقريب.',rev:1},{en:'img/manor-lords-en-2.jpg',ar:'img/manor-lords-real-2.jpg',ref:'ترجمة إنجليزية تقريبية من معنى النص العربي، لا من ملف اللعبة',note:'ما توفر عندي ملف تعريب مانور، فالنص الإنجليزي هنا تقريب.',rev:1}],lines:2987,lg:'ml',glow:'#b48c4466',ar:'سادة الإقطاع',en:'Manor Lords',by:'أبو النوفي',dev:'Slavic Magic',tags:['استراتيجية','بناء مدن'],
   blurb:'«سادة الإقطاع» (Manor Lords) لعبة استراتيجية من العصور الوسطى، تجمع بين بناء المدن المتعمّق، ومعارك تكتيكية واسعة النطاق، ومحاكاة اقتصادية واجتماعية معقّدة. احكم أراضيك بصفتك سيّداً إقطاعياً؛ تتعاقب الفصول، ويتبدّل الطقس، وتنهض المدن وتسقط.',
   engine:'Unreal Engine 5',kind:'مثبّت (exe)',size:'30.9 ميجا',date:'2026-11-14',dl:'https://github.com/abu7meddd/midad/releases/download/manor-lords/ManorLords_Arabic_Setup.exe',
   feats:['نصوص الواجهة','القوائم والتلميحات'],
@@ -1875,7 +1875,7 @@ function initConstNums(){
 function baHTML(g){
   var hasBA=g.ba&&g.ba.length,hasR=g.real&&g.real.length;if(!hasBA&&!hasR)return '';
   var realH=hasR?'<div class="shots big"'+(hasBA?' style="margin-top:26px"':'')+'>'+g.real.map(function(src){return '<button data-src="'+src+'" aria-label="تكبير الصورة"><img src="'+src+'" alt="" loading="lazy"></button>'}).join('')+'</div>':'';
-  return '<section class="ba"><h2>من داخل اللعبة</h2><p class="bsub">'+(hasBA?'الصورة بالعربي كاملة. اسحب المقبض نحو اليمين لترى الإنجليزي الأصلي.':'لقطات من اللعبة نفسها بعد التعريب. اضغط للتكبير.')+'</p>'+(hasBA?'<div class="bagrid">'+g.ba.map(function(b){
+  return '<section class="ba"><h2>تعريبنا داخل اللعبة</h2><p class="bsub">'+(hasBA?'هكذا تظهر اللعبة بتعريبنا. اسحب المقبض نحو اليمين لترى الإنجليزي الأصلي.':'هكذا تظهر اللعبة بتعريبنا. اضغط للتكبير.')+'</p>'+(hasBA?'<div class="bagrid">'+g.ba.map(function(b){
     return '<figure style="margin:0"><div class="bacard" tabindex="0" role="slider" aria-label="مقارنة الإنجليزي بالعربي" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><img src="'+b.en+'" alt="النص الإنجليزي" draggable="false"><img class="ar" src="'+b.ar+'" alt="النص العربي" draggable="false"><span class="chip l">English</span><span class="chip r">عربي</span><i class="h"></i></div>'+
     '<figcaption class="bacap"><b>معاينة تركيب:</b> '+(b.rev?'العربي لقطة حقيقية من داخل اللعبة بعد التعريب، والإنجليزي مركّب عليها بنص اللعبة الأصلي ('+esc(b.ref)+'). الخط والتفاف الأسطر في «قبل» تقريب. '+(b.note?esc(b.note):''):'النص العربي مأخوذ حرفياً من ملف تعريب '+esc(g.ar)+' ('+esc(b.ref)+') ومركّب على اللقطة الأصلية، فقد يختلف الإطار والتفاف الأسطر شيئاً يسيراً عمّا يظهر داخل اللعبة. '+(b.note?esc(b.note):''))+'</figcaption></figure>'}).join('')+'</div>':'')+realH+'</section>';
 }
@@ -2336,7 +2336,7 @@ function detail(g){document.body.dataset.world=g.lg;
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
    '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
-   '<div class="wrap"><div class="shots'+(g.bigshots||g.shotsOnly?' big':'')+'">'+shots+'</div>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
+   '<div class="wrap"><section class="ba steam"><h2>من ستيم</h2><p class="bsub">الصور الرسمية للعبة كما تظهر في صفحتها على ستيم. اضغط للتكبير.</p><div class="shots'+(g.bigshots?' big':'')+'">'+shots+'</div></section>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
    '<section class="panel"><h2>طريقة التثبيت</h2><ol>'+g.how.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol></section></div></div>';
