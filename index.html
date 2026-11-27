@@ -435,6 +435,12 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .vtbadge{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;border:1px solid #e6d49a4a;background:#e6d49a14;color:var(--gold);text-decoration:none;font-size:.88rem;font-weight:600;backdrop-filter:blur(2px);transition:background .2s,border-color .2s}
 .vtbadge:hover{background:#e6d49a22;border-color:#e6d49a80}
 .vtbadge svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.smwrap{flex-basis:100%;margin-top:4px}
+.smtog{display:inline-flex;align-items:center;gap:7px;background:none;border:none;color:var(--mute);font-family:var(--body);font-size:.85rem;cursor:pointer;padding:2px 0}
+.smtog .ic{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--mute);font-size:.72rem;flex:none;transition:border-color .2s,color .2s}
+.smtog:hover .ic,.smtog:hover{color:var(--gold);border-color:var(--gold)}
+.smtxt{display:none;margin-top:8px;max-width:560px;padding:12px 16px;background:#e6d49a0f;border-right:2px solid var(--gold);border-radius:4px;color:#cfc6b0;font-size:.86rem;line-height:1.9}
+.smwrap.open .smtxt{display:block}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-block:10px 8px}
 .shots button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in;display:block}
 .shots img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
@@ -2431,10 +2437,11 @@ function detail(g){document.body.dataset.world=g.lg;
   var shots=(g.shotsOnly||[1,2,3]).map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
   var vtHTML=g.vt?('<div class="vtwrap"><a class="vtbadge" href="'+esc(g.vt)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>فحصناها: '+esc(g.vtr||'نظيفة')+' في فيروس توتال</a></div>'):'';
+  var smHTML=(g.dl&&/exe/.test(g.kind))?('<div class="smwrap" id="sm-'+g.id+'"><button class="smtog" onclick="document.getElementById(\'sm-'+g.id+'\').classList.toggle(\'open\')"><span class="ic">i</span>طلع لك تحذير من ويندوز؟ اضغط هنا</button><div class="smtxt">إذا شغّلت المثبّت وطلعت لك رسالة ويندوز («Windows protected your PC» أو «قد يضر هذا التطبيق جهازك») فهذا طبيعي ومتوقّع، وما له علاقة بفيروس أو ضرر. السبب الصريح: المثبّت غير موقّع رقمياً (شهادة التوقيع الرقمي من مايكروسوفت تكلّف رسوماً سنوية غير متوفرة لمشروع شخصي مثل هذا). تقدر تتأكد بنفسك من الفحص أعلاه قبل ما تثبّت، وللمتابعة اضغط «More info» ثم «Run anyway».</div></div>'):'';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
-   '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small>'+vtHTML+'</div></div></section>'+
+   '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small>'+vtHTML+smHTML+'</div></div></section>'+
    '<div class="wrap"><section class="ba steam"><h2>من ستيم</h2><p class="bsub">الصور الرسمية للعبة كما تظهر في صفحتها على ستيم. اضغط للتكبير.</p><div class="shots'+(g.bigshots?' big':'')+'">'+shots+'</div></section>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
