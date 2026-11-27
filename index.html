@@ -293,6 +293,13 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .cbg circle{fill:#fff}.cbg .tw2{animation:tw2 4s ease-in-out infinite;animation-delay:var(--d,0s)}
 @keyframes tw2{0%,100%{opacity:.25}50%{opacity:1}}
 .csvg{display:block;width:100%;height:auto;position:relative}
+
+/* حبرٌ يكتب الصورة */
+.mdink{width:100%;margin-top:clamp(70px,9vw,120px)}
+.mdink-stage{position:relative;aspect-ratio:16/7.5;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:radial-gradient(70% 90% at 50% 45%,#14120d 0%,#09090b 78%);box-shadow:0 30px 80px -40px #000}
+.mdink-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mdink-cap{position:absolute;inset-inline-start:18px;bottom:14px;font-family:var(--display);font-size:1.05rem;color:var(--gold);text-shadow:0 2px 14px #000;pointer-events:none}
+@media(max-width:700px){.mdink-stage{aspect-ratio:4/3.4;border-radius:16px}}
 /* what we changed (guest mods) */
 .modbox{margin-block:44px 10px}
 .modbox h2{font-size:1.5rem;margin:0 0 6px}.modbox .msub{color:var(--mute);margin:0 0 22px}
@@ -424,6 +431,14 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .dl .pill{padding:14px 38px;font-size:1.05rem}
 .dl .pill[aria-disabled="true"]{background:var(--surface2);color:var(--mute);cursor:not-allowed}
 .dl small{color:var(--mute)}
+.vtwrap{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:2px}
+.vtbadge{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;border:1px solid #e6d49a4a;background:#e6d49a14;color:var(--gold);text-decoration:none;font-size:.88rem;font-weight:600;backdrop-filter:blur(2px);transition:background .2s,border-color .2s}
+.vtbadge:hover{background:#e6d49a22;border-color:#e6d49a80}
+.vtbadge svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.vtself{background:none;border:0;color:var(--mute);font:inherit;font-size:.82rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 2px}
+.vtself:hover{color:var(--gold)}
+.vttoast{position:fixed;inset-inline-end:22px;bottom:22px;background:#15171dee;border:1px solid #e6d49a55;color:#e9e6f0;padding:12px 18px;border-radius:12px;font-size:.88rem;max-width:300px;line-height:1.6;box-shadow:0 14px 34px -14px #000;z-index:60;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.vttoast.show{opacity:1;transform:translateY(0)}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-block:10px 8px}
 .shots button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in;display:block}
 .shots img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
@@ -1453,6 +1468,8 @@ var GAMES=[
   glow:'#4f7f8c66',ar:'بلاسفيموس 2',en:'Blasphemous II',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
   blurb:'«بلاسفيموس 2» (Blasphemous II): يستيقظ «التائب» وينضم إليه «بلاسفيموس» من جديد في صراع لا ينتهي ضد «المعجزة». اغطس في عالم جديد محفوف بالمخاطر، مليء بالأسرار والألغاز التي تنتظر من يكشفها، وشقّ طريقك عبر الوحوش الشنيعة التي تقف بينك وبين غايتك: إنهاء الدورة مرة وإلى الأبد.',
   engine:'Unity (IL2CPP)',kind:'مثبّت (exe)',size:'93.9 ميجا',date:'2026-11-22',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous-2/Blasphemous2-Arabic-Setup.exe',
+  vt:'https://www.virustotal.com/gui/file/b361d8bf27ff37c50e752430be84221ee26598147d90c3b5e28ece31ff92832d',
+  vtraw:'https://github.com/abu7meddd/midad/releases/download/bl2-vt-sample/bl2-arabic-translation-raw.zip',
   feats:['ترجمة كاملة: الحوارات والأدعية والمتاع والإنجازات والشعار','شعار اللعبة بالعربي في شاشة البداية','خط عربي واضح مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة نظيفة بضغطة واحدة'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'stardew-valley',lines:13301,lg:'sdv',ba:[{"en": "img/stardew-valley-ba-en-1.jpg", "ar": "img/stardew-valley-ar-1.jpg", "ref": "Data/Festivals/summer11.xnb ← Governor (الصفحة الأولى قبل #$e#)، Strings/NPCNames.xnb ← Governor", "note": "نص الحوار واسم المتحدث من ملفات اللعبة نفسها (النص الإنجليزي الأصلي في Content والعربي في حزمة التعريب). الصفحة الثانية من الحوار («أتحدث مع السيدة…») لا تظهر في اللقطة. موضع النص وكسر الأسطر تقريب تركيب."}, {"en": "img/stardew-valley-ba-en-2.jpg", "ar": "img/stardew-valley-ar-2.jpg", "ref": "Data/Events/SeedShop.xnb ← «1/f Abigail 500/…» المقطع 45، Strings/NPCNames.xnb ← Abigail", "note": "عبارة أبيغيل ضمن مشهد حدث في غرفتها (سطر speak 45 في الحدث)، واسمها من NPCNames. لقطات Steam الأربع عشرة الأخرى لا نص فيها غير الرسوم، فلا قبل وبعد لها. موضع النص تقريب تركيب."}],
@@ -1501,7 +1518,7 @@ function onScroll(){
     if(wg&&best){var col=getComputedStyle(best).getPropertyValue('--glow').trim();if(col&&col!==gcol){gcol=col;wg.style.setProperty('--wc',col)}}
   });
 }
-function stopTimer(){cancelAnimationFrame(fxRaf);fxRaf=0;clearTimeout(labT);cancelAnimationFrame(labRaf);labVis=false;if(obsLab){obsLab.disconnect();obsLab=null}clearTimeout(pTimer);pTimer=null;if(timer){clearInterval(timer);timer=null}ctl.forEach(function(c){c.stop()});ctl=[];if(obs){obs.disconnect();obs=null}window.removeEventListener('scroll',onScroll)}
+function stopTimer(){stopInk();cancelAnimationFrame(fxRaf);fxRaf=0;clearTimeout(labT);cancelAnimationFrame(labRaf);labVis=false;if(obsLab){obsLab.disconnect();obsLab=null}clearTimeout(pTimer);pTimer=null;if(timer){clearInterval(timer);timer=null}ctl.forEach(function(c){c.stop()});ctl=[];if(obs){obs.disconnect();obs=null}window.removeEventListener('scroll',onScroll)}
 /* صور كل لعبة تتبدّل بنعومة داخل بطاقتها مع تقريب بطيء */
 function slideShow(sec,g,delay){
   var imgs=sec.querySelectorAll('.s'),list=[cimg(g,'hero'),cimg(g,'shot1'),cimg(g,'shot2'),cimg(g,'shot3')],i=0,cur=null,t=null;
@@ -2211,8 +2228,74 @@ function closeSeries(nav){
 }
 /* قسم منفصل: ترجمة غيرنا وعدّلنا عليها (ضيوف guest:1) */
 function guestsHTML(){
-  var A=GAMES.filter(function(g){return g.guest});if(!A.length)return '';
-  return '<div class="screens" id="mods" style="scroll-margin-top:80px;margin-top:clamp(70px,9vw,120px)"><div class="hd"><h2 class="sec">تعديلاتنا على تعريبات غيرنا</h2><p class="sub">ترجمتها لأصحابها، ونحن عدّلنا عليها شيئاً محدداً فقط. بطاقة كل لعبة توضح ما غيّرناه.</p></div>'+A.map(function(g){return screen(g,'big')}).join('')+'</div>';
+  return '<section class="mdink" id="ink" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">حبرٌ يكتب الصورة</h2><p class="sub">لقطات من ألعابنا، كل نقطة فيها حرف عربي. مرّر مؤشرك لترى ألوانها الحقيقية.</p></div><div class="mdink-stage"><canvas id="inkc" aria-hidden="true"></canvas><span class="mdink-cap" id="inkcap"></span></div></section>';
+}
+/* حبر يكتب الصورة: لقطات الألعاب تتحول لحروف عربية ذهبية (بنفس منطق محوّل ASCII: إضاءة ← حرف) */
+var INK={raf:0,on:false,obs:null,list:[],i:0,img:null,nxt:null,t0:0,last:0,mx:-9,my:-9,cv:null,off:null};
+var INKRAMP=' ـاللرددوزننبتيهكمعفقصحجشسضظغ';
+function inkList(){
+  var G=GAMES.filter(function(g){return !g.guest}),o=[];
+  ['shot1','shot2','shot3'].forEach(function(k){G.forEach(function(g){o.push({src:cimg(g,k),name:g.ar})})});
+  return o;
+}
+function inkLoad(it,cb){var im=new Image();im.onload=function(){cb(im)};im.onerror=function(){cb(null)};im.src=it.src}
+function stopInk(){if(!INK)return;INK.on=false;cancelAnimationFrame(INK.raf);INK.raf=0;if(INK.obs){INK.obs.disconnect();INK.obs=null}}
+function initInk(){
+  var cv=document.getElementById('inkc');if(!cv)return;
+  var st=cv.parentNode,cap=document.getElementById('inkcap'),ctx=cv.getContext('2d'),dpr=Math.min(2,devicePixelRatio||1);
+  INK.list=inkList();if(!INK.list.length){document.getElementById('ink').hidden=true;return}
+  INK.i=0;INK.img=null;INK.nxt=null;INK.t0=0;INK.cv=cv;
+  var off=document.createElement('canvas'),octx=off.getContext('2d',{willReadFrequently:true}),cols=0,rows=0,cw=0,ch=0,W=0,H=0;
+  function size(){
+    W=st.clientWidth;H=st.clientHeight;cols=W<700?58:108;cw=W/cols;ch=cw*1.18;rows=Math.max(8,Math.floor(H/ch));ch=H/rows;
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);off.width=cols;off.height=rows;
+    ctx.font='500 '+(ch*0.92).toFixed(1)+'px Rubik,"Segoe UI",Tahoma,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.direction='ltr';
+  }
+  function hash(x,y){var h=(x*374761393+y*668265263)^(x*y*1274126177);h=(h^(h>>>13))*1274126177;return ((h^(h>>>16))>>>0)/4294967295}
+  function next(){
+    var it=INK.list[INK.i%INK.list.length];INK.i++;
+    var go=function(im){if(!im){if(INK.i<INK.list.length*2)return next();return}INK.img=im;INK.t0=performance.now();cap.textContent=it.name;
+      var n=INK.list[INK.i%INK.list.length];inkLoad(n,function(){})};
+    inkLoad(it,go);
+  }
+  function frame(now){
+    if(!INK.on)return;INK.raf=requestAnimationFrame(frame);
+    if(now-INK.last<48||!INK.img)return;INK.last=now;
+    var D=7000,p=(now-INK.t0)/D;if(p>=1){INK.img=null;next();return}
+    var im=INK.img,z=1+0.07*p,sw=im.width/z,sh=im.height/z,ar=cols/rows,cw2=sw,ch2=sw/ar;if(ch2>sh){ch2=sh;cw2=sh*ar}
+    octx.drawImage(im,(im.width-cw2)/2,(im.height-ch2)/2,cw2,ch2,0,0,cols,rows);
+    var px;try{px=octx.getImageData(0,0,cols,rows).data}catch(e){stopInk();document.getElementById('ink').hidden=true;return}
+    ctx.clearRect(0,0,W,H);
+    var rev=Math.min(1,p/0.28)*1.25,fade=p>0.86?Math.max(0,(1-p)/0.14):1,n=INKRAMP.length,B=9,bk=[];for(var b=0;b<=B;b++)bk.push([]);
+    var hx=INK.mx/cw,hy=INK.my/ch,hot=[];
+    var N=cols*rows,L=new Float32Array(N),hist=new Uint32Array(64);
+    for(var q=0;q<N;q++){var v=(0.299*px[q*4]+0.587*px[q*4+1]+0.114*px[q*4+2])/255;L[q]=v;hist[Math.min(63,v*64|0)]++}
+    var c=0,lo=0,hi=1;for(var u=0;u<64;u++){c+=hist[u];if(c>N*0.08){lo=u/64;break}}
+    c=0;for(var u2=63;u2>=0;u2--){c+=hist[u2];if(c>N*0.04){hi=(u2+1)/64;break}}
+    if(hi-lo<0.2)hi=lo+0.2;
+    for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){
+      var i=y*cols+x,l=Math.pow(Math.max(0,Math.min(1,(L[i]-lo)/(hi-lo))),1.5);
+      if(l<0.1)continue;
+      if(hash(x,y)*0.45+(x/cols)*0.55>rev)continue;           // الحبر يمتد من اليمين لليسار كأنه يُكتب
+      var g=Math.min(n-1,Math.max(1,Math.floor(l*(n-1)+0.5+(hash(y,x)-0.5)*1.2)));
+      var d=(x-hx)*(x-hx)+(y-hy)*(y-hy);
+      if(d<64)hot.push(i,x,y,g,d);else bk[Math.min(B,Math.ceil(l*B))].push(x,y,g);
+    }
+    ctx.globalAlpha=fade;
+    for(var b2=1;b2<=B;b2++){var a=bk[b2];if(!a.length)continue;ctx.fillStyle='rgba(230,212,154,'+(0.1+0.9*b2/B).toFixed(2)+')';
+      for(var k=0;k<a.length;k+=3)ctx.fillText(INKRAMP[a[k+2]],(a[k]+0.5)*cw,(a[k+1]+0.5)*ch)}
+    for(var h=0;h<hot.length;h+=5){var i2=hot[h],m=1-hot[h+4]/64,r=px[i2*4],g2=px[i2*4+1],bl=px[i2*4+2],mx=Math.max(r,g2,bl,1),kk=Math.min(1.8,200/mx);
+      ctx.fillStyle='rgba('+(Math.min(255,r*kk)|0)+','+(Math.min(255,g2*kk)|0)+','+(Math.min(255,bl*kk)|0)+','+(0.55+0.45*m).toFixed(2)+')';
+      ctx.fillText(INKRAMP[hot[h+3]],(hot[h+1]+0.5)*cw,(hot[h+2]+0.5)*ch)}
+    ctx.globalAlpha=1;
+  }
+  function move(e){var r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;INK.mx=t.clientX-r.left;INK.my=t.clientY-r.top}
+  cv.addEventListener('pointermove',move);cv.addEventListener('pointerleave',function(){INK.mx=INK.my=-99});
+  size();addEventListener('resize',size);
+  INK.obs=new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){if(!INK.on){INK.on=true;if(!INK.img&&!INK.nxt)next();INK.raf=requestAnimationFrame(frame)}}
+    else{INK.on=false;cancelAnimationFrame(INK.raf)}
+  },{threshold:0.05});INK.obs.observe(st);
 }
 /* «من داخل عوالمنا» صار مختبر «قبل وبعد»: كل أزواج ba من كل الألعاب، بالتناوب بين الألعاب بلا تكرار متتالي */
 var LAB=[],labI=0,labT=null,labRaf=0,labTouch=0,labVis=false,LABDUR=9000;
@@ -2306,7 +2389,7 @@ function home(){document.body.removeAttribute('data-world');
    '<div class="wrap"><div class="screens" id="all" style="scroll-margin-top:80px"><div class="hd"><h2 class="sec">كل تحفنا</h2><p class="sub">اضغط على أي لعبة لتفتح صفحتها وتحمّل التعريب.</p></div>'+filtersHTML()+screensHTML()+moreHTML()+'<div class="fempty" id="fempty" hidden><span class="fverse">لا تأسَ إن غابتْ… فكم من غائبٍ عادَ يُكتَبُ بالمِداد</span><p>جرّب اسمها بالإنجليزي… أو اطلبها، ونكتبها لك.</p><a class="freq" href="#request">اطلب تعريبك ↓</a></div></div>'+vaultHTML()+guestsHTML()+
    labHTML()+constHTML()+bentoHTML()+cozyHTML()+
    '<section class="req2" id="request" style="scroll-margin-top:80px"><div><h3>ما لقيت لعبتك؟</h3><p>اكتب لنا اسم اللعبة اللي تبي تشوفها بالعربي. الطلب بمقابل رمزي يبدأ من 10 دولار ويتحدد حسب حجم اللعبة، وبعد التسليم ينزل التعريب في الموقع مجاناً للجميع واسمك على بطاقته. لا نضمن إمكانية تعريب كل لعبة، ونؤكد لك ذلك قبل الدفع.</p></div><a class="pill" href="https://x.com/abu7meddd" target="_blank" rel="noopener noreferrer" style="text-decoration:none">اطلب تعريب عبر إكس</a></section></div>';
-  initCards();initFilters();initVault();initLab();initConst();initBento();initPoem();initConstNums();initSpy();
+  initCards();initFilters();initVault();initLab();initConst();initBento();initPoem();initConstNums();initSpy();initInk();
 }
 /* كبسولة التنقل: الضغط ينزل للقسم بنعومة، والمؤشر يتبع القسم الظاهر */
 var SECS=['all','vault','lab','const','bento','cozy'],spyOn=false,spyTick=false;
@@ -2330,14 +2413,29 @@ function initSpy(){
   }
   setTimeout(spy,60);
 }
+function vtSelf(btn){
+  var url=btn.getAttribute('data-raw');
+  function toast(msg){
+    var t=document.getElementById('vttoast');
+    if(!t){t=document.createElement('div');t.id='vttoast';t.className='vttoast';document.body.appendChild(t)}
+    t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},5200);
+  }
+  function done(copied){
+    window.open('https://www.virustotal.com/gui/home/url','_blank','noopener');
+    toast(copied?'تم نسخ رابط ملفات الترجمة. بتبويب فيروس توتال اضغط «URL» والصقه ثم Enter.':'ما قدرت أنسخ الرابط تلقائياً. انسخه من هنا:\n'+url);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(function(){done(true)},function(){done(false)})}
+  else done(false);
+}
 function detail(g){document.body.dataset.world=g.lg;
   stopTimer();
   var shots=(g.shotsOnly||[1,2,3]).map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
+  var vtHTML=g.vt?('<div class="vtwrap"><a class="vtbadge" href="'+esc(g.vt)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>فحصناها: 0 من 63 في فيروس توتال</a>'+(g.vtraw?'<button class="vtself" type="button" onclick="vtSelf(this)" data-raw="'+esc(g.vtraw)+'">أو افحص ملفات الترجمة بنفسك ↗</button>':'')+'</div>'):'';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
-   '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small></div></div></section>'+
+   '<div class="dl" style="margin-top:18px">'+btn+'<small>'+esc(g.kind)+' · '+esc(g.size)+'</small>'+vtHTML+'</div></div></section>'+
    '<div class="wrap"><section class="ba steam"><h2>من ستيم</h2><p class="bsub">الصور الرسمية للعبة كما تظهر في صفحتها على ستيم. اضغط للتكبير.</p><div class="shots'+(g.bigshots?' big':'')+'">'+shots+'</div></section>'+baHTML(g)+realHTML(g)+modHTML(g)+'<div class="panels">'+
    '<section class="panel"><h2>بيانات التعريب</h2><dl><dt>العمل</dt><dd>'+esc(g.by)+'</dd><dt>المطوّر</dt><dd style="direction:ltr;text-align:right">'+esc(g.dev)+'</dd><dt>المحرك</dt><dd>'+esc(g.engine)+'</dd><dt>الصيغة</dt><dd>'+esc(g.kind)+'</dd><dt>الحجم</dt><dd>'+esc(g.size)+'</dd><dt>آخر تحديث</dt><dd style="direction:ltr;text-align:right">'+esc(g.date)+'</dd></dl></section>'+
    '<section class="panel"><h2>ما يشمله</h2><ul>'+g.feats.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></section>'+
