@@ -435,10 +435,12 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .vtbadge{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;border:1px solid #e6d49a4a;background:#e6d49a14;color:var(--gold);text-decoration:none;font-size:.88rem;font-weight:600;backdrop-filter:blur(2px);transition:background .2s,border-color .2s}
 .vtbadge:hover{background:#e6d49a22;border-color:#e6d49a80}
 .vtbadge svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.smwrap{flex-basis:100%;margin-top:10px;max-width:620px;display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:#e6d49a12;border:1px solid #e6d49a3d;border-radius:10px}
-.smwrap .ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#1a1506;font-size:.95rem;font-weight:800;flex:none}
-.smwrap .body{color:#e9e2cc;font-size:.92rem;line-height:1.95}
-.smwrap .body b{color:var(--gold)}
+.smwrap{flex-basis:100%;margin-top:6px}
+.smtog{display:inline-flex;align-items:center;gap:7px;background:none;border:none;color:var(--gold);font-family:var(--body);font-size:.85rem;font-weight:700;cursor:pointer;padding:2px 0}
+.smtog .ic{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:var(--gold);color:#1a1506;font-size:.68rem;font-weight:800;flex:none}
+.smtog:hover{opacity:.82}
+.smtxt{display:none;margin-top:7px;max-width:560px;padding:10px 14px;background:#e6d49a12;border-right:2px solid var(--gold);border-radius:4px;color:#cfc6b0;font-size:.85rem;line-height:1.85}
+.smwrap.open .smtxt{display:block}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-block:10px 8px}
 .shots button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in;display:block}
 .shots img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
@@ -2435,7 +2437,7 @@ function detail(g){document.body.dataset.world=g.lg;
   var shots=(g.shotsOnly||[1,2,3]).map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
   var vtHTML=g.vt?('<div class="vtwrap"><a class="vtbadge" href="'+esc(g.vt)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>فحصناها: '+esc(g.vtr||'نظيفة')+' في فيروس توتال</a></div>'):'';
-  var smHTML=(g.dl&&/exe/.test(g.kind))?('<div class="smwrap"><span class="ic">!</span><div class="body"><b>تنويه:</b> إذا شغّلت المثبّت وطلعت لك رسالة ويندوز («Windows protected your PC» أو «قد يضر هذا التطبيق جهازك») فهذا طبيعي ومتوقّع، <b>وما له علاقة بفيروس أو ضرر</b>. السبب الصريح: المثبّت غير موقّع رقمياً (شهادة التوقيع الرقمي من مايكروسوفت تكلّف رسوماً سنوية غير متوفرة لمشروع شخصي مثل هذا). تقدر تتأكد بنفسك من الفحص أعلاه قبل ما تثبّت، وللمتابعة اضغط «More info» ثم «Run anyway».</div></div>'):'';
+  var smHTML=(g.dl&&/exe/.test(g.kind))?('<div class="smwrap" id="sm-'+g.id+'"><button class="smtog" onclick="document.getElementById(\'sm-'+g.id+'\').classList.toggle(\'open\')"><span class="ic">!</span>طلع لك تحذير من ويندوز؟ اضغط هنا</button><div class="smtxt">إذا شغّلت المثبّت وطلعت لك رسالة ويندوز («Windows protected your PC» أو «قد يضر هذا التطبيق جهازك») فهذا طبيعي ومتوقّع، وما له علاقة بفيروس أو ضرر. السبب الصريح: المثبّت غير موقّع رقمياً (شهادة التوقيع الرقمي من مايكروسوفت تكلّف رسوماً سنوية غير متوفرة لمشروع شخصي مثل هذا). تقدر تتأكد بنفسك من الفحص أعلاه قبل ما تثبّت، وللمتابعة اضغط «More info» ثم «Run anyway».</div></div>'):'';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
