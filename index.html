@@ -435,11 +435,6 @@ body[data-world="pbz"]{--w-bg:#0a0b0d;--w-ink:#f2eee6;--w-mute:#a9a6a0;--w-nav-b
 .vtbadge{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;border:1px solid #e6d49a4a;background:#e6d49a14;color:var(--gold);text-decoration:none;font-size:.88rem;font-weight:600;backdrop-filter:blur(2px);transition:background .2s,border-color .2s}
 .vtbadge:hover{background:#e6d49a22;border-color:#e6d49a80}
 .vtbadge svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.vtbadge .vtd{font-style:normal;opacity:.65;font-size:.82em}
-.vtself{background:none;border:0;color:var(--mute);font:inherit;font-size:.82rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 2px}
-.vtself:hover{color:var(--gold)}
-.vttoast{position:fixed;inset-inline-end:22px;bottom:22px;background:#15171dee;border:1px solid #e6d49a55;color:#e9e6f0;padding:12px 18px;border-radius:12px;font-size:.88rem;max-width:300px;line-height:1.6;box-shadow:0 14px 34px -14px #000;z-index:60;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
-.vttoast.show{opacity:1;transform:translateY(0)}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-block:10px 8px}
 .shots button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in;display:block}
 .shots img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
@@ -1469,8 +1464,7 @@ var GAMES=[
   glow:'#4f7f8c66',ar:'بلاسفيموس 2',en:'Blasphemous II',by:'أبو حميد',dev:'The Game Kitchen',tags:['منصّات','حركة','مستقل'],
   blurb:'«بلاسفيموس 2» (Blasphemous II): يستيقظ «التائب» وينضم إليه «بلاسفيموس» من جديد في صراع لا ينتهي ضد «المعجزة». اغطس في عالم جديد محفوف بالمخاطر، مليء بالأسرار والألغاز التي تنتظر من يكشفها، وشقّ طريقك عبر الوحوش الشنيعة التي تقف بينك وبين غايتك: إنهاء الدورة مرة وإلى الأبد.',
   engine:'Unity (IL2CPP)',kind:'مثبّت (exe)',size:'93.9 ميجا',date:'2026-11-22',dl:'https://github.com/abu7meddd/midad/releases/download/blasphemous-2/Blasphemous2-Arabic-Setup.exe',
-  vt:'https://www.virustotal.com/gui/file/b361d8bf27ff37c50e752430be84221ee26598147d90c3b5e28ece31ff92832d',vtdate:'2026-11-27',
-  vtraw:'https://github.com/abu7meddd/midad/releases/download/bl2-vt-sample/bl2-arabic-translation-raw.zip',
+  vt:'https://www.virustotal.com/gui/file/b361d8bf27ff37c50e752430be84221ee26598147d90c3b5e28ece31ff92832d',
   feats:['ترجمة كاملة: الحوارات والأدعية والمتاع والإنجازات والشعار','شعار اللعبة بالعربي في شاشة البداية','خط عربي واضح مع اتجاه كتابة RTL','نسخة احتياطية للملفات الأصلية وإزالة نظيفة بضغطة واحدة'],
   how:['أغلق اللعبة تماماً','شغّل المثبّت واضغط تثبيت','شغّل اللعبة مباشرة: العربية تحل محل الإنجليزية. وللإزالة شغّل المثبّت واختر إزالة']},
  {id:'stardew-valley',lines:13301,lg:'sdv',ba:[{"en": "img/stardew-valley-ba-en-1.jpg", "ar": "img/stardew-valley-ar-1.jpg", "ref": "Data/Festivals/summer11.xnb ← Governor (الصفحة الأولى قبل #$e#)، Strings/NPCNames.xnb ← Governor", "note": "نص الحوار واسم المتحدث من ملفات اللعبة نفسها (النص الإنجليزي الأصلي في Content والعربي في حزمة التعريب). الصفحة الثانية من الحوار («أتحدث مع السيدة…») لا تظهر في اللقطة. موضع النص وكسر الأسطر تقريب تركيب."}, {"en": "img/stardew-valley-ba-en-2.jpg", "ar": "img/stardew-valley-ar-2.jpg", "ref": "Data/Events/SeedShop.xnb ← «1/f Abigail 500/…» المقطع 45، Strings/NPCNames.xnb ← Abigail", "note": "عبارة أبيغيل ضمن مشهد حدث في غرفتها (سطر speak 45 في الحدث)، واسمها من NPCNames. لقطات Steam الأربع عشرة الأخرى لا نص فيها غير الرسوم، فلا قبل وبعد لها. موضع النص تقريب تركيب."}],
@@ -2414,25 +2408,11 @@ function initSpy(){
   }
   setTimeout(spy,60);
 }
-function vtSelf(btn){
-  var url=btn.getAttribute('data-raw');
-  function toast(msg){
-    var t=document.getElementById('vttoast');
-    if(!t){t=document.createElement('div');t.id='vttoast';t.className='vttoast';document.body.appendChild(t)}
-    t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},5200);
-  }
-  function done(copied){
-    window.open('https://www.virustotal.com/gui/home/url','_blank','noopener');
-    toast(copied?'تم نسخ رابط ملفات الترجمة. بتبويب فيروس توتال اضغط «URL» والصقه ثم Enter.':'ما قدرت أنسخ الرابط تلقائياً. انسخه من هنا:\n'+url);
-  }
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(function(){done(true)},function(){done(false)})}
-  else done(false);
-}
 function detail(g){document.body.dataset.world=g.lg;
   stopTimer();
   var shots=(g.shotsOnly||[1,2,3]).map(function(n){return '<button data-src="'+img(g,'shot'+n)+'" aria-label="تكبير الصورة"><img src="'+img(g,'shot'+n)+'" alt="" loading="lazy"></button>'}).join('');
   var btn=g.dl?'<a class="pill" href="'+esc(g.dl)+'" target="_blank" rel="noopener">حمّل التعريب</a>':'<span class="pill" aria-disabled="true">التحميل قريباً</span>';
-  var vtHTML=g.vt?('<div class="vtwrap"><a class="vtbadge" href="'+esc(g.vt)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>فحصناها: 0 من 63 في فيروس توتال<i class="vtd" style="direction:ltr">· '+esc(g.vtdate||'')+'</i></a>'+(g.vtraw?'<button class="vtself" type="button" onclick="vtSelf(this)" data-raw="'+esc(g.vtraw)+'">هذا فحص قديم محفوظ، افحص النسخة الحالية بنفسك الآن ↗</button>':'')+'</div>'):'';
+  var vtHTML=g.vt?('<div class="vtwrap"><a class="vtbadge" href="'+esc(g.vt)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>فحصناها: 0 من 63 في فيروس توتال</a></div>'):'';
   app.innerHTML=
    '<section class="dhero bleed"><img class="bg" src="'+heroImg(g)+'" alt="" onerror="this.src=\''+img(g,'shot1')+'\'"><div class="in">'+
    '<a class="back" href="#">&rarr; كل تحفنا</a><h1 class="logo-h">'+logoHTML(g)+'</h1>'+(g.lg==='pbz'?'':'<div class="en">'+esc(g.en)+'</div>')+'<p>'+esc(g.blurb)+'</p>'+tagsOf(g)+
